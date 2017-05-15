@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ssh://taiga@172.17.0.3:22/home/taiga/.virtualenvs/taiga/bin/python3" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="ssh://taiga@172.17.0.3:22/home/taiga/.virtualenvs/taiga/bin/python3">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/taiga-back" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
