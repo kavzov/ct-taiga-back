@@ -4,6 +4,7 @@ from .models import User
 
 
 def users_list(request):
+    """ show list of users """
     users = User.objects.all()
     args = {'users': users}
     return render(request, 'users_list.tmpl', args)
