@@ -58,7 +58,9 @@ ROOT_URLCONF = 'taiga.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            '/taiga-back/taiga'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

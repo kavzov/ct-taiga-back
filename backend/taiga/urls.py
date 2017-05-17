@@ -18,5 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^user/', include('taiga.users.urls'))
+    url(r'^user/', include('taiga.users.urls')),
+    url(r'^projects/', include('taiga.projects.urls')),
+    url(r'^issues/', include('taiga.projects.issues.urls')),
+    url(r'^users/', include('taiga.users.urls')),
+    url(r'^timelogs/', include('taiga.timelogs.urls')),
 ]

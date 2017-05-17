@@ -1,0 +1,23 @@
+{% extends "issues/index.html" %}
+
+{% block issues_list %}
+    <!-- Issues list -->
+    <h2>Issues</h2>
+    <div>
+        {% for issue in issues_list %}
+        <p style="margin:1em 0;">
+            <b>{{ issue.id }}.</b>&nbsp;
+            <a href="{{ issue.id }}">{{ issue.subject }}</a><br>
+            <span style="font-size:.9em;">{{ issue.description }}</span>
+        </p>
+        {% endfor %}
+    </div>
+
+    <!-- Add issue form -->
+    <h2>Add an issue</h2>
+    <form action="/issues/add_issue/" method="post">
+        {% csrf_token %}
+        {{ add_issue_form }}
+        <input type="submit">
+    </form>
+{% endblock %}

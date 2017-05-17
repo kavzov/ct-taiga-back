@@ -1,0 +1,32 @@
+{% extends "projects/index.html" %}
+
+{% block project_details %}
+    <!-- Project details -->
+    <h2 style="font-weight:normal;">Project &quot;{{ project_details.name }}&quot;</h3>
+
+    <div>
+        <p>{{ project_details.description }}</p>
+    </div>
+
+    <h3 style="background-color: #beb; padding:.25em;">Issues</h3>
+    <div>
+        <ul style="list-style-type:none; padding:0; margin-top:-.7em; line-height:1.5em;">
+        {% for issue in issues %}
+            <li><a href="/issues/{{ issue.id }}">{{ issue.subject }}</a></li>
+        {%endfor %}
+        </ul>
+    </div>
+
+    <h3 style="background-color: #beb; padding:.25em;">Add an issue</h3>
+    <div style="margin-bottom:2em;">
+    <form action="/projects/add_issue/" method="post">
+        {% csrf_token %}
+        {{ add_issue_form }}
+        <input type="hidden" name="project_id" value="{{ project_details.id }}">
+        <input type="submit">
+    </form>
+    </div>
+
+    <h3 style="background-color: #beb; padding:.25em;">View timelogs</h3>
+
+{% endblock %}

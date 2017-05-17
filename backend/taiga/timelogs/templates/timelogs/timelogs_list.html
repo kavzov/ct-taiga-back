@@ -1,0 +1,30 @@
+{% extends "timelogs/index.html" %}
+
+{% block timelogs_list %}
+    <!-- Timelogs list -->
+    <h2>Timelogs</h2>
+    <!-- Filter names or params to form as default values -->
+    <!-- <p style="margin-top:-1em;">For: {{ timelogs_params.issue.subject }}</p> -->
+    <div>
+        <table style="width:100%; border:none; font-size:.9em;">
+            <tr style=" background-color:#beb; padding:1em;">
+                <th>id</th>
+                <th>Issue</th>
+                <th>User</th>
+                <th>Date</th>
+                <th>Duration</th>
+            </tr>
+        {% for timelog in timelogs_list %}
+            <tr>
+                <td>{{ timelog.id }}</td>
+                <!-- <td><a href="/timelogs/{{ timelog.id }}">{{ timelog.id }}</a></td> -->
+                <td style="padding:.25em;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
+                <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.username }}</a></td>
+                <td style="text-align:center;">{{ timelog.date }}</td>
+                <td style="text-align:center;">{{ timelog.duration }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

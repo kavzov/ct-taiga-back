@@ -1,0 +1,24 @@
+{% extends "projects/index.html" %}
+
+{% block projects_list %}
+
+    <!-- Projects list -->
+    <h2>Projects</h2>
+    <div>
+        {% for project in projects_list %}
+        <p style="margin:1em 0;">
+            <b>{{ project.id }}.</b>&nbsp;
+            <a href="{{ project.id }}">{{ project.name }}</a><br>
+            <span style="font-size:.9em;">{{ project.description }}</span>
+        </p>
+        {% endfor %}
+    </div>
+
+    <!-- Add project form -->
+    <h2>Add a project</h2>
+    <form action="/projects/add_project/" method="post">
+        {% csrf_token %}
+        {{ add_project_form }}
+        <input type="submit">
+    </form>
+{% endblock %}

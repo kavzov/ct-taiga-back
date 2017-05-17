@@ -1,0 +1,19 @@
+postgres:
+    image: postgres
+    container_name: postgres
+    volumes:
+        - ct-taiga-psql-volume:/var/run
+        - /home/igor/ct-taiga/data/postgres:/var/lib/postgresql/data
+
+ct-taiga-back:
+    image: ct-taiga-back
+    container_name: ct-taiga-back
+    links:
+        - postgres:postgres
+    ports:
+        - "8000:8000"
+        - "222:22"
+    volumes:
+        - ct-taiga-psql-volume:/var/run
+        - ct-taiga-volume:/home/taiga
+        - /home/igor/ct-taiga/data/logs:/home/taiga/logs
