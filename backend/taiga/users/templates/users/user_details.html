@@ -1,1 +1,13 @@
-<b>{{ id }}</b>&ensp;-&ensp;{{ name }}&emsp;{{ obj }}
+{% extends "users/index.html" %}
+
+{% block user_details %}
+    <!-- User details -->
+    <h2 style="font-weight:normal;">User &quot;{{ user_details.username }}&quot;</h2>
+    <div>
+        <p>{{ user_details.email }}</p>
+    </div>
+
+    <h3 style="background-color: #beb; padding:.25em;">View timelog</h3>
+    {% include "timelogs/user_timelogs_form.html" %}
+    <h3 style="background-color: #beb; padding:.25em;">Add timelog</h3>
+{% endblock %}

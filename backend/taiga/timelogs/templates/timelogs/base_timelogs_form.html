@@ -1,0 +1,19 @@
+<form action="/timelogs/" method="get">
+{% csrf_token %}
+    {% if project_details %}
+    <input type="hidden" name="project_id" value="{{ project_details.id }}">
+    {% endif %}
+    <table style="margin:1em 0;">
+        <tr>
+            {% block extra_fields %}{% endblock %}
+            <td><input type="date" name="date_from" value="{{ params.date_from }}"></td>
+            <td><input type="date" name="date_till" value="{{ params.date_till }}"></td>
+            <td><input type="submit" value="View timelogs"></td>
+            <td style="width:100%; text-align:center; font-size:1.75em; font-weight:bold;">
+                {% if total_duration %}
+                <span style="display:inline-block; padding:.1em .2em; background-color:#eee;">{{ total_duration }}</span>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+</form>

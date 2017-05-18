@@ -1,37 +1,41 @@
 from django.shortcuts import render
 from .models import Project
 from taiga.projects.issues.models import Issue
+from taiga.users.models import User
 from .forms import AddProjectForm
-from taiga.projects.issues.forms import AddIssueForm
+from taiga.projects.issues.forms import AddIssueToProjectForm
 from django.views.decorators.csrf import csrf_protect
 
 
 @csrf_protect
 def projects_list(request):
-    projects_page_data = {}
+    args = {}
     plist = Project.objects.all()
     add_project_form = AddProjectForm
-    projects_page_data['title'] = "Projects list"
-    projects_page_data['projects_list'] = plist
-    projects_page_data['add_project_form'] = add_project_form
-    return render(request, "projects/projects_list.html", projects_page_data)
+    args['title'] = "Projects"
+    args['projects_list'] = plist
+    args['add_project_form'] = add_project_form
+    return render(request, "projects/projects_list.html", args)
 
 
 def project_details(request, project_id):
-    project_page_data = {}
+    args = {}
 
     pdetails = Project.objects.values().get(id=project_id)
-    project_page_data['project_details'] = pdetails
+    args['project_details'] = pdetails
 
     pissues = Issue.objects.all().filter(project=project_id)
-    project_page_data['issues'] = pissues
+    args['issues'] = pissues
 
-    add_issue_form = AddIssueForm
-    project_page_data['add_issue_form'] = add_issue_form
+    users = User.objects.all()
+    args['users'] = users
 
-    project_page_data['title'] = 'Project "' + pdetails['name'] + '"'
+    add_issue_form = AddIssueToProjectForm
+    args['add_issue_form'] = add_issue_form
 
-    return render(request, "projects/project_details.html", project_page_data)
+    args['title'] = 'Project "' + pdetails['name'] + '"'
+
+    return render(request, "projects/project_details.html", args)
 
 
 def add_project(request):

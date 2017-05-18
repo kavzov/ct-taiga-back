@@ -1,4 +1,14 @@
+{% extends "users/index.html" %}
 
-{% for user in users %}
-<p><b>{{ user.id}} </b>{{ user.username }}</p>
-{% endfor %}
+{% block users_list %}
+    <!-- Users list -->
+    <h2 style="font-weight:normal; background-color:#beb; padding:.2em;">Users</h2>
+    <div>
+        {% for user in users_list %}
+        <p style="margin:1em 0;">
+            <b>{{ user.id }}.</b>&nbsp;
+            <a href="{{ user.id }}"><b>{{ user.username }}</b></a>
+        </p>
+        {% endfor %}
+    </div>
+{% endblock %}

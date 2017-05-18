@@ -1,0 +1,11 @@
+<td>
+    {% if user_details %}
+    <input type="hidden" name="user_id" value="{{ user_details.id }}">
+    {% endif %}
+    <select style="width:100px;" name="issue_id">
+        <option value="">All issues</option>
+        {% for issue in issues %}
+        <option value="{{ issue.id }}" {% if issue.id == params.issue_id %} selected="selected" {% endif %}>{{ issue.subject }}</option>
+        {% endfor %}
+    </select>
+</td>

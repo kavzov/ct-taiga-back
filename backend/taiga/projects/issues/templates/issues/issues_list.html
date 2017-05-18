@@ -2,22 +2,24 @@
 
 {% block issues_list %}
     <!-- Issues list -->
-    <h2>Issues</h2>
+    <h2 style="font-weight:normal; background-color:#beb; padding:.2em;">Issues</h2>
     <div>
         {% for issue in issues_list %}
         <p style="margin:1em 0;">
             <b>{{ issue.id }}.</b>&nbsp;
-            <a href="{{ issue.id }}">{{ issue.subject }}</a><br>
-            <span style="font-size:.9em;">{{ issue.description }}</span>
+            <a href="{{ issue.id }}"><b>{{ issue.subject }}</b></a>
+            <span style="display:block; margin:.2em 0; line-height:1.4em;">{{ issue.description }}</span>
         </p>
         {% endfor %}
     </div>
 
     <!-- Add issue form -->
-    <h2>Add an issue</h2>
+    <h3 style="font-weight:normal; background-color:#beb; padding:.25em;">Add an issue</h3>
     <form action="/issues/add_issue/" method="post">
         {% csrf_token %}
+        <table style="margin:1em 0 2em;">
         {{ add_issue_form }}
-        <input type="submit">
+            <tr><td></td><td style="text-align:right;"><input type="submit"></td></tr>
+        </table>
     </form>
 {% endblock %}

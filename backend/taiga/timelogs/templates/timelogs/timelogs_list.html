@@ -2,28 +2,35 @@
 
 {% block timelogs_list %}
     <!-- Timelogs list -->
-    <h2>Timelogs</h2>
-    <!-- Filter names or params to form as default values -->
-    <!-- <p style="margin-top:-1em;">For: {{ timelogs_params.issue.subject }}</p> -->
+    <h2 style="font-weight:normal; background-color:#beb; padding:.2em;">Timelogs</h2>
     <div>
-        <table style="width:100%; border:none; font-size:.9em;">
-            <tr style=" background-color:#beb; padding:1em;">
-                <th>id</th>
+        {% include "timelogs/full_timelogs_form.html" %}
+        <p>{% if params.project_name %} Project &quot;{{ params.project_name }}&quot;{% endif %}</p>
+    <table style="width:100%; border:none; font-size:.9em;">
+            <tr style=" background-color:#beb; line-height:1.5em;">
+                <!--<th>id</th>-->
                 <th>Issue</th>
                 <th>User</th>
                 <th>Date</th>
                 <th>Duration</th>
+                <th>Action</th>
             </tr>
         {% for timelog in timelogs_list %}
-            <tr>
-                <td>{{ timelog.id }}</td>
-                <!-- <td><a href="/timelogs/{{ timelog.id }}">{{ timelog.id }}</a></td> -->
+            <tr onmouseover="this.style.backgroundColor='#eee';" onmouseout="this.style.backgroundColor='inherit';">
+                <!--<td>{{ timelog.id }}</td>
+                <td><a href="/timelogs/{{ timelog.id }}">{{ timelog.id }}</a></td>-->
                 <td style="padding:.25em;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
                 <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.username }}</a></td>
                 <td style="text-align:center;">{{ timelog.date }}</td>
                 <td style="text-align:center;">{{ timelog.duration }}</td>
+                <td style="text-align:center;"><a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&emsp;&emsp;<a href="/timelogs/{{ timelog.id }}/delete">Delete</a></td>
             </tr>
         {% endfor %}
+            <tr>
+                <td colspan="3">&nbsp;</td>
+                <td style="text-align:center; background-color:#f1f1f1; border:0px dotted grey; font-weight:bold;">{{ total_duration }}</td>
+                <td>&nbsp;</td>
+            </tr>
         </table>
     </div>
 
