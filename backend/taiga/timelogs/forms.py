@@ -5,5 +5,5 @@ from .models import Timelog
 class TimelogForm(forms.ModelForm):
     class Meta:
         model = Timelog
-        fields = ['issue', 'user']
+        fields = ['id', 'issue', 'user', 'date', 'duration']
 

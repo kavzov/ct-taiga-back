@@ -75,7 +75,20 @@ def timelogs_list(request):
 
 
 def timelog_details(request, timelog_id):
-    pass
+    args = dict()
+    timelog_details = Timelog.objects.get(pk=timelog_id)
+    issues = Issue.objects.values()
+    users = User.objects.all()
+
+
+    args['timelog_form'] = TimelogForm
+    args['timelog_details'] = timelog_details
+    args['timelog_id'] = timelog_id
+    args['issues'] = issues
+    args['users'] = users
+    template = "timelogs/timelog_details.html"
+
+    return render(request, template, args)
 
 
 def add_timelog(request):

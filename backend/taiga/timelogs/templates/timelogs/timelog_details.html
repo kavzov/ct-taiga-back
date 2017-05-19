@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2 style="font-weight:normal;">Timelog #{{ timelog_details.id }}</h2>
+    <div>
+        <form action="" method="post">
+            <select name="issue_id" style="width:150px;">
+                {% for issue in issues %}
+                <option value="{{ issue.id }}" {% if issue.id == timelog_details.issue.id %}selected="selected"{% endif %}>{{ issue.subject }}</option>
+                {% endfor %}
+            </select>&ensp;
+            <select name="user_id" style="width:120px;">
+                {% for user in users %}
+                <option value="{{ user.id }}" {% if user.id == timelog_details.user.id %}selected="selected"{% endif %}>{{ user.username }}</option>
+                {% endfor %}
+            </select>
+            <input type="date" value="{{ timelog_details.date|date:'Y-m-d' }}">
+            <input type="number" step="0.01" value="{{ timelog_details.duration }}">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+{% endblock content %}
