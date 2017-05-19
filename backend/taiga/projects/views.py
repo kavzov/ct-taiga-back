@@ -1,11 +1,13 @@
+import json
+from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
-from .models import Project
-from taiga.projects.issues.models import Issue
-from taiga.users.models import User
-from .forms import AddProjectForm
-from taiga.projects.issues.forms import AddIssueToProjectForm
 from django.views.decorators.csrf import csrf_protect
-
+from .models import Project
+from .forms import AddProjectForm
+from taiga.projects.issues.models import Issue
+from taiga.projects.issues.forms import AddIssueToProjectForm
+from taiga.users.models import User
+from taiga.timelogs.views import get_timelogs
 
 @csrf_protect
 def projects_list(request):
@@ -36,6 +38,20 @@ def project_details(request, project_id):
     args['title'] = 'Project "' + pdetails['name'] + '"'
 
     return render(request, "projects/project_details.html", args)
+
+
+def project_timelogs(request, project_id):
+    format = request.GET.get('format')
+    args = get_timelogs(request, project_id=project_id)
+
+    if format == 'json':
+        template = "timelogs/json_timelogs.html"
+        args['jsondata'] = json.dumps(list(args['timelogs_list'].values('issue_id', 'user_id', 'date', 'duration')), cls=DjangoJSONEncoder)
+    else:
+        template = "projects/project_details.html"
+        args['project_details'] = Project.objects.get(id=project_id)
+
+    return render(request, template, args)
 
 
 def add_project(request):

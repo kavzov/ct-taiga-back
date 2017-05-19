@@ -6,11 +6,12 @@
     <table style="margin:1em 0;">
         <tr>
             {% block extra_fields %}{% endblock %}
-            <td><input type="date" name="date_from" value="{{ params.date_from }}"></td>
-            <td><input type="date" name="date_till" value="{{ params.date_till }}"></td>
-            <td><input type="submit" value="View timelogs"></td>
-            <td style="width:100%; text-align:center; font-size:1.75em; font-weight:bold;">
+            <td><input type="date" name="date_from" id="date_from" value="{{ params.date_from }}"></td>
+            <td><input type="date" name="date_till" id="date_till" value="{{ params.date_till }}"></td>
+            <td><input type="submit"></td>
+            <td style="width:100%; text-align:right; font-size:1.75em; font-weight:bold;">
                 {% if total_duration %}
+                <span id="temp"></span>
                 <span style="display:inline-block; padding:.1em .2em; background-color:#eee;">{{ total_duration }}</span>
                 {% endif %}
             </td>

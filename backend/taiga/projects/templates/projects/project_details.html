@@ -1,37 +1,26 @@
-{% extends "projects/index.html" %}
+{% extends "index.html" %}
 
-{% block project_details %}
+{% block content %}
     <!-- Project details -->
     <h2 style="font-weight:normal;">Project &quot;{{ project_details.name }}&quot;</h3>
-
     <div>
         <p style="line-height:1.3em;">{{ project_details.description }}</p>
     </div>
 
-    <h3 style="font-weight:normal; background-color:#beb; padding:.25em;">Issues</h3>
-    <div>
-        <ul style="list-style-type:none; padding:0; margin-top:-.7em; line-height:1.5em;">
-        {% for issue in issues %}
-            <li>
-                <a href="/issues/{{ issue.id }}"><b>{{ issue.subject }}</b></a>
-                <span style="display:block; margin:.2em 0 .8em; line-height:1.3em;">{{ issue.description }}</span>
-            </li>
-        {%endfor %}
-        </ul>
-    </div>
+    {% if not timelogs_list %}
+    {% include "projects/project_details_html.html" %}
 
+    <!-- Add issue form -->
     <h3 style="font-weight:normal; background-color:#beb; padding:.25em;">Add an issue</h3>
-    <div style="margin-bottom:2em;">
-    <form action="/projects/add_issue/" method="post">
-        {% csrf_token %}
-        <table style="margin:1em 0 0;">
-        {{ add_issue_form }}
-            <input type="hidden" name="project_id" value="{{ project_details.id }}">
-            <tr><td></td><td style="text-align:right;"><input type="submit"></td></tr>
-        </table>
-    </form>
-    </div>
+    {% include "projects/add_issue_form.html" %}
+    {% endif %}
 
+    <!-- Select timelogs form -->
     <h3 style="font-weight:normal; background-color:#beb; padding:.25em;">Timelogs</h3>
     {% include "timelogs/full_timelogs_form.html" %}
-{% endblock %}
+
+    {% if timelogs_list %}
+    {% include "timelogs/timelogs_table.html" %}
+    {% endif %}
+
+{% endblock content %}

@@ -1,49 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
+{% include "parts/head.html" %}
 </head>
 
 <body>
-<script type="application/javascript">
-    window.onload = function() {
-        if (document.referrer) {
-            backhref = '<a href="javascript:history.back(-1)">Back</a>';
-            document.getElementById("backlink").innerHTML = backhref;
-        }
-    }
-</script>
+{% include "parts/backlink.html" %}
 
-<h1 style="margin:0 0 .2em; padding:.2em; text-align:center; background-color:#beb;">CT-Taiga</h1>
-<div style="width:50%; margin:0 auto;">
-    <table style="width:100%; margin:0; padding:0">
-        <tr>
-            <td id="backlink" style="width:20%; font-size:.9em;">
+{% include "parts/header.html" %}
+<div style="width:75%; margin:0 auto;">
+    {% include "parts/menu.html" %}
 
-            </td>
-            <td style="width:60%; text-align:center;">
-                {% if request.META.PATH_INFO != '/projects/' %}<a href="/projects">{% endif %}
-                Projects{% if request.META.PATH_INFO != '/projects/' %}</a>{% endif %}
-                &emsp;
-                {% if request.META.PATH_INFO != '/issues/' %}<a href="/issues">{% endif %}
-                Issues{% if request.META.PATH_INFO != '/issues/' %}</a>{% endif %}
-                &emsp;
-                {% if request.META.PATH_INFO != '/users/' %}<a href="/users">{% endif %}
-                Users{% if request.META.PATH_INFO != '/users/' %}</a>{% endif %}
-                &emsp;
-                {% if request.META.PATH_INFO != '/timelogs/' or request.META.QUERY_STRING %}<a href="/timelogs">{% endif %}
-                Timelogs{% if request.META.PATH_INFO != '/timelogs/' %}</a>{% endif %}
-            </td>
-            <td width="20%"></td>
-        </tr>
-    </table>
-    {% block projects_index %}{% endblock %}
-    {% block issues_index %}{% endblock %}
+    {% block content %}{% endblock %}
+
     {% block users_index %}{% endblock %}
     {% block timelogs_index %}{% endblock %}
 </div>
 
-<h6 style="margin:2em 0 0; padding:.2em; line-height:2em; font-weight:normal; text-align:center; background-color:#beb;">CT-Taiga</h6>
+{% include "parts/footer.html" %}
 </body>
 </html>

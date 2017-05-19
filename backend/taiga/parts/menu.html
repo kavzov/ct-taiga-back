@@ -1,0 +1,21 @@
+    <table style="width:100%; margin:0; padding:0">
+        <tr>
+            <td id="backlink" style="width:20%; font-size:.9em;">
+
+            </td>
+            <td style="width:60%; text-align:center;">
+                {% if request.META.PATH_INFO != '/projects/' %}<a href="/projects/">{% endif %}
+                Projects{% if request.META.PATH_INFO != '/projects/' %}</a>{% endif %}
+                &emsp;
+                {% if request.META.PATH_INFO != '/issues/' %}<a href="/issues/">{% endif %}
+                Issues{% if request.META.PATH_INFO != '/issues/' %}</a>{% endif %}
+                &emsp;
+                {% if request.META.PATH_INFO != '/users/' %}<a href="/users/">{% endif %}
+                Users{% if request.META.PATH_INFO != '/users/' %}</a>{% endif %}
+                &emsp;
+                {% if request.META.PATH_INFO != '/timelogs/' or request.META.QUERY_STRING %}<a href="/timelogs/">{% endif %}
+                Timelogs{% if request.META.PATH_INFO != '/timelogs/' %}</a>{% endif %}
+            </td>
+            <td width="20%"></td>
+        </tr>
+    </table>

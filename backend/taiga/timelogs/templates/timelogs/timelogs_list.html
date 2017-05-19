@@ -2,36 +2,12 @@
 
 {% block timelogs_list %}
     <!-- Timelogs list -->
-    <h2 style="font-weight:normal; background-color:#beb; padding:.2em;">Timelogs</h2>
+    <h2 style="font-weight:normal; background-color:#beb; padding:.2em; margin-bottom:-.2em;">Timelogs{% if params.project_name %} for project &quot;{{ params.project_name }}&quot;{% endif %}</h2>
     <div>
         {% include "timelogs/full_timelogs_form.html" %}
-        <p>{% if params.project_name %} Project &quot;{{ params.project_name }}&quot;{% endif %}</p>
-    <table style="width:100%; border:none; font-size:.9em;">
-            <tr style=" background-color:#beb; line-height:1.5em;">
-                <!--<th>id</th>-->
-                <th>Issue</th>
-                <th>User</th>
-                <th>Date</th>
-                <th>Duration</th>
-                <th>Action</th>
-            </tr>
-        {% for timelog in timelogs_list %}
-            <tr onmouseover="this.style.backgroundColor='#eee';" onmouseout="this.style.backgroundColor='inherit';">
-                <!--<td>{{ timelog.id }}</td>
-                <td><a href="/timelogs/{{ timelog.id }}">{{ timelog.id }}</a></td>-->
-                <td style="padding:.25em;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
-                <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.username }}</a></td>
-                <td style="text-align:center;">{{ timelog.date }}</td>
-                <td style="text-align:center;">{{ timelog.duration }}</td>
-                <td style="text-align:center;"><a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&emsp;&emsp;<a href="/timelogs/{{ timelog.id }}/delete">Delete</a></td>
-            </tr>
-        {% endfor %}
-            <tr>
-                <td colspan="3">&nbsp;</td>
-                <td style="text-align:center; background-color:#f1f1f1; border:0px dotted grey; font-weight:bold;">{{ total_duration }}</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+        {% if timelogs_list %}
+        {% include "timelogs/timelogs_table.html" %}
+        {% endif %}
     </div>
 
-{% endblock %}
+{% endblock timelogs_list %}

@@ -1,13 +1,17 @@
-{% extends "users/index.html" %}
+{% extends "index.html" %}
 
-{% block user_details %}
+{% block content %}
     <!-- User details -->
     <h2 style="font-weight:normal;">User &quot;{{ user_details.username }}&quot;</h2>
     <div>
         <p>{{ user_details.email }}</p>
     </div>
 
-    <h3 style="background-color: #beb; padding:.25em;">View timelog</h3>
+    <h3 style="background-color: #beb; padding:.25em;">Timelogs</h3>
     {% include "timelogs/user_timelogs_form.html" %}
+    {% if timelogs_list %}
+    {% include "timelogs/timelogs_table.html" %}
+    {% endif %}
+
     <h3 style="background-color: #beb; padding:.25em;">Add timelog</h3>
-{% endblock %}
+{% endblock content %}

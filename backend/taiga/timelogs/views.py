@@ -1,3 +1,5 @@
+import json
+from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 from .models import Timelog
 from taiga.projects.models import Project
@@ -6,23 +8,28 @@ from taiga.projects.issues.models import Issue
 from taiga.users.models import User
 
 
-def timelogs_list(request):
+# --- Get timelogs --- #
+def get_timelogs(request, **kwargs):
+    """ Get timelogs from request and return args for template """
     params = dict()
-    params['issue_id'] = request.GET.get('issue_id')
-    params['user_id'] = request.GET.get('user_id')
-    params['project_id'] = request.GET.get('project_id')
+    try:
+        params['issue_id'] = kwargs['issue_id']
+    except KeyError:
+        params['issue_id'] = request.GET.get('issue_id')
+    try:
+        params['user_id'] = kwargs['user_id']
+    except KeyError:
+        params['user_id'] = request.GET.get('user_id')
+    try:
+        params['project_id'] = kwargs['project_id']
+    except KeyError:
+        params['project_id'] = request.GET.get('project_id')
     params['date_from'] = request.GET.get('date_from')
     params['date_till'] = request.GET.get('date_till')
     params['order'] = request.GET.get('sort_by')
 
-    issue_id = request.GET.get('issue')
-    user_id = request.GET.get('user')
-    from_date = request.GET.get('date_from')
-    till_date = request.GET.get('date_till')
-    order = request.GET.get('sort_by')
-
     args = dict()
-    timelogs = Timelog.objects.all().order_by('-date')
+    timelogs = Timelog.objects.all().order_by('date')
 
     if params['project_id']:
         timelogs = timelogs.filter(issue__project__id=params['project_id'])
@@ -50,7 +57,21 @@ def timelogs_list(request):
     args['issues'] = Issue.objects.all()
     args['users'] = User.objects.all()
 
-    return render(request, "timelogs/timelogs_list.html", args)
+    return args
+# --- Get timelogs --- #
+
+
+def timelogs_list(request):
+    format = request.GET.get('format')
+    args = get_timelogs(request)
+
+    if format == 'json':
+        template = "timelogs/json_timelogs.html"
+        args['jsondata'] = json.dumps(list(args['timelogs_list'].values('issue_id', 'user_id', 'date', 'duration')), cls=DjangoJSONEncoder)
+    else:
+        template = "timelogs/timelogs_list.html"
+
+    return render(request, template, args)
 
 
 def timelog_details(request, timelog_id):

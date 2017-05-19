@@ -1,0 +1,10 @@
+    <div style="margin-bottom:2em;">
+    <form action="/projects/add_issue/" method="post">
+        {% csrf_token %}
+        <table style="margin:1em 0 0;">
+        {{ add_issue_form }}
+            <input type="hidden" name="project_id" value="{{ project_details.id }}">
+            <tr><td></td><td style="text-align:right;"><input type="submit"></td></tr>
+        </table>
+    </form>
+    </div>
