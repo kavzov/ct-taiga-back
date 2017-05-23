@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
+from django.contrib import admin, auth
+from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^login/', views.login, name='login'),
     url(r'^user/', include('taiga.users.urls')),
     url(r'^projects/', include('taiga.projects.urls')),
     url(r'^issues/', include('taiga.projects.issues.urls')),

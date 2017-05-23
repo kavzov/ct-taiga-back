@@ -2,16 +2,18 @@
 
 {% block content %}
     <!-- User details -->
-    <h2 style="font-weight:normal;">User &quot;{{ user_details.username }}&quot;</h2>
+    <h2>User: {{ user_details.username }}</h2>
     <div>
         <p>{{ user_details.email }}</p>
     </div>
 
-    <h3 style="background-color: #beb; padding:.25em;">Timelogs</h3>
-    {% include "timelogs/user_timelogs_form.html" %}
-    {% if timelogs_list %}
-    {% include "timelogs/timelogs_table.html" %}
-    {% endif %}
+    <h3 style="background-color: #beb; padding:.25em; margin-bottom:-.2em;">Timelogs</h3>
+    <div>
+        {% include "timelogs/user_timelogs_form.html" %}
+        {% if timelogs_list %}
+        {% include "timelogs/timelogs_table.html" %}
+        {% endif %}
+    </div>
 
     <h3 style="background-color: #beb; padding:.25em;">Add timelog</h3>
 {% endblock content %}

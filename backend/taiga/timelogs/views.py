@@ -1,6 +1,8 @@
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
+from django.contrib.auth.decorators import permission_required
+from taiga import permissions
 from .models import Timelog
 from taiga.projects.models import Project
 from .forms import TimelogForm
@@ -80,7 +82,6 @@ def timelog_details(request, timelog_id):
     issues = Issue.objects.values()
     users = User.objects.all()
 
-
     args['timelog_form'] = TimelogForm
     args['timelog_details'] = timelog_details
     args['timelog_id'] = timelog_id
@@ -91,12 +92,59 @@ def timelog_details(request, timelog_id):
     return render(request, template, args)
 
 
-def add_timelog(request):
-    pass
+def get_timelog_req_data(request):
+    req = dict()
+    issue_id = request.POST.get('issue_id')
+    req['issue'] = Issue.objects.get(pk=issue_id)
+    user_id = request.POST.get('user_id')
+    req['user'] = User.objects.get(pk=user_id)
+    req['date'] = request.POST.get("date")
+    req['duration'] = request.POST.get("duration")
+
+    return req
 
 
+@permission_required(permissions.ADMIN_PERMISSIONS)
 def edit_timelog(request, timelog_id):
-    pass
+    args = dict()
+    if request.POST:
+        req = get_timelog_req_data(request)
+        timelog = Timelog(id=timelog_id, issue=req['issue'], user=req['user'], date=req['date'], duration=req['duration'])
+        timelog.save()
+        args['message'] = 'Timelog #{} successfully updated'.format(timelog_id)
+
+    timelog_details = Timelog.objects.get(pk=timelog_id)
+    issues = Issue.objects.values()
+    users = User.objects.all()
+    args['timelog_details'] = timelog_details
+    args['timelog_id'] = timelog_id
+    args['issues'] = issues
+    args['users'] = users
+
+    template = "timelogs/timelog_details.html"
+
+    return render(request, template, args)
+
+
+def add_timelog(request):
+    args = dict()
+    if request.POST:
+        req = get_timelog_req_data(request)
+        timelog = Timelog(issue=req['issue'], user=req['user'], date=req['date'], duration=req['duration'])
+        timelog.save()
+        args['message'] = 'Timelog successfully added'
+    else:
+        args['message'] = 'Add a timelog'
+        args['add'] = True
+
+    issues = Issue.objects.values()
+    users = User.objects.all()
+    args['issues'] = issues
+    args['users'] = users
+
+    template = "timelogs/timelog_details.html"
+
+    return render(request, template, args)
 
 
 def delete_timelog(request, timelog_id):

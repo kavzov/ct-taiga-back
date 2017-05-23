@@ -2,7 +2,7 @@
     {% if issue_details %}
     <input type="hidden" name="issue_id" value="{{ issue_details.id }}">
     {% endif %}
-    <select style="width:100px;" name="user_id">
+    <select style="width:100px; height:25px;" name="user_id">
         <option value="">All users</option>
         {% for user in users %}
         <option value="{{ user.id }}" {% if user.id == params.user_id %} selected="selected" {% endif %}>{{ user.username }}</option>

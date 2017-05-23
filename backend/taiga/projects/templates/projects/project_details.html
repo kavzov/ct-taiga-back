@@ -2,7 +2,7 @@
 
 {% block content %}
     <!-- Project details -->
-    <h2 style="font-weight:normal;">Project &quot;{{ project_details.name }}&quot;</h3>
+    <h2>Project &quot;{{ project_details.name }}&quot;</h3>
     <div>
         <p style="line-height:1.3em;">{{ project_details.description }}</p>
     </div>
@@ -11,12 +11,12 @@
     {% include "projects/project_details_html.html" %}
 
     <!-- Add issue form -->
-    <h3 style="font-weight:normal; background-color:#beb; padding:.25em;">Add an issue</h3>
+    <h3>Add an issue</h3>
     {% include "projects/add_issue_form.html" %}
     {% endif %}
 
     <!-- Select timelogs form -->
-    <h3 style="font-weight:normal; background-color:#beb; padding:.25em;">Timelogs</h3>
+    <h3>Timelogs</h3>
     {% include "timelogs/full_timelogs_form.html" %}
 
     {% if timelogs_list %}

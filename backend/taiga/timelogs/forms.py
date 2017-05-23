@@ -7,3 +7,7 @@ class TimelogForm(forms.ModelForm):
         model = Timelog
         fields = ['id', 'issue', 'user', 'date', 'duration']
 
+
+class TimelogUpdateForm(forms.Form):
+
+    pass

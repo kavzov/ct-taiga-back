@@ -1,5 +1,5 @@
         {% if timelogs_list %}
-        <p style="width:100%; font-size:.8em; margin:-1.2em 0 0; padding:0 0 .3em .4em;">
+        <p style="width:100%; font-size:.8em; margin:-1.4em 0 .4em; padding:0 0 .3em .4em;">
             {% if request.META.QUERY_STRING %}
             <a href="?{{ request.META.QUERY_STRING }}&format=json">
             {% else %}
@@ -9,7 +9,7 @@
             </a>
         </p>
         {% endif %}
-        <table style="width:100%; border:none; font-size:.9em;">
+        <table class="timelogs-table">
             <tr style=" background-color:#beb; line-height:1.5em;">
                 <!--<th>id</th>-->
                 <th>Issue</th>
@@ -22,7 +22,7 @@
             <tr onmouseover="this.style.backgroundColor='#eee';" onmouseout="this.style.backgroundColor='inherit';">
                 <!--<td>{{ timelog.id }}</td>
                 <td><a href="/timelogs/{{ timelog.id }}">{{ timelog.id }}</a></td>-->
-                <td style="padding:.25em 0;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
+                <td style="padding:.25em 0; width:40%;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
                 <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.username }}</a></td>
                 <td style="text-align:center;">{{ timelog.date }}</td>
                 <td style="text-align:center;">{{ timelog.duration }}</td>

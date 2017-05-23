@@ -2,7 +2,7 @@
 
 {% block content %}
     <!-- Issue details -->
-    <h2 style="font-weight:normal;">Issue &quot;{{ issue_details.subject }}&quot;</h2>
+    <h2>Issue &quot;{{ issue_details.subject }}&quot;</h2>
     <h3>Assigned to: <a href="/users/{{ issue_details.assigned_to.id }}">{{ issue_details.assigned_to.username  }}</a></h3>
     <div>
         <p>{{ issue_details.description }}</p>

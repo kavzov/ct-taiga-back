@@ -1,3 +1,55 @@
+<script type="text/javascript">
+    function getFirstDayOfMonth() {
+        return 1;
+    }
+    function getLastDayOfMonth(year, month, isCurrentMonth) {
+        var lastDay;
+        if (isCurrentMonth) {
+            lastDay = new Date();
+        }
+        else {
+            lastDay = new Date(year, month, 0);
+        }
+        return lastDay.getDate();
+    }
+    function getCurrentDayOfMonth(date) {
+        return date.getDate();
+    }
+    function getFDate(year, month, day) {
+        month = month<10 ? '0'+month : month;
+        day = day<10 ? '0'+day : day;
+        return year + '-' + month + '-' + day;
+    }
+
+    function setDates(isCurrentMonth) {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var firstDayOfMonth = getFirstDayOfMonth();
+        var lastDayOfMonth = getLastDayOfMonth(year, month, isCurrentMonth);
+        if (isCurrentMonth) {
+            month++;
+        }
+        var dateFrom = getFDate(year, month, firstDayOfMonth);
+        var dateTill = getFDate(year, month, lastDayOfMonth);
+        document.getElementById('date_from').value = dateFrom;
+        document.getElementById('date_till').value = dateTill;
+    }
+
+    function resetDates() {
+        document.getElementById('date_from').value = '';
+        document.getElementById('date_till').value = '';
+    }
+</script>
+
+<p style="padding-left:.3em; margin-bottom:-1em;">
+    <span style="font-size:.8em; text-decoration:underline; color:blue; cursor:pointer;" onclick="setDates()">
+        Last month</span>&ensp;
+    <span style="font-size:.8em; text-decoration:underline; color:blue; cursor:pointer;" onclick="setDates('currentMonth')">
+        Current month</span>&ensp;
+    <span style="font-size:.8em; text-decoration:underline; color:blue; cursor:pointer;" onclick="resetDates()">
+        Reset dates</span>
+</p>
 <form action="/timelogs/" method="get">
 {% csrf_token %}
     {% if project_details %}
@@ -6,14 +58,17 @@
     <table style="margin:1em 0;">
         <tr>
             {% block extra_fields %}{% endblock %}
-            <td><input type="date" name="date_from" id="date_from" value="{{ params.date_from }}"></td>
-            <td><input type="date" name="date_till" id="date_till" value="{{ params.date_till }}"></td>
-            <td><input type="submit"></td>
+            <td><input type="date" name="date_from" id="date_from" value="{{ params.date_from }}" style="height:21px;"></td>
+            <td><input type="date" name="date_till" id="date_till" value="{{ params.date_till }}" style="height:21px;"></td>
+            <td><input type="submit" style="height:25px;"></td>
             <td style="width:100%; text-align:right; font-size:1.75em; font-weight:bold;">
+                <span style="display:inline-block;">
                 {% if total_duration %}
-                <span id="temp"></span>
-                <span style="display:inline-block; padding:.1em .2em; background-color:#eee;">{{ total_duration }}</span>
+                    <span style="padding:.1em .2em; background-color:#eee;">{{ total_duration }}</span>
+                {% else %}
+                    <span style="padding:.1em;">&nbsp;</span>
                 {% endif %}
+                </span>
             </td>
         </tr>
     </table>
