@@ -7,6 +7,7 @@
 * {
 }
 html, body {
+    background-color:#f5f5f5;
     margin: 0;
     padding: 0;
     height:100%;
@@ -18,26 +19,32 @@ html, body {
 #main h2 {
     font-size:1.4em;
     font-weight:normal;
-    background-color:#beb;
+    background-color:#cce8ff;
     padding:.2em .3em;
     margin:.4em 0 -.2em;
 }
 #main h3 {
     font-weight:normal;
-    background-color:#beb;
+    background-color:#cce8ff;
     padding:.25em;
 }
 #content {
-    width:75%;
-    margin:0 auto;
+    background-color:#fff;
+    box-shadow:1px 1px 7px #bbb;
+    -moz-box-shadow:1px 1px 7px #bbb;
+    -webkit-box-shadow:1px 1px 7px #bbb;
+    padding-left:.4em;
+    padding-right:.3em;
     padding-bottom:30px;
+    margin:0 auto;
+    width:75%;
 }
 #footer {
     position:absolute;
     bottom:0;
     height:30px;
     width:100%;
-    background-color: #beb;
+    background-color: #cce8ff;
     text-align:center;
     font-size:.7em;
     line-height:2.8em;
@@ -45,6 +52,19 @@ html, body {
 .timelogs-table {
     width:100%;
     font-size:.9em;
+}
+.login-form {
+    margin:1em 0 0;
+}
+.login-form td {
+    padding:.2em;
+    font-size:.95em;
+}
+.login-form input[type="text"], input[type="password"] {
+    height:1.2em;
+}
+.login-form button[type="submit"] {
+    margin-top:.1em;
 }
 </style>
 <script type="text/javascript">
@@ -61,11 +81,11 @@ window.onload = function() {
 <div id="main">
 
 <div id="header">
-<h1 style="margin:0 0 0em; padding:.2em; text-align:center; background-color:#beb;">CT-Taiga</h1>
+<h1 style="margin:0 0 0em; padding:.2em; text-align:center; background-color:#cce8ff;">CT-Taiga</h1>
 </div><!-- #header -->
 
 <div id="content">
-    <table style="width:100%; margin:.5em auto 0; padding:0; border:0px dotted grey; border-spacing:0; background-color:#fff; font-size:.95em;">
+    <table style="width:100%; margin:0 auto; padding:.5em .2em 0; border:0px dotted grey; border-spacing:0; background-color:#fff; font-size:.95em;">
         <tr>
             <td id="backlink" style="width:20%;">
 
@@ -84,7 +104,9 @@ window.onload = function() {
                 Timelogs{% if request.META.PATH_INFO != '/timelogs/' %}</a>{% endif %}
             </td>
             <td width="20%" style="text-align:right; padding-right:.55em;">
-                {% if username %}<a href="/logout/">Logout{% else %}<a href="/login/">Login{% endif %}</a>
+                {% if request.META.PATH_INFO != '/login/' %}
+                    {% if username %}<a href="/logout/">Logout{% else %}<a href="/login/">Login{% endif %}</a>
+                {% endif %}
             </td>
         </tr>
     </table>

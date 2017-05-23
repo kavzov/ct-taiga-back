@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'taiga.projects',
     'taiga.projects.issues',
     'taiga.timelogs',
+    'taiga.index',
 ]
 
 MIDDLEWARE = [

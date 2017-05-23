@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 
 
@@ -9,9 +10,13 @@ def login(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
+
         else:
             pass
             # Return an 'invalid login' error message.
-
     else:
-        pass
+        render(request, "auth/login.html", {})
+
+
+def logout(request):
+    pass
