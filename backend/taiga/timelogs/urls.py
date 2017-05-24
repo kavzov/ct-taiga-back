@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^add/$', views.add_timelog, name='add_timelog'),
     url(r'^(?P<timelog_id>\d+)/edit/$', views.edit_timelog, name='edit_timelog'),
     url(r'^(?P<timelog_id>\d+)/delete/$', views.delete_timelog, name='delete_timelog'),
+    url(r'^generate/$', views.generate),
 ]

@@ -3,17 +3,15 @@
 {% block content %}
     <!-- Issue details -->
     <h2>Issue &quot;{{ issue_details.subject }}&quot;</h2>
-    <h3>Assigned to: <a href="/users/{{ issue_details.assigned_to.id }}">{{ issue_details.assigned_to.username  }}</a></h3>
-    <div>
-        <p>{{ issue_details.description }}</p>
-    </div>
+    <p>Assigned to: <a href="/users/{{ issue_details.assigned_to.id }}">{{ issue_details.assigned_to.get_full_name  }}</a></p>
+    <p>{{ issue_details.description }}</p>
 
-    <h3 style="background-color: #beb; padding:.25em;">Timelogs</h3>
+    <h3>Timelogs</h3>
     {% include "timelogs/issue_timelogs_form.html" %}
     {# block timelogs_table #}{# endblock #}
     {% if timelogs_list %}
     {% include "timelogs/timelogs_table.html" %}
     {% endif %}
 
-    <h3 style="background-color: #beb; padding:.25em;">Add timelog</h3>
+    <h3>Add timelog</h3>
 {% endblock content %}

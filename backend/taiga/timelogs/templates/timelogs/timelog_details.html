@@ -7,7 +7,7 @@
         {% else %}Edit timelog #{{ timelog_details.id }}
         {% endif %}
     </h2>
-    <div style="margin:2em auto;">
+    <div style="margin:2em 1em 0;">
         <form action="/timelogs/{{ timelog_details.id }}/edit/" method="post">
         {% csrf_token %}
             <select name="issue_id" style="width:160px; height:25px;">

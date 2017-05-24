@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout, get_user
 
 
-def login(request):
+def auth_login(request):
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
+        print(user)
         if user is not None:
             login(request, user)
-            return redirect("/")
+            return redirect('/projects/')
 
         else:
             template = "index/login.html"
@@ -19,5 +20,6 @@ def login(request):
         return render(request, template, {})
 
 
-def logout(request):
-    pass
+def auth_logout(request):
+    logout(request)
+    return redirect(request.META['HTTP_REFERER'])   # to stay on the page where Logout clicked

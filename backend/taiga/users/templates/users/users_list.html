@@ -6,8 +6,8 @@
     <div>
         {% for user in users_list %}
         <p style="margin:1em 0;">
-            <b>{{ user.id }}.</b>&nbsp;
-            <a href="{{ user.id }}"><b>{{ user.username }}</b></a>
+            {{ user.id }}.
+            <a href="{{ user.id }}">{{ user.get_full_name }}</a>
         </p>
         {% endfor %}
     </div>

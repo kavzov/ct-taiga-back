@@ -31,30 +31,30 @@ def get_timelogs(request, **kwargs):
     params['order'] = request.GET.get('sort_by')
 
     args = dict()
-    timelogs = Timelog.objects.all().order_by('date')
+    timelogs_list = Timelog.objects.all().order_by('date')
 
     if params['project_id']:
-        timelogs = timelogs.filter(issue__project__id=params['project_id'])
+        timelogs_list = timelogs_list.filter(issue__project__id=params['project_id'])
         params['project_name'] = Project.objects.values('name').get(pk=params['project_id'])['name']
     if params['issue_id']:
-        timelogs = timelogs.filter(issue__id=params['issue_id'])
+        timelogs_list = timelogs_list.filter(issue__id=params['issue_id'])
         params['issue_id'] = int(params['issue_id'])
     if params['user_id']:
-        timelogs = timelogs.filter(user__id=params['user_id'])
+        timelogs_list = timelogs_list.filter(user__id=params['user_id'])
         params['user_id'] = int(params['user_id'])
     if params['date_from'] :
-        timelogs = timelogs.filter(date__gte=params['date_from'] )
+        timelogs_list = timelogs_list.filter(date__gte=params['date_from'] )
     if params['date_till']:
-        timelogs = timelogs.filter(date__lte=params['date_till'])
+        timelogs_list = timelogs_list.filter(date__lte=params['date_till'])
     if params['order']:
-        timelogs = timelogs.order_by(params['order'])
+        timelogs_list = timelogs_list.order_by(params['order'])
 
-    durations = [v['duration'] for v in list(timelogs.values())]
+    durations = [v['duration'] for v in list(timelogs_list.values())]
 
     args['title'] = 'Timelogs'
     args['total_duration'] = sum(durations)
     args['params'] = params
-    args['timelogs_list'] = timelogs
+    args['timelogs_list'] = timelogs_list
     args['timelog_form'] = TimelogForm
     args['issues'] = Issue.objects.all()
     args['users'] = User.objects.all()
@@ -63,9 +63,26 @@ def get_timelogs(request, **kwargs):
 # --- Get timelogs --- #
 
 
+def get_paginated_timelogs(request, query_list):
+    from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+    records_on_page = 25
+
+    paginator = Paginator(query_list, records_on_page)
+    page = request.GET.get('page')
+    try:
+        timelogs = paginator.page(page)
+    except PageNotAnInteger:
+        timelogs = paginator.page(1)
+    except EmptyPage:
+        timelogs = paginator.page(paginator.num_pages)
+
+    return timelogs
+
+
 def timelogs_list(request):
     format = request.GET.get('format')
     args = get_timelogs(request)
+    args['timelogs'] = get_paginated_timelogs(request, args['timelogs_list'])
 
     if format == 'json':
         template = "timelogs/json_timelogs.html"
@@ -149,3 +166,41 @@ def add_timelog(request):
 
 def delete_timelog(request, timelog_id):
     pass
+
+
+# --------------------------------- #
+# --- Generates random timelogs --- #
+def generate(request):
+    from random import randrange, choice
+    def get_rand_duration():
+        return "{}.{}".format(randrange(0,9), randrange(0,99,25))
+
+    def get_rand_date():
+        days = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30']
+        monthes = {'01':'31', '02':'28', '03':'31', '04':'30', '05':'31'}
+        year = '2017'
+
+        month = choice(list(monthes.keys()))
+        day = choice(days)
+        if day > monthes[month]:
+            day = '28'
+        date = "{}-{}-{}".format(year, month, day)
+        return date
+
+    def get_rand_user():
+        # users_id = [v['id'] for v in User.objects.values('id')]
+        users = User.objects.all()
+        return choice(users)
+
+    def get_rand_issue():
+        issues = Issue.objects.all()
+        return choice(issues)
+
+    timelogs_count = 100
+    # for t in range(1, timelogs_count):
+    #     timelog = Timelog(issue=get_rand_issue(), user=get_rand_user(), date=get_rand_date(), duration=get_rand_duration())
+    #     timelog.save()
+        # print(timelog.duration)
+
+    from django.http import HttpResponse
+    return HttpResponse('Ok!')

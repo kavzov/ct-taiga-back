@@ -12,29 +12,49 @@ html, body {
     padding: 0;
     height:100%;
 }
+#backlink {
+    width:20%;
+    padding-left:.4em;
+}
+#login-form {
+    margin-left:.3em;
+}
+#login-form input[type="text"], input[type="password"] {
+    width:15em;
+}
+#login-form button {
+    width:30%;
+}
 #main {
     min-height:100%;
     position:relative;
 }
+#main p {
+    font-size:.95em;
+    margin:.75em 0 0;
+    padding:0 .5em;
+}
 #main h2 {
     font-size:1.4em;
-    font-weight:normal;
+    font-weight:bold;
     background-color:#cce8ff;
-    padding:.2em .3em;
+    padding:.3em .4em;
     margin:.4em 0 -.2em;
 }
 #main h3 {
+    font-size:1.2em;
     font-weight:normal;
     background-color:#cce8ff;
-    padding:.25em;
+    padding:.3em .5em;
+    margin:.5em 0;
 }
 #content {
     background-color:#fff;
     box-shadow:1px 1px 7px #bbb;
     -moz-box-shadow:1px 1px 7px #bbb;
     -webkit-box-shadow:1px 1px 7px #bbb;
-    padding-left:.4em;
-    padding-right:.3em;
+    /*padding-left:.4em;*/
+    /*padding-right:.3em;*/
     padding-bottom:30px;
     margin:0 auto;
     width:75%;
@@ -48,6 +68,31 @@ html, body {
     text-align:center;
     font-size:.7em;
     line-height:2.8em;
+}
+.paginator {
+    border-top:1px dotted grey;
+    margin:1em 0 0;
+    padding:1em 0 0;
+    line-height:2em;
+    text-align:center;
+    font-size:.95em;
+}
+.paginator a {
+    text-decoration:none;
+}
+.paginator a:hover {
+    text-decoration:underline;
+}
+.paginator .current {
+    display:inline-block;
+    /*background-color:#eee;*/
+}
+#timelogs-form {
+    margin-left:.4em;
+}
+#timelogs-form p {
+    margin:0;
+    padding-left:.3em;
 }
 .timelogs-table {
     width:100%;
@@ -87,7 +132,7 @@ window.onload = function() {
 <div id="content">
     <table style="width:100%; margin:0 auto; padding:.5em .2em 0; border:0px dotted grey; border-spacing:0; background-color:#fff; font-size:.95em;">
         <tr>
-            <td id="backlink" style="width:20%;">
+            <td id="backlink">
 
             </td>
             <td style="width:60%; text-align:center;">
@@ -104,8 +149,10 @@ window.onload = function() {
                 Timelogs{% if request.META.PATH_INFO != '/timelogs/' %}</a>{% endif %}
             </td>
             <td width="20%" style="text-align:right; padding-right:.55em;">
-                {% if request.META.PATH_INFO != '/login/' %}
-                    {% if username %}<a href="/logout/">Logout{% else %}<a href="/login/">Login{% endif %}</a>
+                {% if request.user.is_authenticated %}
+                    {{ request.user.get_full_name }}&ensp;<a href="/logout/">Logout</a>
+                {% else %}
+                    <a href="/login/">Login</a>
                 {% endif %}
             </td>
         </tr>

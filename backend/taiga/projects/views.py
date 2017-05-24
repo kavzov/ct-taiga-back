@@ -9,7 +9,7 @@ from taiga.projects.issues.forms import AddIssueToProjectForm
 from taiga.users.models import User
 from taiga.timelogs.views import get_timelogs
 
-@csrf_protect
+
 def projects_list(request):
     args = {}
     plist = Project.objects.all()
@@ -17,6 +17,7 @@ def projects_list(request):
     args['title'] = "Projects"
     args['projects_list'] = plist
     args['add_project_form'] = add_project_form
+
     return render(request, "projects/projects_list.html", args)
 
 
@@ -54,5 +55,6 @@ def project_timelogs(request, project_id):
     return render(request, template, args)
 
 
+@csrf_protect
 def add_project(request):
     pass

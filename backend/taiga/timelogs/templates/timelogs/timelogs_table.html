@@ -1,37 +1,61 @@
         {% if timelogs_list %}
-        <p style="width:100%; font-size:.8em; margin:-1.4em 0 .4em; padding:0 0 .3em .4em;">
+        <div style="float:left; width:20%; font-size:.8em; margin:-.5em 0 0; padding:0 0 .8em .8em;   border:0px dotted green;">
             {% if request.META.QUERY_STRING %}
             <a href="?{{ request.META.QUERY_STRING }}&format=json">
             {% else %}
             <a href="?format=json">
             {% endif %}
-                JSON
+                JSON</a>
+            &ensp;
+            {% if request.META.QUERY_STRING %}
+            <a href="?{{ request.META.QUERY_STRING }}&format=csv">
+            {% else %}
+            <a href="?format=csv">
+            {% endif %}
+                CSV
             </a>
-        </p>
+        </div>
+        <div style="float:right; width:20%; text-align:right; font-size:.95em; margin:-.5em 0 0; padding:0 .5em .4em 0;   border:0px dotted green;">
+            <b style="font-size:1.2em;">{{timelogs.paginator.count}}</b> timelogs
+        </div>
         {% endif %}
         <table class="timelogs-table">
             <tr style=" background-color:#cce8ff; line-height:1.5em;">
                 <!--<th>id</th>-->
-                <th>Issue</th>
-                <th>User</th>
-                <th>Date</th>
-                <th>Duration</th>
+                <th style="width:45%;">Issue</th>
+                <th style="width:20%;">User</th>
+                <th style="width:15%;">Date</th>
+                <th style="width:10%;">Duration</th>
                 <th style="width:10%;">Action</th>
             </tr>
-        {% for timelog in timelogs_list %}
+        {% for timelog in timelogs %}
             <tr onmouseover="this.style.backgroundColor='#eee';" onmouseout="this.style.backgroundColor='inherit';">
                 <!--<td>{{ timelog.id }}</td>
                 <td><a href="/timelogs/{{ timelog.id }}">{{ timelog.id }}</a></td>-->
-                <td style="padding:.25em 0; width:40%;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
-                <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.username }}</a></td>
+                <td style="padding:.25em .4em; width:40%;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
+                <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.get_full_name }}</a></td>
                 <td style="text-align:center;">{{ timelog.date }}</td>
                 <td style="text-align:center;">{{ timelog.duration }}</td>
                 <td style="text-align:center;"><a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&emsp;&emsp;<a href="/timelogs/{{ timelog.id }}/delete">Delete</a></td>
             </tr>
         {% endfor %}
-            <tr>
-                <td colspan="3">&nbsp;</td>
-                <td style="text-align:center; background-color:#f1f1f1; font-weight:bold;">{{ total_duration }}</td>
-                <td>&nbsp;</td>
-            </tr>
         </table>
+
+        {% if timelogs.paginator.num_pages > 1 %}
+            <div class="paginator">
+            {% if timelogs.has_previous %}
+                <a href="?page={{ timelogs.previous_page_number }}">&lt;&lt;</a>&ensp;
+            {% endif %}
+            {% for page_num in timelogs.paginator.page_range %}
+            {% if page_num == timelogs.number %}
+                {{ page_num }}
+            {% else %}
+                <a href="?page={{ page_num }}">{{ page_num }}</a>
+            {% endif %}
+            &ensp;
+            {% endfor %}
+            {% if timelogs.has_next %}
+                <a href="?page={{ timelogs.next_page_number }}">&gt;&gt;</a>
+            {% endif %}
+        {% endif %}
+        </div>

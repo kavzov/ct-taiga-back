@@ -42,7 +42,8 @@
     }
 </script>
 
-<p style="padding-left:.3em; margin-bottom:-1em;">
+<div id="timelogs-form">
+<p>
     <span style="font-size:.8em; text-decoration:underline; color:blue; cursor:pointer;" onclick="setDates()">
         Last month</span>&ensp;
     <span style="font-size:.8em; text-decoration:underline; color:blue; cursor:pointer;" onclick="setDates('currentMonth')">
@@ -55,7 +56,7 @@
     {% if project_details %}
     <input type="hidden" name="project_id" value="{{ project_details.id }}">
     {% endif %}
-    <table style="margin:1em 0;">
+    <table style="margin:0 0 1em;">
         <tr>
             {% block extra_fields %}{% endblock %}
             <td><input type="date" name="date_from" id="date_from" value="{{ params.date_from }}" style="height:21px;"></td>
@@ -73,3 +74,4 @@
         </tr>
     </table>
 </form>
+</div><!-- #timelogs-form -->

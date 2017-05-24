@@ -8,17 +8,20 @@ from taiga.users.models import User
 from taiga.timelogs.views import get_timelogs
 
 
-@csrf_protect
 def issues_list(request):
-    issues_page_data = {}
+    args = {}
     iss_list = Issue.objects.all()
     add_issue_form = AddIssueForm
-    issues_page_data['title'] = "Issues"
-    issues_page_data['issues_list'] = iss_list
-    issues_page_data['add_issue_form'] = add_issue_form
-    return render(request, "issues/issues_list.html", issues_page_data)
+    args['title'] = "Issues"
+    args['issues_list'] = iss_list
+    args['add_issue_form'] = add_issue_form
 
+    return render(request, "issues/issues_list.html", args)
 
+from django.contrib.auth.decorators import permission_required, login_required
+from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
+
+@permission_required(ADMIN_PERMISSIONS)
 def issue_details(request, issue_id):
     args = {}
 
@@ -47,6 +50,6 @@ def issue_timelogs(request, issue_id):
     return render(request, template, args)
 
 
-
+@csrf_protect
 def add_issue(request):
     pass

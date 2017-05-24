@@ -10,6 +10,7 @@ from taiga.timelogs.views import get_timelogs
 def users_list(request):
     users = User.objects.all()
     args = {'users_list': users}
+
     return render(request, 'users/users_list.html', args)
 
 
@@ -24,6 +25,7 @@ def user_details(request, user_id):
     args['user_details'] = user
     args['id'] = user_id
     args['issues'] = issues
+
     return render(request, 'users/user_details.html', args)
 
 
