@@ -21,7 +21,6 @@ class Project(models.Model):
     members = models.ManyToManyField(User, related_name="projects", through="Membership", verbose_name="members",
                                      through_fields=("project", "user"))
 
-
     def __str__(self):
         return "{}".format(self.name)
 

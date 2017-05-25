@@ -2,11 +2,12 @@ import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
-from .models import Project
+from django.contrib.auth.decorators import permission_required, login_required
+from .models import Project, Membership
 from .forms import AddProjectForm
 from taiga.projects.issues.models import Issue
 from taiga.projects.issues.forms import AddIssueToProjectForm
-from taiga.users.models import User
+from taiga.users.models import User, Role
 from taiga.timelogs.views import get_timelogs
 
 
@@ -52,6 +53,24 @@ def project_timelogs(request, project_id):
         template = "projects/project_details.html"
         args['project_details'] = Project.objects.get(id=project_id)
 
+    return render(request, template, args)
+
+
+@csrf_protect
+# @permission_required("projects.change_project")
+@login_required()
+def edit_project(request, project_id):
+    # TODO
+    # check permissions via query to db table 'projects_membership' using project_id and request.user.id
+    # permission must be - "projects.change_project"
+    # get role_id -> permissions_list -> if "projects.change_project" not in permissions_list -> redirect else do func
+    # may be make decorator @project_permission_required
+    args = dict()
+    template = "projects/edit_project.html"
+
+    project = Project.objects.get(pk=project_id)
+    args['user'] = request.user
+    args['project'] = project
     return render(request, template, args)
 
 

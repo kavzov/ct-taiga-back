@@ -2,10 +2,12 @@ from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.contrib.auth.models import User
 from taiga.permissions import PERMISSIONS
-from taiga.projects.models import Project
 
 
 class User(User):
+    # def get_all_permissions(self):
+    #     pass
+
     def __str__(self):
         return "{id}. {fname} {lname}".format(id=self.id, fname=self.first_name, lname=self.last_name)
 
@@ -17,7 +19,7 @@ class Role(models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, verbose_name="name")
     permissions = ArrayField(models.TextField(null=False, blank=False, choices=PERMISSIONS),
                              null=True, blank=True, default=[], verbose_name="permissions")
-    project = models.ForeignKey(Project, null=True, blank=False, related_name="roles", verbose_name="project")
+    # project = models.ForeignKey(Project, null=True, blank=False, related_name="roles", verbose_name="project")
 
 
 

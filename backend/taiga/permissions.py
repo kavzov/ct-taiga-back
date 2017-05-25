@@ -66,9 +66,31 @@ ADMIN_PERMISSIONS = [
 ]
 
 DEVELOPER_PERMISSIONS = [
-
+    'contenttypes.add_contenttype',
+    'contenttypes.change_contenttype',
+    'contenttypes.delete_contenttype',
+    'sessions.add_session',
+    'sessions.change_session',
+    'sessions.delete_session',
+    'users.add_user',
+    'users.change_user',
+    'users.delete_user',
+    'projects.add_project',
+    'projects.change_project',
+    'projects.delete_project',
+    'issues.add_issue',
+    'issues.change_issue',
+    'issues.delete_issue',
+    'timelogs.add_timelog',
+    'timelogs.change_timelog',
+    'timelogs.delete_timelog',
 ]
 
 REPORTER_PERMISSIONS = [
-
+    'issues.add_issue',
+    'issues.change_issue',
+    'issues.delete_issue',
+    'timelogs.add_timelog',
+    'timelogs.change_timelog',
+    'timelogs.delete_timelog',
 ]

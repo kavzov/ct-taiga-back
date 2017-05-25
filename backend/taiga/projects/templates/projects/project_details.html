@@ -2,9 +2,14 @@
 
 {% block content %}
     <!-- Project details -->
-    <h2>Project &quot;{{ project_details.name }}&quot;</h3>
+    <h2>
+        Project &quot;{{ project_details.name }}&quot;
+        <span style="display:inline-block; float:right; text-align:right; font-size:.65em; font-weight:normal; line-height:1.7em;">
+            <a href="edit">Edit project</a>
+        </span>
+    </h2>
     <div>
-        <p style="line-height:1.3em;">{{ project_details.description }}</p>
+        <p>{{ project_details.description }}</p>
     </div>
 
     {% if not timelogs_list %}
