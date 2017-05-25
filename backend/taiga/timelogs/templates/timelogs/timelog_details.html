@@ -23,8 +23,8 @@
                 {% endfor %}
             </select>
             <input type="date" name="date" value="{{ timelog_details.date|date:'Y-m-d' }}" style="height:21px;">
-            <input type="number" name="duration" step="0.05" value="{% if timelog_details.duration %}{{ timelog_details.duration }}{% else %}0.00{% endif %}" style="width: 60px; height:18px;">
-            <input type="submit" value="{% if timelog_details.duration %}Update{% else %}Add timelog{% endif %}" style="height:25px;">
+            <input type="number" name="duration" step="0.05" value="{% if timelog_details.duration is not None %}{{ timelog_details.duration }}{% else %}0.00{% endif %}" style="width: 60px; height:18px;">
+            <input type="submit" value="{% if timelog_details.duration is not None %}Update{% else %}Add timelog{% endif %}" style="height:25px;">
         </form>
     </div>
 {% endblock content %}

@@ -13757,3 +13757,326 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 2017-05-24 16:16:22,261:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
 2017-05-24 16:16:24,255:basehttp "GET /admin/auth/user/2/change/ HTTP/1.1" 200 14307
 2017-05-24 16:16:24,307:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:42:37,624:basehttp "GET /admin/auth/ HTTP/1.1" 200 2705
+2017-05-25 07:42:37,646:basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+2017-05-25 07:42:37,649:basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+2017-05-25 07:42:37,663:basehttp "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+2017-05-25 07:42:37,689:basehttp "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+2017-05-25 07:42:37,695:basehttp "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+2017-05-25 07:42:37,706:basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+2017-05-25 07:42:37,708:basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+2017-05-25 07:42:37,714:basehttp "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+2017-05-25 07:42:39,168:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 4953
+2017-05-25 07:42:39,212:basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,221:basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,221:basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,222:basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,224:basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,229:basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+2017-05-25 07:42:39,230:basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,235:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:42:39,243:basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,246:basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+2017-05-25 07:42:39,255:basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+2017-05-25 07:42:39,334:basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+2017-05-25 07:42:41,671:basehttp "GET /admin/auth/group/1/change/ HTTP/1.1" 200 6988
+2017-05-25 07:42:41,689:basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+2017-05-25 07:42:41,689:basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+2017-05-25 07:42:41,690:basehttp "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+2017-05-25 07:42:41,695:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:42:41,696:basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+2017-05-25 07:42:41,700:basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+2017-05-25 07:42:41,709:basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+2017-05-25 07:42:41,801:basehttp "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+2017-05-25 07:42:41,803:basehttp "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+2017-05-25 07:42:41,805:basehttp "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+2017-05-25 07:43:06,344:basehttp "POST /admin/auth/group/1/change/ HTTP/1.1" 302 0
+2017-05-25 07:43:06,410:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 5132
+2017-05-25 07:43:06,435:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:43:06,531:basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+2017-05-25 07:43:12,087:basehttp "GET /admin/auth/group/1/change/ HTTP/1.1" 200 7528
+2017-05-25 07:43:12,111:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:43:19,835:basehttp "GET /admin/auth/ HTTP/1.1" 200 2705
+2017-05-25 07:43:20,639:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8413
+2017-05-25 07:43:20,660:basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+2017-05-25 07:43:20,663:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:43:20,704:basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+2017-05-25 07:43:24,153:basehttp "GET /admin/auth/user/2/change/ HTTP/1.1" 200 14307
+2017-05-25 07:43:24,180:basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+2017-05-25 07:43:24,190:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:43:24,191:basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+2017-05-25 07:43:24,340:basehttp "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+2017-05-25 07:43:24,343:basehttp "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+2017-05-25 07:45:33,443:basehttp "GET /timelogs/ HTTP/1.1" 200 27331
+2017-05-25 07:47:25,207:basehttp "GET /issues/ HTTP/1.1" 200 9149
+2017-05-25 07:47:26,606:basehttp "GET /issues/1/ HTTP/1.1" 200 6883
+2017-05-25 07:47:57,822:basehttp "GET /admin/ HTTP/1.1" 200 8350
+2017-05-25 07:47:59,465:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8413
+2017-05-25 07:47:59,494:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:48:00,770:basehttp "GET /admin/auth/user/1/change/ HTTP/1.1" 200 14288
+2017-05-25 07:48:00,823:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:48:07,944:basehttp "POST /admin/auth/user/1/change/ HTTP/1.1" 302 0
+2017-05-25 07:48:08,026:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8587
+2017-05-25 07:48:08,050:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:48:09,884:basehttp "GET /issues/1/ HTTP/1.1" 200 6888
+2017-05-25 07:48:13,569:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-05-25 07:48:13,574:basehttp "GET /issues/1/ HTTP/1.1" 302 0
+2017-05-25 07:48:13,585:basehttp "GET /login/?next=/issues/1/ HTTP/1.1" 200 3981
+2017-05-25 07:48:19,468:basehttp "POST /login/?next=/issues/1/ HTTP/1.1" 302 0
+2017-05-25 07:48:19,489:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 07:48:22,031:basehttp "GET /issues/ HTTP/1.1" 200 9161
+2017-05-25 07:48:23,145:basehttp "GET /issues/1/ HTTP/1.1" 302 0
+2017-05-25 07:48:23,179:basehttp "GET /login/?next=/issues/1/ HTTP/1.1" 200 3493
+2017-05-25 07:48:47,941:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-05-25 07:48:47,982:basehttp "GET /login/?next=/issues/1/ HTTP/1.1" 200 3981
+2017-05-25 07:48:54,946:basehttp "POST /login/?next=/issues/1/ HTTP/1.1" 302 0
+2017-05-25 07:48:54,965:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 07:48:57,072:basehttp "GET /issues/ HTTP/1.1" 200 9161
+2017-05-25 07:49:03,032:basehttp "GET /issues/3/ HTTP/1.1" 302 0
+2017-05-25 07:49:03,050:basehttp "GET /login/?next=/issues/3/ HTTP/1.1" 200 3493
+2017-05-25 07:49:16,412:basehttp "GET /admin/auth/ HTTP/1.1" 302 0
+2017-05-25 07:49:16,464:basehttp "GET /admin/login/?next=/admin/auth/ HTTP/1.1" 200 1817
+2017-05-25 07:49:20,197:basehttp "POST /admin/login/?next=/admin/auth/ HTTP/1.1" 302 0
+2017-05-25 07:49:20,252:basehttp "GET /admin/auth/ HTTP/1.1" 200 2705
+2017-05-25 07:49:22,229:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-05-25 07:49:22,265:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:49:24,333:basehttp "GET /admin/auth/user/2/change/ HTTP/1.1" 200 14307
+2017-05-25 07:49:24,383:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:49:28,482:basehttp "GET /admin/auth/ HTTP/1.1" 200 2705
+2017-05-25 07:49:29,628:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 4953
+2017-05-25 07:49:29,650:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:49:31,340:basehttp "GET /admin/auth/group/1/change/ HTTP/1.1" 200 7528
+2017-05-25 07:49:31,372:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-05-25 07:50:25,507:basehttp "GET /login/?next=/issues/3/ HTTP/1.1" 200 3480
+2017-05-25 07:50:28,997:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-05-25 07:50:29,010:basehttp "GET /login/?next=/issues/3/ HTTP/1.1" 200 3981
+2017-05-25 07:50:34,465:basehttp "POST /login/?next=/issues/3/ HTTP/1.1" 302 0
+2017-05-25 07:50:34,498:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 07:50:36,361:basehttp "GET /issues/ HTTP/1.1" 200 9161
+2017-05-25 07:50:37,990:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 07:50:38,664:basehttp "GET /projects/1/ HTTP/1.1" 200 10300
+2017-05-25 07:50:39,747:basehttp "GET /issues/1/ HTTP/1.1" 302 0
+2017-05-25 07:50:39,765:basehttp "GET /login/?next=/issues/1/ HTTP/1.1" 200 3493
+2017-05-25 08:01:26,042:basehttp "GET /login/?next=/issues/1/ HTTP/1.1" 200 3493
+2017-05-25 08:03:17,098:basehttp "GET /login/?next=/issues/1/ HTTP/1.1" 200 3493
+2017-05-25 08:03:19,759:basehttp "GET /issues/ HTTP/1.1" 200 9161
+2017-05-25 08:03:21,027:basehttp "GET /issues/1/ HTTP/1.1" 200 6895
+2017-05-25 08:08:28,595:basehttp "GET /timelogs/ HTTP/1.1" 200 27343
+2017-05-25 08:08:59,081:basehttp "GET /timelogs/92/edit HTTP/1.1" 301 0
+2017-05-25 08:08:59,204:basehttp "GET /timelogs/92/edit/ HTTP/1.1" 200 5649
+2017-05-25 08:09:20,871:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 27527
+2017-05-25 08:09:26,828:basehttp "GET /timelogs/?page=3 HTTP/1.1" 200 27482
+2017-05-25 08:09:29,696:basehttp "GET /timelogs/?page=4 HTTP/1.1" 200 27537
+2017-05-25 08:09:32,801:basehttp "GET /timelogs/162/edit HTTP/1.1" 301 0
+2017-05-25 08:09:32,867:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5652
+2017-05-25 08:10:07,443:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5652
+2017-05-25 08:15:12,358:basehttp "GET /timelogs/?page=4 HTTP/1.1" 200 27537
+2017-05-25 08:15:16,105:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5647
+2017-05-25 08:15:27,138:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5647
+2017-05-25 08:15:28,373:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5647
+2017-05-25 08:16:12,658:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5647
+2017-05-25 08:16:32,879:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5647
+2017-05-25 08:16:36,518:basehttp "POST /timelogs/162/edit/ HTTP/1.1" 200 5667
+2017-05-25 08:16:42,155:basehttp "GET /timelogs/162/edit/ HTTP/1.1" 200 5651
+2017-05-25 08:16:46,436:basehttp "GET /timelogs/?page=4 HTTP/1.1" 200 27537
+2017-05-25 08:17:55,601:basehttp "GET /timelogs/?csrfmiddlewaretoken=PN13jDRY1IJQ9hOlyshVGC5nNXN3kLK2n5CUwMlp93iLhzNljnAzxtsgtnZkA4Ce&issue_id=&user_id=&date_from=2017-05-01&date_till=2017-05-25 HTTP/1.1" 200 26728
+2017-05-25 08:18:00,860:basehttp "GET /timelogs/184/edit HTTP/1.1" 301 0
+2017-05-25 08:18:00,944:basehttp "GET /timelogs/184/edit/ HTTP/1.1" 200 5647
+2017-05-25 08:18:05,782:basehttp "POST /timelogs/184/edit/ HTTP/1.1" 200 5667
+2017-05-25 08:18:14,128:basehttp "GET /timelogs/184/edit/ HTTP/1.1" 200 5651
+2017-05-25 08:18:17,881:basehttp "GET /timelogs/?csrfmiddlewaretoken=PN13jDRY1IJQ9hOlyshVGC5nNXN3kLK2n5CUwMlp93iLhzNljnAzxtsgtnZkA4Ce&issue_id=&user_id=&date_from=2017-05-01&date_till=2017-05-25 HTTP/1.1" 200 26725
+2017-05-25 08:19:07,696:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 08:19:10,133:basehttp "GET /projects/1/ HTTP/1.1" 200 10300
+2017-05-25 08:39:17,882:basehttp "GET /projects/1/ HTTP/1.1" 200 10300
+2017-05-25 09:04:57,715:exception Internal Server Error: /issues/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: column issues_issue.status does not exist
+LINE 1: ...e"."assigned_to_id", "issues_issue"."project_id", "issues_is...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/issues/views.py", line 19, in issues_list
+    return render(request, "issues/issues_list.html", args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column issues_issue.status does not exist
+LINE 1: ...e"."assigned_to_id", "issues_issue"."project_id", "issues_is...
+                                                             ^
+
+2017-05-25 09:04:57,882:basehttp "GET /issues/ HTTP/1.1" 500 190798
+2017-05-25 09:05:21,322:basehttp "GET /issues/ HTTP/1.1" 200 9161
+2017-05-25 09:05:55,353:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 09:05:57,174:basehttp "GET /projects/1/ HTTP/1.1" 200 10300
+2017-05-25 09:45:56,703:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 09:57:56,049:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 09:57:58,001:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 09:58:41,194:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 10:01:00,900:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 10:01:01,887:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 10:01:36,971:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 10:01:56,281:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 10:12:51,990:basehttp "GET /issues/1/ HTTP/1.1" 200 6895
+2017-05-25 10:28:03,236:basehttp "GET /timelogs/ HTTP/1.1" 200 27343
+2017-05-25 10:28:12,824:basehttp "GET /timelogs/?csrfmiddlewaretoken=CgkYHFENbeaBGZ0tVzqWDPf8ZCjPAevEayVPUO8ejzJwOhZtGuJAuGC1F2v6QxnQ&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 26516
+2017-05-25 10:32:04,534:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 10:32:08,631:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 12:58:30,613:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 12:58:36,262:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 13:05:52,382:basehttp "GET /projects/1/ HTTP/1.1" 200 10692
+2017-05-25 13:05:56,244:basehttp "GET /issues/2/ HTTP/1.1" 200 6968
+2017-05-25 13:06:00,840:basehttp "GET /users/4/ HTTP/1.1" 200 6525
+2017-05-25 13:06:05,548:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-05-25 13:06:05,579:basehttp "GET /users/4/ HTTP/1.1" 200 6505
+2017-05-25 13:06:06,388:basehttp "GET /login/ HTTP/1.1" 200 3981
+2017-05-25 13:06:11,451:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-05-25 13:06:11,482:basehttp "GET /projects/ HTTP/1.1" 200 5692
+2017-05-25 13:06:13,559:basehttp "GET /projects/2/ HTTP/1.1" 200 10460
+2017-05-25 13:06:15,960:basehttp "GET /issues/6/ HTTP/1.1" 302 0
+2017-05-25 13:06:15,976:basehttp "GET /login/?next=/issues/6/ HTTP/1.1" 200 3499
+2017-05-25 13:06:17,750:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-05-25 13:06:17,759:basehttp "GET /login/?next=/issues/6/ HTTP/1.1" 200 3981
+2017-05-25 13:06:25,244:basehttp "POST /login/?next=/issues/6/ HTTP/1.1" 302 0
+2017-05-25 13:06:25,266:basehttp "GET /projects/ HTTP/1.1" 200 5689
+2017-05-25 13:06:27,549:basehttp "GET /projects/2/ HTTP/1.1" 200 10457
+2017-05-25 13:06:28,429:basehttp "GET /issues/5/ HTTP/1.1" 200 6998
+2017-05-25 13:27:43,194:basehttp "GET /issues/5/ HTTP/1.1" 200 6998
+2017-05-25 13:28:11,650:exception Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: column projects_project.created_date does not exist
+LINE 1: ...roject"."name", "projects_project"."description", "projects_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 21, in projects_list
+    return render(request, "projects/projects_list.html", args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 210, in render
+    return template.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 210, in render
+    return self._render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column projects_project.created_date does not exist
+LINE 1: ...roject"."name", "projects_project"."description", "projects_...
+                                                             ^
+
+2017-05-25 13:28:11,858:basehttp "GET /projects/ HTTP/1.1" 500 211475
