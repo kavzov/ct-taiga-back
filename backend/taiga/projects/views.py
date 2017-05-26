@@ -1,6 +1,6 @@
 import json
 from django.core.serializers.json import DjangoJSONEncoder
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import permission_required, login_required
 from .models import Project, Membership
@@ -25,19 +25,11 @@ def projects_list(request):
 def project_details(request, project_id):
     args = {}
 
-    pdetails = Project.objects.values().get(id=project_id)
-    args['project_details'] = pdetails
-
-    pissues = Issue.objects.all().filter(project=project_id)
-    args['issues'] = pissues
-
-    users = User.objects.all()
-    args['users'] = users
-
-    add_issue_form = AddIssueToProjectForm
-    args['add_issue_form'] = add_issue_form
-
-    args['title'] = 'Project "' + pdetails['name'] + '"'
+    args['project_details'] = Project.objects.values().get(id=project_id)
+    args['issues'] = Issue.objects.all().filter(project=project_id)
+    args['users'] = User.objects.all()
+    args['add_issue_form'] = AddIssueToProjectForm
+    args['title'] = 'Project "' + args['project_details']['name'] + '"'
 
     return render(request, "projects/project_details.html", args)
 
@@ -56,21 +48,54 @@ def project_timelogs(request, project_id):
     return render(request, template, args)
 
 
+def project_permission_required(perms, redir_page="/projects/"):
+    def decor(func):
+        def inner(request, project_id):
+            from django.core.exceptions import ObjectDoesNotExist
+            required_perms = []
+            if isinstance(perms, str):
+                required_perms.append(perms)
+            else:
+                required_perms.extend(perms)
+            try:
+                # role = Membership.objects.get(project_id=int(project_id), user_id=request.user.id)
+                roles = Membership.objects.all().filter(project_id=int(project_id), user_id=request.user.id)
+            except ObjectDoesNotExist:
+                return redirect(redir_page)
+            user_perms = []
+            for role in roles:
+                user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+            for perm in required_perms:
+                if perm not in user_perms:
+                    return redirect(redir_page)
+            return func(request, project_id)
+        return inner
+    return decor
+
+
+from taiga.permissions import DEVELOPER_PERMISSIONS
 @csrf_protect
-# @permission_required("projects.change_project")
+@project_permission_required(DEVELOPER_PERMISSIONS)
 @login_required()
 def edit_project(request, project_id):
-    # TODO
-    # check permissions via query to db table 'projects_membership' using project_id and request.user.id
-    # permission must be - "projects.change_project"
-    # get role_id -> permissions_list -> if "projects.change_project" not in permissions_list -> redirect else do func
-    # may be make decorator @project_permission_required
     args = dict()
     template = "projects/edit_project.html"
 
     project = Project.objects.get(pk=project_id)
-    args['user'] = request.user
+    users = User.objects.all()
+    members = Membership.objects.filter(project=project_id)
+    roles = Role.objects.all()
+
+    # user_project_roles = [member.role.id for member in members.filter(user_id=)];
+
     args['project'] = project
+    args['user'] = request.user
+    args['users'] = users
+    args['members'] = members
+    args['roles'] = roles
+
+    args['editing'] = True   # for hide label "Edit projects" at the right top
+
     return render(request, template, args)
 
 

@@ -22,7 +22,7 @@ from django.contrib.auth.decorators import permission_required, login_required
 from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
 
 
-@permission_required(ADMIN_PERMISSIONS)
+# @permission_required(ADMIN_PERMISSIONS)
 def issue_details(request, issue_id):
     args = {}
 

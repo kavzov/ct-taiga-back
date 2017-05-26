@@ -22,4 +22,4 @@ def auth_login(request):
 
 def auth_logout(request):
     logout(request)
-    return redirect(request.META['HTTP_REFERER'])   # to stay on the page where Logout clicked
+    return redirect("/login/")

@@ -1,15 +1,23 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Issue
 
 
-class AddIssueForm(ModelForm):
+class AddIssueForm(forms.ModelForm):
     class Meta:
         model = Issue
-        fields = ['subject', 'description', 'project', 'status', 'assigned_to']
+        fields = [
+            'subject', 'description', 'project', 'status', 'assigned_to'
+        ]
+        labels = {
+            "assigned_to": "Assignee"
+        }
 
 
-class AddIssueToProjectForm(ModelForm):
+class AddIssueToProjectForm(forms.ModelForm):
     class Meta:
         model = Issue
         fields = ['subject', 'description', 'status', 'assigned_to']
+        labels = {
+            "assigned_to": "Assignee"
+        }
 
