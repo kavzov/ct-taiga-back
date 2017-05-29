@@ -8,7 +8,9 @@ from .forms import AddProjectForm
 from taiga.projects.issues.models import Issue
 from taiga.projects.issues.forms import AddIssueToProjectForm
 from taiga.users.models import User, Role
+from taiga.timelogs.models import Timelog
 from taiga.timelogs.views import get_timelogs
+from taiga.permissions import DEVELOPER_PERMISSIONS
 
 
 def projects_list(request):
@@ -31,6 +33,21 @@ def project_details(request, project_id):
     args['add_issue_form'] = AddIssueToProjectForm
     args['title'] = 'Project "' + args['project_details']['name'] + '"'
 
+    proj_mbr_roles = Membership.objects.filter(project=project_id)
+    members = proj_mbr_roles.distinct('user')
+    # roles = Role.objects.all()
+    members_roles = {}
+    for member in members:
+        members_roles[member] = [mbr.role for mbr in proj_mbr_roles.filter(user_id=member.user.id)]
+
+    args['members'] = members
+    args['members_roles'] = members_roles
+
+    timelogs = Timelog.objects.all().filter(issue__project__id=project_id)
+    durations = [v['duration'] for v in list(timelogs.values())]
+
+    args['total_time'] = sum(durations)
+
     return render(request, "projects/project_details.html", args)
 
 
@@ -48,23 +65,27 @@ def project_timelogs(request, project_id):
     return render(request, template, args)
 
 
+def user_project_perms(user_id, project_id):
+    from django.core.exceptions import ObjectDoesNotExist
+    user_perms = []
+    try:
+        roles = Membership.objects.filter(project_id=int(project_id), user_id=user_id)
+    except ObjectDoesNotExist:
+        return user_perms
+    for role in roles:
+        user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+    return user_perms
+
+
 def project_permission_required(perms, redir_page="/projects/"):
     def decor(func):
         def inner(request, project_id):
-            from django.core.exceptions import ObjectDoesNotExist
             required_perms = []
             if isinstance(perms, str):
                 required_perms.append(perms)
             else:
                 required_perms.extend(perms)
-            try:
-                # role = Membership.objects.get(project_id=int(project_id), user_id=request.user.id)
-                roles = Membership.objects.all().filter(project_id=int(project_id), user_id=request.user.id)
-            except ObjectDoesNotExist:
-                return redirect(redir_page)
-            user_perms = []
-            for role in roles:
-                user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+            user_perms = user_project_perms(request.user.id, project_id)
             for perm in required_perms:
                 if perm not in user_perms:
                     return redirect(redir_page)
@@ -73,27 +94,30 @@ def project_permission_required(perms, redir_page="/projects/"):
     return decor
 
 
-from taiga.permissions import DEVELOPER_PERMISSIONS
 @csrf_protect
-@project_permission_required(DEVELOPER_PERMISSIONS)
-@login_required()
+# @project_permission_required(DEVELOPER_PERMISSIONS)
+# @login_required()
 def edit_project(request, project_id):
     args = dict()
     template = "projects/edit_project.html"
 
     project = Project.objects.get(pk=project_id)
     users = User.objects.all()
-    members = Membership.objects.filter(project=project_id)
+    proj_mbr_roles = Membership.objects.filter(project=project_id)
+    members = proj_mbr_roles.distinct('user')
     roles = Role.objects.all()
 
-    # user_project_roles = [member.role.id for member in members.filter(user_id=)];
+    members_roles = {}
+    for member in members:
+        members_roles[member] = [mbr.role.id for mbr in proj_mbr_roles.filter(user_id=member.user.id)]
 
     args['project'] = project
     args['user'] = request.user
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
     args['users'] = users
     args['members'] = members
+    args['members_roles'] = members_roles
     args['roles'] = roles
-
     args['editing'] = True   # for hide label "Edit projects" at the right top
 
     return render(request, template, args)
