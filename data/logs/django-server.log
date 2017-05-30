@@ -17955,3 +17955,681 @@ LINE 1: ...ues_issue"."project_id", "issues_issue"."status", "issues_is...
 2017-05-30 09:23:48,724:basehttp "GET /projects/2/ HTTP/1.1" 200 11146
 2017-05-30 09:28:19,610:basehttp "GET /projects/2/ HTTP/1.1" 200 11146
 2017-05-30 09:35:06,606:basehttp "GET /projects/ HTTP/1.1" 200 6137
+2017-05-30 09:50:52,879:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: column issues_issue.created_date does not exist
+LINE 1: ...ues_issue"."project_id", "issues_issue"."status", "issues_is...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 52, in project_details
+    return render(request, "projects/project_details.html", args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 315, in render
+    return nodelist.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 166, in render
+    len_values = len(values)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 238, in __len__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column issues_issue.created_date does not exist
+LINE 1: ...ues_issue"."project_id", "issues_issue"."status", "issues_is...
+                                                             ^
+
+2017-05-30 09:50:53,107:basehttp "GET /projects/2/ HTTP/1.1" 500 225535
+2017-05-30 09:58:58,408:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 52, in project_details
+    return render(request, "projects/project_details.html", args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 945, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 803, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 489, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ': "Y F, d"' from 'issue.created_date|date: "Y F, d"'
+2017-05-30 09:58:58,688:basehttp "GET /projects/2/ HTTP/1.1" 500 220165
+2017-05-30 09:59:26,835:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 52, in project_details
+    return render(request, "projects/project_details.html", args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 945, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 803, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 489, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ': "F d, Y"' from 'issue.created_date|date: "F d, Y"'
+2017-05-30 09:59:27,088:basehttp "GET /projects/2/ HTTP/1.1" 500 220165
+2017-05-30 10:00:15,446:basehttp "GET /projects/2/ HTTP/1.1" 200 11524
+2017-05-30 10:00:59,701:basehttp "GET /projects/2/ HTTP/1.1" 200 11524
+2017-05-30 10:01:10,549:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 52, in project_details
+    return render(request, "projects/project_details.html", args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 945, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 803, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 489, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ': "F d, Y"' from 'issue.created_date|date: "F d, Y"'
+2017-05-30 10:01:10,879:basehttp "GET /projects/2/ HTTP/1.1" 500 220165
+2017-05-30 10:01:13,637:basehttp "GET /projects/2/ HTTP/1.1" 200 11524
+2017-05-30 10:03:38,153:basehttp "GET /projects/2/ HTTP/1.1" 200 11146
+2017-05-30 10:04:11,479:basehttp "GET /projects/2/ HTTP/1.1" 200 11171
+2017-05-30 10:04:22,744:basehttp "GET /projects/2/ HTTP/1.1" 200 11172
+2017-05-30 10:04:30,671:basehttp "GET /projects/2/ HTTP/1.1" 200 11173
+2017-05-30 10:04:46,622:basehttp "GET /projects/2/ HTTP/1.1" 200 11172
+2017-05-30 10:04:51,023:basehttp "GET /projects/2/ HTTP/1.1" 200 11173
+2017-05-30 10:04:55,146:basehttp "GET /projects/2/ HTTP/1.1" 200 11172
+2017-05-30 10:04:58,771:basehttp "GET /projects/2/ HTTP/1.1" 200 11171
+2017-05-30 10:06:13,905:basehttp "GET /projects/2/ HTTP/1.1" 200 11172
+2017-05-30 10:06:20,396:basehttp "GET /projects/2/ HTTP/1.1" 200 11173
+2017-05-30 10:06:29,420:basehttp "GET /projects/2/ HTTP/1.1" 200 11173
+2017-05-30 10:06:34,093:basehttp "GET /projects/2/ HTTP/1.1" 200 11172
+2017-05-30 10:08:02,036:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 7841
+2017-05-30 10:29:08,594:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 7847
+2017-05-30 10:29:13,902:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 7847
+2017-05-30 10:31:20,360:basehttp "GET /test HTTP/1.1" 301 0
+2017-05-30 10:31:20,382:exception Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.index.views.test didn't return an HttpResponse object. It returned None instead.
+2017-05-30 10:31:20,512:basehttp "GET /test/ HTTP/1.1" 500 59159
+2017-05-30 10:32:18,843:basehttp "GET /test/ HTTP/1.1" 200 230
+2017-05-30 10:34:29,506:basehttp "GET /test/ HTTP/1.1" 200 257
+2017-05-30 10:34:33,649:basehttp "POST /test/ HTTP/1.1" 403 2502
+2017-05-30 10:34:53,980:basehttp "POST /test/ HTTP/1.1" 403 2502
+2017-05-30 10:35:45,278:basehttp "POST /test/ HTTP/1.1" 403 2502
+2017-05-30 10:35:51,869:basehttp "POST /test/ HTTP/1.1" 403 2502
+2017-05-30 10:35:56,091:basehttp "GET /test/ HTTP/1.1" 200 322
+2017-05-30 10:36:33,470:basehttp "GET /test/ HTTP/1.1" 200 322
+2017-05-30 10:36:34,460:basehttp "GET /test/ HTTP/1.1" 200 322
+2017-05-30 10:36:34,991:basehttp "GET /test/ HTTP/1.1" 200 322
+2017-05-30 10:37:04,606:basehttp "GET /test/ HTTP/1.1" 200 381
+2017-05-30 10:37:07,579:basehttp "POST /test/ HTTP/1.1" 200 380
+2017-05-30 10:38:29,612:basehttp "GET /test/ HTTP/1.1" 200 377
+2017-05-30 10:38:32,981:basehttp "POST /test/ HTTP/1.1" 200 385
+2017-05-30 10:39:02,355:basehttp "POST /test/ HTTP/1.1" 200 391
+2017-05-30 10:39:04,833:basehttp "GET /test/ HTTP/1.1" 200 383
+2017-05-30 10:39:07,645:basehttp "POST /test/ HTTP/1.1" 200 388
+2017-05-30 10:39:34,843:basehttp "POST /test/ HTTP/1.1" 200 386
+2017-05-30 10:39:37,648:basehttp "GET /test/ HTTP/1.1" 200 381
+2017-05-30 10:39:39,669:basehttp "POST /test/ HTTP/1.1" 200 386
+2017-05-30 11:03:06,331:basehttp "GET /test/ HTTP/1.1" 200 381
+2017-05-30 11:03:12,804:basehttp "GET /test/ HTTP/1.1" 200 381
+2017-05-30 11:03:47,321:basehttp "GET /test/ HTTP/1.1" 200 381
+2017-05-30 11:04:15,525:exception Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'name_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/index/views.py", line 37, in test
+    return render(request, template, args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 13: 'name_form'. Did you forget to register or load this tag?
+2017-05-30 11:04:15,657:basehttp "GET /test/ HTTP/1.1" 500 133266
+2017-05-30 11:04:21,336:basehttp "GET /test/ HTTP/1.1" 200 513
+2017-05-30 11:04:24,127:basehttp "GET /test/ HTTP/1.1" 200 513
+2017-05-30 11:04:33,922:basehttp "GET /test/ HTTP/1.1" 200 517
+2017-05-30 11:05:14,358:basehttp "GET /test/ HTTP/1.1" 200 483
+2017-05-30 11:05:30,819:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:05:43,807:basehttp "POST /test/ HTTP/1.1" 200 490
+2017-05-30 11:05:50,367:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:06:10,115:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:06:14,260:basehttp "POST /test/ HTTP/1.1" 200 498
+2017-05-30 11:06:18,326:basehttp "POST /test/ HTTP/1.1" 200 496
+2017-05-30 11:06:44,028:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:06:45,484:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:06:48,638:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:06:51,955:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:07:01,627:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:07:01,834:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:07:02,376:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:07:10,183:basehttp "GET /test/ HTTP/1.1" 200 471
+2017-05-30 11:07:15,154:basehttp "GET /test/ HTTP/1.1" 200 471
+2017-05-30 11:07:34,945:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:07:39,092:basehttp "GET /test/ HTTP/1.1" 200 490
+2017-05-30 11:08:33,140:basehttp "GET /test/ HTTP/1.1" 200 522
+2017-05-30 11:09:47,654:basehttp "GET /test/ HTTP/1.1" 200 614
+2017-05-30 11:09:50,147:basehttp "GET /test/ HTTP/1.1" 200 614
+2017-05-30 11:09:58,540:basehttp "GET /test/ HTTP/1.1" 200 603
+2017-05-30 11:10:18,706:basehttp "GET /test/ HTTP/1.1" 200 609
+2017-05-30 11:10:30,342:basehttp "GET /test/ HTTP/1.1" 200 621
+2017-05-30 11:10:43,258:basehttp "GET /test/ HTTP/1.1" 200 647
+2017-05-30 11:10:58,209:basehttp "GET /test/ HTTP/1.1" 200 685
+2017-05-30 11:11:15,126:basehttp "GET /test/ HTTP/1.1" 200 671
+2017-05-30 11:11:21,248:basehttp "GET /test/ HTTP/1.1" 200 659
+2017-05-30 11:17:10,420:basehttp "GET /test/ HTTP/1.1" 200 1090
+2017-05-30 11:17:45,706:basehttp "GET /test/ HTTP/1.1" 200 1064
+2017-05-30 11:17:52,038:basehttp "GET /test/ HTTP/1.1" 200 1052
+2017-05-30 11:17:55,808:basehttp "GET /test/ HTTP/1.1" 200 1064
+2017-05-30 11:20:41,489:basehttp "GET /projects/ HTTP/1.1" 200 6137
+2017-05-30 11:20:44,258:basehttp "GET /projects/2/ HTTP/1.1" 200 11172
+2017-05-30 11:20:51,031:basehttp "GET /projects/ HTTP/1.1" 200 6137
+2017-05-30 11:20:53,006:basehttp "GET /projects/2/ HTTP/1.1" 200 11172
+2017-05-30 11:22:00,578:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 7847
+2017-05-30 11:23:37,140:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 7847
+2017-05-30 11:25:23,232:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 7847
+2017-05-30 11:28:41,778:basehttp "GET /test/ HTTP/1.1" 200 1064
+2017-05-30 11:29:31,404:basehttp "POST /test/ HTTP/1.1" 200 538
+2017-05-30 11:29:47,776:basehttp "POST /test/ HTTP/1.1" 200 540
+2017-05-30 11:29:53,646:basehttp "POST /test/ HTTP/1.1" 200 541
+2017-05-30 11:30:16,042:basehttp "GET /test/ HTTP/1.1" 200 1064
+2017-05-30 11:30:16,147:basehttp "GET /favicon.ico HTTP/1.1" 404 2996
+2017-05-30 11:37:09,738:basehttp "GET /test/ HTTP/1.1" 200 1064
+2017-05-30 11:37:17,209:exception Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/index/views.py", line 36, in test
+    if form.is_valid():
+UnboundLocalError: local variable 'form' referenced before assignment
+2017-05-30 11:37:17,306:basehttp "GET /test/ HTTP/1.1" 500 73000
+2017-05-30 11:37:30,989:basehttp "GET /test/ HTTP/1.1" 200 1064
+2017-05-30 11:38:58,272:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 7847
+2017-05-30 11:39:20,508:basehttp "GET /test/ HTTP/1.1" 200 1064
+2017-05-30 11:50:42,207:basehttp "GET /timelogs/?project_id=2 HTTP/1.1" 200 26710
+2017-05-30 13:25:39,986:basehttp "GET /testformset HTTP/1.1" 301 0
+2017-05-30 13:25:40,021:basehttp "GET /testformset/ HTTP/1.1" 200 1394
+2017-05-30 13:26:19,461:basehttp "GET /testformset/ HTTP/1.1" 200 829
+2017-05-30 13:26:20,258:basehttp "GET /testformset/ HTTP/1.1" 200 829
+2017-05-30 13:26:23,885:basehttp "GET /testformset/ HTTP/1.1" 200 1394
+2017-05-30 13:27:51,397:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'endform'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 53, in testformset
+    return render(request, template, args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/defaulttags.py", line 803, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 568, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 20: 'endform', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+2017-05-30 13:27:51,616:basehttp "GET /testformset/ HTTP/1.1" 500 145841
+2017-05-30 13:27:58,735:basehttp "GET /testformset/ HTTP/1.1" 200 1064
+2017-05-30 13:28:47,793:basehttp "GET /testformset/ HTTP/1.1" 200 563
+2017-05-30 13:28:52,820:basehttp "GET /testformset/ HTTP/1.1" 200 601
+2017-05-30 13:29:16,406:basehttp "GET /testformset/ HTTP/1.1" 200 563
+2017-05-30 13:34:48,426:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 47, in testformset
+    project_formset = formset_factory(ProjectDetails, prefix="project")
+TypeError: formset_factory() got an unexpected keyword argument 'prefix'
+2017-05-30 13:34:48,512:basehttp "GET /testformset/ HTTP/1.1" 500 68441
+2017-05-30 13:34:54,190:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 47, in testformset
+    project_formset = formset_factory(ProjectDetails, prefix="project")
+TypeError: formset_factory() got an unexpected keyword argument 'prefix'
+2017-05-30 13:34:54,352:basehttp "GET /testformset/ HTTP/1.1" 500 68441
+2017-05-30 13:36:48,669:basehttp "GET /testformset/ HTTP/1.1" 200 486
+2017-05-30 13:37:28,561:basehttp "GET /testformset/ HTTP/1.1" 200 488
+2017-05-30 13:39:04,880:basehttp "GET /testformset/ HTTP/1.1" 200 1216
+2017-05-30 13:39:32,677:basehttp "GET /testformset/ HTTP/1.1" 200 2167
+2017-05-30 13:40:12,260:basehttp "GET /testformset/ HTTP/1.1" 200 2121
+2017-05-30 13:40:33,252:basehttp "GET /testformset/ HTTP/1.1" 200 2121
+2017-05-30 13:40:34,325:basehttp "GET /testformset/ HTTP/1.1" 200 2309
+2017-05-30 13:40:54,716:basehttp "GET /testformset/ HTTP/1.1" 200 2323
+2017-05-30 13:41:59,457:basehttp "GET /testformset/ HTTP/1.1" 200 500
+2017-05-30 13:42:09,229:basehttp "GET /testformset/ HTTP/1.1" 200 500
+2017-05-30 13:42:12,696:basehttp "GET /testformset/ HTTP/1.1" 200 500
+2017-05-30 13:45:28,268:basehttp "GET /testformset/ HTTP/1.1" 200 501
+2017-05-30 13:45:34,796:basehttp "GET /testformset/ HTTP/1.1" 200 501
+2017-05-30 13:45:39,884:basehttp "GET /testformset/ HTTP/1.1" 200 501
+2017-05-30 13:45:43,349:basehttp "GET /testformset/ HTTP/1.1" 200 501
+2017-05-30 13:45:52,803:basehttp "GET /testformset/ HTTP/1.1" 200 503
+2017-05-30 13:45:57,689:basehttp "GET /testformset/ HTTP/1.1" 200 1227
+2017-05-30 13:46:03,412:basehttp "GET /testformset/ HTTP/1.1" 200 503
+2017-05-30 13:46:08,278:basehttp "GET /testformset/ HTTP/1.1" 200 1227
+2017-05-30 13:49:10,393:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 49, in testformset
+    FullFormSet = inlineformset_factory(ProjectDetails, ProjectMembers)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1034, in inlineformset_factory
+    fk = _get_foreign_key(parent_model, model, fk_name=fk_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1007, in _get_foreign_key
+    model._meta.label,
+AttributeError: 'ModelFormOptions' object has no attribute 'label'
+2017-05-30 13:49:10,502:basehttp "GET /testformset/ HTTP/1.1" 500 80736
+2017-05-30 13:49:50,825:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 49, in testformset
+    FullFormSet = inlineformset_factory(ProjectDetails, ProjectMembers, fielfds=('name',))
+TypeError: inlineformset_factory() got an unexpected keyword argument 'fielfds'
+2017-05-30 13:49:50,937:basehttp "GET /testformset/ HTTP/1.1" 500 68698
+2017-05-30 13:50:02,479:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 49, in testformset
+    FullFormSet = inlineformset_factory(ProjectDetails, ProjectMembers, fields=('name',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1034, in inlineformset_factory
+    fk = _get_foreign_key(parent_model, model, fk_name=fk_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1007, in _get_foreign_key
+    model._meta.label,
+AttributeError: 'ModelFormOptions' object has no attribute 'label'
+2017-05-30 13:50:02,622:basehttp "GET /testformset/ HTTP/1.1" 500 80801
+2017-05-30 13:52:11,498:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 50, in testformset
+    FullFormSet = inlineformset_factory(ProjectMembers, ProjectDetails, fields=('name',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1034, in inlineformset_factory
+    fk = _get_foreign_key(parent_model, model, fk_name=fk_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1007, in _get_foreign_key
+    model._meta.label,
+AttributeError: 'ModelFormOptions' object has no attribute 'label'
+2017-05-30 13:52:11,609:basehttp "GET /testformset/ HTTP/1.1" 500 80793
+2017-05-30 13:52:12,575:exception Internal Server Error: /testformset/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/index/views.py", line 50, in testformset
+    FullFormSet = inlineformset_factory(ProjectMembers, ProjectDetails, fields=('name',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1034, in inlineformset_factory
+    fk = _get_foreign_key(parent_model, model, fk_name=fk_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/forms/models.py", line 1007, in _get_foreign_key
+    model._meta.label,
+AttributeError: 'ModelFormOptions' object has no attribute 'label'
+2017-05-30 13:52:12,771:basehttp "GET /testformset/ HTTP/1.1" 500 80793
+2017-05-30 13:54:36,967:basehttp "GET /testformset/ HTTP/1.1" 200 501
+2017-05-30 13:55:31,430:basehttp "GET /testformset/ HTTP/1.1" 200 2321
+2017-05-30 13:56:27,678:basehttp "GET /test/ HTTP/1.1" 200 1176
+2017-05-30 13:56:45,020:basehttp "GET /test/ HTTP/1.1" 200 594
+2017-05-30 13:57:05,159:basehttp "GET /test/ HTTP/1.1" 200 632
+2017-05-30 13:58:39,807:basehttp "GET /test/ HTTP/1.1" 200 1518
+2017-05-30 13:58:41,812:basehttp "GET /test/ HTTP/1.1" 200 1518
+2017-05-30 13:58:59,878:basehttp "GET /test/ HTTP/1.1" 200 1532
+2017-05-30 14:01:21,702:basehttp "GET /test/ HTTP/1.1" 200 1542
+2017-05-30 14:01:34,507:exception Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/index/views.py", line 43, in test
+    return render(request, template, {'text': 'OK ' + request.POST.get("name"), 'member': request.POST("user")})
+TypeError: 'QueryDict' object is not callable
+2017-05-30 14:01:34,621:basehttp "POST /test/ HTTP/1.1" 500 74937
+2017-05-30 14:02:04,992:basehttp "POST /test/ HTTP/1.1" 200 563
+2017-05-30 14:02:10,265:basehttp "GET /test/ HTTP/1.1" 200 1542
+2017-05-30 14:03:21,849:basehttp "GET /test/ HTTP/1.1" 200 1541
+2017-05-30 14:03:41,044:basehttp "POST /test/ HTTP/1.1" 200 558
+2017-05-30 14:03:49,692:basehttp "POST /test/ HTTP/1.1" 200 558
+2017-05-30 14:03:51,024:basehttp "GET /test/ HTTP/1.1" 200 1541
+2017-05-30 14:03:52,125:basehttp "GET /test/ HTTP/1.1" 200 1541
+2017-05-30 14:04:29,797:basehttp "GET /test/ HTTP/1.1" 200 1541
+2017-05-30 14:04:29,891:basehttp "GET /test/ HTTP/1.1" 200 1541
+2017-05-30 14:16:49,216:basehttp "GET /test/ HTTP/1.1" 200 1553
+2017-05-30 14:17:42,218:basehttp "GET /test/ HTTP/1.1" 200 1553
+2017-05-30 14:22:30,930:basehttp "GET /test/ HTTP/1.1" 200 1553
+2017-05-30 14:22:39,778:basehttp "GET /test/ HTTP/1.1" 200 1553
+2017-05-30 14:36:08,811:basehttp "GET /testformset/ HTTP/1.1" 200 2320
+2017-05-30 14:36:12,291:basehttp "GET /test/ HTTP/1.1" 200 1541
+2017-05-30 14:38:24,868:basehttp "GET /testformset/ HTTP/1.1" 200 2320
+2017-05-30 14:38:38,561:basehttp "GET /projects/2/ HTTP/1.1" 200 11261
+2017-05-30 14:52:39,773:basehttp "GET /test/ HTTP/1.1" 200 1661
+2017-05-30 14:53:33,480:basehttp "GET /test/ HTTP/1.1" 200 1695
+2017-05-30 14:54:00,256:basehttp "GET /test/ HTTP/1.1" 200 1692
+2017-05-30 14:54:08,374:basehttp "GET /test/ HTTP/1.1" 200 1693
+2017-05-30 14:54:19,833:basehttp "GET /test/ HTTP/1.1" 200 1696
+2017-05-30 14:54:32,190:basehttp "GET /test/ HTTP/1.1" 200 1697
+2017-05-30 14:55:29,425:basehttp "GET /test/ HTTP/1.1" 200 1691
+2017-05-30 14:55:47,039:basehttp "GET /test/ HTTP/1.1" 200 1705
+2017-05-30 14:57:57,665:basehttp "GET /test/ HTTP/1.1" 200 1701
+2017-05-30 15:00:45,499:basehttp "GET /test/ HTTP/1.1" 200 1698
+2017-05-30 15:01:21,904:basehttp "GET /test/ HTTP/1.1" 200 1677
+2017-05-30 15:01:31,240:basehttp "GET /test/ HTTP/1.1" 200 1672
+2017-05-30 15:01:56,592:basehttp "GET /test/ HTTP/1.1" 200 1672
+2017-05-30 15:02:14,804:basehttp "GET /test/ HTTP/1.1" 200 1675
+2017-05-30 15:06:32,646:basehttp "GET /test/ HTTP/1.1" 200 1667
+2017-05-30 15:07:19,656:basehttp "GET /test/ HTTP/1.1" 200 1681
+2017-05-30 15:08:02,738:basehttp "GET /test/ HTTP/1.1" 200 1679
+2017-05-30 15:11:01,116:basehttp "GET /test/ HTTP/1.1" 200 1718
+2017-05-30 15:11:51,450:basehttp "GET /test/ HTTP/1.1" 200 1718
+2017-05-30 15:13:55,866:basehttp "GET /test/ HTTP/1.1" 200 1812
+2017-05-30 15:14:27,526:basehttp "GET /test/ HTTP/1.1" 200 1896
+2017-05-30 15:14:42,337:basehttp "GET /test/ HTTP/1.1" 200 1912
+2017-05-30 15:15:57,201:basehttp "GET /test/ HTTP/1.1" 200 1912
+2017-05-30 15:16:44,241:basehttp "GET /test/ HTTP/1.1" 200 1922
+2017-05-30 15:16:55,143:basehttp "GET /test/ HTTP/1.1" 200 1923
+2017-05-30 15:17:15,414:basehttp "GET /test/ HTTP/1.1" 200 1928
+2017-05-30 15:17:32,039:basehttp "GET /test/ HTTP/1.1" 200 1929
+2017-05-30 15:17:54,813:basehttp "GET /test/ HTTP/1.1" 200 1933
+2017-05-30 15:18:20,175:basehttp "GET /test/ HTTP/1.1" 200 1924
+2017-05-30 15:18:58,733:basehttp "GET /test/ HTTP/1.1" 200 1940
+2017-05-30 15:19:17,441:basehttp "GET /test/ HTTP/1.1" 200 1938
+2017-05-30 15:41:19,549:basehttp "GET /test/ HTTP/1.1" 200 1995
+2017-05-30 15:42:10,765:basehttp "GET /test/ HTTP/1.1" 200 2029
+2017-05-30 15:42:14,845:basehttp "GET /test/ HTTP/1.1" 200 2029
+2017-05-30 15:43:05,750:basehttp "GET /test/ HTTP/1.1" 200 1689
+2017-05-30 15:43:56,023:basehttp "GET /test/ HTTP/1.1" 200 1722
+2017-05-30 15:44:25,182:basehttp "GET /test/ HTTP/1.1" 200 1732
+2017-05-30 15:47:15,116:basehttp "GET /test/ HTTP/1.1" 200 1751

@@ -18,7 +18,7 @@ class ProjectDescription(forms.ModelForm):
     class Meta:
         model = Project
         fields = ['description']
-        labels = {  }
+        labels = {}
 
 
 class ProjectOwner(forms.ModelForm):

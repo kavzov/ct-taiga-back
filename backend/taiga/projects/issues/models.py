@@ -17,9 +17,9 @@ class Issue(models.Model):
     assigned_to = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     project = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
     status = models.CharField(max_length=16, choices=STATUSES, default='new')
-    # created_date = models.DateTimeField(null=False, blank=False, verbose_name="created date", default=timezone.now)
-    # modified_date = models.DateTimeField(null=False, blank=False, verbose_name="modified date")
-    # finished_date = models.DateTimeField(null=True, blank=True, verbose_name="finished date")
+    created_date = models.DateTimeField(null=False, blank=False, verbose_name="created date", default=timezone.now)
+    modified_date = models.DateTimeField(null=False, blank=False, verbose_name="modified date", default=timezone.now)
+    finished_date = models.DateTimeField(null=True, blank=True, verbose_name="finished date")
 
     def __str__(self):
         return "{}".format(self.subject)
