@@ -3,26 +3,26 @@
 {% block content %}
     <!-- Project details -->
     <h2>
-        <span{# if user permissions #} onmouseover="document.getElementById('edit-project-name-label').style.visibility='visible';" onmouseout="document.getElementById('edit-project-name-label').style.visibility='hidden';"{# endif user permissions #}>
-            Project &quot;{{ project_details.name }}&quot;
-            {# if user permissions #}
-            &nbsp;<span id="edit-project-name-label" style="visibility:hidden; display:inline-block; font-size:.6em; font-weight:normal;">
-                <a href="/issues/edit_project_name/" title="Edit project" style="text-decoration:none; color:#262;"><span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span></a>
-            </span>
-            {# endif user permissions #}
-         </span>
+        Project &quot;{{ project_details.name }}&quot;
+        {# if user permissions #}
+        <span id="edit-project-name-label" style="display:inline-block; float:right; line-height:2em; font-size:.7em; font-weight:normal;">
+            <a href="/projects/{{ project_details.id }}/edit/" title="Edit the project" style="text-decoration:none; color:#262;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span>
+            </a>
+        </span>
+        {# endif user permissions #}
     </h2>
     <div>
         <p style="padding:0 1.3em;">{{ project_details.description }}</p>
     </div>
-    {# if owner #}
-    <!--
-    div Owner: {{ owner }}
-    {# if user permissions #}
-    Change owner
-    {# end if user permissions #}
-    -->
-    {# endif owner #}
+    {% if project_details.owner_id %}
+    <div style="padding:.4em 1.3em 0;">
+        <h4>Owner: <span style="font-weight:normal; font-size:.95em;"><a href="/users/{{ project_details.owner.id }}/" title="User profile">{{ project_details.owner.get_full_name }}</a></span></h4>
+    <!--{# if user permissions #}-->
+    <!--Change owner-->
+    <!--{# end if user permissions #}-->
+    </div>
+    {% endif %}
 
     <!--
     div Members: {{ members }}
@@ -30,10 +30,27 @@
     Add/delete/change role of member
     {# end if user permissions #}
     -->
-    <div style="padding:.5em 1.3em .2em;">
+    <div style="padding:.5em 1.3em 0em;">
+        <h4>Created date: <span style="font-weight:normal; font-size:.95em;">{{ project_details.created_date|date:"F d, Y" }}</span></h4>
+        <h4>Elapsed time: <span style="font-weight:normal; font-size:.95em;">{{ project_details.created_date|timesince }}</span></h4>
+        <h4>Last modified: <span style="font-weight:normal; font-size:.95em;">{{ project_details.modified_date|date:"F d, Y" }}</span></h4>
+    </div>
+
+    <div style="padding:.5em 1.3em 0em;">
+    <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat }} h</span></h4>
+    <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
+        <a href="/timelogs?project_id={{ project_details.id }}" title="View the projects timelogs">Timelogs</a>&nbsp;
+        <a href="/timelogs/add_timelog?project_id={{ project_details.id }}" title="Add a new timelog to the project" style="text-decoration:none; color:#262;">
+            &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add</span>
+        </a>
+    </p>
+    </div>
+
+    <div style="padding:.4em 1.3em .5em;">
+        <h4>Members:</h4>
         {% for member, member_roles in members_roles.items %}
-        <p style="padding:0; margin:.2em 0;">
-            <a href="/users/{{ member.user.id }}/">{{ member.user.get_full_name }}</a>:&nbsp;
+        <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
+            <a href="/users/{{ member.user.id }}/" title="User profile">{{ member.user.get_full_name }}</a>:&nbsp;
             {% for member_role in member_roles %}
                 {{ member_role.name }}{% if not forloop.last %},{% endif %}
             {% endfor %}
@@ -41,48 +58,34 @@
         {% endfor %}
     </div>
 
-    <div style="font-size:.95em; padding:.3em 1.3em; line-height:1.4em;">
-    <b>Total time: </b>{{ total_time|floatformat }}<br>
-    <a href="/timelogs?project_id={{ project_details.id }}" title="View the projects timelogs">Timelogs</a>&nbsp;
-    <a href="/timelogs/add_timelog?project_id={{ project_details.id }}" title="Add a new timelog to the project" style="text-decoration:none; color:#262;">
-        &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add
-    </a>
-    </div>
-
-    <!--
-    div Timelogs: {{ timelogs }}
-    {# if user permissions #}
-    Add timelog
-    {# end if user permissions #}
-    -->
-
-
     {% if not timelogs_list %}
     <!-- Issues list at the project -->
-    <h3>Issues</h3>
-    <div>
-        <ul style="list-style-type:none; padding:0 1em; margin:.5em; line-height:1.5em; font-size:.95em;">
-        {# if user permissions #}
-            <li>
+    <div style="padding:.1em 1.3em .5em;">
+        <h4>
+            Issues:&nbsp;
+            {# if user permissions #}
+            <span style="font-weight:normal; font-size:.9em;">
                 <a href="/issues/new_issue/" title="Add a new issue" style="text-decoration:none; color:#262;">
                 &plus;<span style="display:inline-block; padding-bottom:0; margin-bottom:.5em; line-height:1em; border-bottom:1px dotted #262;">Add</span>
                 </a>
-            </li>
-        {# endif user permissions #}
+            </span>
+            {# endif user permissions #}
+        </h4>
+        <ul style="list-style-type:none; padding:0 1em 0 0; margin:.1em 0 0; line-height:1.4em; font-size:.95em;">
         {% for issue in issues %}
             <li>
                 <span onmouseover="document.getElementById('edit-project-issue-{{ issue.id }}').style.visibility='visible';" onmouseout="document.getElementById('edit-project-issue-{{ issue.id }}').style.visibility='hidden';">
-                    <a href="/issues/{{ issue.id }}"><b>{{ issue.subject }}</b></a>
+                    <a href="/issues/{{ issue.id }}" title="Issue details"><b>{{ issue.subject }}</b></a>
                     {# if user permissions #}
                     <span id="edit-project-issue-{{ issue.id }}" style="font-size:.85em; visibility:hidden;">
-                        &ensp;<a href="/issues/edit_project_description/" title="Edit issue" style="text-decoration:none; color:#262;"><span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span></a>
+                        &ensp;<a href="/issues/{{ issue.id }}/edit/" title="Edit the issue" style="text-decoration:none; color:#262;"><span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span></a>
                     </span>
                     {# endif user permissions #}
 
                     <span style="display:block; margin:.2em 0; line-height:1.3em;">{{ issue.description }}</span>
                 </span>
-                <span style="display:block; line-height:1.3em;"><b>Assigned to:</b> <a href="/users/{{ issue.assigned_to.id }}">{{ issue.assigned_to.get_full_name }}</a></span>
-                <span style="display:block; margin:0 0 .8em; line-height:1.3em;"><b>Status:</b> {{ issue.status }}</span>
+                <span style="display:block; line-height:1.3em;"><b>Assigned to:</b> <a href="/users/{{ issue.assigned_to.id }}" title="User profile">{{ issue.assigned_to.get_full_name }}</a></span>
+                <span style="display:block; margin:0 0 .8em; line-height:1.3em;"><b>Status:</b> {{ issue.get_status_display }}</span>
             </li>
         {% endfor %}
         </ul>

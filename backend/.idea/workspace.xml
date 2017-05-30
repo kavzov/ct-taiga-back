@@ -56,8 +56,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taiga/projects/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="33" />
+            <state relative-caret-position="272">
+              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -68,8 +68,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taiga/projects/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
+            <state relative-caret-position="578">
+              <caret line="34" column="62" lean-forward="false" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -77,38 +77,76 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_details.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="project_details.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/project_details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="44" column="55" lean-forward="false" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
+            <state relative-caret-position="867">
+              <caret line="87" column="123" lean-forward="false" selection-start-line="87" selection-start-column="123" selection-end-line="87" selection-end-column="123" />
               <folding>
-                <element signature="e#358#364#0" expanded="true" />
-                <element signature="e#390#396#0" expanded="true" />
-                <element signature="e#447#453#0" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#h2#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#span#1;n#h2#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#span#1;n#h2#0;n#!!top" expanded="true" />
+                <element signature="e#102#108#0" expanded="true" />
+                <element signature="e#134#140#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h2#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#span#0;n#h2#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#h2#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="e#1545#1551#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="e#1986#1992#0" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#2;n#!!top" expanded="true" />
-                <element signature="e#2157#2163#0" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#1;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="e#2809#2815#0" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="e#3566#3572#0" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#span#0;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#2;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#2;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="e#2116#2122#0" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#p#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="e#2295#2301#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#1;n#p#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#4;n#!!top" expanded="true" />
+                <element signature="e#2769#2775#0" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="e#3119#3125#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h4#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#span#0;n#h4#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="e#3355#3361#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#h4#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="e#4269#4275#0" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/taiga/projects/issues/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/taiga/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#3802#3808#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -149,16 +187,6 @@
                 <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="permissions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taiga/permissions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="695">
-              <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -239,10 +267,8 @@
         <option value="$PROJECT_DIR$/taiga/users/templates/users/users_list.html" />
         <option value="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelogs_table.html" />
         <option value="$PROJECT_DIR$/taiga/projects/issues/templates/issues/issue_details.html" />
-        <option value="$PROJECT_DIR$/taiga/index.html" />
         <option value="$PROJECT_DIR$/taiga/settings.py" />
         <option value="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelog_details.html" />
-        <option value="$PROJECT_DIR$/taiga/projects/issues/models.py" />
         <option value="$PROJECT_DIR$/taiga/projects/urls.py" />
         <option value="$PROJECT_DIR$/taiga/permissions.py" />
         <option value="$PROJECT_DIR$/taiga/users/models.py" />
@@ -254,6 +280,8 @@
         <option value="$PROJECT_DIR$/taiga/projects/forms.py" />
         <option value="$PROJECT_DIR$/taiga/projects/templates/projects/edit_project.html" />
         <option value="$PROJECT_DIR$/taiga/projects/views.py" />
+        <option value="$PROJECT_DIR$/taiga/index.html" />
+        <option value="$PROJECT_DIR$/taiga/projects/issues/models.py" />
         <option value="$PROJECT_DIR$/taiga/projects/templates/projects/project_details.html" />
       </list>
     </option>
@@ -985,13 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="152" column="44" lean-forward="false" selection-start-line="152" selection-start-column="44" selection-end-line="152" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelogs_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1069,7 +1090,7 @@
         <state relative-caret-position="238">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1078,14 +1099,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/issues/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="69" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1119,16 +1132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/edit_project.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
@@ -1137,16 +1140,6 @@
             <element signature="e#2065#2071#0" expanded="true" />
             <element signature="e#2094#2100#0" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#4;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/timelogs/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1167,10 +1160,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/timelogs/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#28#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3802#3808#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/taiga/projects/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
+        <state relative-caret-position="578">
+          <caret line="34" column="62" lean-forward="false" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -1179,35 +1206,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/project_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="44" column="55" lean-forward="false" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
+        <state relative-caret-position="867">
+          <caret line="87" column="123" lean-forward="false" selection-start-line="87" selection-start-column="123" selection-end-line="87" selection-end-column="123" />
           <folding>
-            <element signature="e#358#364#0" expanded="true" />
-            <element signature="e#390#396#0" expanded="true" />
-            <element signature="e#447#453#0" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#h2#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#1;n#h2#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#span#1;n#h2#0;n#!!top" expanded="true" />
+            <element signature="e#102#108#0" expanded="true" />
+            <element signature="e#134#140#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h2#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#h2#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#h2#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#1545#1551#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="e#1986#1992#0" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#2;n#!!top" expanded="true" />
-            <element signature="e#2157#2163#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#1;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="e#2809#2815#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="e#3566#3572#0" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#span#0;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#li#1;n#ul#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#2;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="e#2116#2122#0" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#p#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="e#2295#2301#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#1;n#p#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#4;n#!!top" expanded="true" />
+            <element signature="e#2769#2775#0" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="e#3119#3125#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h4#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#h4#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="e#3355#3361#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#h4#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="e#4269#4275#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#li#0;n#ul#0;n#div#5;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/issues/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

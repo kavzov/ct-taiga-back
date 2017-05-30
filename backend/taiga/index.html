@@ -30,23 +30,29 @@ html, body {
     position:relative;
 }
 #main p {
-    font-size:.95em;
+    font-size:1em;
+    line-height:1.4em;
     margin:.75em 0 0;
     padding:0 .5em;
 }
 #main h2 {
-    font-size:1.4em;
-    font-weight:bold;
+    font-size:1.25em;
+    font-weight:normal;
+    line-height:1.5em;
     background-color:#cce8ff;
-    padding:.3em .4em;
+    padding:.3em 1em;
     margin:.4em 0 -.2em;
 }
 #main h3 {
-    font-size:1.2em;
+    font-size:1.1em;
     font-weight:normal;
     background-color:#cce8ff;
     padding:.3em .5em;
     margin:.5em 0;
+}
+#main h4 {
+    padding:0;
+    margin:.4em 0 0;
 }
 #content {
     background-color:#fff;
@@ -113,12 +119,12 @@ html, body {
 }
 </style>
 <script type="text/javascript">
-window.onload = function() {
-    if (document.referrer) {
-        backhref = '<a href="javascript:history.back(-1)">Back</a>';
-        document.getElementById("backlink").innerHTML = backhref;
-    }
-}
+//window.onload = function() {
+//    if (document.referrer) {
+//        backhref = '<a href="javascript:history.back(-1)">Back</a>';
+//        document.getElementById("backlink").innerHTML = backhref;
+//    }
+//}
 </script>
 </head>
 
@@ -133,7 +139,6 @@ window.onload = function() {
     <table style="width:100%; margin:0 auto; padding:.5em .2em 0; border:0px dotted grey; border-spacing:0; background-color:#fff; font-size:.95em;">
         <tr>
             <td id="backlink">
-
             </td>
             <td style="width:60%; text-align:center;">
                 {% if request.META.PATH_INFO != '/projects/' %}<a href="/projects/">{% endif %}
@@ -159,7 +164,6 @@ window.onload = function() {
     </table>
 
     {% block content %}{% endblock %}
-
     {% block timelogs_index %}{% endblock %}
 </div><!-- #content -->
 

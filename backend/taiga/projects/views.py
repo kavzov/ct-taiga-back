@@ -27,11 +27,12 @@ def projects_list(request):
 def project_details(request, project_id):
     args = {}
 
-    args['project_details'] = Project.objects.values().get(id=project_id)
+    # args['project_details'] = Project.objects.values().get(id=project_id)
+    args['project_details'] = Project.objects.get(id=project_id)
     args['issues'] = Issue.objects.all().filter(project=project_id)
     args['users'] = User.objects.all()
     args['add_issue_form'] = AddIssueToProjectForm
-    args['title'] = 'Project "' + args['project_details']['name'] + '"'
+    args['title'] = 'Project "' + args['project_details'].name + '"'
 
     proj_mbr_roles = Membership.objects.filter(project=project_id)
     members = proj_mbr_roles.distinct('user')
