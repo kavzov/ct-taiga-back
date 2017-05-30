@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style type=text/css>
+        #id_name {
+
+        }
+    </style>
+</head>
+<body>
+
+<h2 onclick="$('#id_name').val($(this).text()); $('#id_name').attr('member_id', '888')">Form test</h2>
+<form action="{{ request.META.PATH_INFO }}" method="post">
+<table id="test-form">
+{% csrf_token %}
+<!--<input type="text" name="test-text"><br>-->
+{{ project_form }}
+{# member_form #}
+<tr><th>Member:</th><td><input type="text" id="member-search-field" name="member_id"></td></tr>
+<tr><td colspan="2">
+{# members #}
+</td></tr>
+<tr><td colspan="2" align="right"><input type="submit"></td></tr>
+</form>
+</table>
+
+<div id="members-search-results">
+
+</div>
+
+<div>
+<span style="color:#369; border-bottom:1px dotted #369; padding:0; cursor:pointer;" user_id="2" onclick="$('#member_field').val($(this).text()); $('#member_field').attr('user_id', $(this).attr('user_id')); $(this).remove();">User</span>
+</div>
+
+<h3>{% if text %}{{ text }}{% endif %}</h3>
+<h3>{% if member %}{{ member }}{% endif %}</h3>
+
+</body>
+</html>

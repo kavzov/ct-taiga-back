@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <!-- Project details -->
+    <h2>
+        Edit project &#35;{{ project.id }}
+        {% if not editing %}
+        <span style="display:inline-block; float:right; text-align:right; font-size:.65em; font-weight:normal; line-height:1.7em;">
+            <a href="edit">Edit project</a>
+        </span>
+        {% endif %}
+    </h2>
+
+    <div id="edit-project-form">
+        <form action="{{ request.META.PATH_INFO }}" method="post">
+        <table>
+            <tr>
+                <td><label for="id_name">Name:</label></td>
+                <td><input id="id_name" maxlength="128" name="name" type="text" value="{{ project.name }}" required /></td>
+            </tr>
+            <tr>
+                <td><label for="id_description">Description:</label></td>
+                <td><textarea cols="40" id="id_description" maxlength="1024" name="description" rows="10" required>{{ project.description }}</textarea></td>
+            </tr>
+            <tr>
+                <td><label for="id_owner">Owner:</label></td>
+                <td><select id="id_owner" name="owner">
+                    <option value=""> ------- </option>
+                    {% for user in users %}
+                    <option value="{{ user.id }}" {% if user.id == project.owner_id %}selected="selected"{% endif %}>{{ user.get_full_name }}</option>
+                    {% endfor %}
+                    </select>
+                </td>
+            </tr>
+<!-- Members block -->
+            <tr>
+                <td>Members:</td>
+                <td>
+                    <table>
+                        {% for member, member_roles in members_roles.items %}
+                        <tr>
+                            <td>{{ member.user.get_full_name }}</td>
+                            <td>
+                                {% for role in roles %}
+                                <label><input type="checkbox" name="member" value="{{ role.id }}" {% for member_role in member_roles %}{% if member_role == role.id  %} checked="checked"{% endif %}{% endfor %}>&nbsp;{{ role.name }}</label>&ensp;
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                    </table>
+                </td>
+            </tr>
+<!-- end Members block -->
+            <tr>
+                <td></td>
+                <td style="text-align:right;"><input type="submit" value="Update"></td>
+            </tr>
+<!--
+            {% with issue_change_perm='issues.change_issue' %}
+            <tr>
+                <td colspan="2">{% if user.is_authenticated %} User has ISSUE CHANGE permissions: {{ user_perms|unordered_list }} {% else %} NOT {{ user_perms }} {% endif %}</td>
+            </tr>
+            {% endwith %}
+-->
+        </table>
+        </form>
+    </div>
+
+
+
+{% endblock content %}

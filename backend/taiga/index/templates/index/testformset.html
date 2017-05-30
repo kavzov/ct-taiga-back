@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style type=text/css>
+        #id_name {
+
+        }
+    </style>
+</head>
+<body>
+
+<h2>Formset test</h2>
+<form action="{{ request.META.PATH_INFO }}" method="post">
+<table id="test-form">
+{% csrf_token %}
+{{ project_formset }}
+{{ member_formset }}
+<tr><td colspan="2" align="right"><input type="submit"></td></tr>
+</form>
+</table>
+
+<h3>{% if text %}{{ text }}{% endif %}</h3>
+
+</body>
+</html>
