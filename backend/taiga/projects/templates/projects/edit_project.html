@@ -28,6 +28,33 @@ function displayUsersList(users, members) {
 }
 
 
+function displayMembersAndRoles(members, roles, members_roles, users) {
+    var html = '<tr>';
+    for (var member in members) {
+        var userID = members[member];
+        html += '<td>' + users[userID] + '</td>';
+        html += '<td>';
+        for (var roleID in roles) {
+        html += '<label><input type="checkbox" name="member" value="' + roleID + '" ';
+            for (var i in members_roles[userID]) {
+                var memberRoleID = members_roles[userID][i];
+                if (roleID == memberRoleID) {
+                    html += 'checked="checked"';
+                }
+            }
+        html += '>&nbsp;';
+        html += roles[roleID];
+        html += '</label>&ensp;';
+        }
+        html += '<span class="remove-member" style="font-size:1.2em; color:#822; cursor:pointer;" title="Remove">&#9746;</span>';
+        html += '\
+            </td>\
+            </tr>';
+    }
+    $('#test-members').html(html);
+}
+
+
 function getUserID(node) {
     return $(node).attr('user_id')
 }
@@ -40,34 +67,36 @@ function getMemberID(node) {
 $(document).ready(function() {
     var member_field = $('#member-search-field');
 
-    // roles
+    // Roles
     var roles ={}
     {% for role in roles %}
     roles['{{ role.id }}'] = '{{ role.name }}';
     {% endfor %}
 
 
-    // members empty for new project
+    // Members
     var members = [];
     {% for member in members %}
     members.push({{ member.user.id }});
     {% endfor %}
 
 
-    // members & roles
+    // Members & Roles by users
     var members_roles = {}
-    for (var member in members) {
-        members_roles[members[member]] = [];
+    for (var i in members) {
+        var user_id = members[i];
+        members_roles[user_id] = [];
         {% for member, member_roles in members_roles.items %}
-            if (members[member] == {{ member.user.id }}) {
-                members_roles[members[member]].push({{ member_roles }});
+            if (user_id == {{ member.user.id }}) {
+                {% for member_role in member_roles %}
+                members_roles[user_id].push({{ member_role }});
+                {% endfor %}
             }
         {% endfor %}
     }
-    alert(members_roles[5]);
 
 
-    // all users
+    // Users
     var users = {};
     {% for user in users %}
     users['{{ user.id }}'] = '{{ user.get_full_name }}';
@@ -131,6 +160,8 @@ $(document).ready(function() {
 
     // display users list
     displayUsersList(users, members);
+    displayMembersAndRoles(members, roles, members_roles, users)
+
 
     // get nodes list with users
     var user = $('.user-to-member-field');
@@ -144,7 +175,7 @@ $(document).ready(function() {
     });
 
     // Remove user from input filed by click on '[x]' sign
-    $('#remove-member').click(function(){
+    $('#remove-candidate-member').click(function(){
         // get user id
         user_id = getMemberID(member_field);
         removeUserFromField(user_id);
@@ -193,7 +224,16 @@ $(document).ready(function() {
                     </select>
                 </td>
             </tr>
-<!-- Members block -->
+<!-- Test member block -->
+            <tr>
+                <td>Members:</td>
+                <td>
+                    <table id="test-members">
+                    </table>
+                </td>
+            </tr>
+<!-- END Test member block -->
+<!-- Members block
             <tr>
                 <td>Members:</td>
                 <td>
@@ -212,7 +252,7 @@ $(document).ready(function() {
                     </table>
                 </td>
             </tr>
-<!-- END Members block -->
+END Members block -->
 <!-- Add member block -->
             <tr>
                 <td style="width:10%;">Add&nbsp;member:</td>
@@ -222,7 +262,7 @@ $(document).ready(function() {
                         {% for role in roles %}
                         <label><input type="checkbox" name="role" value="{{ role.id }}">{{ role.name }}</label>
                         {% endfor %}
-                        &ensp;<span id="add-member" style="font-size:1.2em; color:#282; cursor:pointer;" title="Add to members">&#9745;</span>&nbsp; <span id="remove-member" style="font-size:1.2em; color:#822; cursor:pointer;" title="Remove">&#9746;</span>
+                        &ensp;<span id="add-member" style="font-size:1.2em; color:#282; cursor:pointer;" title="Add to members">&#9745;</span>&nbsp; <span id="remove-candidate-member" style="font-size:1.2em; color:#822; cursor:pointer;" title="Remove">&#9746;</span>
                     </span>
                 </td>
             </tr>
