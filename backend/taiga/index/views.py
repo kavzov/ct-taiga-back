@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, get_user
+from django.db.models import Q
 from taiga.projects.models import Project, Membership
+from taiga.users.models import User, Role
 from .forms import ProjectDetails, ProjectMembers
 
 
@@ -29,7 +31,16 @@ def auth_logout(request):
 
 
 def search(request):
-    pass
+    if request.method == 'POST':
+        search_text = request.POST['search_text']
+    else:
+        search_text = ''
+
+    users = User.objects.filter(Q(first_name__contains=search_text) | Q(last_name__contains=search_text) | Q(username__contains=search_text))
+    args = {'search_users': users }
+    template = "index/test.html"
+
+    return render(request, template, args)
 
 
 def test(request):
@@ -47,6 +58,8 @@ def test(request):
     args['text'] = request.POST.get("name")
     args['project_form'] = project_form
     args['member_form'] = member_form
+    args['users'] = User.objects.all()
+    args['roles'] = Role.objects.all()
 
     return render(request, template, args)
 
