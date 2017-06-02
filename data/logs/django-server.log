@@ -20941,3 +20941,624 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 2017-06-01 16:12:16,495:basehttp "GET /test/ HTTP/1.1" 200 6204
 2017-06-01 16:12:32,543:basehttp "GET /projects/1/edit/ HTTP/1.1" 200 10870
 2017-06-01 16:12:36,340:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12624
+2017-06-02 07:52:10,807:basehttp "GET /projects HTTP/1.1" 301 0
+2017-06-02 07:52:12,119:basehttp "GET /projects/ HTTP/1.1" 200 4303
+2017-06-02 07:52:12,226:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2429
+2017-06-02 07:52:12,598:basehttp "GET /favicon.ico HTTP/1.1" 404 3350
+2017-06-02 07:52:15,381:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-02 07:52:21,771:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-02 07:52:21,832:basehttp "GET /projects/ HTTP/1.1" 200 4323
+2017-06-02 07:52:23,941:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-02 07:52:24,617:basehttp "GET /projects/2/ HTTP/1.1" 200 9358
+2017-06-02 07:52:26,164:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12624
+2017-06-02 07:54:27,971:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12637
+2017-06-02 07:56:40,055:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12636
+2017-06-02 08:06:47,465:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12737
+2017-06-02 08:15:56,695:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12773
+2017-06-02 08:17:27,646:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12777
+2017-06-02 08:20:11,233:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12770
+2017-06-02 08:20:19,494:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12773
+2017-06-02 08:20:31,867:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12781
+2017-06-02 08:20:46,053:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12792
+2017-06-02 08:21:01,328:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12791
+2017-06-02 08:21:28,266:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12842
+2017-06-02 08:21:46,424:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12856
+2017-06-02 08:21:54,568:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12847
+2017-06-02 08:23:21,001:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12856
+2017-06-02 08:23:37,012:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12852
+2017-06-02 08:24:27,567:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12876
+2017-06-02 08:26:22,517:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12861
+2017-06-02 08:27:58,491:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12876
+2017-06-02 08:28:07,967:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12866
+2017-06-02 08:28:10,768:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12866
+2017-06-02 08:29:42,706:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12893
+2017-06-02 08:30:21,860:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12885
+2017-06-02 08:31:17,215:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12894
+2017-06-02 08:31:32,940:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12866
+2017-06-02 08:40:43,893:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 12991
+2017-06-02 08:43:52,662:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13011
+2017-06-02 08:45:32,882:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13044
+2017-06-02 08:45:38,536:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13044
+2017-06-02 08:47:10,268:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13056
+2017-06-02 08:47:47,351:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13089
+2017-06-02 08:48:12,203:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13091
+2017-06-02 08:48:42,613:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13093
+2017-06-02 08:49:40,977:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13102
+2017-06-02 08:49:47,591:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13100
+2017-06-02 08:50:37,992:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13091
+2017-06-02 08:50:51,586:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13088
+2017-06-02 08:51:04,773:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13094
+2017-06-02 08:51:15,910:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13092
+2017-06-02 08:51:31,084:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13092
+2017-06-02 08:51:38,295:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13090
+2017-06-02 08:52:40,160:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13100
+2017-06-02 08:53:00,195:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13093
+2017-06-02 08:53:05,462:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13091
+2017-06-02 08:54:06,152:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13093
+2017-06-02 08:54:15,485:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13092
+2017-06-02 08:54:20,210:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13089
+2017-06-02 08:55:48,420:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13100
+2017-06-02 08:55:55,391:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13098
+2017-06-02 08:56:05,205:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13093
+2017-06-02 08:56:11,957:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13092
+2017-06-02 08:56:20,560:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13092
+2017-06-02 08:56:29,617:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13100
+2017-06-02 08:56:36,878:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13097
+2017-06-02 08:57:31,481:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13106
+2017-06-02 08:58:05,295:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13110
+2017-06-02 08:58:09,986:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13110
+2017-06-02 08:58:23,189:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13110
+2017-06-02 09:01:04,199:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13139
+2017-06-02 09:01:45,368:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13182
+2017-06-02 09:02:05,828:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13180
+2017-06-02 09:02:24,766:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13190
+2017-06-02 09:02:29,999:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13156
+2017-06-02 09:02:39,720:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13147
+2017-06-02 09:02:48,132:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13153
+2017-06-02 09:02:57,505:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13162
+2017-06-02 09:03:15,913:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13176
+2017-06-02 09:04:48,996:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13110
+2017-06-02 09:07:02,301:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13183
+2017-06-02 09:07:32,261:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13270
+2017-06-02 09:07:48,763:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13270
+2017-06-02 09:07:56,398:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13272
+2017-06-02 09:08:03,868:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13272
+2017-06-02 09:10:12,204:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13272
+2017-06-02 09:18:55,346:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13328
+2017-06-02 09:21:48,376:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13309
+2017-06-02 09:22:18,709:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13305
+2017-06-02 09:23:15,483:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13306
+2017-06-02 09:23:31,939:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13310
+2017-06-02 09:26:29,172:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13281
+2017-06-02 09:35:56,552:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13489
+2017-06-02 09:36:06,650:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13492
+2017-06-02 09:36:12,920:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13492
+2017-06-02 09:38:55,345:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13510
+2017-06-02 09:39:05,772:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13512
+2017-06-02 09:40:03,895:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13556
+2017-06-02 09:40:28,034:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13556
+2017-06-02 09:40:48,327:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13558
+2017-06-02 09:42:53,194:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13557
+2017-06-02 09:43:20,171:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13564
+2017-06-02 09:43:43,568:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13564
+2017-06-02 09:45:56,150:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13642
+2017-06-02 09:46:07,547:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13643
+2017-06-02 09:47:05,547:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13651
+2017-06-02 09:55:21,446:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13683
+2017-06-02 09:56:49,324:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 13761
+2017-06-02 10:05:39,008:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14715
+2017-06-02 10:05:39,025:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-02 10:05:56,247:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14715
+2017-06-02 10:09:33,873:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14715
+2017-06-02 10:15:34,884:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14763
+2017-06-02 10:15:56,835:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14762
+2017-06-02 10:16:01,446:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14763
+2017-06-02 10:16:08,709:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14764
+2017-06-02 10:16:16,854:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14763
+2017-06-02 10:16:42,675:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14769
+2017-06-02 10:19:55,555:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14779
+2017-06-02 10:20:47,266:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14786
+2017-06-02 10:21:14,802:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14768
+2017-06-02 10:21:21,155:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14786
+2017-06-02 10:24:19,114:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14759
+2017-06-02 10:29:46,453:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14759
+2017-06-02 10:32:02,677:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14801
+2017-06-02 10:33:34,941:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14838
+2017-06-02 10:36:02,088:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14343
+2017-06-02 10:37:14,294:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14257
+2017-06-02 10:38:13,817:basehttp "GET /projects/ HTTP/1.1" 200 4323
+2017-06-02 10:38:15,347:basehttp "GET /projects/1 HTTP/1.1" 301 0
+2017-06-02 10:38:15,473:basehttp "GET /projects/1/ HTTP/1.1" 200 9874
+2017-06-02 10:38:17,276:basehttp "GET /projects/1/edit/ HTTP/1.1" 200 12503
+2017-06-02 10:39:09,864:basehttp "POST /projects/2/edit/ HTTP/1.1" 403 2502
+2017-06-02 10:39:13,783:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14257
+2017-06-02 10:39:14,773:basehttp "POST /projects/2/edit/ HTTP/1.1" 403 2502
+2017-06-02 10:39:44,039:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 14389
+2017-06-02 10:39:45,157:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14389
+2017-06-02 10:39:46,447:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14389
+2017-06-02 10:39:56,526:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14372
+2017-06-02 10:39:57,382:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14372
+2017-06-02 10:40:04,887:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14372
+2017-06-02 10:40:09,427:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14389
+2017-06-02 10:40:12,949:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14389
+2017-06-02 10:43:23,929:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14483
+2017-06-02 10:43:31,948:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14483
+2017-06-02 10:43:37,200:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14483
+2017-06-02 10:44:22,492:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14450
+2017-06-02 10:45:51,406:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 124, in edit_project
+    return render(request, template, args)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 489, in parse
+    raise self.error(token, e)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '-data' from 'test-data'
+2017-06-02 10:45:51,631:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 187843
+2017-06-02 10:46:00,420:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14493
+2017-06-02 10:49:13,621:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14494
+2017-06-02 10:49:30,675:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14494
+2017-06-02 10:49:38,804:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14494
+2017-06-02 10:50:28,370:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14494
+2017-06-02 10:50:47,425:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14497
+2017-06-02 10:50:53,626:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14494
+2017-06-02 10:51:05,074:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14497
+2017-06-02 10:51:10,835:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14494
+2017-06-02 10:52:32,009:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14506
+2017-06-02 10:52:43,923:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14532
+2017-06-02 10:52:56,798:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14519
+2017-06-02 10:53:08,133:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14506
+2017-06-02 10:54:16,252:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14506
+2017-06-02 10:54:27,234:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14506
+2017-06-02 10:54:30,345:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14519
+2017-06-02 10:54:31,772:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14519
+2017-06-02 10:55:29,771:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 125, in edit_project
+    args['test_data'] = request.POST.pop('member_5');
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/http/request.py", line 460, in pop
+    self._assert_mutable()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/http/request.py", line 418, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable
+2017-06-02 10:55:29,894:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 85179
+2017-06-02 10:55:31,005:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 125, in edit_project
+    args['test_data'] = request.POST.pop('member_5');
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/http/request.py", line 460, in pop
+    self._assert_mutable()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/http/request.py", line 418, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable
+2017-06-02 10:55:31,105:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 85179
+2017-06-02 10:55:35,450:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14519
+2017-06-02 10:58:18,021:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 127, in edit_project
+    args['test_data'] += member;
+KeyError: 'test_data'
+2017-06-02 10:58:18,126:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 75877
+2017-06-02 10:58:19,465:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 127, in edit_project
+    args['test_data'] += member;
+KeyError: 'test_data'
+2017-06-02 10:58:19,578:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 75877
+2017-06-02 10:59:04,730:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: 'Membership' object is not iterable
+2017-06-02 10:59:04,813:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76003
+2017-06-02 10:59:05,552:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: 'Membership' object is not iterable
+2017-06-02 10:59:05,645:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76003
+2017-06-02 10:59:29,891:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: Can't convert 'Membership' object to str implicitly
+2017-06-02 10:59:30,011:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76099
+2017-06-02 10:59:30,755:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: Can't convert 'Membership' object to str implicitly
+2017-06-02 10:59:30,844:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76099
+2017-06-02 10:59:54,324:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: Can't convert 'Membership' object to str implicitly
+2017-06-02 10:59:54,443:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76107
+2017-06-02 10:59:55,191:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: Can't convert 'Membership' object to str implicitly
+2017-06-02 10:59:55,260:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76107
+2017-06-02 11:00:06,657:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: Can't convert 'Membership' object to str implicitly
+2017-06-02 11:00:07,640:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: Can't convert 'User' object to str implicitly
+2017-06-02 11:00:07,708:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76065
+2017-06-02 11:00:22,735:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += member
+TypeError: Can't convert 'User' object to str implicitly
+2017-06-02 11:00:22,832:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76066
+2017-06-02 11:00:24,457:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 127, in edit_project
+    for user.id in users:
+NameError: name 'user' is not defined
+2017-06-02 11:00:24,519:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 75988
+2017-06-02 11:00:39,087:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += user.id
+TypeError: Can't convert 'int' object to str implicitly
+2017-06-02 11:00:39,209:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76250
+2017-06-02 11:00:40,119:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += user.id
+TypeError: Can't convert 'int' object to str implicitly
+2017-06-02 11:00:40,275:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76250
+2017-06-02 11:00:46,020:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += user.id
+TypeError: Can't convert 'int' object to str implicitly
+2017-06-02 11:00:46,167:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76242
+2017-06-02 11:00:47,719:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    args['test_data'] += user.id
+TypeError: 'int' object is not iterable
+2017-06-02 11:00:47,799:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76154
+2017-06-02 11:00:57,495:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14505
+2017-06-02 11:02:10,892:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    member = 'member_' + user.id
+TypeError: Can't convert 'int' object to str implicitly
+2017-06-02 11:02:10,976:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76258
+2017-06-02 11:02:11,629:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 128, in edit_project
+    member = 'member_' + user.id
+TypeError: Can't convert 'int' object to str implicitly
+2017-06-02 11:02:11,736:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 76258
+2017-06-02 11:02:21,944:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14573
+2017-06-02 11:06:57,188:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14544
+2017-06-02 11:07:11,563:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14592
+2017-06-02 11:07:35,691:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14592
+2017-06-02 11:07:40,003:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14520
+2017-06-02 11:12:53,877:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14544
+2017-06-02 11:23:17,110:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14555
+2017-06-02 12:03:04,719:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 14504
+2017-06-02 12:05:21,908:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13690
+2017-06-02 12:08:18,051:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13776
+2017-06-02 12:08:51,507:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13778
+2017-06-02 12:10:02,736:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13802
+2017-06-02 12:11:21,456:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13802
+2017-06-02 12:13:19,269:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13806
+2017-06-02 12:13:54,331:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13810
+2017-06-02 12:14:09,080:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13880
+2017-06-02 12:16:00,370:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13759
+2017-06-02 12:21:59,654:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13785
+2017-06-02 12:24:06,532:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13804
+2017-06-02 12:24:22,455:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13801
+2017-06-02 12:26:30,087:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13791
+2017-06-02 12:26:30,119:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-02 12:26:43,367:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13787
+2017-06-02 12:26:53,124:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13787
+2017-06-02 12:36:11,033:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13801
+2017-06-02 12:36:31,424:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13804
+2017-06-02 12:36:50,723:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13807
+2017-06-02 12:40:40,764:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13848
+2017-06-02 12:41:48,488:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13848
+2017-06-02 12:45:32,532:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13850
+2017-06-02 12:46:37,201:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13867
+2017-06-02 12:48:31,148:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13737
+2017-06-02 12:52:04,334:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13661
+2017-06-02 12:56:40,445:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13525
+2017-06-02 12:56:57,554:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13524
+2017-06-02 12:57:42,107:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13524
+2017-06-02 12:58:07,134:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13524
+2017-06-02 12:58:39,499:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13524
+2017-06-02 13:00:18,676:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13568
+2017-06-02 13:00:25,543:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13568
+2017-06-02 13:06:11,016:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13533
+2017-06-02 13:24:02,032:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13710
+2017-06-02 13:24:25,981:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13747
+2017-06-02 13:24:57,359:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13747
+2017-06-02 13:25:06,296:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13747
+2017-06-02 13:25:39,999:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13747
+2017-06-02 13:28:04,403:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13726
+2017-06-02 13:28:10,610:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13726
+2017-06-02 13:28:24,263:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13726
+2017-06-02 13:28:28,027:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13726
+2017-06-02 13:28:33,035:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13726
+2017-06-02 13:28:39,814:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13726
+2017-06-02 13:29:05,002:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13727
+2017-06-02 13:29:35,246:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13742
+2017-06-02 13:30:10,277:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13759
+2017-06-02 13:30:54,280:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13775
+2017-06-02 13:31:53,234:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13794
+2017-06-02 13:32:25,093:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13796
+2017-06-02 13:33:24,111:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13778
+2017-06-02 13:33:31,925:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13778
+2017-06-02 13:34:28,953:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13789
+2017-06-02 13:34:55,515:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13778
+2017-06-02 13:35:19,220:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13778
+2017-06-02 13:35:30,519:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13777
+2017-06-02 13:36:03,027:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13781
+2017-06-02 13:36:47,833:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13788
+2017-06-02 13:36:56,078:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13795
+2017-06-02 13:38:33,629:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13788
+2017-06-02 13:38:39,384:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13788
+2017-06-02 13:40:18,384:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13810
+2017-06-02 13:40:47,512:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13820
+2017-06-02 13:42:06,496:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13854
+2017-06-02 13:42:47,598:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13845
+2017-06-02 13:43:09,370:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13818
+2017-06-02 13:44:13,066:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13704
+2017-06-02 13:44:40,922:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 13714
+2017-06-02 13:54:55,397:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11494
+2017-06-02 13:58:47,421:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11506
+2017-06-02 13:58:52,403:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11504
+2017-06-02 14:03:06,241:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11466
+2017-06-02 14:04:07,318:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11452
+2017-06-02 14:04:20,354:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11416
+2017-06-02 14:04:29,679:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11402
+2017-06-02 14:04:41,453:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11352
+2017-06-02 14:06:04,140:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11336
+2017-06-02 14:07:54,247:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11411
+2017-06-02 14:14:48,789:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11597
+2017-06-02 14:14:49,823:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11597
+2017-06-02 14:16:40,386:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11613
+2017-06-02 14:17:25,878:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11628
+2017-06-02 14:18:23,882:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11628
+2017-06-02 14:24:47,062:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11644
+2017-06-02 14:26:09,569:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11644
+2017-06-02 14:28:13,171:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11698
+2017-06-02 14:30:08,551:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11659
+2017-06-02 14:31:18,986:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11498
+2017-06-02 14:31:20,413:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 11498
+2017-06-02 14:34:05,623:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9811
+2017-06-02 14:37:53,933:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9773
+2017-06-02 14:38:44,158:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9773
+2017-06-02 14:39:48,489:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9758
+2017-06-02 14:39:55,962:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9758
+2017-06-02 14:40:01,841:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9758
+2017-06-02 14:40:09,288:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9758
+2017-06-02 14:43:02,801:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9858
+2017-06-02 14:44:05,639:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9887
+2017-06-02 14:44:30,503:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9894
+2017-06-02 14:44:39,819:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9895
+2017-06-02 14:44:50,993:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9894
+2017-06-02 14:45:11,770:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9898
+2017-06-02 14:48:19,552:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9965
+2017-06-02 14:48:56,250:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9970
+2017-06-02 14:49:39,396:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 9958
+2017-06-02 14:56:47,307:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10000
+2017-06-02 14:57:12,566:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10001
+2017-06-02 14:57:23,345:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10001
+2017-06-02 14:57:30,194:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10001
+2017-06-02 14:57:43,482:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10001
+2017-06-02 14:59:19,781:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10011

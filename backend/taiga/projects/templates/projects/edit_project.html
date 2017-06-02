@@ -2,87 +2,48 @@
 
 {% block javascript %}
 {{ block.super }}
-<!-- Javascript -->
+
 <script type=text/javascript>
 
-// check either value in array
-function in_arr(val, arr) {
-    for (var i=0; i<arr.length; i++) {
-        if (arr[i] == val) {
-            return true;
-        }
-    }
-    return false;
-}
-
-// display html view of users list
-function displayUsersList(users, members) {
-    var usersHTML = '';
-    for (user_id in users) {
-        if (in_arr(user_id, members)) {
-            continue
-        }
-        usersHTML += '<span class="user-to-member-field" user_id="' + user_id +'">' + users[user_id] + '</span>';
-    }
-    $('#users-to-member').html(usersHTML);
-}
+var users = getUsers();
+var members = getMembers();
+var roles = getRoles();
+var members_roles = getMembersAndRoles();
 
 
-function displayMembersAndRoles(members, roles, members_roles, users) {
-    var html = '<tr>';
-    for (var member in members) {
-        var userID = members[member];
-        html += '<td>' + users[userID] + '</td>';
-        html += '<td>';
-        for (var roleID in roles) {
-        html += '<label><input type="checkbox" name="member" value="' + roleID + '" ';
-            for (var i in members_roles[userID]) {
-                var memberRoleID = members_roles[userID][i];
-                if (roleID == memberRoleID) {
-                    html += 'checked="checked"';
-                }
-            }
-        html += '>&nbsp;';
-        html += roles[roleID];
-        html += '</label>&ensp;';
-        }
-        html += '<span class="remove-member" style="font-size:1.2em; color:#822; cursor:pointer;" title="Remove">&#9746;</span>';
-        html += '\
-            </td>\
-            </tr>';
-    }
-    $('#test-members').html(html);
-}
-
-
-function getUserID(node) {
-    return $(node).attr('user_id')
-}
-
-function getMemberID(node) {
-    return $(node).attr('member_id')
-}
-
-
-$(document).ready(function() {
-    var member_field = $('#member-search-field');
-
-    // Roles
-    var roles ={}
-    {% for role in roles %}
-    roles['{{ role.id }}'] = '{{ role.name }}';
+/* Users */
+function getUsers() {
+    var users = {}
+    {% for user in users %}
+    users['{{ user.id }}'] = '{{ user.get_full_name }}';
     {% endfor %}
+    return users;
+}
 
 
-    // Members
+/* Members */
+function getMembers() {
     var members = [];
     {% for member in members %}
     members.push({{ member.user.id }});
     {% endfor %}
+    return members;
+}
 
 
-    // Members & Roles by users
-    var members_roles = {}
+/* Roles */
+function getRoles() {
+    var roles = {};
+    {% for role in roles %}
+    roles['{{ role.id }}'] = '{{ role.name }}';
+    {% endfor %}
+    return roles;
+}
+
+
+/* Members & Roles by users */
+function getMembersAndRoles() {
+    var members_roles = {};
     for (var i in members) {
         var user_id = members[i];
         members_roles[user_id] = [];
@@ -94,102 +55,112 @@ $(document).ready(function() {
             }
         {% endfor %}
     }
+    return members_roles;
+}
 
 
-    // Users
-    var users = {};
-    {% for user in users %}
-    users['{{ user.id }}'] = '{{ user.get_full_name }}';
-    {% endfor %}
-
-
-    function showHideAddMemberLabel() {
-        $('#add-member-label').fadeToggle(10);
+/* Check either value in array */
+function in_arr(val, arr) {
+    for (var i=0; i<arr.length; i++) {
+        if (arr[i] == val) { return true }
     }
+    return false;
+}
 
 
-    function putUserToField(userID) {
-        // check either user name in input field and remove it if there is
-        memberID = getMemberID(member_field)
-        if (memberID) {
-            removeUserFromField(memberID);
+/* Display users list */
+function displayUsersList() {
+    var usersHTML = '';
+    for (user_id in users) {
+        if (in_arr(user_id, members)) { continue }
+        usersHTML += '<span class="user-to-member-field" user_id="' + user_id +'">' + users[user_id] + '</span>';
+    }
+    $('#users-to-member').html(usersHTML);
+}
+
+
+/* Display members list with roles */
+function displayMembersAndRoles() {
+    var html = '';
+    for (var member in members) {
+        var userID = members[member];
+        html += '<tr user="'+ userID +'">';
+        html += '<td>' + users[userID] + '</td>';
+        html += '<td>';
+        for (var roleID in roles) {
+        html += '<label><input type="checkbox" class="role-checkbox" name="member_'+ userID +'" value="' + roleID + '" ';
+            for (var i in members_roles[userID]) {
+                var memberRoleID = members_roles[userID][i];
+                if (roleID == memberRoleID) {
+                    html += 'checked="checked"';
+                }
+            }
+        html += '>&nbsp;';
+        html += roles[roleID];
+        html += '</label>&ensp;';
         }
+        html += '<span class="remove-member" user_id="'+ userID +'" style="color:#833; cursor:pointer;" title="Remove from project">&#9746;</span>';
+        html += '\
+            </td>\
+            </tr>';
+    }
+    $('#test-members').html(html);
+}
 
-        // push user id to members list
+$(document).ready(function() {
+
+    /* Initial display of users and members lists */
+    displayUsersList();
+    displayMembersAndRoles()
+
+
+    /* Add a user to project */
+    $('#users-to-member').on('click', '.user-to-member-field', function(){
+        /* Pop user name from users list and push it to members list */
+
+        // Add user id to members list
+        var userID = parseInt($(this).attr('user_id'));
         members.push(userID);
 
-        // pass user id to hidden field
-        member_field.attr('member_id', userID);
+        // Redisplay user and members lists
+        displayUsersList();
+        displayMembersAndRoles()
+    });
 
-        // pass user name to input field
-        member_field.val(users[userID]);
 
-        // hide the user from users list
-        $('[user_id=' + userID + ']').hide();
+    /* Remove member from project */
+    $('#test-members').on('click', '.remove-member', function() {
+        /* Pop user name from members list and push it to users list */
 
-        // show roles checkboxes and '[x]' sign
-        $('#roles-list').fadeToggle('fast');
-
-        // show '+Add' label
-        showHideAddMemberLabel();
-    }
-
-    function removeUserFromField(userID) {
-        // pop user id from members list
-        index = members.indexOf(userID);
+        // Remove member id from member list
+        var userID = parseInt($(this).attr('user_id'));
+        var index = members.indexOf(userID);
         members.splice(index, 1);
 
-        // clear input field
-        member_field.val('');
-
-        // clear user id in hidden field
-        member_field.attr('member_id', '');
-
-        // clear checkboxes
-        $('[name=role]').prop('checked', false);
-
-        // hide checkboxes and '[x]' sign
-        $('#roles-list').hide();
-
-        // show user in users list
-        $('[user_id=' + userID + ']').fadeToggle('fast');
-
-        // hide '+Add' label
-        showHideAddMemberLabel();
-    }
-
-    // display users list
-    displayUsersList(users, members);
-    displayMembersAndRoles(members, roles, members_roles, users)
-
-
-    // get nodes list with users
-    var user = $('.user-to-member-field');
-
-    // Put user to input field by click on user name
-    $(user).click(function(){
-        // get user id
-        user_id = getUserID(this);
-        putUserToField(user_id);
-
-    });
-
-    // Remove user from input filed by click on '[x]' sign
-    $('#remove-candidate-member').click(function(){
-        // get user id
-        user_id = getMemberID(member_field);
-        removeUserFromField(user_id);
+        // Redisplay user and members lists
+        displayUsersList();
+        displayMembersAndRoles()
     });
 
 
-    // Click on '+Add' label
-    $('#add-member-label').click(function() {
-
+    /*
+    * Add role to member (members_roles dict) after clicking on checkbox
+    * It's necessary for save checks after lists redisplay
+    */
+    $('#test-members').on('click', '.role-checkbox', function() {
+        var name = $(this).attr('name');
+        var userID = name.match(/\d+$/);
+        var role = $(this).val();
+        alert(userID + ' : ' + role);
+        // TODO
+        // Add to members_roles: check if already member in it => add role, else add key - member and role to list
+        // TODO
+        // Try variant with appending members and users to its lists without redisplaying (using fadeToggle)
     });
+
 });
 
 </script>
-<!-- end Javascript -->
 {% endblock javascript %}
 
 {% block content %}
@@ -204,7 +175,8 @@ $(document).ready(function() {
     </h2>
 
     <div id="edit-project-form">
-        <form action="{{ request.META.PATH_INFO }}" method="post">
+        <form action="" method="post">
+        {% csrf_token %}
         <table>
             <tr>
                 <td><label for="id_name">Name:</label></td>
@@ -224,7 +196,7 @@ $(document).ready(function() {
                     </select>
                 </td>
             </tr>
-<!-- Test member block -->
+<!-- Members block -->
             <tr>
                 <td>Members:</td>
                 <td>
@@ -232,28 +204,8 @@ $(document).ready(function() {
                     </table>
                 </td>
             </tr>
-<!-- END Test member block -->
-<!-- Members block
-            <tr>
-                <td>Members:</td>
-                <td>
-                    <table>
-                        {% for member, member_roles in members_roles.items %}
-                        <tr>
-                            <td>{{ member.user.get_full_name }}</td>
-                            <td>
-                                {% for role in roles %}
-                                <label><input type="checkbox" name="member" value="{{ role.id }}" {% for member_role in member_roles %}{% if member_role == role.id  %} checked="checked"{% endif %}{% endfor %}>&nbsp;{{ role.name }}</label>&ensp;
-                                {% endfor %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        <tr>
-                    </table>
-                </td>
-            </tr>
-END Members block -->
-<!-- Add member block -->
+<!-- Members block -->
+<!-- Search member block -->
             <tr>
                 <td style="width:10%;">Add&nbsp;member:</td>
                 <td style="line-height:1.5em;">
@@ -262,18 +214,16 @@ END Members block -->
                         {% for role in roles %}
                         <label><input type="checkbox" name="role" value="{{ role.id }}">{{ role.name }}</label>
                         {% endfor %}
-                        &ensp;<span id="add-member" style="font-size:1.2em; color:#282; cursor:pointer;" title="Add to members">&#9745;</span>&nbsp; <span id="remove-candidate-member" style="font-size:1.2em; color:#822; cursor:pointer;" title="Remove">&#9746;</span>
+                        &ensp;<span id="add-member" style="font-size:1.2em; color:#282; cursor:pointer;" title="Add to project">&#9745;</span>&nbsp; <span id="remove-candidate-member" style="font-size:1.2em; color:#822; cursor:pointer;" title="Clear">&#9746;</span>
                     </span>
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center;">
-                    <span id="add-member-label" style="display:none; color:#262;">&plus;<span style="font-size:.95em; font-weight:bold; padding:0; border-bottom:1px dotted #262; cursor:pointer;" title="Add a member">New</span></span>
-                </td>
+                <td>&nbsp;</td>
                 <td id="users-to-member">
                 </td>
             </tr>
-<!-- END Add member block -->
+<!-- END Search member block -->
 
             <tr>
                 <td></td>
@@ -291,6 +241,9 @@ END Members block -->
         </form>
     </div>
 
+    <div id="test-output">
+    {{ test_data }}
+    </div>
 
 
 {% endblock content %}

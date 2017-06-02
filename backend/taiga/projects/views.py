@@ -95,7 +95,6 @@ def project_permission_required(perms, redir_page="/projects/"):
     return decor
 
 
-@csrf_protect
 # @project_permission_required(DEVELOPER_PERMISSIONS)
 # @login_required()
 def edit_project(request, project_id):
@@ -120,6 +119,12 @@ def edit_project(request, project_id):
     args['members_roles'] = members_roles
     args['roles'] = roles
     args['editing'] = True   # for hide label "Edit projects" at the right top
+
+    # if request.POST:
+    #     args['test_data'] = []
+    #     for user in users:
+    #         member = 'member_' + str(user.id)
+    #         args['test_data'] += [request.POST.getlist(member)]
 
     return render(request, template, args)
 
