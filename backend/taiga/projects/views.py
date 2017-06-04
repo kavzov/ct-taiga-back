@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import permission_required, login_required
 from .models import Project, Membership
-from .forms import AddProjectForm
+from .forms import ProjectForm
 from taiga.projects.issues.models import Issue
 from taiga.projects.issues.forms import AddIssueToProjectForm
 from taiga.users.models import User, Role
@@ -16,7 +16,7 @@ from taiga.permissions import DEVELOPER_PERMISSIONS
 def projects_list(request):
     args = {}
     plist = Project.objects.all()
-    add_project_form = AddProjectForm
+    add_project_form = ProjectForm
     args['title'] = "Projects"
     args['projects_list'] = plist
     args['add_project_form'] = add_project_form
@@ -72,7 +72,7 @@ def user_project_perms(user_id, project_id):
     try:
         roles = Membership.objects.filter(project_id=int(project_id), user_id=user_id)
     except ObjectDoesNotExist:
-        return user_perms
+        return []
     for role in roles:
         user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
     return user_perms
@@ -97,38 +97,78 @@ def project_permission_required(perms, redir_page="/projects/"):
 
 # @project_permission_required(DEVELOPER_PERMISSIONS)
 # @login_required()
-def edit_project(request, project_id):
-    args = dict()
+def edit_project(request, project_id=0):
     template = "projects/edit_project.html"
+    args = dict()
 
-    project = Project.objects.get(pk=project_id)
     users = User.objects.all()
-    proj_mbr_roles = Membership.objects.filter(project=project_id)
-    members = proj_mbr_roles.distinct('user')
     roles = Role.objects.all()
-
-    members_roles = {}
-    for member in members:
-        members_roles[member] = [mbr.role.id for mbr in proj_mbr_roles.filter(user_id=member.user.id)]
-
-    args['project'] = project
+    args['users'] = users
+    args['roles'] = roles
     args['user'] = request.user
     args['user_perms'] = user_project_perms(request.user.id, project_id)
-    args['users'] = users
-    args['members'] = members
-    args['members_roles'] = members_roles
-    args['roles'] = roles
-    args['editing'] = True   # for hide label "Edit projects" at the right top
 
-    # if request.POST:
-    #     args['test_data'] = []
-    #     for user in users:
-    #         member = 'member_' + str(user.id)
-    #         args['test_data'] += [request.POST.getlist(member)]
+    args['project_form'] = ProjectForm
+
+    # Edit project
+    if project_id:
+        project = Project.objects.get(pk=project_id)
+        proj_mbr_roles = Membership.objects.filter(project=project_id)
+        # members = proj_mbr_roles.distinct('user')
+        members = [member.user.id for member in proj_mbr_roles.distinct('user')]
+
+        members_roles = {}
+        for member in members:
+            members_roles[member] = [mbr.role.id for mbr in proj_mbr_roles.filter(user_id=member)]
+            # members_roles[member] = [mbr.role.id for mbr in proj_mbr_roles.filter(user_id=member.user.id)]
+
+        args['project'] = project
+        args['members'] = members
+        args['members_roles'] = members_roles
+        args['editing'] = True   # for hide label "Edit projects" at the right top
+
+        args['project_form'] = ProjectForm(initial={
+            'name': project.name,
+            'description': project.description,
+            'owner': project.owner,
+        })
+
+        if request.POST:
+            project_data = {}
+            project_data['id'] = project_id
+            project_data['name'] = request.POST.get('name')
+            project_data['description'] = request.POST.get('description')
+            project_data['owner'] = request.POST.get('owner')
+
+            project_data['members'] = {}
+            for user in users:
+                label_name = 'member_' + str(user.id);
+                roles_list = request.POST.getlist(label_name)
+                user_in_members_list = request.POST.get('member_in_' + str(user.id))
+                if user_in_members_list:
+                    if user.id not in members:
+                        members.append(user.id)
+                    members_roles[user.id] = roles_list
+                    project_data['members'][user.id] = members_roles[user.id]
+                else:
+                    try:
+                        members.remove(user.id)
+                        members_roles.pop(user.id)
+                    except (KeyError, ValueError):
+                        pass
+
+            args['test'] = members_roles
+
+            # Store to db
+
+
+    # Add a project
+    else:
+        if request.POST:
+            pass
 
     return render(request, template, args)
 
 
-@csrf_protect
 def add_project(request):
     pass

@@ -9,7 +9,7 @@ class User(User):
     #     pass
 
     def __str__(self):
-        return "{id}. {fname} {lname}".format(id=self.id, fname=self.first_name, lname=self.last_name)
+        return self.get_full_name()
 
     class Meta:
         ordering = ['id']
