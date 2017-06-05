@@ -16,7 +16,8 @@ class Project(models.Model):
 
     created_date = models.DateTimeField(null=False, blank=False, verbose_name="created date",
                                         default=timezone.now)
-    modified_date = models.DateTimeField(null=False, blank=False, verbose_name="modified date")
+    modified_date = models.DateTimeField(null=False, blank=False, verbose_name="modified date",
+                                        default=timezone.now)
     owner = models.ForeignKey(User, null=True, blank=True, related_name="owned_projects", verbose_name="owner")
     members = models.ManyToManyField(User, related_name="projects", through="Membership", verbose_name="members",
                                      through_fields=("project", "user"))

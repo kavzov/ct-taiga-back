@@ -114,13 +114,11 @@ def edit_project(request, project_id=0):
     if project_id:
         project = Project.objects.get(pk=project_id)
         proj_mbr_roles = Membership.objects.filter(project=project_id)
-        # members = proj_mbr_roles.distinct('user')
         members = [member.user.id for member in proj_mbr_roles.distinct('user')]
 
         members_roles = {}
         for member in members:
             members_roles[member] = [mbr.role.id for mbr in proj_mbr_roles.filter(user_id=member)]
-            # members_roles[member] = [mbr.role.id for mbr in proj_mbr_roles.filter(user_id=member.user.id)]
 
         args['project'] = project
         args['members'] = members
@@ -141,31 +139,68 @@ def edit_project(request, project_id=0):
             project_data['owner'] = request.POST.get('owner')
 
             project_data['members'] = {}
+
             for user in users:
                 label_name = 'member_' + str(user.id);
                 roles_list = request.POST.getlist(label_name)
+
+                # check member already in members list (member_in_<id> hidden field value)
                 user_in_members_list = request.POST.get('member_in_' + str(user.id))
                 if user_in_members_list:
+                    # if user just added to members list => add him to 'members' list
                     if user.id not in members:
                         members.append(user.id)
+
+                    # change member roles
+                    try:
+                        prev_mbr_roles = members_roles[user.id]
+                    # if member is new
+                    except KeyError:
+                        prev_mbr_roles = []
+
+                    now_mbr_roles = list(map(int, roles_list))
+
+                    # deleted roles
+                    for role in prev_mbr_roles:
+                        if role not in now_mbr_roles:
+                            # update db
+                            Membership.objects.get(project_id=project_id, user_id=user.id, role_id=role).delete()
+
+                    # added roles
+                    for role in now_mbr_roles:
+                        if role not in prev_mbr_roles:
+                            # update db
+                            Membership(project_id=project_id, user_id=user.id, role_id=role).save()
+
                     members_roles[user.id] = roles_list
+
                     project_data['members'][user.id] = members_roles[user.id]
                 else:
+                    # if user not in members list:
+                    #   1. he have been deleted from the list
+                    #   2. he haven't been added (KeyError & ValueError exceptions)
                     try:
                         members.remove(user.id)
                         members_roles.pop(user.id)
+                        # delete from db all records where user at this project
+                        Membership.objects.filter(project_id=project_id, user_id=user.id).delete()
                     except (KeyError, ValueError):
                         pass
 
-            args['test'] = members_roles
+            # args['test'] = membership_to_add
 
-            # Store to db
+            # Update db project
+            upd_proj = Project(
+                id = project_data['id'],
+                name = project_data['name'],
+                description = project_data['description'],
+                owner = User.objects.get(pk=project_data['owner'])
+            )
+            upd_proj.save()
 
 
-    # Add a project
-    else:
-        if request.POST:
-            pass
+
+
 
     return render(request, template, args)
 

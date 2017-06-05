@@ -22383,3 +22383,372 @@ django.db.utils.IntegrityError: null value in column "modified_date" violates no
 DETAIL:  Failing row contains (2, Applications and the time like the start the and work, Show a watch lady at the pointing, and sisters subject the to cl..., 2017-06-04 21:31:33.811345+00, null, null).
 
 2017-06-04 21:31:33,956:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 143194
+2017-06-05 07:42:07,775:basehttp "GET /projects HTTP/1.1" 301 0
+2017-06-05 07:42:08,292:basehttp "GET /projects/ HTTP/1.1" 200 4291
+2017-06-05 07:42:08,338:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2248
+2017-06-05 07:42:08,645:basehttp "GET /favicon.ico HTTP/1.1" 404 3350
+2017-06-05 07:42:23,418:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-05 07:42:28,813:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-05 07:42:28,849:basehttp "GET /projects/ HTTP/1.1" 200 4311
+2017-06-05 07:42:30,740:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-05 07:42:31,030:basehttp "GET /projects/2/ HTTP/1.1" 200 9359
+2017-06-05 07:42:32,199:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10139
+2017-06-05 07:42:37,289:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10292
+2017-06-05 07:42:41,322:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10367
+2017-06-05 07:42:43,784:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10521
+2017-06-05 07:42:45,533:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10188
+2017-06-05 07:45:27,570:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10140
+2017-06-05 07:45:48,519:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10139
+2017-06-05 07:45:53,280:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10139
+2017-06-05 07:46:22,878:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10139
+2017-06-05 07:46:39,459:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10140
+2017-06-05 07:48:00,449:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10188
+2017-06-05 07:48:11,516:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10188
+2017-06-05 07:48:19,372:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10193
+2017-06-05 07:48:24,268:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10193
+2017-06-05 07:48:52,294:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10219
+2017-06-05 07:51:41,638:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 167, in edit_project
+    owner = project_data['owner']
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 537, in __init__
+    setattr(self, field.name, rel_obj)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/fields/related_descriptors.py", line 211, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "'5'": "Project.owner" must be a "User" instance.
+2017-06-05 07:51:41,778:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 82833
+2017-06-05 07:52:13,583:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.IntegrityError: null value in column "modified_date" violates not-null constraint
+DETAIL:  Failing row contains (2, Applications and the time like the start the and work, Show a watch lady at the pointing, and sisters subject the to cl..., 2017-06-05 07:52:13.58215+00, null, 5).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 169, in edit_project
+    upd_proj.save()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 796, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 824, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 889, in _save_table
+    forced_update)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 939, in _do_update
+    return filtered._update(values) > 0
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 654, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 1148, in execute_sql
+    cursor = super(SQLUpdateCompiler, self).execute_sql(result_type)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "modified_date" violates not-null constraint
+DETAIL:  Failing row contains (2, Applications and the time like the start the and work, Show a watch lady at the pointing, and sisters subject the to cl..., 2017-06-05 07:52:13.58215+00, null, 5).
+
+2017-06-05 07:52:13,735:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 143183
+2017-06-05 07:54:27,406:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10192
+2017-06-05 07:56:38,632:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10200
+2017-06-05 07:58:06,673:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10154
+2017-06-05 07:59:06,518:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 169, in edit_project
+    upd_proj.save()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 752, in save
+    "unsaved related object '%s'." % field.name
+ValueError: save() prohibited to prevent data loss due to unsaved related object 'owner'.
+2017-06-05 07:59:06,585:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 78134
+2017-06-05 07:59:23,939:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10154
+2017-06-05 07:59:26,096:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:01:05,621:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:01:36,298:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10290
+2017-06-05 08:01:39,921:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10390
+2017-06-05 08:01:48,451:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10437
+2017-06-05 08:31:07,577:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10435
+2017-06-05 08:31:12,344:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:31:14,378:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10338
+2017-06-05 08:33:18,766:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10333
+2017-06-05 08:56:49,074:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:56:51,881:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:56:54,638:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10260
+2017-06-05 08:56:56,650:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10324
+2017-06-05 08:57:06,744:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10324
+2017-06-05 08:57:08,394:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:57:10,025:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:57:12,226:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10260
+2017-06-05 08:57:14,464:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10324
+2017-06-05 08:57:36,028:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10512
+2017-06-05 08:57:51,786:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10512
+2017-06-05 08:58:04,109:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10517
+2017-06-05 08:58:05,998:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 08:58:08,627:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10338
+2017-06-05 08:59:40,677:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 180, in edit_project
+    args['test'] = membership_to_add + members_roles
+TypeError: can only concatenate list (not "dict") to list
+2017-06-05 08:59:40,738:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 73832
+2017-06-05 08:59:41,613:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 180, in edit_project
+    args['test'] = membership_to_add + members_roles
+TypeError: can only concatenate list (not "dict") to list
+2017-06-05 08:59:41,698:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 73832
+2017-06-05 08:59:48,846:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10338
+2017-06-05 08:59:54,327:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10338
+2017-06-05 09:00:51,081:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 09:00:52,332:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 09:00:53,881:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 09:00:56,115:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10260
+2017-06-05 09:00:58,163:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10324
+2017-06-05 09:12:03,497:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10517
+2017-06-05 09:12:11,371:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10435
+2017-06-05 09:12:32,246:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10260
+2017-06-05 09:12:33,019:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10260
+2017-06-05 09:12:45,218:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10435
+2017-06-05 09:13:23,618:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10489
+2017-06-05 09:14:46,151:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10663
+2017-06-05 09:15:39,940:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10663
+2017-06-05 09:16:43,796:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10260
+2017-06-05 09:17:03,437:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10437
+2017-06-05 09:20:26,702:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10437
+2017-06-05 09:20:27,558:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10437
+2017-06-05 09:20:38,951:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10260
+2017-06-05 09:28:20,839:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 09:50:32,131:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 09:50:32,156:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 09:50:33,857:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 171, in edit_project
+    if not role_exist(mbr_role, members_roles):
+  File "/taiga-back/taiga/projects/views.py", line 165, in role_exist
+    args['test'].append((u, r))
+KeyError: 'test'
+2017-06-05 09:50:33,948:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 79901
+2017-06-05 09:50:50,309:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10333
+2017-06-05 09:50:53,901:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10256
+2017-06-05 09:50:58,384:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10181
+2017-06-05 09:51:01,529:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10285
+2017-06-05 09:51:04,075:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10360
+2017-06-05 09:51:27,621:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 09:51:31,074:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10333
+2017-06-05 09:51:41,901:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10435
+2017-06-05 10:13:26,146:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 158, in edit_project
+    prev_mbr_roles = members_roles[user.id]
+KeyError: 4
+2017-06-05 10:13:26,208:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74440
+2017-06-05 10:13:27,020:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 158, in edit_project
+    prev_mbr_roles = members_roles[user.id]
+KeyError: 4
+2017-06-05 10:13:27,103:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74440
+2017-06-05 10:13:53,259:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 10:13:56,035:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10350
+2017-06-05 10:14:57,205:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10326
+2017-06-05 10:15:21,577:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10326
+2017-06-05 10:15:23,195:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10346
+2017-06-05 10:16:25,810:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 196, in edit_project
+    args['test'] = prev_mbr_roles
+NameError: name 'prev_mbr__roles' is not defined
+2017-06-05 10:16:25,923:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74311
+2017-06-05 10:16:26,530:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 196, in edit_project
+    args['test'] = prev_mbr_roles
+NameError: name 'prev_mbr__roles' is not defined
+2017-06-05 10:16:26,614:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74311
+2017-06-05 10:16:30,276:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 196, in edit_project
+    args['test'] = prev_mbr_roles
+NameError: name 'prev_mbr__roles' is not defined
+2017-06-05 10:16:30,341:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74311
+2017-06-05 10:16:32,499:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 10:16:34,187:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 196, in edit_project
+    args['test'] = prev_mbr_roles
+NameError: name 'prev_mbr__roles' is not defined
+2017-06-05 10:16:34,251:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74311
+2017-06-05 10:16:46,143:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 196, in edit_project
+    args['test'] = prev_mbr_roles
+NameError: name 'prev_mbr__roles' is not defined
+2017-06-05 10:16:46,205:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74311
+2017-06-05 10:16:46,878:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 196, in edit_project
+    args['test'] = prev_mbr_roles
+NameError: name 'prev_mbr__roles' is not defined
+2017-06-05 10:16:46,942:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74311
+2017-06-05 10:16:56,388:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10310
+2017-06-05 10:16:59,143:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10310
+2017-06-05 10:17:05,569:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10290
+2017-06-05 10:20:03,916:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10290
+2017-06-05 10:20:04,998:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10290
+2017-06-05 10:20:13,901:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10290
+2017-06-05 10:20:15,002:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10290
+2017-06-05 10:20:29,280:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10330
+2017-06-05 10:20:53,608:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10322
+2017-06-05 10:20:54,335:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10322
+2017-06-05 10:20:57,533:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10259
+2017-06-05 10:21:05,131:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 158, in edit_project
+    prev_mbr_roles = members_roles[user.id]
+KeyError: 4
+2017-06-05 10:21:05,218:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 74296
+2017-06-05 10:21:51,030:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10356
+2017-06-05 10:21:56,361:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10484
+2017-06-05 10:22:11,503:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10547
+2017-06-05 10:22:28,608:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10326
+2017-06-05 10:22:33,977:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10259
+2017-06-05 10:23:42,176:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10259
+2017-06-05 10:47:12,386:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10259
+2017-06-05 10:53:12,446:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10259
+2017-06-05 11:05:03,326:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10258
+2017-06-05 11:05:29,709:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10420
+2017-06-05 11:06:18,715:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10484
+2017-06-05 11:06:25,819:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10258
+2017-06-05 11:06:33,545:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10097
+2017-06-05 11:06:39,993:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10322
+2017-06-05 11:06:53,762:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10194
+2017-06-05 11:07:08,922:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10258
+2017-06-05 11:15:02,303:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10099
+2017-06-05 11:15:36,747:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10099
+2017-06-05 11:17:15,343:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10099
+2017-06-05 11:17:21,726:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10099
+2017-06-05 11:17:30,719:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10099
+2017-06-05 11:21:10,186:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10099
+2017-06-05 11:21:39,476:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10129
+2017-06-05 11:21:41,741:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10129
+2017-06-05 11:22:07,633:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10129
+2017-06-05 11:22:51,765:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10121
+2017-06-05 11:23:22,175:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10114
+2017-06-05 11:23:30,414:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10114
+2017-06-05 11:24:41,946:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 11:24:51,378:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10163
+2017-06-05 11:25:35,789:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10134
+2017-06-05 11:25:43,799:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10134
+2017-06-05 11:26:06,774:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10137
+2017-06-05 11:26:21,512:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10139
+2017-06-05 11:26:29,001:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10139
+2017-06-05 11:26:34,879:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10139
+2017-06-05 11:26:51,033:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10134
+2017-06-05 11:27:34,114:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10167
+2017-06-05 11:28:24,456:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10110
+2017-06-05 11:28:37,454:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10140
+2017-06-05 11:31:43,080:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10130
+2017-06-05 11:32:32,468:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10119
+2017-06-05 11:33:04,082:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10110
+2017-06-05 11:33:12,304:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10463
+2017-06-05 11:37:21,284:basehttp "GET /projects/ HTTP/1.1" 200 4328
+2017-06-05 11:37:25,111:basehttp "GET /projects/add HTTP/1.1" 301 0
+2017-06-05 11:37:25,149:basehttp "GET /projects/add/ HTTP/1.1" 200 9665
