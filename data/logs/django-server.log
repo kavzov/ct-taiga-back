@@ -22752,3 +22752,692 @@ KeyError: 4
 2017-06-05 11:37:21,284:basehttp "GET /projects/ HTTP/1.1" 200 4328
 2017-06-05 11:37:25,111:basehttp "GET /projects/add HTTP/1.1" 301 0
 2017-06-05 11:37:25,149:basehttp "GET /projects/add/ HTTP/1.1" 200 9665
+2017-06-05 11:41:06,813:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10463
+2017-06-05 12:01:43,748:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 199, in edit_project
+    upd_proj = Project(**project_data)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 537, in __init__
+    setattr(self, field.name, rel_obj)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/fields/related_descriptors.py", line 211, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "'5'": "Project.owner" must be a "User" instance.
+2017-06-05 12:01:43,813:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 83092
+2017-06-05 12:03:30,550:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 199, in edit_project
+    upd_proj = Project(**project_data)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 555, in __init__
+    raise TypeError("'%s' is an invalid keyword argument for this function" % list(kwargs)[0])
+TypeError: 'members' is an invalid keyword argument for this function
+2017-06-05 12:03:30,617:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 78841
+2017-06-05 12:06:57,641:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10527
+2017-06-05 12:06:57,660:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 12:10:00,093:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10530
+2017-06-05 12:10:14,513:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10510
+2017-06-05 12:10:29,617:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10521
+2017-06-05 12:10:46,065:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10296
+2017-06-05 12:10:57,149:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10314
+2017-06-05 12:19:10,068:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10296
+2017-06-05 12:19:11,288:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10296
+2017-06-05 12:19:23,048:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10306
+2017-06-05 12:20:56,491:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10339
+2017-06-05 12:54:25,489:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 12:55:46,695:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 12:55:50,470:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 140, in edit_project
+    project_data['owner'] = User.objects.get(pk=request.POST.get('owner'))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 376, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 796, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 814, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/query.py", line 1227, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/query.py", line 1253, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/query.py", line 1183, in build_filter
+    condition = lookup_class(lhs, value)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/lookups.py", line 19, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/fields/related_lookups.py", line 100, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/fields/__init__.py", line 946, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2017-06-05 12:55:50,642:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 119889
+2017-06-05 12:58:14,381:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 153, in edit_project
+    Project(**project_data).save()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/base.py", line 537, in __init__
+    setattr(self, field.name, rel_obj)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/fields/related_descriptors.py", line 211, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "''": "Project.owner" must be a "User" instance.
+2017-06-05 12:58:14,458:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 81379
+2017-06-05 13:00:28,826:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 149, in edit_project
+    'owner': project_data['owner'],
+KeyError: 'owner'
+2017-06-05 13:00:28,891:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 70968
+2017-06-05 13:02:34,191:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 13:05:12,972:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 150, in edit_project
+    if project_data['owner']:
+KeyError: 'owner'
+2017-06-05 13:05:13,039:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 71697
+2017-06-05 13:06:46,445:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 13:06:51,144:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 13:06:54,018:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 13:09:03,587:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 13:09:12,705:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10397
+2017-06-05 13:15:00,432:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10138
+2017-06-05 13:15:22,333:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10382
+2017-06-05 13:16:59,908:basehttp "GET /projects/add/ HTTP/1.1" 200 9665
+2017-06-05 13:16:59,925:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 13:32:40,199:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10382
+2017-06-05 13:32:47,432:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10388
+2017-06-05 13:34:24,724:exception Internal Server Error: /projects/add/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 163, in edit_project
+    project_id = p.id
+AttributeError: 'NoneType' object has no attribute 'id'
+2017-06-05 13:34:24,814:basehttp "POST /projects/add/ HTTP/1.1" 500 69892
+2017-06-05 13:36:09,007:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10452
+2017-06-05 13:36:22,111:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10454
+2017-06-05 13:37:10,439:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10454
+2017-06-05 13:37:11,363:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10454
+2017-06-05 13:37:21,376:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 139, in edit_project
+    Project(**project_data).save()
+NameError: name 'project_data' is not defined
+2017-06-05 13:37:21,442:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 70358
+2017-06-05 13:38:53,865:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10454
+2017-06-05 13:39:02,261:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10446
+2017-06-05 13:41:18,677:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10454
+2017-06-05 13:41:25,269:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10450
+2017-06-05 13:41:32,612:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10450
+2017-06-05 13:41:33,472:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10450
+2017-06-05 13:41:34,157:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10450
+2017-06-05 13:41:35,153:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10450
+2017-06-05 13:41:36,865:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10454
+2017-06-05 13:52:16,648:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10454
+2017-06-05 13:52:23,399:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10460
+2017-06-05 13:52:55,017:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10457
+2017-06-05 13:53:29,872:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10457
+2017-06-05 13:53:31,568:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10579
+2017-06-05 13:53:36,994:exception Internal Server Error: /projects/add/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 157, in edit_project
+    if user.id not in members:
+UnboundLocalError: local variable 'members' referenced before assignment
+2017-06-05 13:53:37,091:basehttp "POST /projects/add/ HTTP/1.1" 500 70092
+2017-06-05 13:57:01,391:exception Internal Server Error: /projects/add/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 157, in edit_project
+    members = members or []
+UnboundLocalError: local variable 'members' referenced before assignment
+2017-06-05 13:57:01,457:basehttp "POST /projects/add/ HTTP/1.1" 500 70094
+2017-06-05 13:58:03,924:exception Internal Server Error: /projects/add/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 167, in edit_project
+    prev_mbr_roles = members_roles[user.id]
+UnboundLocalError: local variable 'members_roles' referenced before assignment
+2017-06-05 13:58:03,987:basehttp "POST /projects/add/ HTTP/1.1" 500 70037
+2017-06-05 13:58:40,368:basehttp "POST /projects/add/ HTTP/1.1" 200 9941
+2017-06-05 14:00:27,090:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10102
+2017-06-05 14:00:38,656:basehttp "POST /projects/17/edit/ HTTP/1.1" 200 10225
+2017-06-05 14:04:34,786:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:34,819:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:34,852:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:34,886:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:34,917:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:34,949:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:34,981:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,013:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,044:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,076:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,112:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,144:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,179:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,214:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,245:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,279:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,310:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,345:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,376:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,407:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,459:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,608:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,662:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,708:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,746:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,778:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,807:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,839:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,878:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,917:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,957:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:35,987:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,017:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,048:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,078:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,109:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,140:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,171:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,202:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,235:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,268:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:36,301:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:38,885:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:38,923:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:38,958:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:38,991:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,022:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,052:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,083:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,116:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,147:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,180:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,209:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,241:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,273:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,312:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,342:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,372:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,403:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,431:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,463:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,494:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:39,526:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:04:47,866:basehttp "GET /projects/17/ HTTP/1.1" 200 5441
+2017-06-05 14:05:02,977:basehttp "GET /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:05:02,980:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:05:03,028:basehttp "GET /projects/17/ HTTP/1.1" 200 5441
+2017-06-05 14:05:15,258:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10102
+2017-06-05 14:05:19,828:basehttp "POST /projects/17/edit/ HTTP/1.1" 200 10064
+2017-06-05 14:06:41,825:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:06:41,832:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:06:41,870:basehttp "GET /projects/17/ HTTP/1.1" 200 5171
+2017-06-05 14:06:47,200:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 9941
+2017-06-05 14:06:50,706:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:06:50,713:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:06:50,779:basehttp "GET /projects/17/ HTTP/1.1" 200 5441
+2017-06-05 14:06:53,943:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10102
+2017-06-05 14:06:57,892:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:06:57,899:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:06:57,957:basehttp "GET /projects/17/ HTTP/1.1" 200 5520
+2017-06-05 14:07:11,193:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10230
+2017-06-05 14:07:13,749:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:07:13,764:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:07:13,849:basehttp "GET /projects/17/ HTTP/1.1" 200 5273
+2017-06-05 14:07:18,598:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10230
+2017-06-05 14:07:24,481:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:07:24,490:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:07:24,533:basehttp "GET /projects/17/ HTTP/1.1" 200 5478
+2017-06-05 14:09:24,924:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10166
+2017-06-05 14:09:26,080:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10166
+2017-06-05 14:09:28,774:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:09:28,779:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:09:28,856:basehttp "GET /projects/17/ HTTP/1.1" 200 5558
+2017-06-05 14:09:36,797:basehttp "GET /projects/17/ HTTP/1.1" 200 5558
+2017-06-05 14:09:38,631:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10294
+2017-06-05 14:09:40,661:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:09:40,665:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:09:40,728:basehttp "GET /projects/17/ HTTP/1.1" 200 5519
+2017-06-05 14:09:51,152:basehttp "GET /projects/17/edit/ HTTP/1.1" 200 10230
+2017-06-05 14:09:52,997:exception Internal Server Error: /projects/17/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 193, in edit_project
+    ).save()
+NameError: name 'project_i' is not defined
+2017-06-05 14:09:53,079:basehttp "POST /projects/17/edit/ HTTP/1.1" 500 72860
+2017-06-05 14:09:59,613:basehttp "POST /projects/17/edit/ HTTP/1.1" 302 0
+2017-06-05 14:09:59,620:basehttp "GET /projects/17 HTTP/1.1" 301 0
+2017-06-05 14:09:59,670:basehttp "GET /projects/17/ HTTP/1.1" 200 5558
+2017-06-05 14:10:18,180:basehttp "GET /projects/ HTTP/1.1" 200 5369
+2017-06-05 14:10:26,142:basehttp "GET /projects/2/ HTTP/1.1" 200 9711
+2017-06-05 14:10:33,518:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10457
+2017-06-05 14:10:41,506:basehttp "POST /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-05 14:10:41,520:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-05 14:10:41,584:basehttp "GET /projects/2/ HTTP/1.1" 200 9397
+2017-06-05 14:10:52,089:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10232
+2017-06-05 14:10:56,396:basehttp "POST /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-05 14:10:56,402:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-05 14:10:56,447:basehttp "GET /projects/2/ HTTP/1.1" 200 9386
+2017-06-05 14:13:18,810:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10221
+2017-06-05 14:13:22,738:exception Internal Server Error: /projects/2/edit/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 178, in edit_project
+    'role_id': role
+UnboundLocalError: local variable 'role' referenced before assignment
+2017-06-05 14:13:22,821:basehttp "POST /projects/2/edit/ HTTP/1.1" 500 71693
+2017-06-05 14:13:49,387:basehttp "POST /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-05 14:13:49,394:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-05 14:13:49,465:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:15:17,403:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:15:19,121:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:15:24,720:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:15:26,131:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:16:07,073:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:16:07,747:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:17:33,889:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:18:08,240:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:18:15,971:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:19:07,185:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:19:14,388:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:19:33,846:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:19:40,518:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:19:42,119:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:19:54,913:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:19:55,333:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:20:47,217:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:22:02,043:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 37, in project_details
+    proj_mbr_roles = Membership.objects.filter(project=project_id).order_by(role__name)
+NameError: name 'role__name' is not defined
+2017-06-05 14:22:02,112:basehttp "GET /projects/2/ HTTP/1.1" 500 66822
+2017-06-05 14:22:09,913:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 41, in project_details
+    for member in members:
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+2017-06-05 14:22:10,082:basehttp "GET /projects/2/ HTTP/1.1" 500 115213
+2017-06-05 14:22:23,239:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 37, in project_details
+    proj_mbr_roles = Membership.objects.filter(project=project_id).order_by(role.name)
+NameError: name 'role' is not defined
+2017-06-05 14:22:23,351:basehttp "GET /projects/2/ HTTP/1.1" 500 66796
+2017-06-05 14:23:43,382:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 41, in project_details
+    for member in members:
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+2017-06-05 14:23:43,531:basehttp "GET /projects/2/ HTTP/1.1" 500 114556
+2017-06-05 14:24:12,784:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 41, in project_details
+    for member in members:
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+2017-06-05 14:24:12,894:basehttp "GET /projects/2/ HTTP/1.1" 500 114561
+2017-06-05 14:24:47,686:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 41, in project_details
+    for member in members:
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+2017-06-05 14:24:47,815:basehttp "GET /projects/2/ HTTP/1.1" 500 114557
+2017-06-05 14:25:32,911:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:25:49,888:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 41, in project_details
+    for member in members:
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+2017-06-05 14:25:49,994:basehttp "GET /projects/2/ HTTP/1.1" 500 114560
+2017-06-05 14:25:50,804:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/taiga-back/taiga/projects/views.py", line 41, in project_details
+    for member in members:
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 1087, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
+                            ^
+
+2017-06-05 14:25:50,941:basehttp "GET /projects/2/ HTTP/1.1" 500 114560
+2017-06-05 14:26:15,685:basehttp "GET /projects/2/ HTTP/1.1" 200 9696
+2017-06-05 14:26:37,511:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10446
+2017-06-05 14:39:37,953:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10465
+2017-06-05 14:39:37,968:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 14:39:48,794:basehttp "GET /projects/add/ HTTP/1.1" 200 9677
+2017-06-05 14:40:29,805:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10465
+2017-06-05 14:40:32,181:basehttp "GET /projects/add/ HTTP/1.1" 200 9476
+2017-06-05 14:40:36,881:basehttp "GET /projects/ HTTP/1.1" 200 5358
+2017-06-05 14:40:38,292:basehttp "GET /projects/2/ HTTP/1.1" 200 9704
+2017-06-05 14:40:40,154:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10465
+2017-06-05 14:40:43,251:basehttp "GET /projects/ HTTP/1.1" 200 5358
+2017-06-05 14:40:47,025:basehttp "GET /projects/add/ HTTP/1.1" 200 9476
+2017-06-05 14:44:51,885:basehttp "GET /projects/ HTTP/1.1" 200 5358
+2017-06-05 14:44:57,240:basehttp "GET /projects/2/ HTTP/1.1" 200 9608
+2017-06-05 14:45:05,858:basehttp "GET /projects/2/ HTTP/1.1" 200 9704
+2017-06-05 14:45:39,299:basehttp "GET /projects/2/ HTTP/1.1" 200 9608
+2017-06-05 14:46:09,345:basehttp "GET /projects/2/ HTTP/1.1" 200 9704
+2017-06-05 14:46:17,125:basehttp "GET /projects/2/ HTTP/1.1" 200 9608
+2017-06-05 14:47:22,358:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2367
+2017-06-05 14:47:27,120:basehttp "GET /projects/2/ HTTP/1.1" 200 9705
+2017-06-05 14:47:38,690:basehttp "GET /projects/2/ HTTP/1.1" 200 9609
+2017-06-05 14:47:38,707:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 14:49:40,178:basehttp "GET /projects/ HTTP/1.1" 200 4642
+2017-06-05 14:49:40,195:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 14:49:44,102:basehttp "GET /projects/add/ HTTP/1.1" 200 9476
+2017-06-05 14:49:58,102:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-05 14:50:23,627:basehttp "GET /projects/15 HTTP/1.1" 301 0
+2017-06-05 14:50:23,666:basehttp "GET /projects/15/ HTTP/1.1" 200 4285
+2017-06-05 14:50:23,683:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 14:50:25,909:basehttp "GET /projects/15/edit/ HTTP/1.1" 200 9638
+2017-06-05 14:50:28,612:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-05 15:32:55,730:basehttp "GET /projects/ HTTP/1.1" 200 4619
+2017-06-05 15:32:55,749:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2367
+2017-06-05 15:32:55,999:basehttp "GET /favicon.ico HTTP/1.1" 404 3350
+2017-06-05 15:32:58,143:basehttp "GET /projects/3 HTTP/1.1" 301 0
+2017-06-05 15:32:58,438:basehttp "GET /projects/3/ HTTP/1.1" 200 9781
+2017-06-05 15:33:02,599:basehttp "GET /projects/add/ HTTP/1.1" 200 9456
+2017-06-05 15:33:06,850:basehttp "GET /projects/ HTTP/1.1" 200 4619
+2017-06-05 15:33:08,288:basehttp "GET /projects/3/ HTTP/1.1" 200 9781
+2017-06-05 15:33:09,747:basehttp "GET /projects/3/edit/ HTTP/1.1" 200 9802

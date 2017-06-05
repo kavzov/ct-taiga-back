@@ -6,14 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb2e92df-c419-48fc-a3b0-a54d5f7870d0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelog_details.html" afterPath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelog_details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../data/logs/django-server.log" afterPath="$PROJECT_DIR$/../data/logs/django-server.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/timelogs/views.py" afterPath="$PROJECT_DIR$/taiga/timelogs/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelogs_list.html" afterPath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelogs_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/parts/head.html" afterPath="$PROJECT_DIR$/taiga/parts/head.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/add_edit_timelog.html" afterPath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelog_form.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/timelogs/forms.py" afterPath="$PROJECT_DIR$/taiga/timelogs/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../data/logs/django-server.log" afterPath="$PROJECT_DIR$/../data/logs/django-server.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/parts/head.html" afterPath="$PROJECT_DIR$/taiga/parts/head.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelogs_list.html" afterPath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelogs_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taiga/timelogs/views.py" afterPath="$PROJECT_DIR$/taiga/timelogs/views.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/add_edit_timelog.html" afterPath="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/timelog_form.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,35 +50,35 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taiga/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="712">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="1547">
+              <caret line="91" column="91" lean-forward="false" selection-start-line="91" selection-start-column="91" selection-end-line="91" selection-end-column="91" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit_project.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="edit_project.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/edit_project.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-697">
-              <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="2550">
+              <caret line="198" column="12" lean-forward="false" selection-start-line="198" selection-start-column="12" selection-end-line="198" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#6173#6179#0" expanded="true" />
-                <marker date="1496662363960" expanded="true" signature="2576:2582" ph=" " />
-                <marker date="1496662363960" expanded="true" signature="2611:2617" ph=" " />
-                <marker date="1496662363960" expanded="true" signature="2786:2813" ph="..." />
-                <marker date="1496662363960" expanded="true" signature="2843:2850" ph="..." />
+                <element signature="e#6261#6267#0" expanded="true" />
+                <marker date="1496673574978" expanded="true" signature="2576:2582" ph=" " />
+                <marker date="1496673574978" expanded="true" signature="2611:2617" ph=" " />
+                <marker date="1496673574978" expanded="true" signature="2786:2813" ph="..." />
+                <marker date="1496673574978" expanded="true" signature="2843:2850" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taiga/projects/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1579">
-              <caret line="200" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -87,10 +87,20 @@
         </entry>
       </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/taiga/projects/issues/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taiga/projects/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -102,20 +112,10 @@
         <entry file="file://$PROJECT_DIR$/taiga/index/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="799">
-              <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="37" />
+              <caret line="52" column="51" lean-forward="true" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taiga/index/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -125,35 +125,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taiga/index/templates/index/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3230">
-              <caret line="190" column="8" lean-forward="false" selection-start-line="190" selection-start-column="8" selection-end-line="190" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#4076#4082#0" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#4466#4472#1" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taiga/projects/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -196,6 +167,9 @@
       <find>user-to-member-field</find>
       <find>users-to</find>
       <find>users-to-member</find>
+      <find>owner</find>
+      <find>project_data['members']</find>
+      <find>edit</find>
     </findStrings>
     <replaceStrings>
       <replace>POST</replace>
@@ -218,7 +192,6 @@
         <option value="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/user_timelogs_form_html.html" />
         <option value="$PROJECT_DIR$/taiga/timelogs/templates/timelogs/issue_timelogs_form_html.html" />
         <option value="$PROJECT_DIR$/taiga/timelogs/forms.py" />
-        <option value="$PROJECT_DIR$/taiga/projects/templates/projects/projects_list.html" />
         <option value="$PROJECT_DIR$/taiga/projects/templates/projects/add_project_form_html.html" />
         <option value="$PROJECT_DIR$/taiga/views.py" />
         <option value="$PROJECT_DIR$/taiga/auth/urls.py" />
@@ -243,7 +216,6 @@
         <option value="$PROJECT_DIR$/taiga/projects/issues/views.py" />
         <option value="$PROJECT_DIR$/taiga/projects/issues/forms.py" />
         <option value="$PROJECT_DIR$/taiga/projects/issues/models.py" />
-        <option value="$PROJECT_DIR$/taiga/projects/templates/projects/project_details.html" />
         <option value="$PROJECT_DIR$/taiga/timelogs/urls.py" />
         <option value="$PROJECT_DIR$/taiga/urls.py" />
         <option value="$PROJECT_DIR$/taiga/index/templates/index/testformset.html" />
@@ -255,12 +227,14 @@
         <option value="$PROJECT_DIR$/taiga/settings.py" />
         <option value="$PROJECT_DIR$/taiga/index.html" />
         <option value="$PROJECT_DIR$/taiga/projects/urls.py" />
-        <option value="$PROJECT_DIR$/taiga/static/css/style.css" />
         <option value="$PROJECT_DIR$/taiga/projects/forms.py" />
         <option value="$PROJECT_DIR$/taiga/users/models.py" />
         <option value="$PROJECT_DIR$/taiga/projects/models.py" />
         <option value="$PROJECT_DIR$/taiga/projects/templates/projects/edit_project.html" />
         <option value="$PROJECT_DIR$/taiga/projects/views.py" />
+        <option value="$PROJECT_DIR$/taiga/static/css/style.css" />
+        <option value="$PROJECT_DIR$/taiga/projects/templates/projects/project_details.html" />
+        <option value="$PROJECT_DIR$/taiga/projects/templates/projects/projects_list.html" />
       </list>
     </option>
   </component>
@@ -291,6 +265,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -432,7 +407,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -690,17 +664,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1365" y="0" width="1922" height="1081" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921174" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24186991" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19322917" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1765625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1328125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -756,13 +729,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/taiga/projects/issues/templates/issues/issues_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taiga/projects/issues/templates/issues/timelogs_report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -872,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="54" column="4" lean-forward="false" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,13 +846,6 @@
         <state relative-caret-position="311">
           <caret line="257" column="8" lean-forward="false" selection-start-line="257" selection-start-column="8" selection-end-line="257" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/projects_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -912,13 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/project_details_html.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/add_issue_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -940,13 +891,6 @@
           <folding>
             <element signature="e#0#28#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/project_details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="63" column="32" lean-forward="false" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -989,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
           <caret line="418" column="26" lean-forward="true" selection-start-line="418" selection-start-column="26" selection-end-line="418" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1005,14 +948,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4">
           <caret line="345" column="25" lean-forward="true" selection-start-line="345" selection-start-column="25" selection-end-line="345" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/issues/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="94" lean-forward="false" selection-start-line="20" selection-start-column="94" selection-end-line="20" selection-end-column="94" />
           <folding />
         </state>
       </provider>
@@ -1050,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="59" lean-forward="false" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,7 +1009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,18 +1033,10 @@
     <entry file="file://$PROJECT_DIR$/taiga/index/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
-          <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="37" />
+          <caret line="52" column="51" lean-forward="true" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1123,37 +1048,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/models.py">
+    <entry file="file://$PROJECT_DIR$/taiga/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1547">
+          <caret line="91" column="91" lean-forward="false" selection-start-line="91" selection-start-column="91" selection-end-line="91" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/project_details_html.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/projects_list_html.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/projects_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="49" lean-forward="false" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/project_details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/issues/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taiga/projects/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/edit_project.html">
+    <entry file="file://$PROJECT_DIR$/taiga/projects/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-697">
-          <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        <state relative-caret-position="17">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#6173#6179#0" expanded="true" />
-            <marker date="1496662363960" expanded="true" signature="2576:2582" ph=" " />
-            <marker date="1496662363960" expanded="true" signature="2611:2617" ph=" " />
-            <marker date="1496662363960" expanded="true" signature="2786:2813" ph="..." />
-            <marker date="1496662363960" expanded="true" signature="2843:2850" ph="..." />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taiga/projects/views.py">
+    <entry file="file://$PROJECT_DIR$/taiga/projects/templates/projects/edit_project.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1579">
-          <caret line="200" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+        <state relative-caret-position="2550">
+          <caret line="198" column="12" lean-forward="false" selection-start-line="198" selection-start-column="12" selection-end-line="198" selection-end-column="12" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#6261#6267#0" expanded="true" />
+            <marker date="1496673574978" expanded="true" signature="2576:2582" ph=" " />
+            <marker date="1496673574978" expanded="true" signature="2611:2617" ph=" " />
+            <marker date="1496673574978" expanded="true" signature="2786:2813" ph="..." />
+            <marker date="1496673574978" expanded="true" signature="2843:2850" ph="..." />
           </folding>
         </state>
       </provider>

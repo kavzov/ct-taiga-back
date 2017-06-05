@@ -193,7 +193,12 @@ $(document).ready(function() {
 {% block content %}
     <!-- Project details -->
     <h2>
+        {% if project.id %}
         Edit project &#35;{{ project.id }}
+        {% else %}
+        Add project
+        {% endif %}
+
         {% if not editing %}
         <span style="display:inline-block; float:right; text-align:right; font-size:.65em; font-weight:normal; line-height:1.7em;">
             <a href="edit">Edit project</a>

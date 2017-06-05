@@ -1,7 +1,6 @@
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import permission_required, login_required
 from .models import Project, Membership
 from .forms import ProjectForm
@@ -39,7 +38,7 @@ def project_details(request, project_id):
     # roles = Role.objects.all()
     members_roles = {}
     for member in members:
-        members_roles[member] = [mbr.role for mbr in proj_mbr_roles.filter(user_id=member.user.id)]
+        members_roles[member] = [mbr.role for mbr in proj_mbr_roles.filter(user_id=member.user.id).order_by('role_id')]
 
     args['members'] = members
     args['members_roles'] = members_roles
@@ -99,7 +98,7 @@ def project_permission_required(perms, redir_page="/projects/"):
 # @login_required()
 def edit_project(request, project_id=0):
     template = "projects/edit_project.html"
-    args = dict()
+    args = {}
 
     users = User.objects.all()
     roles = Role.objects.all()
@@ -107,8 +106,8 @@ def edit_project(request, project_id=0):
     args['roles'] = roles
     args['user'] = request.user
     args['user_perms'] = user_project_perms(request.user.id, project_id)
-
     args['project_form'] = ProjectForm
+    args['editing'] = True   # for hide label "Edit projects" at the right top
 
     # Edit project
     if project_id:
@@ -123,7 +122,6 @@ def edit_project(request, project_id=0):
         args['project'] = project
         args['members'] = members
         args['members_roles'] = members_roles
-        args['editing'] = True   # for hide label "Edit projects" at the right top
 
         args['project_form'] = ProjectForm(initial={
             'name': project.name,
@@ -131,79 +129,82 @@ def edit_project(request, project_id=0):
             'owner': project.owner,
         })
 
-        if request.POST:
-            project_data = {}
-            project_data['id'] = project_id
-            project_data['name'] = request.POST.get('name')
-            project_data['description'] = request.POST.get('description')
-            project_data['owner'] = request.POST.get('owner')
+    if request.POST:
+        args['project_form'] = ProjectForm(request.POST)
+        if args['project_form'].is_valid():
+            if project_id:
+                args['project_form'] = ProjectForm(request.POST, instance=Project.objects.get(pk=project_id))
+                args['project_form'].save()
+            else:
+                p = args['project_form'].save()
+                project_id = p.id
 
-            project_data['members'] = {}
+        for user in users:
+            label_name = 'member_' + str(user.id);
+            roles_list = request.POST.getlist(label_name)
 
-            for user in users:
-                label_name = 'member_' + str(user.id);
-                roles_list = request.POST.getlist(label_name)
+            # check member in members list (member_in_<id> hidden field value)
+            user_in_members_list = request.POST.get('member_in_' + str(user.id))
+            if user_in_members_list:
+                # if user just added to members list => add him to 'members' list
+                try:
+                    members
+                except UnboundLocalError:
+                    members = []
+                    members_roles = {}
 
-                # check member already in members list (member_in_<id> hidden field value)
-                user_in_members_list = request.POST.get('member_in_' + str(user.id))
-                if user_in_members_list:
-                    # if user just added to members list => add him to 'members' list
-                    if user.id not in members:
-                        members.append(user.id)
+                if user.id not in members:
+                    members.append(user.id)
 
-                    # change member roles
-                    try:
-                        prev_mbr_roles = members_roles[user.id]
-                    # if member is new
-                    except KeyError:
-                        prev_mbr_roles = []
+                # change member roles
+                # get 'prev_mbr_roles' - previous member roles (set [] if no roles yet)
+                # and 'now_mbr_roles' - new checked member roles
+                try:
+                    prev_mbr_roles = members_roles[user.id]
+                # if no roles
+                except KeyError:
+                    prev_mbr_roles = []
 
-                    now_mbr_roles = list(map(int, roles_list))
+                now_mbr_roles = list(map(int, roles_list))
 
-                    # deleted roles
-                    for role in prev_mbr_roles:
-                        if role not in now_mbr_roles:
-                            # update db
-                            Membership.objects.get(project_id=project_id, user_id=user.id, role_id=role).delete()
+                # checked roles
+                for role in now_mbr_roles:
+                    if role not in prev_mbr_roles:
+                        # paste in db
+                        Membership(
+                            project_id=project_id,
+                            user_id=user.id,
+                            role_id=role
+                        ).save()
 
-                    # added roles
-                    for role in now_mbr_roles:
-                        if role not in prev_mbr_roles:
-                            # update db
-                            Membership(project_id=project_id, user_id=user.id, role_id=role).save()
+                # unchecked roles
+                for role in prev_mbr_roles:
+                    if role not in now_mbr_roles:
+                        # delete from db
+                        Membership.objects.get(
+                            project_id=project_id,
+                            user_id=user.id,
+                            role_id=role
+                        ).delete()
 
-                    members_roles[user.id] = roles_list
+                members_roles[user.id] = roles_list
 
-                    project_data['members'][user.id] = members_roles[user.id]
-                else:
-                    # if user not in members list:
-                    #   1. he have been deleted from the list
-                    #   2. he haven't been added (KeyError & ValueError exceptions)
-                    try:
-                        members.remove(user.id)
-                        members_roles.pop(user.id)
-                        # delete from db all records where user at this project
-                        Membership.objects.filter(project_id=project_id, user_id=user.id).delete()
-                    except (KeyError, ValueError):
-                        pass
+            else:
+                # if user not in members list:
+                #   1. he have been deleted from it
+                #   2. he haven't been added (KeyError & ValueError exceptions)
+                try:
+                    members.remove(user.id)
+                    members_roles.pop(user.id)
+                    # delete from db all records where user at this project
+                    Membership.objects.filter(project_id=project_id, user_id=user.id).delete()
+                except (KeyError, ValueError):
+                    pass
 
-            # args['test'] = membership_to_add
+        return redirect('/projects/' + project_id)
 
-            # Update db project
-            upd_proj = Project(
-                id = project_data['id'],
-                name = project_data['name'],
-                description = project_data['description'],
-                owner = User.objects.get(pk=project_data['owner'])
-            )
-            upd_proj.save()
-
-
-
-
-
+    # args['test'] = project_id
     return render(request, template, args)
-
 
 def add_project(request):
     pass
