@@ -121,7 +121,39 @@ def get_timelog_req_data(request):
     return req
 
 
-@permission_required(permissions.ADMIN_PERMISSIONS)
+@permission_required('timelogs.add_timelog')
+def add_timelog(request):
+    args = {}
+    args['timelog_form'] = TimelogForm(
+        initial={'user':2}
+    )
+
+    project_id = request.GET.get('project_id')
+    if project_id:
+        args['timelog_form'].fields['issue'].queryset = Issue.objects.filter(project_id=project_id)
+
+    if request.POST:
+        req = get_timelog_req_data(request)
+        timelog = Timelog(issue=req['issue'], user=req['user'], date=req['date'], duration=req['duration'])
+        timelog.save()
+        args['message'] = 'Timelog successfully added'
+    else:
+        args['message'] = 'Add a timelog'
+        args['add'] = True
+
+    issues = Issue.objects.all()
+    if project_id:
+        issues = issues.filter(project_id=project_id)
+    users = User.objects.all()
+    args['issues'] = issues
+    args['users'] = users
+
+    template = "timelogs/timelog_details.html"
+
+    return render(request, template, args)
+
+
+@permission_required('timelogs.change_timelog')
 def edit_timelog(request, timelog_id):
     args = dict()
     if request.POST:
@@ -142,28 +174,7 @@ def edit_timelog(request, timelog_id):
 
     return render(request, template, args)
 
-
-def add_timelog(request):
-    args = dict()
-    if request.POST:
-        req = get_timelog_req_data(request)
-        timelog = Timelog(issue=req['issue'], user=req['user'], date=req['date'], duration=req['duration'])
-        timelog.save()
-        args['message'] = 'Timelog successfully added'
-    else:
-        args['message'] = 'Add a timelog'
-        args['add'] = True
-
-    issues = Issue.objects.values()
-    users = User.objects.all()
-    args['issues'] = issues
-    args['users'] = users
-
-    template = "timelogs/timelog_details.html"
-
-    return render(request, template, args)
-
-
+@permission_required('timelogs.delete_timelog')
 def delete_timelog(request, timelog_id):
     pass
 

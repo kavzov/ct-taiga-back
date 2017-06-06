@@ -6,6 +6,7 @@ class TimelogForm(forms.ModelForm):
     class Meta:
         model = Timelog
         fields = ['id', 'issue', 'user', 'date', 'duration']
+        labels = {  }
 
 
 class TimelogUpdateForm(forms.Form):

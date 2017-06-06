@@ -10,7 +10,8 @@
     <div style="margin:2em 1em 0;">
         <form action="/timelogs/{{ timelog_details.id }}/edit/" method="post">
         {% csrf_token %}
-            <select name="issue_id" style="width:160px; height:25px;">
+        {{ timelog_form }}
+<!--            <select name="issue_id" style="width:160px; height:25px;">
                 <option selected="selected" disabled>Issue</option>
                 {% for issue in issues %}
                 <option value="{{ issue.id }}" {% if issue.id == timelog_details.issue.id %}selected="selected"{% endif %}>{{ issue.subject }}</option>
@@ -25,6 +26,7 @@
             <input type="date" name="date" value="{{ timelog_details.date|date:'Y-m-d' }}" style="height:21px;">
             <input type="number" name="duration" step="0.05" value="{% if timelog_details.duration is not None %}{{ timelog_details.duration }}{% else %}0.00{% endif %}" style="width: 60px; height:18px;">
             <input type="submit" value="{% if timelog_details.duration is not None %}Update{% else %}Add timelog{% endif %}" style="height:25px;">
+-->
         </form>
     </div>
 {% endblock content %}
