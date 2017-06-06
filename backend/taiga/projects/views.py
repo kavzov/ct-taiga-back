@@ -31,6 +31,7 @@ def project_details(request, project_id):
     args['users'] = User.objects.all()
     args['add_issue_form'] = AddIssueToProjectForm
     args['title'] = 'Project "' + args['project_details'].name + '"'
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
 
     proj_mbr_roles = Membership.objects.filter(project=project_id)
     members = proj_mbr_roles.distinct('user')
@@ -65,15 +66,23 @@ def project_timelogs(request, project_id):
 
 
 def user_project_perms(user_id, project_id):
-    from django.core.exceptions import ObjectDoesNotExist
-    user_perms = []
-    try:
-        roles = Membership.objects.filter(project_id=int(project_id), user_id=user_id)
-    except ObjectDoesNotExist:
-        return []
-    for role in roles:
-        user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
-    return user_perms
+    # if Admin
+    ADMIN_ID = 1
+    MANAGER_PERMS_ID = 1
+    if user_id == ADMIN_ID:
+        return Role.objects.get(pk=MANAGER_PERMS_ID).permissions
+    else:
+        from django.core.exceptions import ObjectDoesNotExist
+        user_perms = []
+        # if no roles at the project return []
+        try:
+            roles = Membership.objects.filter(project_id=int(project_id), user_id=user_id)
+        except ObjectDoesNotExist:
+            return []
+        # else list of user permissions at the project
+        for role in roles:
+            user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+        return user_perms
 
 
 def project_permission_required(perms, redir_page="/projects/"):
@@ -94,7 +103,8 @@ def project_permission_required(perms, redir_page="/projects/"):
 
 
 # @project_permission_required(DEVELOPER_PERMISSIONS)
-# @login_required()
+@project_permission_required('projects.change_project')
+@login_required()
 def edit_project(request, project_id=0):
     template = "projects/edit_project.html"
     args = {}
@@ -205,5 +215,8 @@ def edit_project(request, project_id=0):
     # args['test'] = project_id
     return render(request, template, args)
 
+
+@permission_required('projects.add_project')
+@login_required()
 def add_project(request):
     pass

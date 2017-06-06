@@ -4,13 +4,13 @@
     <!-- Project details -->
     <h2>
         Project &quot;{{ project_details.name }}&quot;
-        {# if user permissions #}
+        {% if 'projects.change_project' in user_perms %}
         <span class="right-top-text-label">
             <a href="/projects/{{ project_details.id }}/edit/" title="Edit the project" style="text-decoration:none; color:#262;">
                 <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span>
             </a>
         </span>
-        {# endif user permissions #}
+        {% endif %}
     </h2>
     <div>
         <p style="padding:0 1.3em;">{{ project_details.description }}</p>

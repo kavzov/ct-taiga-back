@@ -3,7 +3,7 @@
 {% block content %}
     <h2>
         Projects
-        {% if request.user.is_superuser %}
+        {% if perms.projects.add_project %}
         <span class="right-top-text-label">
             <a href="/projects/add/" title="Add a project" style="text-decoration:none; color:#262;">
                 <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add</span>

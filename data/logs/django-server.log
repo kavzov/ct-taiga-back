@@ -23707,3 +23707,333 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 6: 're
 2017-06-06 10:32:16,037:basehttp "POST /login/ HTTP/1.1" 302 0
 2017-06-06 10:32:16,062:basehttp "GET /projects/ HTTP/1.1" 200 4632
 2017-06-06 10:32:20,421:basehttp "GET /projects/add/ HTTP/1.1" 200 9469
+2017-06-06 10:59:50,423:basehttp "GET /admin HTTP/1.1" 301 0
+2017-06-06 10:59:50,485:basehttp "GET /admin/ HTTP/1.1" 200 8322
+2017-06-06 10:59:50,499:basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 15937
+2017-06-06 10:59:50,501:basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 434
+2017-06-06 10:59:50,504:basehttp "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+2017-06-06 10:59:50,512:basehttp "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+2017-06-06 10:59:50,513:basehttp "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+2017-06-06 10:59:50,515:basehttp "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+2017-06-06 10:59:50,515:basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+2017-06-06 10:59:50,516:basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+2017-06-06 10:59:54,171:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 10:59:54,197:basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+2017-06-06 10:59:54,214:basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+2017-06-06 10:59:54,229:basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+2017-06-06 10:59:54,233:basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6577
+2017-06-06 10:59:54,239:basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6117
+2017-06-06 10:59:54,241:basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+2017-06-06 10:59:54,243:basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+2017-06-06 10:59:54,245:basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+2017-06-06 10:59:54,249:basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+2017-06-06 10:59:54,259:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 10:59:54,259:basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+2017-06-06 10:59:54,262:basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+2017-06-06 10:59:54,266:basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+2017-06-06 10:59:54,354:basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+2017-06-06 10:59:54,357:basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+2017-06-06 10:59:56,091:basehttp "GET /admin/auth/user/1/change/ HTTP/1.1" 200 14695
+2017-06-06 10:59:56,102:basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 5755
+2017-06-06 10:59:56,111:basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 12389
+2017-06-06 10:59:56,113:basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 7750
+2017-06-06 10:59:56,122:basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+2017-06-06 10:59:56,127:basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+2017-06-06 10:59:56,137:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 10:59:56,148:basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 698
+2017-06-06 10:59:56,152:basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+2017-06-06 10:59:56,155:basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+2017-06-06 10:59:56,293:basehttp "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+2017-06-06 10:59:56,295:basehttp "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+2017-06-06 10:59:56,297:basehttp "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+2017-06-06 10:59:56,318:basehttp "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+2017-06-06 10:59:56,321:basehttp "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+2017-06-06 11:02:32,192:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:02:32,215:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 11:03:02,214:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:03:13,086:basehttp "GET /projects/ HTTP/1.1" 200 4650
+2017-06-06 11:03:19,887:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:04:09,024:basehttp "GET /projects/ HTTP/1.1" 200 4715
+2017-06-06 11:04:35,729:basehttp "GET /projects/ HTTP/1.1" 200 4636
+2017-06-06 11:05:17,208:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:05:18,946:basehttp "GET /admin/auth/user/5/change/ HTTP/1.1" 200 14676
+2017-06-06 11:05:18,988:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:05:22,774:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:05:24,255:basehttp "GET /admin/auth/user/4/change/ HTTP/1.1" 200 14683
+2017-06-06 11:05:24,286:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:05:30,900:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:05:32,492:basehttp "GET /admin/auth/user/2/change/ HTTP/1.1" 200 14700
+2017-06-06 11:05:32,528:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:05:41,568:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:05:43,240:basehttp "GET /admin/auth/user/1/change/ HTTP/1.1" 200 14695
+2017-06-06 11:05:43,276:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:05:46,650:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:05:50,133:basehttp "GET /admin/auth/user/2/change/ HTTP/1.1" 200 14700
+2017-06-06 11:05:50,162:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:05:57,676:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:06:02,794:basehttp "GET /admin/auth/ HTTP/1.1" 200 2705
+2017-06-06 11:06:03,864:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 4953
+2017-06-06 11:06:03,916:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:05,312:basehttp "GET /admin/auth/group/1/change/ HTTP/1.1" 200 7921
+2017-06-06 11:06:05,335:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:12,319:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 4953
+2017-06-06 11:06:13,795:basehttp "GET /admin/auth/group/1/change/ HTTP/1.1" 200 7921
+2017-06-06 11:06:13,831:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:28,630:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 4953
+2017-06-06 11:06:30,867:basehttp "GET /admin/auth/group/2/change/ HTTP/1.1" 200 7325
+2017-06-06 11:06:30,897:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:32,773:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 4953
+2017-06-06 11:06:34,072:basehttp "GET /admin/auth/group/3/change/ HTTP/1.1" 200 7323
+2017-06-06 11:06:34,126:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:35,274:basehttp "GET /admin/auth/group/ HTTP/1.1" 200 4953
+2017-06-06 11:06:35,856:basehttp "GET /admin/auth/ HTTP/1.1" 200 2705
+2017-06-06 11:06:37,289:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:06:37,316:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:38,441:basehttp "GET /admin/auth/user/5/change/ HTTP/1.1" 200 14676
+2017-06-06 11:06:38,480:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:42,058:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:06:43,705:basehttp "GET /admin/auth/user/2/change/ HTTP/1.1" 200 14700
+2017-06-06 11:06:43,725:basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3189
+2017-06-06 11:06:46,760:basehttp "GET /admin/auth/user/ HTTP/1.1" 200 8412
+2017-06-06 11:07:05,153:basehttp "GET /projects/ HTTP/1.1" 200 4636
+2017-06-06 11:07:10,889:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:07:13,613:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:07:13,623:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:07:18,626:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:07:18,675:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:07:21,306:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:07:21,333:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:07:26,672:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:07:26,696:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 11:10:47,110:basehttp "GET /projects/2/ HTTP/1.1" 200 9301
+2017-06-06 11:10:49,964:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10240
+2017-06-06 11:11:00,972:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:11:00,981:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:11:07,927:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:11:07,955:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:11:09,848:basehttp "GET /projects/2/ HTTP/1.1" 200 9301
+2017-06-06 11:11:10,856:basehttp "GET /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-06 11:11:10,932:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:12:34,875:basehttp "GET /projects/2/ HTTP/1.1" 200 9301
+2017-06-06 11:13:30,664:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:13:30,671:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:13:35,003:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:13:35,026:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:13:36,577:basehttp "GET /projects/2/ HTTP/1.1" 200 9294
+2017-06-06 11:13:38,310:basehttp "GET /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-06 11:13:38,343:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:13:46,350:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:13:46,357:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:13:55,916:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:13:55,952:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 11:13:57,315:basehttp "GET /projects/2/ HTTP/1.1" 200 9301
+2017-06-06 11:13:58,414:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10240
+2017-06-06 11:14:02,546:basehttp "POST /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-06 11:14:02,552:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-06 11:14:02,615:basehttp "GET /projects/2/ HTTP/1.1" 200 9573
+2017-06-06 11:14:09,697:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:14:09,710:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:14:14,568:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:14:14,591:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:14:16,234:basehttp "GET /projects/2/ HTTP/1.1" 200 9573
+2017-06-06 11:14:17,678:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 11:26:57,669:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 11:26:57,684:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 11:27:01,558:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:27:01,570:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:27:05,966:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:27:06,034:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:27:07,459:basehttp "GET /projects/2/ HTTP/1.1" 200 9566
+2017-06-06 11:27:08,951:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10394
+2017-06-06 11:28:39,094:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:28:39,107:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:28:46,114:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:28:46,150:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:28:47,580:basehttp "GET /projects/2/ HTTP/1.1" 200 9573
+2017-06-06 11:28:48,561:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 11:28:50,153:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:28:51,009:basehttp "GET /projects/1 HTTP/1.1" 301 0
+2017-06-06 11:28:51,144:basehttp "GET /projects/1/ HTTP/1.1" 200 9768
+2017-06-06 11:28:52,730:basehttp "GET /projects/1/edit/ HTTP/1.1" 302 0
+2017-06-06 11:28:52,759:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:29:34,820:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:29:34,834:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:29:39,959:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:29:40,008:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:29:41,544:basehttp "GET /projects/1/ HTTP/1.1" 200 9761
+2017-06-06 11:29:42,777:basehttp "GET /projects/1/edit/ HTTP/1.1" 200 9930
+2017-06-06 11:29:44,758:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:29:46,101:basehttp "GET /projects/3 HTTP/1.1" 301 0
+2017-06-06 11:29:46,175:basehttp "GET /projects/3/ HTTP/1.1" 200 10062
+2017-06-06 11:29:47,567:basehttp "GET /projects/3/edit/ HTTP/1.1" 200 9976
+2017-06-06 11:31:37,066:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:31:38,582:basehttp "GET /projects/2/ HTTP/1.1" 200 10533
+2017-06-06 11:31:50,982:basehttp "GET /projects/2/ HTTP/1.1" 200 9567
+2017-06-06 11:32:02,995:basehttp "GET /projects/2/ HTTP/1.1" 200 9567
+2017-06-06 11:32:23,744:basehttp "GET /projects/2/ HTTP/1.1" 200 9567
+2017-06-06 11:32:49,823:basehttp "GET /projects/2/ HTTP/1.1" 200 9567
+2017-06-06 11:33:11,247:basehttp "GET /projects/2/ HTTP/1.1" 200 10532
+2017-06-06 11:33:41,230:basehttp "GET /projects/2/ HTTP/1.1" 200 9566
+2017-06-06 11:34:02,629:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 51, in project_details
+    return render(request, "projects/project_details.html", args)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 489, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' in user_perms' from 'projects.change_project in user_perms'
+2017-06-06 11:34:02,831:basehttp "GET /projects/2/ HTTP/1.1" 500 191992
+2017-06-06 11:34:31,184:basehttp "GET /projects/2/ HTTP/1.1" 200 9566
+2017-06-06 11:34:42,634:basehttp "GET /projects/2/ HTTP/1.1" 200 9568
+2017-06-06 11:34:50,024:basehttp "GET /projects/2/ HTTP/1.1" 200 9566
+2017-06-06 11:34:52,734:basehttp "GET /projects/2/ HTTP/1.1" 200 9568
+2017-06-06 11:35:52,548:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/smartif.py", line 174, in translate_token
+    op = OPERATORS[token]
+KeyError: "user_perms.'projects.change_project'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 51, in project_details
+    return render(request, "projects/project_details.html", args)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/defaulttags.py", line 884, in __init__
+    super(TemplateIfParser, self).__init__(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/smartif.py", line 165, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/smartif.py", line 176, in translate_token
+    return self.create_var(token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/defaulttags.py", line 887, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 603, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 703, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''projects.change_project'' from 'user_perms.'projects.change_project''
+2017-06-06 11:35:52,746:basehttp "GET /projects/2/ HTTP/1.1" 500 217792
+2017-06-06 11:35:59,525:basehttp "GET /projects/2/ HTTP/1.1" 200 9566
+2017-06-06 11:39:47,032:basehttp "GET /projects/2/ HTTP/1.1" 200 9565
+2017-06-06 11:39:54,705:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 11:39:55,975:basehttp "GET /projects/3/ HTTP/1.1" 200 10062
+2017-06-06 11:39:59,485:basehttp "GET /projects/3/edit/ HTTP/1.1" 200 9976
+2017-06-06 11:40:05,265:basehttp "GET /projects/1/ HTTP/1.1" 200 9761
+2017-06-06 11:40:08,728:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:40:08,737:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:40:14,576:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 11:40:14,597:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:40:17,179:basehttp "GET /projects/1/ HTTP/1.1" 200 9444
+2017-06-06 11:40:21,842:basehttp "GET /projects/2/ HTTP/1.1" 200 9572
+2017-06-06 11:40:23,614:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 11:40:27,689:basehttp "GET /projects/3/ HTTP/1.1" 200 9745
+2017-06-06 11:40:32,430:basehttp "GET /projects/3/edit HTTP/1.1" 301 0
+2017-06-06 11:40:32,445:basehttp "GET /projects/3/edit/ HTTP/1.1" 302 0
+2017-06-06 11:40:32,484:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:40:35,282:basehttp "GET /projects/2/ HTTP/1.1" 200 9572
+2017-06-06 11:40:38,256:basehttp "GET /projects/2/edit HTTP/1.1" 301 0
+2017-06-06 11:40:38,329:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 11:40:52,239:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:41:08,772:basehttp "GET /projects/2/ HTTP/1.1" 200 9572
+2017-06-06 11:41:10,245:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 11:43:03,788:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 11:43:05,209:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 11:43:05,223:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 11:43:06,381:basehttp "GET /projects/ HTTP/1.1" 200 4302
+2017-06-06 11:43:08,025:basehttp "GET /projects/2/ HTTP/1.1" 200 9228
+2017-06-06 11:43:11,160:basehttp "GET /users/5/ HTTP/1.1" 200 4789
+2017-06-06 14:05:30,752:basehttp "GET /projects/ HTTP/1.1" 200 4302
+2017-06-06 14:05:30,828:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2376
+2017-06-06 14:05:31,055:basehttp "GET /favicon.ico HTTP/1.1" 404 3350
+2017-06-06 14:05:33,854:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-06 14:05:34,153:basehttp "GET /projects/2/ HTTP/1.1" 200 9213
+2017-06-06 14:05:41,154:basehttp "GET /projects/2/edit HTTP/1.1" 301 0
+2017-06-06 14:05:41,210:basehttp "GET /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-06 14:05:41,228:basehttp "GET /projects/ HTTP/1.1" 200 4302
+2017-06-06 14:05:43,783:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 14:05:48,008:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 14:05:48,140:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 14:05:49,563:basehttp "GET /projects/2/ HTTP/1.1" 200 9557
+2017-06-06 14:05:53,562:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
