@@ -1,0 +1,136 @@
+* {
+}
+html, body {
+    background-color:#f5f5f5;
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+#backlink {
+    width:20%;
+    padding-left:.4em;
+}
+#login-form {
+    margin-left:.3em;
+}
+#login-form input[type="text"], input[type="password"] {
+    width:15em;
+}
+#login-form button {
+    width:30%;
+}
+#main {
+    min-height:100%;
+    position:relative;
+}
+#main p {
+    font-size:1em;
+    line-height:1.4em;
+    margin:.75em 0 0;
+    padding:0 .5em;
+}
+#main h2 {
+    font-size:1.25em;
+    font-weight:normal;
+    line-height:1.5em;
+    background-color:#cce8ff;
+    padding:.3em 1em;
+    margin:.4em 0 -.2em;
+}
+#main h3 {
+    font-size:1.1em;
+    font-weight:normal;
+    background-color:#cce8ff;
+    padding:.3em .5em;
+    margin:.5em 0;
+}
+#main h4 {
+    padding:0;
+    margin:.4em 0 0;
+}
+#content {
+    background-color:#fff;
+    box-shadow:1px 1px 7px #bbb;
+    -moz-box-shadow:1px 1px 7px #bbb;
+    -webkit-box-shadow:1px 1px 7px #bbb;
+    /*padding-left:.4em;*/
+    /*padding-right:.3em;*/
+    padding-bottom:30px;
+    margin:0 auto;
+    width:75%;
+}
+#footer {
+    position:absolute;
+    bottom:0;
+    height:30px;
+    width:100%;
+    background-color: #cce8ff;
+    text-align:center;
+    font-size:.7em;
+    line-height:2.8em;
+}
+.paginator {
+    border-top:1px dotted grey;
+    margin:1em 0 0;
+    padding:1em 0 0;
+    line-height:2em;
+    text-align:center;
+    font-size:.95em;
+}
+.paginator a {
+    text-decoration:none;
+}
+.paginator a:hover {
+    text-decoration:underline;
+}
+.paginator .current {
+    display:inline-block;
+    /*background-color:#eee;*/
+}
+
+#main h2 .right-top-text-label {
+    display:inline-block; float:right; line-height:2em; font-size:.7em; font-weight:normal;
+}
+#timelogs-form {
+    margin-left:.4em;
+}
+#timelogs-form p {
+    margin:0;
+    padding-left:.3em;
+}
+.timelogs-table {
+    width:100%;
+    font-size:.9em;
+}
+.login-form {
+    margin:1em 0 0;
+}
+.login-form td {
+    padding:.2em;
+    font-size:.95em;
+}
+.login-form input[type="text"], input[type="password"] {
+    height:1.2em;
+}
+.login-form button[type="submit"] {
+    margin-top:.1em;
+}
+
+.users {
+    font-size:.9em;
+    display:inline-block;
+    margin-right:1em;
+    color:#369;
+    border-bottom:1px dotted #369;
+    padding:0;
+    cursor:pointer;
+}
+#remove-member {
+    color:#555;
+    font-family:Sans;
+    font-size:.9em;
+    cursor:pointer;
+}
+#roles-list {
+    display:none;
+}
