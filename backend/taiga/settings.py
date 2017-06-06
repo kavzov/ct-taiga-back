@@ -25,7 +25,7 @@ SECRET_KEY = '5yb_#25&g*&c6z)p6!h8d(x^fq9l3ll!()l76@lydek=y2dcvp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['93.125.112.101', 'localhost']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -60,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            '/taiga-back/taiga'
+            os.path.join(BASE_DIR, 'taiga')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -133,7 +133,7 @@ LOGGING = {
         "file": {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': '/home/taiga/logs/django-server.log',
+            'filename': os.path.join(os.path.dirname(BASE_DIR), 'data/logs/django-server.log'),
             "formatter": "complete",
         },
     },
@@ -207,6 +207,5 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 
 STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, "taiga"),
-    ("static", "/taiga-back/taiga/static"),
+    ('static', os.path.join(BASE_DIR, 'taiga/static')),
 ]

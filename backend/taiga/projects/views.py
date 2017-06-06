@@ -26,7 +26,6 @@ def projects_list(request):
 def project_details(request, project_id):
     args = {}
 
-    # args['project_details'] = Project.objects.values().get(id=project_id)
     args['project_details'] = Project.objects.get(id=project_id)
     args['issues'] = Issue.objects.all().filter(project=project_id)
     args['users'] = User.objects.all()

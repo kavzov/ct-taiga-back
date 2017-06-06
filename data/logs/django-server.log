@@ -23441,3 +23441,269 @@ LINE 1: SELECT DISTINCT ON ("projects_membership"."user_id") "projec...
 2017-06-05 15:33:06,850:basehttp "GET /projects/ HTTP/1.1" 200 4619
 2017-06-05 15:33:08,288:basehttp "GET /projects/3/ HTTP/1.1" 200 9781
 2017-06-05 15:33:09,747:basehttp "GET /projects/3/edit/ HTTP/1.1" 200 9802
+2017-06-05 15:39:23,311:basehttp "GET /projects/3/edit/ HTTP/1.1" 200 9802
+2017-06-05 15:39:23,328:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-05 15:39:27,390:basehttp "POST /projects/3/edit/ HTTP/1.1" 302 0
+2017-06-05 15:39:27,393:basehttp "GET /projects/3 HTTP/1.1" 301 0
+2017-06-05 15:39:27,433:basehttp "GET /projects/3/ HTTP/1.1" 200 10049
+2017-06-05 15:39:31,350:basehttp "GET /users/2/ HTTP/1.1" 200 4793
+2017-06-05 15:40:33,170:basehttp "GET /issues/ HTTP/1.1" 200 7950
+2017-06-05 15:40:35,098:basehttp "GET /projects/ HTTP/1.1" 200 4619
+2017-06-05 15:40:36,783:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-05 15:40:36,856:basehttp "GET /projects/2/ HTTP/1.1" 200 9589
+2017-06-05 15:41:21,579:basehttp "GET /timelogs?project_id=2 HTTP/1.1" 301 0
+2017-06-05 15:41:21,791:basehttp "GET /timelogs/?project_id=2 HTTP/1.1" 200 24876
+2017-06-05 15:41:34,291:basehttp "GET /timelogs/add/ HTTP/1.1" 200 3872
+2017-06-05 15:41:38,098:basehttp "GET /projects/ HTTP/1.1" 200 4619
+2017-06-05 15:41:39,682:basehttp "GET /projects/2/ HTTP/1.1" 200 9589
+2017-06-06 08:33:01,001:basehttp "GET /projects/ HTTP/1.1" 200 5338
+2017-06-06 08:33:01,083:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2248
+2017-06-06 08:33:01,284:basehttp "GET /favicon.ico HTTP/1.1" 404 3350
+2017-06-06 08:33:03,386:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 08:33:08,993:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 08:33:09,022:basehttp "GET /projects/ HTTP/1.1" 200 5358
+2017-06-06 08:33:11,017:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-06 08:33:11,320:basehttp "GET /projects/2/ HTTP/1.1" 200 9707
+2017-06-06 08:33:14,372:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10428
+2017-06-06 08:33:20,086:basehttp "POST /projects/2/edit/ HTTP/1.1" 200 10265
+2017-06-06 08:34:02,091:basehttp "POST /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-06 08:34:02,095:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-06 08:34:02,168:basehttp "GET /projects/2/ HTTP/1.1" 200 9301
+2017-06-06 08:34:07,423:basehttp "GET /projects/2/ HTTP/1.1" 200 9301
+2017-06-06 08:34:10,117:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10240
+2017-06-06 08:34:14,284:basehttp "POST /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-06 08:34:14,288:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-06 08:34:14,340:basehttp "GET /projects/2/ HTTP/1.1" 200 9575
+2017-06-06 08:37:29,069:basehttp "GET /projects/2/ HTTP/1.1" 200 9573
+2017-06-06 08:37:30,257:basehttp "GET /projects/2/ HTTP/1.1" 200 9573
+2017-06-06 08:39:34,549:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 08:40:08,032:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 08:40:49,317:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:41:09,549:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:41:10,390:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:41:37,099:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:42:43,664:basehttp "GET /projects/2/ HTTP/1.1" 200 9670
+2017-06-06 08:43:07,549:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:43:17,530:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:43:18,252:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:43:30,933:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2377
+2017-06-06 08:43:34,008:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:43:34,023:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 08:43:41,866:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 08:43:41,889:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2376
+2017-06-06 08:43:44,899:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 08:43:44,911:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 08:43:56,211:basehttp "GET /projects/add/ HTTP/1.1" 200 9476
+2017-06-06 08:43:56,232:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 09:27:53,509:exception Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: index.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 23, in projects_list
+    return render(request, "projects/projects_list.html", args)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: index.html
+2017-06-06 09:27:53,717:basehttp "GET /projects/ HTTP/1.1" 500 182060
+2017-06-06 09:30:00,515:exception Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: index.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 23, in projects_list
+    return render(request, "projects/projects_list.html", args)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: index.html
+2017-06-06 09:30:00,917:basehttp "GET /projects/ HTTP/1.1" 500 182060
+2017-06-06 09:41:19,062:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 09:41:19,089:basehttp "GET /static/static/css/style.css HTTP/1.1" 404 1673
+2017-06-06 09:44:59,141:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 09:44:59,161:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2376
+2017-06-06 09:45:19,361:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 09:45:55,418:basehttp "GET /projects/2/ HTTP/1.1" 200 9574
+2017-06-06 09:45:58,185:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 09:46:29,085:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10401
+2017-06-06 09:48:16,861:basehttp "POST /projects/2/edit/ HTTP/1.1" 302 0
+2017-06-06 09:48:16,865:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-06 09:48:16,922:basehttp "GET /projects/2/ HTTP/1.1" 200 9301
+2017-06-06 09:52:44,370:basehttp "GET /projects/2/edit/ HTTP/1.1" 200 10240
+2017-06-06 09:52:44,380:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 09:52:52,133:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 10:09:32,720:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 10:09:32,738:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 10:09:42,319:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 10:09:57,132:basehttp "GET /projects/ HTTP/1.1" 200 4643
+2017-06-06 10:11:13,238:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 10:11:19,172:basehttp "GET /projects/ HTTP/1.1" 200 4644
+2017-06-06 10:11:25,852:basehttp "GET /projects/ HTTP/1.1" 200 4651
+2017-06-06 10:11:31,771:basehttp "GET /projects/ HTTP/1.1" 200 4644
+2017-06-06 10:12:02,464:basehttp "GET /projects/ HTTP/1.1" 200 4644
+2017-06-06 10:19:20,192:basehttp "GET /projects/ HTTP/1.1" 200 4639
+2017-06-06 10:19:20,213:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 10:29:48,203:basehttp "GET /projects/ HTTP/1.1" 200 4644
+2017-06-06 10:29:48,222:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-06 10:31:53,195:exception Internal Server Error: /projects/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'request.user.is_superuser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 23, in projects_list
+    return render(request, "projects/projects_list.html", args)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 568, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 6: 'request.user.is_superuser', expected 'endblock'. Did you forget to register or load this tag?
+2017-06-06 10:31:53,363:basehttp "GET /projects/ HTTP/1.1" 500 158939
+2017-06-06 10:32:07,614:basehttp "GET /projects/ HTTP/1.1" 200 4322
+2017-06-06 10:32:10,932:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-06 10:32:10,955:basehttp "GET /login/ HTTP/1.1" 200 2272
+2017-06-06 10:32:16,037:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-06 10:32:16,062:basehttp "GET /projects/ HTTP/1.1" 200 4632
+2017-06-06 10:32:20,421:basehttp "GET /projects/add/ HTTP/1.1" 200 9469
