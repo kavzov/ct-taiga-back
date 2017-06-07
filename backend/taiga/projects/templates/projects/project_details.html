@@ -5,13 +5,20 @@
     <h2>
         Project &quot;{{ project_details.name }}&quot;
         {% if 'projects.change_project' in user_perms %}
-        <span class="right-top-text-label">
+        <span id="right-top-label">
             <a href="/projects/{{ project_details.id }}/edit/" title="Edit the project" style="text-decoration:none; color:#262;">
                 <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span>
             </a>
-        </span>
         {% endif %}
+        {% if perms.projects.delete_project %}
+            &ensp;
+            <a href="/projects/{{ project_details.id }}/delete/" title="Delete the project" style="text-decoration:none; color:#822;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #822;" id="delete-project" onclick="return confirm('Sure?');">Delete</span>
+            </a>
+        {% endif %}
+        </span>
     </h2>
+
     <div>
         <p style="padding:0 1.3em;">{{ project_details.description }}</p>
     </div>

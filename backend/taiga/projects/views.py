@@ -1,6 +1,7 @@
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import permission_required, login_required
 from .models import Project, Membership
 from .forms import ProjectForm
@@ -102,10 +103,56 @@ def project_permission_required(perms, redir_page="/projects/"):
     return decor
 
 
-# @project_permission_required(DEVELOPER_PERMISSIONS)
+@permission_required('projects.add_project')
+def add_project(request):
+    """
+    Add a project
+    """
+    template = "projects/edit_project.html"
+    args = {}
+
+    args['users'] = User.objects.all()
+    args['roles'] = Role.objects.all()
+    roles = [str(role.id) for role in args['roles']]
+    args['project_form'] = ProjectForm
+    args['editing'] = True   # for hide label "Edit projects" at the right top
+
+    if request.POST:
+        args['project_form'] = ProjectForm(request.POST)
+        if args['project_form'].is_valid():
+            p = args['project_form'].save()
+            project_id = str(p.id)
+
+        for user in args['users']:
+            # check member in members list (member_in_<id> hidden field value)
+            user_in_members_list = request.POST.get('member_in_' + str(user.id))
+            if user_in_members_list:
+                label_name = 'member_' + str(user.id);
+                roles_list = request.POST.getlist(label_name)
+
+                # checked roles save in db
+                for role in roles_list:
+                    # validate roles
+                    if role in roles:
+                       Membership(
+                            project_id=project_id,
+                            user_id=user.id,
+                            role_id=role
+                       ).save()
+
+        msg = 'Project &#35;' + project_id + \
+              ': &laquo;' + request.POST.get('name') + \
+              '&raquo; have been successfully added'
+        messages.add_message(request, messages.SUCCESS, msg, extra_tags="success-bgr")
+
+        return redirect('/projects/')
+
+#    args['test'] = [str(role.id) for role in args['roles']]
+    return render(request, template, args)
+
+
 @project_permission_required('projects.change_project')
-@login_required()
-def edit_project(request, project_id=0):
+def edit_project(request, project_id):
     template = "projects/edit_project.html"
     args = {}
 
@@ -216,7 +263,19 @@ def edit_project(request, project_id=0):
     return render(request, template, args)
 
 
-@permission_required('projects.add_project')
-@login_required()
-def add_project(request):
+@permission_required('projects.delete_project')
+def delete_project(request, project_id):
+    from django.core.exceptions import ObjectDoesNotExist
+    try:
+        project = Project.objects.get(pk=project_id)
+    except ObjectDoesNotExist:
+        msg = 'Project &#35;' + str(project_id) + ' does NOT exist'
+        messages.add_message(request, messages.ERROR, msg, extra_tags="error-bgr")
+        return redirect('/projects/')
+
+    project.delete()
+    msg = 'Project &#35;' + project_id + ': &laquo;' + project.name + '&raquo; have been successfully deleted'
+    messages.add_message(request, messages.SUCCESS, msg, extra_tags="success-bgr")
+    return redirect('/projects/')
+
     pass

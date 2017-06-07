@@ -15,7 +15,7 @@ class Issue(models.Model):
     subject = models.CharField(max_length=128)
     description = models.TextField(max_length=1024)
     assigned_to = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    project = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
     status = models.CharField(max_length=16, choices=STATUSES, default='new')
     created_date = models.DateTimeField(null=False, blank=False, verbose_name="created date", default=timezone.now)
     modified_date = models.DateTimeField(null=False, blank=False, verbose_name="modified date", default=timezone.now)

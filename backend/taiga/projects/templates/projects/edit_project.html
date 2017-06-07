@@ -3,8 +3,6 @@
 {% block javascript %}
 {{ block.super }}
 
-<script type=text/javascript>
-
 var users = getUsers();
 var members = getMembers();
 var roles = getRoles();
@@ -187,7 +185,6 @@ $(document).ready(function() {
     });
 
 });
-</script>
 {% endblock javascript %}
 
 {% block content %}

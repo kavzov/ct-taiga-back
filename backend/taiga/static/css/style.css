@@ -34,8 +34,8 @@ html, body {
     font-weight:normal;
     line-height:1.5em;
     background-color:#cce8ff;
-    padding:.3em 1em;
-    margin:.4em 0 -.2em;
+    padding:.3em 1em 0;
+    margin:.4em 0 0;
 }
 #main h3 {
     font-size:1.1em;
@@ -88,8 +88,26 @@ html, body {
     /*background-color:#eee;*/
 }
 
-#main h2 .right-top-text-label {
-    display:inline-block; float:right; line-height:2em; font-size:.7em; font-weight:normal;
+.response-message {
+    text-align:center;
+    font-size:1em;
+    color:#ffffff;
+    line-height:2.4em;
+    margin:0 0 .3em;
+}
+.success-bgr {
+    background-color:#228822;
+}
+.error-bgr {
+    background-color:#882222;
+}
+
+#right-top-label {
+    display:inline-block;
+    float:right;
+    font-size:.7em;
+    font-weight:normal;
+    line-height:2em;
 }
 #timelogs-form {
     margin-left:.4em;

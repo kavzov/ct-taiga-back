@@ -4,13 +4,20 @@
     <h2>
         Projects
         {% if perms.projects.add_project %}
-        <span class="right-top-text-label">
+        <span id="right-top-label">
             <a href="/projects/add/" title="Add a project" style="text-decoration:none; color:#262;">
                 <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add</span>
             </a>
         </span>
         {% endif %}
     </h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="response-message{% if message.tags %} {{ message.tags }}{% endif %}">
+            {{ message|safe }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
     {% include "projects/projects_list_html.html" %}
-    {# include "projects/add_project_form_html.html" #}
-{% endblock %}
+{% endblock content %}
