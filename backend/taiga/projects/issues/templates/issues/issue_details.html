@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <!-- Issue details -->
+<!-- Issue header -->
     <h2>
         Issue &laquo;{{ issue_details.subject }}&raquo;
         {% if 'issues.change_issue' in user_perms %}
@@ -18,9 +18,12 @@
         {% endif %}
         </span>
     </h2>
+<!-- END Issue header -->
+<!-- Issue description -->
     <div style="padding:.7em 1.3em 0;">
         {{ issue_details.description }}
     </div>
+<!-- END Issue description -->
     <div style="padding:.3em 1.3em 0;">
         <h4>Project: <span style="font-weight:normal;"><a href="/projects/{{ issue_details.project.id }}" title="Project details">{{ issue_details.project.name  }}</a></span></h4>
     </div>
@@ -38,13 +41,14 @@
     <div style="padding:.5em 1.3em 0em;">
     <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat:2 }} h</span></h4>
     <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
-        <a href="/timelogs?issue_id={{ issue_details.id }}" title="View the issue timelogs">Timelogs</a>&nbsp;
-        <a href="/timelogs/add_timelog?issue_id={{ issue_details.id }}" title="Add a new timelog to the issue" style="text-decoration:none; color:#262;">
-            &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add</span>
+        {% if total_time %}<a href="/timelogs?issue_id={{ issue_details.id }}" title="View the issue timelogs">Timelogs</a>&nbsp;{% endif %}
+        <a href="/timelogs/add_timelog?issue_id={{ issue_details.id }}" title="Add timelog to the issue" style="text-decoration:none; color:#262;">
+            &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add{% if not total_time %} timelog{% endif %}</span>
         </a>
     </p>
     </div>
 
+    {% if user_durations %}
     <div style="padding:.4em 1.3em .5em;">
         <h4>Participants:</h4>
         <table style="font-size:.9em; margin:.5em 0; padding:.2em 0; border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
@@ -60,6 +64,7 @@
             {% endfor %}
         </table>
     </div>
+    {% endif %}
 
 
     {% if timelogs_list %}

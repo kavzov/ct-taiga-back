@@ -3,10 +3,10 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required, login_required
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Project, Membership
 from .forms import ProjectForm
 from taiga.projects.issues.models import Issue
-from taiga.projects.issues.forms import AddIssueToProjectForm
 from taiga.users.models import User, Role
 from taiga.timelogs.models import Timelog
 from taiga.timelogs.views import get_timelogs
@@ -30,7 +30,6 @@ def project_details(request, project_id):
     args['project_details'] = Project.objects.get(id=project_id)
     args['issues'] = Issue.objects.all().filter(project=project_id)
     args['users'] = User.objects.all()
-    args['add_issue_form'] = AddIssueToProjectForm
     args['title'] = 'Project "' + args['project_details'].name + '"'
     args['user_perms'] = user_project_perms(request.user.id, project_id)
 
@@ -73,7 +72,6 @@ def user_project_perms(user_id, project_id):
     if user_id == ADMIN_ID:
         return Role.objects.get(pk=MANAGER_PERMS_ID).permissions
     else:
-        from django.core.exceptions import ObjectDoesNotExist
         user_perms = []
         # if no roles at the project return []
         try:
@@ -82,23 +80,46 @@ def user_project_perms(user_id, project_id):
             return []
         # else list of user permissions at the project
         for role in roles:
-            user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+            # if not role_id (user at the project but hasn't roles)
+            try:
+                user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+            except ObjectDoesNotExist:
+                pass
         return user_perms
 
 
 def project_permission_required(perms, redir_page="/projects/"):
     def decor(func):
-        def inner(request, project_id):
+        def inner(request, *args, **kwargs):
+            # if func with issue_id
+            try:
+                project_id = Issue.objects.get(pk=kwargs['issue_id']).project_id
+            # trying to process issue that doesn't exist
+            except ObjectDoesNotExist:
+                messages.error(request, 'Error: issue &#35;' + str(kwargs['issue_id'] + ' does NOT exist'))
+                return redirect('/issues/')
+            # if project_id
+            except KeyError:
+                project_id = kwargs['project_id']
+
+            # get user permissions
+            user_perms = user_project_perms(request.user.id, project_id)
+
+            # get required permissions from decorator
             required_perms = []
+            # if it string
             if isinstance(perms, str):
                 required_perms.append(perms)
+            # list
             else:
                 required_perms.extend(perms)
-            user_perms = user_project_perms(request.user.id, project_id)
+
+            # if at least one permission not in required permissions - redirect to 'redir_page'
             for perm in required_perms:
                 if perm not in user_perms:
                     return redirect(redir_page)
-            return func(request, project_id)
+
+            return func(request, *args, **kwargs)
         return inner
     return decor
 
@@ -123,8 +144,10 @@ def add_project(request):
             p = args['project_form'].save()
             project_id = str(p.id)
         else:
-            msg = "Something went wrong"
-            messages.error(request, msg)
+            msg_head = "Some errors occurs while adding project:"
+            messages.error(request, msg_head)
+            err_msg = args['project_form'].errors.as_text()
+            messages.error(request, err_msg)
             return render(request, template, args)
 
         for user in args['users']:
@@ -203,8 +226,10 @@ def edit_project(request, project_id):
             args['project_form'] = ProjectForm(request.POST, instance=Project.objects.get(pk=project_id))
             args['project_form'].save()
         else:
-            msg = "Something went wrong"
-            messages.error(request, msg)
+            msg_head = "Some errors occurs while editing the project:"
+            messages.error(request, msg_head)
+            err_msg = args['project_form'].errors.as_text()
+            messages.error(request, err_msg)
             return render(request, template, args)
 
         # if members list are empty, set initial
@@ -295,7 +320,6 @@ def edit_project(request, project_id):
 
 @permission_required('projects.delete_project')
 def delete_project(request, project_id):
-    from django.core.exceptions import ObjectDoesNotExist
     try:
         project = Project.objects.get(pk=project_id)
     except ObjectDoesNotExist:

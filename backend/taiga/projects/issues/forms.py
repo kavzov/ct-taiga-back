@@ -2,7 +2,7 @@ from django import forms
 from .models import Issue
 
 
-class AddIssueForm(forms.ModelForm):
+class IssueForm(forms.ModelForm):
     class Meta:
         model = Issue
         fields = [
@@ -11,13 +11,3 @@ class AddIssueForm(forms.ModelForm):
         labels = {
             "assigned_to": "Assignee"
         }
-
-
-class AddIssueToProjectForm(forms.ModelForm):
-    class Meta:
-        model = Issue
-        fields = ['subject', 'description', 'status', 'assigned_to']
-        labels = {
-            "assigned_to": "Assignee"
-        }
-

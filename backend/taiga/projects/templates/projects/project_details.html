@@ -47,7 +47,7 @@
     <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat:2 }} h</span></h4>
     <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
         <a href="/timelogs?project_id={{ project_details.id }}" title="View the projects timelogs">Timelogs</a>&nbsp;
-        <a href="/timelogs/add_timelog?project_id={{ project_details.id }}" title="Add a new timelog to the project" style="text-decoration:none; color:#262;">
+        <a href="/timelogs/add_timelog?project_id={{ project_details.id }}" title="Add timelog to project" style="text-decoration:none; color:#262;">
             &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add</span>
         </a>
     </p>
@@ -72,7 +72,7 @@
             Issues:&nbsp;
             {# if user permissions #}
             <span style="font-weight:normal; font-size:.85em;">
-                <a href="/issues/new_issue/" title="Add a new issue" style="text-decoration:none; color:#262;">
+                <a href="add_issue/" title="Add new issue to project" style="text-decoration:none; color:#262;">
                 &plus;<span style="display:inline-block; padding-bottom:0; margin-bottom:.5em; line-height:1em; border-bottom:1px dotted #262;">Add</span>
                 </a>
             </span>
@@ -83,11 +83,11 @@
             <li>
                 <span onmouseover="document.getElementById('edit-project-issue-{{ issue.id }}').style.visibility='visible';" onmouseout="document.getElementById('edit-project-issue-{{ issue.id }}').style.visibility='hidden';">
                     <a href="/issues/{{ issue.id }}" title="Issue details"><b>{{ issue.subject }}</b></a>
-                    {# if user permissions #}
+                    {% if 'issues.change_issue' in user_perms %}
                     <span id="edit-project-issue-{{ issue.id }}" style="font-size:.85em; visibility:hidden;">
                         &ensp;<a href="/issues/{{ issue.id }}/edit/" title="Edit the issue" style="text-decoration:none; color:#262;"><span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span></a>
                     </span>
-                    {# endif user permissions #}
+                    {% endif %}
 
                     <span style="display:block; margin:.2em 0; line-height:1.3em;">{{ issue.description }}</span>
                 </span>

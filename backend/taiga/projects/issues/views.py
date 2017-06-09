@@ -1,27 +1,28 @@
 import json
 from django.core.serializers.json import DjangoJSONEncoder
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Issue
-from .forms import AddIssueForm
+from .forms import IssueForm
 from taiga.users.models import User
 from taiga.timelogs.views import get_timelogs
 from taiga.timelogs.models import Timelog
+from taiga.projects.models import Project
 from taiga.projects.views import user_project_perms
+from taiga.projects.views import project_permission_required
+from django.contrib.auth.decorators import permission_required, login_required
+from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
 
 
 def issues_list(request):
-    args = {}
+    template = 'issues/issues_list.html'
     iss_list = Issue.objects.all()
-    add_issue_form = AddIssueForm
-    args['title'] = "Issues"
-    args['issues_list'] = iss_list
-    args['add_issue_form'] = add_issue_form
+    args = {
+        'title': 'Issues',
+        'issues_list': iss_list,
+    }
 
-    return render(request, "issues/issues_list.html", args)
-
-from django.contrib.auth.decorators import permission_required, login_required
-from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
+    return render(request, template, args)
 
 
 def issue_details(request, issue_id):
@@ -46,7 +47,7 @@ def issue_details(request, issue_id):
     users_durations = {}
     for user in users:
         user_timelogs = timelogs.filter(user=user)
-        users_durations[user] =sum([v['duration'] for v in list(user_timelogs.values())])
+        users_durations[user] = sum([v['duration'] for v in list(user_timelogs.values())])
 
     args['user_perms'] = user_project_perms(request.user.id, issue.project.id)
     args['title'] = 'Issue "' + issue.subject + '"'
@@ -56,6 +57,107 @@ def issue_details(request, issue_id):
     args['users_durations'] = users_durations
 
     return render(request, template, args)
+
+
+@project_permission_required('issues.add_issue')
+def add_issue(request, project_id):
+    """
+    Create new issue at the project
+    """
+    template = 'issues/edit_issue.html'
+    issue_form = IssueForm
+
+    args = {
+        'issue_form': issue_form,
+        'project': Project.objects.get(pk=project_id),
+        'editing': True,
+    }
+
+    if request.POST:
+        issue_form = IssueForm(request.POST)
+        if issue_form.is_valid():
+            i = issue_form.save()
+            issue_id = str(i.id)
+        else:
+            msg_head = "Some errors occurs while adding issue:"
+            messages.error(request, msg_head)
+            err_msg = issue_form.errors.as_text()
+            messages.error(request, err_msg)
+            return render(request, template, args)
+
+        msg = 'Issue &#35;' + issue_id + \
+              ': &laquo;' + request.POST.get('subject') + \
+              '&raquo; have successfully added to project "' + args['project'].name + '"'
+        messages.success(request, msg)
+
+        return redirect('/projects/'+project_id)
+
+    return render(request, template, args)
+
+
+@project_permission_required('issues.change_issue')
+def edit_issue(request, issue_id):
+    """
+    Edit issue
+    """
+    template = 'issues/edit_issue.html'
+
+    # get issue
+    issue = Issue.objects.get(pk=issue_id)
+
+    args = {
+        'issue': issue,
+        'project': issue.project,
+        'editing': True,
+        'issue_form': IssueForm(initial={
+            'subject': issue.subject,
+            'description': issue.description,
+            'assigned_to': issue.assigned_to,
+            'status': issue.status,
+        }),
+    }
+
+    if request.POST:
+        issue_form = IssueForm(request.POST)
+        if issue_form.is_valid():
+            issue_form = IssueForm(request.POST, instance=issue)
+            issue_form.save()
+        else:
+            msg_head = "Some errors occurs while editing issue:"
+            messages.error(request, msg_head)
+            err_msg = issue_form.errors.as_text()
+            messages.error(request, err_msg)
+            return render(request, template, args)
+
+        msg = 'Issue &#35;' + issue_id + \
+              ': &laquo;' + request.POST.get('subject') + \
+              '&raquo; have successfully updated'
+        messages.success(request, msg)
+
+        return redirect('/issues/'+issue_id)
+
+    return render(request, template, args)
+
+
+@project_permission_required('issues.delete_issue')
+def delete_issue(request, issue_id):
+    """
+    Delete issue
+    """
+    from django.core.exceptions import ObjectDoesNotExist
+    try:
+        issue = Issue.objects.get(pk=issue_id)
+    except ObjectDoesNotExist:
+        messages.error(request, 'Couldn\'t remove issue &#35;' + str(issue_id))
+        messages.error(request, 'Error: issue does NOT exist')
+
+        return redirect('/issues/')
+
+    issue.delete()
+    msg = 'Issue &#35;' + issue_id + ': &laquo;' + issue.subject + '&raquo; have been successfully deleted'
+    messages.success(request, msg)
+
+    return redirect('/projects/' + str(issue.project.id))
 
 
 def issue_timelogs(request, issue_id):
@@ -70,8 +172,3 @@ def issue_timelogs(request, issue_id):
         args['issue_details'] = Issue.objects.get(id=issue_id)
 
     return render(request, template, args)
-
-
-@csrf_protect
-def add_issue(request):
-    pass

@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from .issues import views as issues_views
 
 urlpatterns = [
     url(r'^$', views.projects_list, name='projects_list'),
@@ -8,4 +9,5 @@ urlpatterns = [
     url(r'^(?P<project_id>\d+)/edit/$', views.edit_project, name='edit_project'),
     url(r'^(?P<project_id>\d+)/delete/$', views.delete_project, name='delete_project'),
     url(r'^(?P<project_id>\d+)/timelogs/$', views.project_timelogs, name='project_timelogs'),
-]
+    url(r'^(?P<project_id>\d+)/add_issue/$', issues_views.add_issue, name='add_issue'),
+    ]

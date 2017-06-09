@@ -180,7 +180,7 @@ def delete_timelog(request, timelog_id):
 
 
 # --------------------------------- #
-# --- Generates random timelogs --- #
+# --- Random timelogs generator --- #
 def generate(request):
     from random import randrange, choice
     def get_rand_duration():

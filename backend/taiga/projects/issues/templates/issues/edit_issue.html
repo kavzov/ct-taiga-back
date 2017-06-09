@@ -1,0 +1,253 @@
+{% extends "index.html" %}
+
+{% block javascript %}
+{{ block.super }}
+
+var users = getUsers();
+var members = getMembers();
+var roles = getRoles();
+var members_roles = getMembersAndRoles();
+
+
+/* Users */
+function getUsers() {
+    var users = {}
+    {% for user in users %}
+    users['{{ user.id }}'] = '{{ user.get_full_name }}';
+    {% endfor %}
+    return users;
+}
+
+
+/* Members */
+function getMembers() {
+    var members = [];
+    {% for member in members %}
+    members.push({{ member }});
+    {% endfor %}
+    return members;
+}
+
+
+/* Roles */
+function getRoles() {
+    var roles = {};
+    {% for role in roles %}
+    roles['{{ role.id }}'] = '{{ role.name }}';
+    {% endfor %}
+    return roles;
+}
+
+
+/* Members & Roles by users */
+function getMembersAndRoles() {
+    var members_roles = {};
+    for (var i in members) {
+        var userID = members[i];
+        members_roles[userID] = [];
+        {% for member, member_roles in members_roles.items %}
+            if (userID == {{ member }}) {
+                {% for member_role in member_roles %}
+                members_roles[userID].push({{ member_role }});
+                {% endfor %}
+            }
+        {% endfor %}
+    }
+    return members_roles;
+}
+
+
+/* Check either value in array */
+function in_arr(val, arr) {
+    for (i in arr) {
+        if (val === arr[i]) { return true }
+    }
+    return false;
+}
+
+
+/* Remove value from array */
+function delFromArr(arr, val) {
+    var ind = arr.indexOf(parseInt(val));
+    arr.splice(ind, 1);
+    return arr;
+}
+
+
+/* Display users list */
+function displayUsersList() {
+    var usersHTML = '';
+    for (var userID in users) {
+        if (in_arr(parseInt(userID), members)) { continue }
+        usersHTML += '<span class="users" user_id="' + userID +'">' + users[userID] + '</span>';
+    }
+    $('#users').html(usersHTML);
+}
+
+
+/* Display members list with roles */
+function displayMembersAndRoles() {
+    var html = '';
+    for (var i in members) {
+        var userID = members[i];
+        html += '<tr user="'+ userID +'">';
+        html += '<td>' + users[userID] + '</td>';
+        html += '<td>';
+        for (var roleID in roles) {
+            html += '<label><input type="checkbox" class="role-checkbox" name="member_'+ userID +'" value="' + roleID + '" ';
+                for (var i in members_roles[userID]) {
+                    var memberRoleID = members_roles[userID][i];
+                    if (roleID == memberRoleID) {
+                        html += 'checked="checked"';
+                    }
+                }
+            html += '>&nbsp;' + roles[roleID] + '</label>&ensp;';
+        }
+        html += '<input type="hidden" name="member_in_'+ userID +'" value="1">';
+        html += '<span class="remove-member" user_id="'+ userID +'" style="color:#833; cursor:pointer;" title="Remove from project">&#9746;</span>';
+        html += '\
+            </td>\
+            </tr>';
+    }
+    $('#members').html(html);
+}
+
+
+/* Display members list and candidates to members */
+function displayMembersAndUsers() {
+    displayUsersList();
+    displayMembersAndRoles();
+}
+
+
+$(document).ready(function() {
+
+    /* Initial display of users and members lists */
+    displayMembersAndUsers();
+
+    /* Add a user to project by click on user name */
+    $('#users').on('click', '.users', function(){
+        /* Pop user name from users list and push it to members list */
+
+        // Add user id to members list
+        var userID = parseInt($(this).attr('user_id'));
+        members.push(userID);
+
+        // Redisplay users and members lists
+        displayMembersAndUsers();
+    });
+
+
+    /* Remove member from project by click on [x] near user&roles */
+    $('#members').on('click', '.remove-member', function() {
+        /* Pop user name from members list and push it to users list */
+        var userID = parseInt($(this).attr('user_id'));
+
+        // Remove member id from member list
+        members = delFromArr(members, userID)
+
+        // Remove user from members_roles
+        delete members_roles[userID];
+
+        // Redisplay users and members lists
+        displayMembersAndUsers();
+    });
+
+
+    /*
+    * Add role to member (members_roles dict) after clicking on checkbox
+    * It's necessary for save checks after lists redisplay
+    */
+    $('#members').on('click', '.role-checkbox', function() {
+        var userID = $(this).attr('name').match(/\d+$/);
+        var role = $(this).val();
+
+        // Check for first role by member
+        // If user is member with roles already
+        if (in_arr(userID.toString(), Object.keys(members_roles))) {
+            // if the role is already in roles list of member
+            if (in_arr(role, members_roles[userID])) {
+                // remove the role
+                members_roles[userID] = delFromArr(members_roles[userID], role);
+            }
+            else {
+                // add the role to existing member
+                members_roles[userID].push(parseInt(role));
+            }
+        }
+        else {
+            // add new member (userID) and new role
+            members_roles[userID] = [parseInt(role)];
+         }
+
+        // TODO
+        // Try variant with appending members and users to its lists without redisplaying (using fadeToggle)
+    });
+
+});
+{% endblock javascript %}
+
+{% block content %}
+    <!-- Project details -->
+    <h2>{{ issue.id }}
+        {% if issue.id %}
+        Edit issue &#35;{{ issue.id }}
+        {% else %}
+        Add issue to project &laquo;{{ project.name }}&raquo;
+        {% endif %}
+
+        {% if not editing %}
+        <span style="display:inline-block; float:right; text-align:right; font-size:.65em; font-weight:normal; line-height:1.7em;">
+            <a href="edit">Edit issue</a>
+        </span>
+        {% endif %}
+    </h2>
+
+    <div id="edit-project-form">
+        <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="project" value="{{ project.id }}">
+        <table>
+            <tr>
+                <td>Subject:</td>
+                <td>{{ issue_form.subject }}</td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>{{ issue_form.description }}</td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>{{ issue_form.status }}</td>
+            </tr>
+
+            <tr>
+                <td>Assegnee:</td>
+                <td>
+                    {{ issue_form.assigned_to }}
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td style="text-align:center;"><input type="submit" value="Save" style="width:5em;"></td>
+            </tr>
+
+<!-- Test -->
+{% if test %}
+<tr>
+    <td style="font-size:.9em; text-align:right;">
+        Test:&ensp;
+    </td>
+    <td>
+        {{ test }}
+    </td>
+</tr>
+{% endif %}
+<!-- END Test -->
+
+        </table>
+        </form>
+    </div>
+
+{% endblock content %}
