@@ -44,7 +44,7 @@
     </div>
 
     <div style="padding:.5em 1.3em 0em;">
-    <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat }} h</span></h4>
+    <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat:2 }} h</span></h4>
     <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
         <a href="/timelogs?project_id={{ project_details.id }}" title="View the projects timelogs">Timelogs</a>&nbsp;
         <a href="/timelogs/add_timelog?project_id={{ project_details.id }}" title="Add a new timelog to the project" style="text-decoration:none; color:#262;">

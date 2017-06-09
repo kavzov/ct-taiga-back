@@ -6,6 +6,8 @@ from .models import Issue
 from .forms import AddIssueForm
 from taiga.users.models import User
 from taiga.timelogs.views import get_timelogs
+from taiga.timelogs.models import Timelog
+from taiga.projects.views import user_project_perms
 
 
 def issues_list(request):
@@ -22,17 +24,36 @@ from django.contrib.auth.decorators import permission_required, login_required
 from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
 
 
-# @permission_required(ADMIN_PERMISSIONS)
 def issue_details(request, issue_id):
+    template = "issues/issue_details.html"
     args = {}
 
-    users = User.objects.all()
-    iss_details = Issue.objects.get(id=issue_id)
+    # queryset of users who tracked at this issue
+    users = User.objects.filter(
+        pk__in=[
+            timelog.user for timelog in Timelog.objects.filter(issue_id=issue_id).distinct('user')
+        ]
+    )
 
-    args['title'] = 'Issue "' + iss_details.subject + '"'
+    # issue
+    issue = Issue.objects.get(id=issue_id)
+
+    # total time duration on this issue
+    timelogs = Timelog.objects.all().filter(issue_id=issue_id)
+    duration = sum([v['duration'] for v in list(timelogs.values())])
+
+    # users and its durations
+    users_durations = {}
+    for user in users:
+        user_timelogs = timelogs.filter(user=user)
+        users_durations[user] =sum([v['duration'] for v in list(user_timelogs.values())])
+
+    args['user_perms'] = user_project_perms(request.user.id, issue.project.id)
+    args['title'] = 'Issue "' + issue.subject + '"'
     args['users'] = users
-    args['issue_details'] = iss_details
-    template = "issues/issue_details.html"
+    args['issue_details'] = issue
+    args['total_time'] = duration
+    args['users_durations'] = users_durations
 
     return render(request, template, args)
 

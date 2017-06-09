@@ -11,13 +11,6 @@
         </span>
         {% endif %}
     </h2>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="response-message{% if message.tags %} {{ message.tags }}{% endif %}">
-            {{ message|safe }}
-            </div>
-        {% endfor %}
-    {% endif %}
 
     {% include "projects/projects_list_html.html" %}
 {% endblock content %}

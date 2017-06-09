@@ -2,16 +2,68 @@
 
 {% block content %}
     <!-- Issue details -->
-    <h2>Issue &quot;{{ issue_details.subject }}&quot;</h2>
-    <p>Assigned to: <a href="/users/{{ issue_details.assigned_to.id }}">{{ issue_details.assigned_to.get_full_name  }}</a></p>
-    <p>{{ issue_details.description }}</p>
+    <h2>
+        Issue &laquo;{{ issue_details.subject }}&raquo;
+        {% if 'issues.change_issue' in user_perms %}
+        <span id="right-top-label">
+            <a href="/issues/{{ issue_details.id }}/edit/" title="Edit the issue" style="text-decoration:none; color:#262;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span>
+            </a>
+        {% endif %}
+        {% if 'issues.delete_issue' in user_perms %}
+            &ensp;
+            <a href="/issues/{{ issue_details.id }}/delete/" title="Delete the issue" style="text-decoration:none; color:#822;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #822;" onclick="return confirm('Sure?');">Delete</span>
+            </a>
+        {% endif %}
+        </span>
+    </h2>
+    <div style="padding:.7em 1.3em 0;">
+        {{ issue_details.description }}
+    </div>
+    <div style="padding:.3em 1.3em 0;">
+        <h4>Project: <span style="font-weight:normal;"><a href="/projects/{{ issue_details.project.id }}" title="Project details">{{ issue_details.project.name  }}</a></span></h4>
+    </div>
+    <div style="padding:.3em 1.3em 0;">
+        <h4>Assigned to: <span style="font-weight:normal;"><a href="/users/{{ issue_details.assigned_to.id }}" title="User profile">{{ issue_details.assigned_to.get_full_name  }}</a></span></h4>
+    </div>
+    <div style="padding:.3em 1.3em 0em;">
+        <h4>Status: <span style="font-weight:normal; font-size:.95em;">{{ issue_details.get_status_display }}</span></h4>
+    </div>
+    <div style="padding:.3em 1.3em 0em;">
+        <h4>Created date: <span style="font-weight:normal; font-size:.95em;">{{ issue_details.created_date|date:"F d, Y" }}</span></h4>
+        <h4>Elapsed time: <span style="font-weight:normal; font-size:.95em;">{{ issue_details.created_date|timesince }}</span></h4>
+        <h4>Last modified: <span style="font-weight:normal; font-size:.95em;">{{ issue_details.modified_date|date:"F d, Y, G:i" }}</span></h4>
+    </div>
+    <div style="padding:.5em 1.3em 0em;">
+    <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat:2 }} h</span></h4>
+    <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
+        <a href="/timelogs?issue_id={{ issue_details.id }}" title="View the issue timelogs">Timelogs</a>&nbsp;
+        <a href="/timelogs/add_timelog?issue_id={{ issue_details.id }}" title="Add a new timelog to the issue" style="text-decoration:none; color:#262;">
+            &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add</span>
+        </a>
+    </p>
+    </div>
 
-    <h3>Timelogs</h3>
-    {% include "timelogs/issue_timelogs_form.html" %}
-    {# block timelogs_table #}{# endblock #}
+    <div style="padding:.4em 1.3em .5em;">
+        <h4>Participants:</h4>
+        <table style="font-size:.9em; margin:.5em 0; padding:.2em 0; border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
+            {% for user, duration in users_durations.items %}
+            <tr style="line-height:1.3em; {% cycle 'background-color:#fff;' 'background-color:#f5f5f5;' %}">
+                <td>
+                    <a href="/users/{{ user.id }}/" title="User profile">{{ user.get_full_name }}</a>&emsp;
+                </td>
+                <td>
+                    &ensp;<a href="/timelogs/?issue_id={{ issue_details.id }}&user_id={{ user.id }}" title="The timelogs" style="text-decoration:none;">{{ duration }}</a>&ensp;
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
     {% if timelogs_list %}
     {% include "timelogs/timelogs_table.html" %}
     {% endif %}
 
-    <h3>Add timelog</h3>
 {% endblock content %}

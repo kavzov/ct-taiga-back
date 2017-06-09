@@ -29,7 +29,6 @@ def auth_logout(request):
     return redirect("/login/")
 
 
-
 def search(request):
     if request.method == 'POST':
         search_text = request.POST['search_text']

@@ -32,9 +32,9 @@ html, body {
 #main h2 {
     font-size:1.25em;
     font-weight:normal;
-    line-height:1.5em;
+    line-height:1.6em;
     background-color:#cce8ff;
-    padding:.3em 1em 0;
+    padding:.3em 1em;
     margin:.4em 0 0;
 }
 #main h3 {
@@ -93,12 +93,12 @@ html, body {
     font-size:1em;
     color:#ffffff;
     line-height:2.4em;
-    margin:0 0 .3em;
+    margin:.5em 0 -.5em;
 }
-.success-bgr {
+.success {
     background-color:#228822;
 }
-.error-bgr {
+.error {
     background-color:#882222;
 }
 

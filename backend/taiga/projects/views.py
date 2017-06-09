@@ -106,7 +106,7 @@ def project_permission_required(perms, redir_page="/projects/"):
 @permission_required('projects.add_project')
 def add_project(request):
     """
-    Add a project
+    Create new project
     """
     template = "projects/edit_project.html"
     args = {}
@@ -122,6 +122,10 @@ def add_project(request):
         if args['project_form'].is_valid():
             p = args['project_form'].save()
             project_id = str(p.id)
+        else:
+            msg = "Something went wrong"
+            messages.error(request, msg)
+            return render(request, template, args)
 
         for user in args['users']:
             # check member in members list (member_in_<id> hidden field value)
@@ -142,8 +146,9 @@ def add_project(request):
 
         msg = 'Project &#35;' + project_id + \
               ': &laquo;' + request.POST.get('name') + \
-              '&raquo; have been successfully added'
-        messages.add_message(request, messages.SUCCESS, msg, extra_tags="success-bgr")
+              '&raquo; have successfully created'
+
+        messages.success(request, msg)
 
         return redirect('/projects/')
 
@@ -153,87 +158,96 @@ def add_project(request):
 
 @project_permission_required('projects.change_project')
 def edit_project(request, project_id):
+    """
+    Edit project
+    """
     template = "projects/edit_project.html"
     args = {}
 
-    users = User.objects.all()
-    roles = Role.objects.all()
-    args['users'] = users
-    args['roles'] = roles
+    # get project
+    project = Project.objects.get(pk=project_id)
+
+    # get all roles of all users at the project
+    users_roles_at_project = Membership.objects.filter(project=project_id)
+
+    # get list of users which are members (has roles) at the project
+    members = [member.user.id for member in users_roles_at_project.distinct('user')]
+
+    # assign roles by users
+    members_roles = {}
+    for member in members:
+        # if member hasn't roles
+        try:
+            members_roles[member] = [mbr.role.id for mbr in users_roles_at_project.filter(user_id=member)]
+        except AttributeError:
+            members_roles[member] = []
+
+    args['users'] = User.objects.all()
+    args['roles'] = Role.objects.all()
     args['user'] = request.user
     args['user_perms'] = user_project_perms(request.user.id, project_id)
-    args['project_form'] = ProjectForm
     args['editing'] = True   # for hide label "Edit projects" at the right top
+    args['project'] = project
+    args['members'] = members
+    args['members_roles'] = members_roles
+    args['project_form'] = ProjectForm(initial={
+        'name': project.name,
+        'description': project.description,
+        'owner': project.owner,
+    })
 
-    # Edit project
-    if project_id:
-        project = Project.objects.get(pk=project_id)
-        proj_mbr_roles = Membership.objects.filter(project=project_id)
-        members = [member.user.id for member in proj_mbr_roles.distinct('user')]
-
-        members_roles = {}
-        for member in members:
-            members_roles[member] = [mbr.role.id for mbr in proj_mbr_roles.filter(user_id=member)]
-
-        args['project'] = project
-        args['members'] = members
-        args['members_roles'] = members_roles
-
-        args['project_form'] = ProjectForm(initial={
-            'name': project.name,
-            'description': project.description,
-            'owner': project.owner,
-        })
-
+    # submit form
     if request.POST:
         args['project_form'] = ProjectForm(request.POST)
         if args['project_form'].is_valid():
-            if project_id:
-                args['project_form'] = ProjectForm(request.POST, instance=Project.objects.get(pk=project_id))
-                args['project_form'].save()
-            else:
-                p = args['project_form'].save()
-                project_id = p.id
+            args['project_form'] = ProjectForm(request.POST, instance=Project.objects.get(pk=project_id))
+            args['project_form'].save()
+        else:
+            msg = "Something went wrong"
+            messages.error(request, msg)
+            return render(request, template, args)
 
-        for user in users:
-            label_name = 'member_' + str(user.id);
-            roles_list = request.POST.getlist(label_name)
+        # if members list are empty, set initial
+        try:
+            members
+        except UnboundLocalError:
+            members = []
+            members_roles = {}
 
-            # check member in members list (member_in_<id> hidden field value)
+        # get added and removed members and roles
+        for user in args['users']:
+            # check every user either he is member (member_in_<id> hidden field value)
             user_in_members_list = request.POST.get('member_in_' + str(user.id))
-            if user_in_members_list:
-                # if user just added to members list => add him to 'members' list
-                try:
-                    members
-                except UnboundLocalError:
-                    members = []
-                    members_roles = {}
 
+            if user_in_members_list:
+                # if user not in members list (just added) -> add him there
                 if user.id not in members:
                     members.append(user.id)
 
-                # change member roles
-                # get 'prev_mbr_roles' - previous member roles (set [] if no roles yet)
-                # and 'now_mbr_roles' - new checked member roles
+                # get roles list of the user (using 'member_<id>' field name)
+                roles_list = request.POST.getlist('member_' + str(user.id))
+
+                # Get the difference between previous and new roles
+                # 'prev_mbr_roles' - previous member roles (set [] if no roles yet)
                 try:
                     prev_mbr_roles = members_roles[user.id]
-                # if no roles
+                # no roles yet
                 except KeyError:
                     prev_mbr_roles = []
 
+                # 'now_mbr_roles' - new checked member roles
                 now_mbr_roles = list(map(int, roles_list))
 
-                # checked roles
+                # if now checked role not in prev checked list (=> it checked now), save it
                 for role in now_mbr_roles:
                     if role not in prev_mbr_roles:
-                        # paste in db
                         Membership(
                             project_id=project_id,
                             user_id=user.id,
                             role_id=role
                         ).save()
 
-                # unchecked roles
+                # if prev checked role not in now checked list (=> it unchecked now), delete it
                 for role in prev_mbr_roles:
                     if role not in now_mbr_roles:
                         # delete from db
@@ -243,7 +257,17 @@ def edit_project(request, project_id):
                             role_id=role
                         ).delete()
 
+                # update roles at user (add user and roles if it wasn't in the dict yet)
                 members_roles[user.id] = roles_list
+
+                # if member without roles (? it is possible ?)
+                # (changed model Membership, set null=True by role field)
+                if not roles_list:
+                    Membership(
+                        project_id=project_id,
+                        user_id=user.id,
+                        role_id=''
+                    ).save()
 
             else:
                 # if user not in members list:
@@ -257,6 +281,12 @@ def edit_project(request, project_id):
                 except (KeyError, ValueError):
                     pass
 
+        # send message of success project update
+        msg = 'Project &#35;' + project_id + \
+              ': &laquo;' + request.POST.get('name') + \
+              '&raquo; have been successfully edited'
+        messages.success(request, msg)
+
         return redirect('/projects/' + project_id)
 
     # args['test'] = project_id
@@ -269,13 +299,15 @@ def delete_project(request, project_id):
     try:
         project = Project.objects.get(pk=project_id)
     except ObjectDoesNotExist:
-        msg = 'Project &#35;' + str(project_id) + ' does NOT exist'
-        messages.add_message(request, messages.ERROR, msg, extra_tags="error-bgr")
+        msgs = []
+        msgs.append('Couldn\'t remove project &#35;' + str(project_id))
+        msgs.append('Error: project does NOT exist')
+        for msg in msgs:
+            messages.error(request, msg)
         return redirect('/projects/')
 
-    project.delete()
+    # project.delete()
     msg = 'Project &#35;' + project_id + ': &laquo;' + project.name + '&raquo; have been successfully deleted'
-    messages.add_message(request, messages.SUCCESS, msg, extra_tags="success-bgr")
-    return redirect('/projects/')
+    messages.success(request, msg)
 
-    pass
+    return redirect('/projects/')
