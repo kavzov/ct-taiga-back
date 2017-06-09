@@ -1,6 +1,12 @@
 {% extends "index.html" %}
 
 {% block content %}
+<script>
+$(document).ready(function() {
+    $('#id_date').attr('type') = 'date';
+});
+</script>
+
     <h2>
         {% if message %}{{ message }}
         {% elif not timelog_details.duration %}Add a timelog
@@ -10,7 +16,9 @@
     <div style="margin:2em 1em 0;">
         <form action="/timelogs/{{ timelog_details.id }}/edit/" method="post">
         {% csrf_token %}
-        {{ timelog_form }}
+        <div>{{ timelog_form.user }}</div>
+        <div>{{ timelog_form.date }}</div>
+        <div>{{ timelog_form.duration }}</div>
 <!--            <select name="issue_id" style="width:160px; height:25px;">
                 <option selected="selected" disabled>Issue</option>
                 {% for issue in issues %}

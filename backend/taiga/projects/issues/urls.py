@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from . import views
+from taiga.timelogs import views as timelogs_views
+
 
 urlpatterns = [
     url(r'^$', views.issues_list, name='issues_list'),
@@ -8,4 +10,5 @@ urlpatterns = [
     url(r'^(?P<issue_id>\d+)/edit/$', views.edit_issue, name='edit_issue'),
     url(r'^(?P<issue_id>\d+)/delete/$', views.delete_issue, name='delete_issue'),
     url(r'^(?P<issue_id>\d+)/timelogs/$', views.issue_timelogs, name='issue_timelogs'),
+    url(r'^(?P<issue_id>\d+)/add_timelog/$', timelogs_views.add_timelog, name='add_timelog'),
 ]
