@@ -1,7 +1,8 @@
 import json
 from django.core.serializers.json import DjangoJSONEncoder
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
+from django.contrib import messages
 from taiga import permissions
 from .models import Timelog
 from taiga.projects.models import Project
@@ -109,35 +110,28 @@ def timelog_details(request, timelog_id):
     return render(request, template, args)
 
 
-def get_timelog_req_data(request):
-    req = dict()
-    issue_id = request.POST.get('issue_id')
-    req['issue'] = Issue.objects.get(pk=issue_id)
-    user_id = request.POST.get('user_id')
-    req['user'] = User.objects.get(pk=user_id)
-    req['date'] = request.POST.get("date")
-    req['duration'] = request.POST.get("duration")
-
-    return req
-
-
 @permission_required('timelogs.add_timelog')
 def add_timelog(request, issue_id):
     template = "timelogs/timelog_details.html"
 
     args = {
-        'timelog_form': TimelogForm(initial={
-            'issue': issue_id,
-        }),
+        'timelog_form': TimelogForm(),
+        'issue_id': issue_id,
     }
+
     if request.POST:
-        req = get_timelog_req_data(request)
-        timelog = Timelog(issue=req['issue'], user=req['user'], date=req['date'], duration=req['duration'])
-        timelog.save()
-        args['message'] = 'Timelog successfully added'
-    else:
-        args['message'] = 'Add a timelog'
-        args['add'] = True
+        timelog_form = TimelogForm(request.POST)
+        if timelog_form.is_valid():
+            timelog_form.save()
+            msg = 'Timelog successfully added'
+            messages.success(request, msg)
+            return redirect('/issues/'+issue_id)
+        else:
+            msg_head = "Some errors occurs while adding timelog:"
+            messages.error(request, msg_head)
+            err_msg = timelog_form.errors.as_text()
+            messages.error(request, err_msg)
+            return render(request, template, args)
 
     return render(request, template, args)
 

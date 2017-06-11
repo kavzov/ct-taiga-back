@@ -42,7 +42,7 @@
     <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat:2 }} h</span></h4>
     <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
         {% if total_time %}<a href="/timelogs?issue_id={{ issue_details.id }}" title="View the issue timelogs">Timelogs</a>&nbsp;{% endif %}
-        <a href="/timelogs/add_timelog?issue_id={{ issue_details.id }}" title="Add timelog to the issue" style="text-decoration:none; color:#262;">
+        <a href="add_timelog/" title="Add timelog to the issue" style="text-decoration:none; color:#262;">
             &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add{% if not total_time %} timelog{% endif %}</span>
         </a>
     </p>

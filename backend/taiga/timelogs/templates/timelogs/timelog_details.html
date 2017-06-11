@@ -3,7 +3,8 @@
 {% block content %}
 <script>
 $(document).ready(function() {
-    $('#id_date').attr('type') = 'date';
+    $('#id_date').attr('type', 'date');
+    $('#id_duration').attr('step', '0.05');
 });
 </script>
 
@@ -14,11 +15,13 @@ $(document).ready(function() {
         {% endif %}
     </h2>
     <div style="margin:2em 1em 0;">
-        <form action="/timelogs/{{ timelog_details.id }}/edit/" method="post">
+        <form action="" method="post">
         {% csrf_token %}
+        <input type="hidden" name="issue" value="{{ issue_id }}">
         <div>{{ timelog_form.user }}</div>
         <div>{{ timelog_form.date }}</div>
         <div>{{ timelog_form.duration }}</div>
+        <input type="submit" style="height:25px;">
 <!--            <select name="issue_id" style="width:160px; height:25px;">
                 <option selected="selected" disabled>Issue</option>
                 {% for issue in issues %}
