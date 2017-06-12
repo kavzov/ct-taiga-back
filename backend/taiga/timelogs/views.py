@@ -100,16 +100,16 @@ def view_timelogs(request, **kwargs):
     if params['user_id']:
         # get user's timelogs
         timelogs = get_timelog(timelogs, user_id=params['user_id'])
-        # issues which the user tracked
+        # issues which the user tracked (if not params['issue_id']. If it is, there only the issue in issues select list)
         args['issues'] = get_distinct_issues(timelogs)
+        # to display issues list of user tracked in select menu (if params['issue_id'])
+        if params['issue_id']:
+            args['issues'] = Issue.objects.filter(
+                pk__in=[
+                    timelog.issue.id for timelog in Timelog.objects.filter(user_id=params['user_id']).distinct('issue')
+                ])
 
-    # TODO
-    # if params['issue_id'] and not params['user_id']:
-    # elif not params['issue_id'] and params['user_id']:
-    # elif params['issue_id'] and params['user_id']:
-
-
-    # get extrta params
+    # get extra params
     params['date_from'] = request.GET.get('date_from')
     params['date_till'] = request.GET.get('date_till')
     params['order'] = request.GET.get('order')
