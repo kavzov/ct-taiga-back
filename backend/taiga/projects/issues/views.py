@@ -5,7 +5,6 @@ from django.contrib import messages
 from .models import Issue
 from .forms import IssueForm
 from taiga.users.models import User
-from taiga.timelogs.views import get_timelogs
 from taiga.timelogs.models import Timelog
 from taiga.projects.models import Project
 from taiga.projects.views import user_project_perms
@@ -87,7 +86,7 @@ def add_issue(request, project_id):
 
         msg = 'Issue &#35;' + issue_id + \
               ': &laquo;' + request.POST.get('subject') + \
-              '&raquo; have successfully added to project "' + args['project'].name + '"'
+              '&raquo; successfully added to project "' + args['project'].name + '"'
         messages.success(request, msg)
 
         return redirect('/projects/'+project_id)
@@ -131,7 +130,7 @@ def edit_issue(request, issue_id):
 
         msg = 'Issue &#35;' + issue_id + \
               ': &laquo;' + request.POST.get('subject') + \
-              '&raquo; have successfully updated'
+              '&raquo; successfully updated'
         messages.success(request, msg)
 
         return redirect('/issues/'+issue_id)
@@ -154,21 +153,7 @@ def delete_issue(request, issue_id):
         return redirect('/issues/')
 
     issue.delete()
-    msg = 'Issue &#35;' + issue_id + ': &laquo;' + issue.subject + '&raquo; have been successfully deleted'
+    msg = 'Issue &#35;' + issue_id + ': &laquo;' + issue.subject + '&raquo; successfully deleted'
     messages.success(request, msg)
 
     return redirect('/projects/' + str(issue.project.id))
-
-
-def issue_timelogs(request, issue_id):
-    format = request.GET.get('format')
-    args = get_timelogs(request, issue_id=issue_id)
-
-    if format == 'json':
-        template = "timelogs/json_timelogs.html"
-        args['jsondata'] = json.dumps(list(args['timelogs_list'].values('user_id', 'date', 'duration')), cls=DjangoJSONEncoder)
-    else:
-        template = "issues/issue_details.html"
-        args['issue_details'] = Issue.objects.get(id=issue_id)
-
-    return render(request, template, args)

@@ -1,7 +1,4 @@
 <td>
-    {% if user_details %}
-    <input type="hidden" name="user_id" value="{{ user_details.id }}">
-    {% endif %}
     <select style="width:100px; height:25px;" name="issue_id">
         <option value="">All issues</option>
         {% for issue in issues %}

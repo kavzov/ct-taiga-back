@@ -27351,3 +27351,1815 @@ NameError: name 'project' is not defined
 2017-06-09 07:36:27,360:basehttp "GET /login/ HTTP/1.1" 200 2360
 2017-06-09 07:36:30,935:basehttp "POST /login/ HTTP/1.1" 302 0
 2017-06-09 07:36:30,960:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 07:41:11,531:basehttp "GET /issues/ HTTP/1.1" 200 8357
+2017-06-09 07:41:15,602:basehttp "GET /issues/ HTTP/1.1" 200 8357
+2017-06-09 07:43:44,450:exception Internal Server Error: /issues/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/issues/views.py", line 15, in issues_list
+    user_perms = user_project_perms(request.user.id, issue.project.id)
+NameError: name 'issue' is not defined
+2017-06-09 07:43:44,720:basehttp "GET /issues/ HTTP/1.1" 500 75675
+2017-06-09 07:47:35,951:basehttp "GET /issues/ HTTP/1.1" 200 6348
+2017-06-09 07:47:46,582:basehttp "GET /projects/1 HTTP/1.1" 301 0
+2017-06-09 07:47:46,662:basehttp "GET /projects/1/ HTTP/1.1" 200 10188
+2017-06-09 07:47:54,506:basehttp "GET /issues/1 HTTP/1.1" 301 0
+2017-06-09 07:47:54,627:basehttp "GET /issues/1/ HTTP/1.1" 200 6095
+2017-06-09 07:49:06,650:basehttp "GET /issues/ HTTP/1.1" 200 6018
+2017-06-09 07:49:13,200:basehttp "GET /issues/ HTTP/1.1" 200 5996
+2017-06-09 07:49:25,447:basehttp "GET /issues/ HTTP/1.1" 200 6051
+2017-06-09 07:49:28,994:basehttp "GET /issues/ HTTP/1.1" 200 6062
+2017-06-09 07:50:26,580:basehttp "GET /issues/ HTTP/1.1" 200 6018
+2017-06-09 07:50:34,777:basehttp "GET /issues/ HTTP/1.1" 200 6062
+2017-06-09 07:50:41,227:basehttp "GET /issues/ HTTP/1.1" 200 6040
+2017-06-09 07:50:51,782:basehttp "GET /issues/ HTTP/1.1" 200 6040
+2017-06-09 07:51:02,310:basehttp "GET /issues/ HTTP/1.1" 200 6304
+2017-06-09 07:51:16,903:basehttp "GET /issues/ HTTP/1.1" 200 8330
+2017-06-09 07:51:32,328:basehttp "GET /issues/ HTTP/1.1" 200 6865
+2017-06-09 07:51:52,852:basehttp "GET /issues/ HTTP/1.1" 200 6876
+2017-06-09 07:51:58,008:basehttp "GET /issues/ HTTP/1.1" 200 7335
+2017-06-09 07:52:06,302:basehttp "GET /issues/ HTTP/1.1" 200 7335
+2017-06-09 07:52:48,535:basehttp "GET /issues/ HTTP/1.1" 200 7632
+2017-06-09 07:52:51,023:basehttp "GET /projects/1/ HTTP/1.1" 200 10188
+2017-06-09 07:53:26,410:basehttp "GET /issues/ HTTP/1.1" 200 7874
+2017-06-09 07:54:48,315:basehttp "GET /issues/ HTTP/1.1" 200 8699
+2017-06-09 07:54:57,338:basehttp "GET /issues/ HTTP/1.1" 200 8732
+2017-06-09 07:56:00,263:basehttp "GET /issues/ HTTP/1.1" 200 9623
+2017-06-09 07:56:07,761:basehttp "GET /issues/ HTTP/1.1" 200 9802
+2017-06-09 07:56:14,192:basehttp "GET /issues/3 HTTP/1.1" 301 0
+2017-06-09 07:56:14,244:basehttp "GET /issues/3/ HTTP/1.1" 200 6077
+2017-06-09 07:57:06,950:basehttp "GET /issues/1/ HTTP/1.1" 200 6095
+2017-06-09 07:58:07,696:basehttp "GET /issues/1/edit/ HTTP/1.1" 404 4027
+2017-06-09 07:58:13,818:basehttp "GET /issues/add/ HTTP/1.1" 404 4018
+2017-06-09 08:09:49,766:basehttp "GET /projects/1/ HTTP/1.1" 200 10190
+2017-06-09 08:09:50,902:basehttp "GET /projects/1/ HTTP/1.1" 200 10190
+2017-06-09 08:09:59,211:basehttp "GET /projects/1/ HTTP/1.1" 200 10189
+2017-06-09 08:10:02,153:exception Internal Server Error: /projects/1/add_issue/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 08:10:02,222:basehttp "GET /projects/1/add_issue/ HTTP/1.1" 500 66427
+2017-06-09 08:11:07,641:basehttp "GET /projects/1/ HTTP/1.1" 200 10179
+2017-06-09 08:11:19,995:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 08:11:28,419:basehttp "GET /issues/ HTTP/1.1" 200 9802
+2017-06-09 08:11:29,970:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 08:11:31,279:basehttp "GET /projects/1/ HTTP/1.1" 200 10179
+2017-06-09 08:11:36,083:basehttp "GET /timelogs?project_id=1 HTTP/1.1" 301 0
+2017-06-09 08:11:36,225:basehttp "GET /timelogs/?project_id=1 HTTP/1.1" 200 25114
+2017-06-09 08:12:03,286:basehttp "GET /projects/1/edit/ HTTP/1.1" 200 9968
+2017-06-09 08:12:09,430:basehttp "POST /projects/1/edit/ HTTP/1.1" 302 0
+2017-06-09 08:12:09,445:basehttp "GET /projects/1 HTTP/1.1" 301 0
+2017-06-09 08:12:09,546:basehttp "GET /projects/1/ HTTP/1.1" 200 10627
+2017-06-09 08:12:45,890:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 08:36:28,772:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 08:36:29,310:exception Internal Server Error: /projects/1/add_issue/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 101, in inner
+    return func(request, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/issues/views.py", line 74, in add_issue
+    ': &laquo;' + request.POST.get('name') + \
+TypeError: Can't convert 'NoneType' object to str implicitly
+2017-06-09 08:36:29,440:basehttp "GET /projects/1/add_issue/ HTTP/1.1" 500 82026
+2017-06-09 08:37:05,435:basehttp "GET /projects/1/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:37:05,466:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:37:09,024:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 08:37:10,798:basehttp "GET /projects/1/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:37:10,820:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:40:11,309:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 08:40:12,366:basehttp "GET /projects/1/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:40:12,428:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:42:12,345:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-09 08:42:12,567:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-09 08:42:16,497:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:42:16,525:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:42:39,208:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 08:42:44,018:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 08:42:47,695:basehttp "GET /projects/1/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:42:47,730:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:43:19,053:basehttp "GET /issues/ HTTP/1.1" 200 9802
+2017-06-09 08:44:02,083:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 08:44:03,931:basehttp "GET /projects/3 HTTP/1.1" 301 0
+2017-06-09 08:44:04,078:basehttp "GET /projects/3/ HTTP/1.1" 200 10793
+2017-06-09 08:44:05,558:basehttp "GET /projects/3/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:44:05,587:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:45:10,647:basehttp "GET /projects/18 HTTP/1.1" 301 0
+2017-06-09 08:45:10,728:basehttp "GET /projects/18/ HTTP/1.1" 200 5994
+2017-06-09 08:45:12,701:basehttp "GET /projects/18/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:45:12,770:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:45:44,596:basehttp "GET /projects/27 HTTP/1.1" 301 0
+2017-06-09 08:45:44,712:basehttp "GET /projects/27/ HTTP/1.1" 200 6150
+2017-06-09 08:45:46,202:basehttp "GET /projects/27/add_issue/ HTTP/1.1" 302 0
+2017-06-09 08:45:46,262:basehttp "GET /projects/ HTTP/1.1" 200 6938
+2017-06-09 08:46:51,009:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-09 08:46:52,777:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 7656
+2017-06-09 08:47:24,469:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8030
+2017-06-09 08:49:13,258:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8279
+2017-06-09 08:57:50,082:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8279
+2017-06-09 08:57:54,316:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8279
+2017-06-09 09:11:25,765:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8411
+2017-06-09 09:11:25,792:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:12:52,684:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8412
+2017-06-09 09:12:55,544:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8412
+2017-06-09 09:13:00,563:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8280
+2017-06-09 09:13:05,747:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8417
+2017-06-09 09:15:42,658:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8424
+2017-06-09 09:15:45,173:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8287
+2017-06-09 09:15:52,126:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8442
+2017-06-09 09:20:12,045:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8389
+2017-06-09 09:20:12,880:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8389
+2017-06-09 09:20:17,692:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8389
+2017-06-09 09:20:39,853:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8280
+2017-06-09 09:20:43,995:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8389
+2017-06-09 09:22:03,374:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8389
+2017-06-09 09:22:48,466:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8471
+2017-06-09 09:24:01,237:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8445
+2017-06-09 09:24:05,360:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8406
+2017-06-09 09:24:49,391:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8406
+2017-06-09 09:24:50,561:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8406
+2017-06-09 09:24:58,388:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2591
+2017-06-09 09:25:01,194:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8406
+2017-06-09 09:25:01,221:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:27:03,360:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 200 8512
+2017-06-09 09:27:03,375:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:28:02,571:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8277
+2017-06-09 09:28:02,603:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:28:08,670:basehttp "POST /projects/2/add_issue/ HTTP/1.1" 302 0
+2017-06-09 09:28:08,727:basehttp "GET /issues/ HTTP/1.1" 200 9958
+2017-06-09 09:30:21,492:basehttp "GET /issues/ HTTP/1.1" 200 9989
+2017-06-09 09:30:21,541:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:30:39,335:basehttp "GET /issues/ HTTP/1.1" 200 10011
+2017-06-09 09:30:44,835:basehttp "GET /issues/ HTTP/1.1" 200 10011
+2017-06-09 09:30:49,648:basehttp "GET /issues/ HTTP/1.1" 200 10011
+2017-06-09 09:31:56,867:basehttp "GET /issues/ HTTP/1.1" 200 12182
+2017-06-09 09:31:56,882:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:33:30,655:basehttp "GET /issues/ HTTP/1.1" 200 17861
+2017-06-09 09:33:30,670:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:33:36,213:basehttp "GET /issues/1/edit/ HTTP/1.1" 404 4046
+2017-06-09 09:35:07,865:basehttp "GET /issues/1/ HTTP/1.1" 200 6095
+2017-06-09 09:35:07,881:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:39:36,697:basehttp "GET /issues/1/ HTTP/1.1" 200 6095
+2017-06-09 09:39:36,724:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:45:27,691:basehttp "GET /issues/ HTTP/1.1" 200 10064
+2017-06-09 09:45:27,736:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:45:40,526:basehttp "GET /issues/ HTTP/1.1" 200 10011
+2017-06-09 09:45:43,398:basehttp "GET /issues/1/ HTTP/1.1" 200 6095
+2017-06-09 09:45:44,559:basehttp "GET /issues/1/edit/ HTTP/1.1" 404 4046
+2017-06-09 09:45:56,660:basehttp "GET /issues/add/ HTTP/1.1" 404 4037
+2017-06-09 09:46:40,204:basehttp "GET /issues/ HTTP/1.1" 200 9705
+2017-06-09 09:47:06,779:basehttp "GET /issues/2/ HTTP/1.1" 200 6168
+2017-06-09 09:47:10,186:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 09:47:11,600:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-09 09:49:04,228:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 50, in project_details
+    return render(request, "projects/project_details.html", args)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/backends/django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loaders/base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/defaulttags.py", line 811, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/template/defaulttags.py", line 972, in do_if
+    assert token.contents == 'endif'
+AssertionError
+2017-06-09 09:49:04,461:basehttp "GET /projects/2/ HTTP/1.1" 500 226377
+2017-06-09 09:50:14,885:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-09 09:50:14,909:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 09:50:24,070:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-09 09:50:24,089:basehttp "GET /login/ HTTP/1.1" 200 2360
+2017-06-09 09:50:34,964:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-09 09:50:35,093:basehttp "GET /projects/ HTTP/1.1" 200 6463
+2017-06-09 09:50:43,137:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 83, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:50:43,298:basehttp "GET /projects/2/ HTTP/1.1" 500 89684
+2017-06-09 09:53:18,202:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 84, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:53:18,332:basehttp "GET /projects/2/ HTTP/1.1" 500 89796
+2017-06-09 09:53:31,131:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 84, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:53:31,242:basehttp "GET /projects/2/ HTTP/1.1" 500 89804
+2017-06-09 09:54:14,580:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 84, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:54:14,690:basehttp "GET /projects/2/ HTTP/1.1" 500 89797
+2017-06-09 09:55:53,526:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 84, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:55:53,640:basehttp "GET /projects/2/ HTTP/1.1" 500 89799
+2017-06-09 09:56:36,375:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 84, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:56:36,489:basehttp "GET /projects/2/ HTTP/1.1" 500 89785
+2017-06-09 09:57:14,576:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 84, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:57:14,692:basehttp "GET /projects/2/ HTTP/1.1" 500 89799
+2017-06-09 09:59:08,595:exception Internal Server Error: /projects/2/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 33, in project_details
+    args['user_perms'] = user_project_perms(request.user.id, project_id)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 84, in user_project_perms
+    user_perms.extend(Role.objects.get(pk=role.role_id).permissions)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.users.models.DoesNotExist: Role matching query does not exist.
+2017-06-09 09:59:08,713:basehttp "GET /projects/2/ HTTP/1.1" 500 89785
+2017-06-09 10:01:24,469:basehttp "GET /projects/2/ HTTP/1.1" 200 8225
+2017-06-09 10:01:24,491:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:01:30,256:basehttp "GET /logout/ HTTP/1.1" 302 0
+2017-06-09 10:01:30,294:basehttp "GET /login/ HTTP/1.1" 200 2360
+2017-06-09 10:01:34,789:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-09 10:01:34,812:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:01:36,245:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-09 10:06:11,890:basehttp "GET /issues/3/ HTTP/1.1" 200 6077
+2017-06-09 10:06:11,905:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:06:27,968:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8277
+2017-06-09 10:06:37,012:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:06:38,639:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 10:06:41,455:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:06:43,158:basehttp "GET /projects/15 HTTP/1.1" 301 0
+2017-06-09 10:06:43,194:basehttp "GET /projects/15/ HTTP/1.1" 200 4704
+2017-06-09 10:06:44,735:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8278
+2017-06-09 10:07:48,946:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8278
+2017-06-09 10:08:09,597:basehttp "POST /projects/15/add_issue/ HTTP/1.1" 302 0
+2017-06-09 10:08:09,650:basehttp "GET /issues/ HTTP/1.1" 200 10642
+2017-06-09 10:08:15,876:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:08:18,062:basehttp "GET /projects/15/ HTTP/1.1" 200 6023
+2017-06-09 10:08:24,468:basehttp "GET /users/2 HTTP/1.1" 301 0
+2017-06-09 10:08:24,557:basehttp "GET /users/2/ HTTP/1.1" 200 4884
+2017-06-09 10:08:31,773:basehttp "GET /projects/15/edit/ HTTP/1.1" 200 9669
+2017-06-09 10:08:42,022:basehttp "POST /projects/15/edit/ HTTP/1.1" 302 0
+2017-06-09 10:08:42,027:basehttp "GET /projects/15 HTTP/1.1" 301 0
+2017-06-09 10:08:42,112:basehttp "GET /projects/15/ HTTP/1.1" 200 6775
+2017-06-09 10:08:46,829:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8278
+2017-06-09 10:09:19,948:basehttp "POST /projects/15/add_issue/ HTTP/1.1" 302 0
+2017-06-09 10:09:20,020:basehttp "GET /issues/ HTTP/1.1" 200 11251
+2017-06-09 10:09:24,093:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:09:31,572:basehttp "GET /projects/15/ HTTP/1.1" 200 7822
+2017-06-09 10:10:03,609:basehttp "GET /projects/15/ HTTP/1.1" 200 7822
+2017-06-09 10:10:06,921:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8278
+2017-06-09 10:10:44,223:basehttp "POST /projects/15/add_issue/ HTTP/1.1" 302 0
+2017-06-09 10:10:44,227:basehttp "GET /projects/15 HTTP/1.1" 301 0
+2017-06-09 10:10:44,283:basehttp "GET /projects/15/ HTTP/1.1" 200 9314
+2017-06-09 10:10:44,304:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:13:07,525:basehttp "GET /timelogs?project_id=15 HTTP/1.1" 301 0
+2017-06-09 10:13:07,627:basehttp "GET /timelogs/?project_id=15 HTTP/1.1" 200 6484
+2017-06-09 10:13:09,217:basehttp "GET /projects/15/ HTTP/1.1" 200 9118
+2017-06-09 10:13:10,785:basehttp "GET /timelogs/add_timelog?project_id=15 HTTP/1.1" 301 0
+2017-06-09 10:13:10,838:basehttp "GET /timelogs/add_timelog/?project_id=15 HTTP/1.1" 200 4297
+2017-06-09 10:13:26,778:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8278
+2017-06-09 10:16:17,973:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8277
+2017-06-09 10:16:17,993:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:16:20,755:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-09 10:16:22,500:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8277
+2017-06-09 10:17:14,810:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8277
+2017-06-09 10:17:17,494:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 8277
+2017-06-09 10:17:30,310:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8278
+2017-06-09 10:18:00,360:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8322
+2017-06-09 10:19:11,752:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8247
+2017-06-09 10:21:41,652:basehttp "GET /projects/15/add_issue/ HTTP/1.1" 200 8247
+2017-06-09 10:21:41,667:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:21:47,632:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:21:49,228:basehttp "GET /projects/18/ HTTP/1.1" 200 5994
+2017-06-09 10:21:50,313:basehttp "GET /projects/18/add_issue/ HTTP/1.1" 200 8245
+2017-06-09 10:29:30,757:basehttp "POST /projects/18/add_issue/ HTTP/1.1" 302 0
+2017-06-09 10:29:30,772:basehttp "GET /projects/18 HTTP/1.1" 301 0
+2017-06-09 10:29:30,865:basehttp "GET /projects/18/ HTTP/1.1" 200 7475
+2017-06-09 10:29:30,888:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:36:21,336:basehttp "GET /projects/18/ HTTP/1.1" 200 7266
+2017-06-09 10:36:21,350:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:49:27,450:basehttp "GET /issues/ HTTP/1.1" 200 12445
+2017-06-09 10:49:27,466:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 10:49:36,018:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:49:37,482:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-09 10:49:42,927:basehttp "GET /issues/ HTTP/1.1" 200 12445
+2017-06-09 10:49:48,545:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:49:52,413:basehttp "GET /projects/18/ HTTP/1.1" 200 7266
+2017-06-09 10:49:55,683:basehttp "GET /issues/15 HTTP/1.1" 301 0
+2017-06-09 10:49:55,761:basehttp "GET /issues/15/ HTTP/1.1" 200 4467
+2017-06-09 10:50:55,585:basehttp "GET /issues/15/ HTTP/1.1" 200 4229
+2017-06-09 10:52:02,950:basehttp "GET /issues/15/ HTTP/1.1" 200 3778
+2017-06-09 10:52:14,051:basehttp "GET /issues/15/ HTTP/1.1" 200 4229
+2017-06-09 10:52:44,831:basehttp "GET /issues/15/ HTTP/1.1" 200 4147
+2017-06-09 10:53:05,610:basehttp "GET /issues/15/ HTTP/1.1" 200 4141
+2017-06-09 10:53:49,899:basehttp "GET /issues/15/ HTTP/1.1" 200 4149
+2017-06-09 10:54:03,707:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 10:54:04,776:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 10:54:07,391:basehttp "GET /issues/2/ HTTP/1.1" 200 4300
+2017-06-09 10:55:29,945:basehttp "GET /timelogs/add_timelog?issue_id=15 HTTP/1.1" 301 0
+2017-06-09 10:55:30,034:basehttp "GET /timelogs/add_timelog/?issue_id=15 HTTP/1.1" 200 6173
+2017-06-09 11:09:18,497:basehttp "GET /issues/15/ HTTP/1.1" 200 4228
+2017-06-09 11:09:18,526:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 11:09:21,415:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:09:31,306:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:10:12,793:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:10:13,320:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:10:13,467:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:10:13,664:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:10:13,894:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:10:14,157:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:10:30,756:basehttp "GET /issues/15/ HTTP/1.1" 200 4228
+2017-06-09 11:10:36,002:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: inner() got an unexpected keyword argument 'issue_id'
+2017-06-09 11:10:36,151:basehttp "GET /issues/15/edit HTTP/1.1" 500 71636
+2017-06-09 11:11:14,585:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:11:18,815:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: inner() got an unexpected keyword argument 'issue_id'
+2017-06-09 11:11:18,975:basehttp "GET /issues/15/edit HTTP/1.1" 500 71636
+2017-06-09 11:12:50,589:basehttp "GET /issues/15/edit HTTP/1.1" 200 8407
+2017-06-09 11:13:42,081:basehttp "GET /issues/15/edit HTTP/1.1" 200 8407
+2017-06-09 11:14:15,303:basehttp "GET /issues/15/edit HTTP/1.1" 200 8392
+2017-06-09 11:29:55,306:basehttp "GET /issues/15/edit HTTP/1.1" 200 8392
+2017-06-09 11:29:55,347:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 11:30:05,396:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: inner() got an unexpected keyword argument 'issue_id'
+2017-06-09 11:30:05,561:basehttp "GET /issues/15/edit HTTP/1.1" 500 71771
+2017-06-09 11:30:35,887:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:30:35,994:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:31:22,744:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:31:22,854:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:31:42,214:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:31:42,314:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:31:56,830:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:31:56,970:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:32:03,489:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:32:03,583:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:32:05,429:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:32:05,550:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:34:26,321:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 101, in inner
+    user_perms = user_project_perms(request.user.id, project_id)
+NameError: name 'request' is not defined
+2017-06-09 11:34:26,439:basehttp "GET /issues/15/edit HTTP/1.1" 500 76251
+2017-06-09 11:35:34,906:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:35:35,018:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:35:51,027:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 95, in inner
+    print("Args --- ", kwargs['project_id']); return None;
+KeyError: 'project_id'
+2017-06-09 11:35:51,149:basehttp "GET /issues/15/edit HTTP/1.1" 500 75974
+2017-06-09 11:36:21,311:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 95, in inner
+    print("Args --- ", kwargs['request']); return None;
+KeyError: 'request'
+2017-06-09 11:36:21,434:basehttp "GET /issues/15/edit HTTP/1.1" 500 75956
+2017-06-09 11:36:35,681:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:36:35,781:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:37:19,536:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 96, in inner
+    print("REQUEST --- ", kwargs['request']); return None;
+KeyError: 'request'
+2017-06-09 11:37:19,663:basehttp "GET /issues/15/edit HTTP/1.1" 500 76009
+2017-06-09 11:37:55,324:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 96, in inner
+    print("REQUEST --- ", kwargs['request']); return None;
+KeyError: 'request'
+2017-06-09 11:37:55,482:basehttp "GET /issues/15/edit HTTP/1.1" 500 76011
+2017-06-09 11:38:03,078:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:38:03,273:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:38:04,278:exception Internal Server Error: /issues/15/edit
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 198, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view taiga.projects.views.inner didn't return an HttpResponse object. It returned None instead.
+2017-06-09 11:38:04,360:basehttp "GET /issues/15/edit HTTP/1.1" 500 66345
+2017-06-09 11:43:36,741:basehttp "GET /issues/15/edit HTTP/1.1" 302 0
+2017-06-09 11:43:36,780:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:43:36,801:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 11:44:01,234:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:44:16,084:basehttp "GET /issues/ HTTP/1.1" 200 12445
+2017-06-09 11:44:19,072:basehttp "GET /issues/15/ HTTP/1.1" 200 4237
+2017-06-09 11:44:20,814:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:44:26,328:basehttp "GET /issues/15/edit HTTP/1.1" 302 0
+2017-06-09 11:44:26,351:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:45:25,032:basehttp "GET /projects/18/ HTTP/1.1" 200 7256
+2017-06-09 11:45:27,307:basehttp "GET /issues/15/edit/ HTTP/1.1" 404 4049
+2017-06-09 11:45:31,616:basehttp "GET /issues/15/edit HTTP/1.1" 302 0
+2017-06-09 11:45:31,658:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:45:31,796:basehttp "GET /issues/15/edit HTTP/1.1" 302 0
+2017-06-09 11:45:31,849:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:45:57,848:basehttp "GET /projects/18/ HTTP/1.1" 200 7256
+2017-06-09 11:46:00,217:basehttp "GET /issues/15/edit/ HTTP/1.1" 302 0
+2017-06-09 11:46:00,274:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:47:06,894:basehttp "GET /projects/18/ HTTP/1.1" 200 7256
+2017-06-09 11:47:09,067:basehttp "GET /issues/15/edit/ HTTP/1.1" 302 0
+2017-06-09 11:47:09,131:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:47:31,810:basehttp "GET /projects/18/ HTTP/1.1" 200 7256
+2017-06-09 11:47:33,364:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 11:50:31,622:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 11:50:34,491:basehttp "GET /projects/1/ HTTP/1.1" 200 10453
+2017-06-09 11:50:37,242:exception Internal Server Error: /projects/1/edit/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 94, in inner
+    if kwargs['issue_id']:
+KeyError: 'issue_id'
+2017-06-09 11:50:37,342:basehttp "GET /projects/1/edit/ HTTP/1.1" 500 76096
+2017-06-09 11:52:03,031:exception Internal Server Error: /projects/1/edit/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 104, in inner
+    user_perms = user_project_perms(request.user.id, project_id)
+UnboundLocalError: local variable 'project_id' referenced before assignment
+2017-06-09 11:52:03,119:basehttp "GET /projects/1/edit/ HTTP/1.1" 500 76745
+2017-06-09 11:53:04,051:exception Internal Server Error: /projects/1/edit/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 104, in inner
+    user_perms = user_project_perms(request.user.id, project_id)
+UnboundLocalError: local variable 'project_id' referenced before assignment
+2017-06-09 11:53:04,113:basehttp "GET /projects/1/edit/ HTTP/1.1" 500 76782
+2017-06-09 11:53:05,342:basehttp "GET /projects/1/edit/ HTTP/1.1" 200 10129
+2017-06-09 11:53:10,328:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 11:58:54,433:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 11:58:54,460:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 11:58:58,025:basehttp "GET /projects/18/ HTTP/1.1" 200 7265
+2017-06-09 11:59:00,840:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 12:20:28,369:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 12:20:28,396:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 12:20:35,855:basehttp "POST /issues/15/edit/ HTTP/1.1" 200 8630
+2017-06-09 12:21:15,990:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 12:23:35,116:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 12:24:52,066:basehttp "POST /issues/15/edit/ HTTP/1.1" 200 8630
+2017-06-09 12:24:58,084:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 12:28:35,417:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8394
+2017-06-09 12:28:51,501:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8394
+2017-06-09 12:29:08,385:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8394
+2017-06-09 12:29:09,968:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8394
+2017-06-09 12:29:14,714:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8392
+2017-06-09 12:29:18,903:basehttp "POST /issues/15/edit/ HTTP/1.1" 200 8630
+2017-06-09 12:29:30,991:basehttp "POST /issues/15/edit/ HTTP/1.1" 200 8632
+2017-06-09 12:29:32,374:basehttp "POST /issues/15/edit/ HTTP/1.1" 200 8632
+2017-06-09 12:29:36,218:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8394
+2017-06-09 12:29:41,529:basehttp "POST /issues/15/edit/ HTTP/1.1" 302 0
+2017-06-09 12:29:41,533:basehttp "GET /issues/15 HTTP/1.1" 301 0
+2017-06-09 12:29:41,581:basehttp "GET /issues/15/ HTTP/1.1" 200 4415
+2017-06-09 12:29:52,038:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8395
+2017-06-09 12:29:58,276:basehttp "POST /issues/15/edit/ HTTP/1.1" 302 0
+2017-06-09 12:29:58,281:basehttp "GET /issues/15 HTTP/1.1" 301 0
+2017-06-09 12:29:58,321:basehttp "GET /issues/15/ HTTP/1.1" 200 4418
+2017-06-09 12:31:12,876:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8395
+2017-06-09 12:31:16,966:basehttp "POST /issues/15/edit/ HTTP/1.1" 302 0
+2017-06-09 12:31:16,973:basehttp "GET /issues/15 HTTP/1.1" 301 0
+2017-06-09 12:31:17,049:basehttp "GET /issues/15/ HTTP/1.1" 200 4426
+2017-06-09 12:31:39,425:basehttp "GET /projects/18/ HTTP/1.1" 200 7274
+2017-06-09 12:31:45,416:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8395
+2017-06-09 12:31:54,413:basehttp "POST /issues/15/edit/ HTTP/1.1" 302 0
+2017-06-09 12:31:54,422:basehttp "GET /issues/15 HTTP/1.1" 301 0
+2017-06-09 12:31:54,518:basehttp "GET /issues/15/ HTTP/1.1" 200 4430
+2017-06-09 12:40:52,647:basehttp "GET /issues/15/delete/ HTTP/1.1" 404 4056
+2017-06-09 12:41:27,347:exception Internal Server Error: /issues/15/delete/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 118, in inner
+    return func(request, *args, **kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/issues/views.py", line 160, in delete_issue
+    return redirect('/projects/' + issue.project.id)
+TypeError: Can't convert 'int' object to str implicitly
+2017-06-09 12:41:27,457:basehttp "GET /issues/15/delete/ HTTP/1.1" 500 82543
+2017-06-09 12:41:42,340:basehttp "GET /issues/15/delete/ HTTP/1.1" 302 0
+2017-06-09 12:41:42,348:basehttp "GET /projects/18 HTTP/1.1" 301 0
+2017-06-09 12:41:42,474:basehttp "GET /projects/18/ HTTP/1.1" 200 7634
+2017-06-09 12:41:42,494:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 12:41:54,469:basehttp "GET /projects/18/ HTTP/1.1" 200 7277
+2017-06-09 12:42:00,868:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8395
+2017-06-09 12:42:08,650:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8395
+2017-06-09 12:42:24,263:basehttp "GET /issues/15/ HTTP/1.1" 200 4250
+2017-06-09 12:42:28,711:basehttp "GET /issues/15/delete/ HTTP/1.1" 302 0
+2017-06-09 12:42:28,809:basehttp "GET /projects/18/ HTTP/1.1" 200 7463
+2017-06-09 12:42:38,735:basehttp "GET /issues/15/edit/ HTTP/1.1" 200 8395
+2017-06-09 12:43:17,918:basehttp "GET /projects/18/ HTTP/1.1" 200 7277
+2017-06-09 12:43:19,961:basehttp "GET /issues/15/ HTTP/1.1" 200 4250
+2017-06-09 12:43:31,252:basehttp "GET /issues/155/delete HTTP/1.1" 301 0
+2017-06-09 12:43:31,296:exception Internal Server Error: /issues/155/delete/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 96, in inner
+    project_id = Issue.objects.get(pk=kwargs['issue_id']).project_id
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.projects.issues.models.DoesNotExist: Issue matching query does not exist.
+2017-06-09 12:43:31,433:basehttp "GET /issues/155/delete/ HTTP/1.1" 500 85499
+2017-06-09 12:53:17,226:basehttp "GET /projects/155/delete/ HTTP/1.1" 302 0
+2017-06-09 12:53:17,259:basehttp "GET /projects/ HTTP/1.1" 200 6986
+2017-06-09 13:06:01,776:basehttp "GET /issues/155/edit HTTP/1.1" 301 0
+2017-06-09 13:06:01,828:exception Internal Server Error: /issues/155/edit/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/projects/views.py", line 96, in inner
+    project_id = Issue.objects.get(pk=kwargs['issue_id']).project_id
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 385, in get
+    self.model._meta.object_name
+taiga.projects.issues.models.DoesNotExist: Issue matching query does not exist.
+2017-06-09 13:06:01,951:basehttp "GET /issues/155/edit/ HTTP/1.1" 500 85467
+2017-06-09 13:12:27,502:basehttp "GET /issues/155/edit/ HTTP/1.1" 302 0
+2017-06-09 13:12:27,577:basehttp "GET /issues/ HTTP/1.1" 200 12674
+2017-06-09 13:12:27,594:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 13:13:59,177:basehttp "GET /issues/ HTTP/1.1" 200 12454
+2017-06-09 13:14:05,463:basehttp "GET /issues/15/ HTTP/1.1" 200 4250
+2017-06-09 13:14:11,752:basehttp "GET /issues/155/edit/ HTTP/1.1" 302 0
+2017-06-09 13:14:11,814:basehttp "GET /issues/ HTTP/1.1" 200 12578
+2017-06-09 13:14:23,164:basehttp "GET /issues/155/edit/ HTTP/1.1" 302 0
+2017-06-09 13:14:23,224:basehttp "GET /issues/ HTTP/1.1" 200 12579
+2017-06-09 13:15:36,510:basehttp "GET /issues/15/ HTTP/1.1" 200 4250
+2017-06-09 13:15:39,947:basehttp "GET /issues/15/delete/ HTTP/1.1" 302 0
+2017-06-09 13:15:40,065:basehttp "GET /projects/18/ HTTP/1.1" 200 7464
+2017-06-09 13:15:48,647:basehttp "GET /issues/155/delete/ HTTP/1.1" 302 0
+2017-06-09 13:15:48,739:basehttp "GET /issues/ HTTP/1.1" 200 12579
+2017-06-09 13:16:31,933:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 13:16:33,894:basehttp "GET /projects/30 HTTP/1.1" 301 0
+2017-06-09 13:16:34,030:basehttp "GET /projects/30/ HTTP/1.1" 200 5918
+2017-06-09 13:16:36,354:basehttp "GET /projects/30/edit/ HTTP/1.1" 200 10478
+2017-06-09 13:17:50,082:basehttp "GET /issues/ HTTP/1.1" 200 12454
+2017-06-09 13:17:54,473:basehttp "GET /issues/15/ HTTP/1.1" 200 4250
+2017-06-09 13:17:57,545:basehttp "GET /issues/15/delete/ HTTP/1.1" 302 0
+2017-06-09 13:17:57,646:basehttp "GET /projects/18/ HTTP/1.1" 200 6180
+2017-06-09 14:00:31,520:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-09 14:00:31,538:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-09 14:00:33,202:basehttp "GET /projects/2/ HTTP/1.1" 200 10003
+2017-06-09 14:00:37,905:basehttp "GET /issues/5 HTTP/1.1" 301 0
+2017-06-09 14:00:38,035:basehttp "GET /issues/5/ HTTP/1.1" 200 4437
+2017-06-09 14:01:41,447:basehttp "GET /issues/4 HTTP/1.1" 301 0
+2017-06-09 14:01:41,520:basehttp "GET /issues/4/ HTTP/1.1" 200 4374
+2017-06-09 14:14:06,232:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 4348
+2017-06-09 14:15:51,991:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 4348
+2017-06-09 14:18:05,192:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 4814
+2017-06-09 14:20:24,496:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 3119
+2017-06-09 14:21:47,939:basehttp "GET /timelogs/ HTTP/1.1" 200 26002
+2017-06-09 14:23:31,569:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 3190
+2017-06-09 14:23:43,848:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 3210
+2017-06-09 14:24:26,834:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 3212
+2017-06-09 14:24:26,991:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 3212
+2017-06-09 14:25:02,739:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 3207
+2017-06-12 08:30:26,950:basehttp "GET /projects/ HTTP/1.1" 200 6440
+2017-06-12 08:30:26,950:basehttp "GET /projects/ HTTP/1.1" 200 6440
+2017-06-12 08:30:26,975:basehttp "GET /static/static/css/style.css HTTP/1.1" 200 2591
+2017-06-12 08:30:27,245:basehttp "GET /favicon.ico HTTP/1.1" 404 3350
+2017-06-12 08:30:29,153:basehttp "GET /login/ HTTP/1.1" 200 2360
+2017-06-12 08:30:35,545:basehttp "POST /login/ HTTP/1.1" 302 0
+2017-06-12 08:30:35,625:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 08:31:37,557:basehttp "GET /projects/3 HTTP/1.1" 301 0
+2017-06-12 08:31:37,806:basehttp "GET /projects/3/ HTTP/1.1" 200 10802
+2017-06-12 08:31:44,248:basehttp "GET /issues/7 HTTP/1.1" 301 0
+2017-06-12 08:31:44,373:basehttp "GET /issues/7/ HTTP/1.1" 200 4415
+2017-06-12 08:32:14,592:basehttp "GET /issues/7/edit/ HTTP/1.1" 200 8483
+2017-06-12 08:32:17,645:basehttp "POST /issues/7/edit/ HTTP/1.1" 302 0
+2017-06-12 08:32:17,652:basehttp "GET /issues/7 HTTP/1.1" 301 0
+2017-06-12 08:32:17,713:basehttp "GET /issues/7/ HTTP/1.1" 200 4601
+2017-06-12 08:43:02,154:basehttp "GET /issues/7/ HTTP/1.1" 200 4424
+2017-06-12 09:10:05,780:basehttp "GET /issues/ HTTP/1.1" 200 11772
+2017-06-12 09:10:08,135:basehttp "GET /issues/3 HTTP/1.1" 301 0
+2017-06-12 09:10:08,215:basehttp "GET /issues/3/ HTTP/1.1" 200 4268
+2017-06-12 09:10:09,709:basehttp "GET /issues/3/edit/ HTTP/1.1" 200 3736
+2017-06-12 09:10:13,112:basehttp "POST /issues/3/edit/ HTTP/1.1" 302 0
+2017-06-12 09:10:13,119:basehttp "GET /issues/3 HTTP/1.1" 301 0
+2017-06-12 09:10:13,182:basehttp "GET /issues/3/ HTTP/1.1" 200 4449
+2017-06-12 09:10:16,986:basehttp "GET /issues/ HTTP/1.1" 200 11780
+2017-06-12 09:11:58,822:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 09:12:00,244:basehttp "GET /projects/2 HTTP/1.1" 301 0
+2017-06-12 09:12:00,394:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-12 09:12:03,885:basehttp "GET /timelogs?project_id=2 HTTP/1.1" 301 0
+2017-06-12 09:12:04,191:basehttp "GET /timelogs/?project_id=2 HTTP/1.1" 200 25264
+2017-06-12 09:12:16,258:basehttp "GET /issues/ HTTP/1.1" 200 11780
+2017-06-12 09:12:17,491:basehttp "GET /issues/2 HTTP/1.1" 301 0
+2017-06-12 09:12:17,611:basehttp "GET /issues/2/ HTTP/1.1" 200 4360
+2017-06-12 09:12:19,998:basehttp "GET /timelogs?issue_id=2 HTTP/1.1" 301 0
+2017-06-12 09:12:20,203:basehttp "GET /timelogs/?issue_id=2 HTTP/1.1" 200 24209
+2017-06-12 09:14:50,873:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-12 09:15:16,946:basehttp "GET /projects/2/add_issue/ HTTP/1.1" 200 3650
+2017-06-12 09:28:50,560:basehttp "GET /projects/2/timelogs HTTP/1.1" 301 0
+2017-06-12 09:28:50,648:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/deprecation.py", line 126, in __call__
+    response = self.process_response(request, response)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/middleware/common.py", line 115, in process_response
+    if response.status_code == 404:
+AttributeError: 'dict' object has no attribute 'status_code'
+2017-06-12 09:28:51,047:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 74366
+2017-06-12 09:30:17,600:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 94, in view_timelogs
+    if params['issue_id']:
+KeyError: 'issue_id'
+2017-06-12 09:30:17,834:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 78144
+2017-06-12 09:31:02,528:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 7614
+2017-06-12 09:31:50,114:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 6693
+2017-06-12 09:32:26,898:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24313
+2017-06-12 09:33:43,858:basehttp "GET /projects/2/timelogs/?page=2 HTTP/1.1" 200 24435
+2017-06-12 09:33:49,116:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24327
+2017-06-12 09:38:38,554:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24327
+2017-06-12 09:38:44,071:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24275
+2017-06-12 09:38:51,132:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24327
+2017-06-12 09:46:54,660:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 121, in view_timelogs
+    'timelogs': get_paginated_timelogs(request, args['timelogs_list']),
+KeyError: 'timelogs_list'
+2017-06-12 09:46:54,806:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 500 78673
+2017-06-12 09:50:15,305:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 113, in view_timelogs
+    if params['issue_id']:
+KeyError: 'issue_id'
+2017-06-12 09:50:15,467:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 500 78692
+2017-06-12 09:52:52,825:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 132, in view_timelogs
+    'timelogs': get_paginated_timelogs(request, args['timelogs_list']),
+KeyError: 'timelogs_list'
+2017-06-12 09:52:52,997:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 500 78753
+2017-06-12 09:53:39,526:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 5630
+2017-06-12 09:53:58,639:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 5630
+2017-06-12 09:55:03,267:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 5630
+2017-06-12 09:55:22,543:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 133, in view_timelogs
+    print(timelog_list)
+NameError: name 'timelog_list' is not defined
+2017-06-12 09:55:22,709:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 79145
+2017-06-12 09:55:32,251:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 5630
+2017-06-12 09:56:29,102:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 09:56:34,778:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 6701
+2017-06-12 09:56:48,553:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 09:58:05,175:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 5630
+2017-06-12 09:58:05,943:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 5630
+2017-06-12 09:58:10,751:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 09:58:30,477:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 09:59:15,783:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 4099
+2017-06-12 10:01:22,625:exception Internal Server Error: /issues/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 129, in view_timelogs
+    'issues': Issue.objects.filter(project_id=params['project_id']),
+KeyError: 'project_id'
+2017-06-12 10:01:22,783:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 500 78183
+2017-06-12 10:01:23,526:exception Internal Server Error: /issues/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 129, in view_timelogs
+    'issues': Issue.objects.filter(project_id=params['project_id']),
+KeyError: 'project_id'
+2017-06-12 10:01:23,680:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 500 78183
+2017-06-12 10:06:43,401:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 23005
+2017-06-12 10:06:51,701:basehttp "GET /issues/1/timelogs/ HTTP/1.1" 200 23715
+2017-06-12 10:26:23,919:basehttp "GET /issues/1/timelogs/ HTTP/1.1" 200 8172
+2017-06-12 10:26:24,932:basehttp "GET /issues/1/timelogs/ HTTP/1.1" 200 8172
+2017-06-12 10:27:04,640:basehttp "GET /issues/1/timelogs/ HTTP/1.1" 200 8172
+2017-06-12 10:31:03,013:basehttp "GET /issues/1/timelogs/ HTTP/1.1" 200 8172
+2017-06-12 10:31:50,594:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:35:46,829:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:39:11,137:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:39:25,971:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:39:35,921:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:41:01,018:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:41:04,713:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:41:57,675:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:42:00,346:basehttp "GET /projects/1/timelogs/ HTTP/1.1" 200 7357
+2017-06-12 10:42:03,909:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 7308
+2017-06-12 10:43:11,744:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 136, in view_timelogs
+    print(project_id)
+NameError: name 'project_id' is not defined
+2017-06-12 10:43:11,927:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 79114
+2017-06-12 10:43:34,059:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 7308
+2017-06-12 10:44:03,767:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 7309
+2017-06-12 10:45:39,395:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 7308
+2017-06-12 10:45:40,744:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 7308
+2017-06-12 10:46:15,195:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 9181
+2017-06-12 10:46:41,003:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 9183
+2017-06-12 10:47:10,008:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 7308
+2017-06-12 10:47:38,570:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 9230
+2017-06-12 10:48:21,915:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 9145
+2017-06-12 10:48:59,774:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 9145
+2017-06-12 10:52:00,662:basehttp "GET /projects/2/timelogs/?format=json HTTP/1.1" 200 9254
+2017-06-12 10:52:06,272:basehttp "GET /projects/2/timelogs/?format=json&format=json HTTP/1.1" 200 9286
+2017-06-12 10:53:10,826:exception Internal Server Error: /issues/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: timelogs_list() got an unexpected keyword argument 'issue_id'
+2017-06-12 10:53:10,933:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 500 71505
+2017-06-12 10:54:44,095:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 4100
+2017-06-12 10:55:15,797:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 10178
+2017-06-12 10:56:09,052:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 8234
+2017-06-12 10:57:23,284:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 10178
+2017-06-12 10:58:51,303:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 10167
+2017-06-12 10:58:55,656:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 10178
+2017-06-12 10:59:35,637:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 10181
+2017-06-12 11:00:11,529:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 8401
+2017-06-12 11:00:37,391:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 10181
+2017-06-12 11:07:40,406:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 72333
+2017-06-12 11:07:51,187:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 25679
+2017-06-12 11:08:02,943:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 24191
+2017-06-12 11:08:09,199:basehttp "GET /timelogs/?csrfmiddlewaretoken=ucLGPRIlMFIxJZ0xm5c2V3R2Eltjlymh7sp8poJJ4Ba4S4bX88K3LojQQM7pPfjT&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 26299
+2017-06-12 11:08:24,523:basehttp "GET /timelogs/?csrfmiddlewaretoken=ucLGPRIlMFIxJZ0xm5c2V3R2Eltjlymh7sp8poJJ4Ba4S4bX88K3LojQQM7pPfjT&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 26299
+2017-06-12 11:08:26,475:basehttp "GET /timelogs/?csrfmiddlewaretoken=ucLGPRIlMFIxJZ0xm5c2V3R2Eltjlymh7sp8poJJ4Ba4S4bX88K3LojQQM7pPfjT&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 26299
+2017-06-12 11:08:30,061:basehttp "GET /issues/ HTTP/1.1" 200 11780
+2017-06-12 11:08:35,112:basehttp "GET /issues/2/timelog HTTP/1.1" 404 4477
+2017-06-12 11:08:37,620:basehttp "GET /issues/2/timelogs HTTP/1.1" 301 0
+2017-06-12 11:08:37,674:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 8172
+2017-06-12 11:08:42,615:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 24191
+2017-06-12 11:16:08,423:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 24191
+2017-06-12 11:16:13,800:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 102, in view_timelogs
+    timelog.user for timelog in timelogs_list.distinct('user')
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+2017-06-12 11:16:14,035:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 126222
+2017-06-12 11:17:18,161:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 11:25:10,482:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 100, in view_timelogs
+    args['users'] = User.objects.filter(pk__in=[timelog.user for timelog in timelogs_list.distinct('user')])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+2017-06-12 11:25:10,672:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 126491
+2017-06-12 11:26:11,359:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 100, in view_timelogs
+    args['users'] = User.objects.filter(pk__in=[timelog.user.id for timelog in timelogs_list.distinct('user')])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+2017-06-12 11:26:11,623:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 126498
+2017-06-12 11:29:44,842:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 100, in view_timelogs
+    args['users'] = User.objects.filter(pk__in=[timelog.user for timelog in timelogs_list.order_by('user').distinct('user')])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+2017-06-12 11:29:45,072:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 127324
+2017-06-12 11:30:27,926:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 11:33:54,771:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 11:33:56,938:basehttp "GET /projects/add/ HTTP/1.1" 200 9507
+2017-06-12 11:34:00,254:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 11:34:02,001:basehttp "GET /projects/30 HTTP/1.1" 301 0
+2017-06-12 11:34:02,134:basehttp "GET /projects/30/ HTTP/1.1" 200 5910
+2017-06-12 11:34:12,167:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 5369
+2017-06-12 11:34:15,734:basehttp "GET /projects/30/add_issue/ HTTP/1.1" 200 3662
+2017-06-12 11:34:48,432:basehttp "POST /projects/30/add_issue/ HTTP/1.1" 302 0
+2017-06-12 11:34:48,439:basehttp "GET /projects/30 HTTP/1.1" 301 0
+2017-06-12 11:34:48,505:basehttp "GET /projects/30/ HTTP/1.1" 200 7626
+2017-06-12 11:34:55,574:basehttp "GET /issues/16 HTTP/1.1" 301 0
+2017-06-12 11:34:55,670:basehttp "GET /issues/16/ HTTP/1.1" 200 4447
+2017-06-12 11:34:58,775:basehttp "GET /issues/16/add_timelog/ HTTP/1.1" 200 3347
+2017-06-12 11:35:19,042:basehttp "POST /issues/16/add_timelog/ HTTP/1.1" 302 0
+2017-06-12 11:35:19,055:basehttp "GET /issues/16 HTTP/1.1" 301 0
+2017-06-12 11:35:19,189:basehttp "GET /issues/16/ HTTP/1.1" 200 4639
+2017-06-12 11:35:26,281:basehttp "GET /issues/16/timelogs HTTP/1.1" 301 0
+2017-06-12 11:35:26,338:basehttp "GET /issues/16/timelogs/ HTTP/1.1" 200 8373
+2017-06-12 11:35:43,484:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 7276
+2017-06-12 11:36:46,777:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 7117
+2017-06-12 11:37:11,543:exception Internal Server Error: /projects/30/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 102, in view_timelogs
+    args['users'] = User.objects.filter(pk__in=[timelog.user for timelog in timelogs_list.distinct('user')])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 54, in __iter__
+    results = compiler.execute_sql()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: SELECT DISTINCT ON expressions must match initial ORDER BY expressions
+LINE 1: SELECT DISTINCT ON ("timelogs_timelog"."user_id") "timelogs_...
+                            ^
+
+2017-06-12 11:37:11,680:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 500 124721
+2017-06-12 11:37:40,104:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 7117
+2017-06-12 11:37:46,578:basehttp "GET /issues/16/timelogs/ HTTP/1.1" 200 8373
+2017-06-12 11:37:49,211:basehttp "GET /timelogs/?csrfmiddlewaretoken=BPlDJhZ69fBhf2OAXBSrC357FLqTw4fLe5Z5jO0urb3Oo7Z0JEqssoxVRc4Z0Lcn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25276
+2017-06-12 11:37:55,041:basehttp "GET /timelogs/?csrfmiddlewaretoken=BPlDJhZ69fBhf2OAXBSrC357FLqTw4fLe5Z5jO0urb3Oo7Z0JEqssoxVRc4Z0Lcn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25276
+2017-06-12 11:37:56,304:basehttp "GET /timelogs/?csrfmiddlewaretoken=BPlDJhZ69fBhf2OAXBSrC357FLqTw4fLe5Z5jO0urb3Oo7Z0JEqssoxVRc4Z0Lcn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25276
+2017-06-12 11:38:07,997:basehttp "GET /timelogs/?csrfmiddlewaretoken=BPlDJhZ69fBhf2OAXBSrC357FLqTw4fLe5Z5jO0urb3Oo7Z0JEqssoxVRc4Z0Lcn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25276
+2017-06-12 11:38:09,045:basehttp "GET /timelogs/?csrfmiddlewaretoken=BPlDJhZ69fBhf2OAXBSrC357FLqTw4fLe5Z5jO0urb3Oo7Z0JEqssoxVRc4Z0Lcn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25276
+2017-06-12 11:38:21,744:basehttp "GET /timelogs/?csrfmiddlewaretoken=BPlDJhZ69fBhf2OAXBSrC357FLqTw4fLe5Z5jO0urb3Oo7Z0JEqssoxVRc4Z0Lcn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25276
+2017-06-12 11:38:22,752:basehttp "GET /timelogs/?csrfmiddlewaretoken=BPlDJhZ69fBhf2OAXBSrC357FLqTw4fLe5Z5jO0urb3Oo7Z0JEqssoxVRc4Z0Lcn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25276
+2017-06-12 11:38:34,710:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 11:38:37,921:basehttp "GET /issues/16/ HTTP/1.1" 200 4521
+2017-06-12 11:38:44,995:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 11:38:46,143:basehttp "GET /projects/2/ HTTP/1.1" 200 10014
+2017-06-12 11:38:49,327:basehttp "GET /projects/2/timelgs HTTP/1.1" 404 4692
+2017-06-12 11:38:52,883:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24296
+2017-06-12 11:39:04,103:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 11:39:06,253:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 11:39:10,754:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24313
+2017-06-12 11:41:21,424:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 11:41:24,700:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24321
+2017-06-12 11:44:00,973:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 11:44:03,229:basehttp "GET /issues/16/ HTTP/1.1" 200 4521
+2017-06-12 11:44:04,968:basehttp "GET /timelogs?issue_id=16 HTTP/1.1" 301 0
+2017-06-12 11:44:05,073:basehttp "GET /timelogs/?issue_id=16 HTTP/1.1" 200 8393
+2017-06-12 11:44:15,840:basehttp "GET /issues/16/timelogs/ HTTP/1.1" 200 8214
+2017-06-12 11:44:21,914:basehttp "GET /timelogs/?issue_id=16 HTTP/1.1" 200 8393
+2017-06-12 11:44:26,392:basehttp "GET /issues/16/add_timelog/ HTTP/1.1" 200 3347
+2017-06-12 11:44:40,524:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 11:45:30,173:basehttp "GET /issues/4 HTTP/1.1" 301 0
+2017-06-12 11:45:30,250:basehttp "GET /issues/4/ HTTP/1.1" 200 4344
+2017-06-12 11:45:34,596:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 11:45:46,172:basehttp "GET /issues/4/add_timelog/ HTTP/1.1" 200 3346
+2017-06-12 11:46:21,233:basehttp "GET /issues/4/edit/ HTTP/1.1" 200 3781
+2017-06-12 11:46:45,668:basehttp "GET /issues/4/edit/ HTTP/1.1" 200 3771
+2017-06-12 11:49:55,163:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 11:49:56,453:basehttp "GET /users/2 HTTP/1.1" 301 0
+2017-06-12 11:49:56,483:basehttp "GET /users/2/ HTTP/1.1" 200 4884
+2017-06-12 11:50:43,429:basehttp "GET /users/2/timelogs HTTP/1.1" 301 0
+2017-06-12 11:50:43,471:exception Internal Server Error: /users/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 118, in view_timelogs
+    args['issues'] = Issue.objects.filter(pk__in=[timelog.issue for timelog in timelogs.distinct('issue')])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 794, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 812, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1227, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1253, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1083, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 19, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 261, in get_prep_lookup
+    return [self.lhs.output_field.get_prep_value(v) for v in self.rhs]
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 261, in <listcomp>
+    return [self.lhs.output_field.get_prep_value(v) for v in self.rhs]
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/fields/__init__.py", line 946, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Issue'
+2017-06-12 11:50:43,747:basehttp "GET /users/2/timelogs/ HTTP/1.1" 500 139041
+2017-06-12 11:56:17,987:exception Internal Server Error: /users/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 118, in view_timelogs
+    args['issues'] = Issue.objects.filter(pk__in=[timelog.issue for timelog in timelogs.distinct('issue')])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 794, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 812, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1227, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1253, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1083, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 19, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 261, in get_prep_lookup
+    return [self.lhs.output_field.get_prep_value(v) for v in self.rhs]
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 261, in <listcomp>
+    return [self.lhs.output_field.get_prep_value(v) for v in self.rhs]
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/fields/__init__.py", line 946, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Issue'
+2017-06-12 11:56:18,220:basehttp "GET /users/2/timelogs/ HTTP/1.1" 500 139178
+2017-06-12 11:56:21,736:exception Internal Server Error: /users/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 118, in view_timelogs
+    args['issues'] = Issue.objects.filter(pk__in=[timelog.issue for timelog in timelogs.distinct('issue')])
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 794, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/query.py", line 812, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1227, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1253, in _add_q
+    allow_joins=allow_joins, split_subq=split_subq,
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1187, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1083, in build_lookup
+    return final_lookup(lhs, rhs)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 19, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 261, in get_prep_lookup
+    return [self.lhs.output_field.get_prep_value(v) for v in self.rhs]
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/lookups.py", line 261, in <listcomp>
+    return [self.lhs.output_field.get_prep_value(v) for v in self.rhs]
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/db/models/fields/__init__.py", line 946, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'Issue'
+2017-06-12 11:56:21,970:basehttp "GET /users/2/timelogs/ HTTP/1.1" 500 139176
+2017-06-12 11:58:05,704:basehttp "GET /users/2/timelogs/ HTTP/1.1" 200 24853
+2017-06-12 11:58:20,747:basehttp "GET /timelogs/?csrfmiddlewaretoken=mB5a330cg7KHZxtb8uGFDvz5RmeixfGeZRJCDA1Ay3ce8CEBUxeGtQ1T3NSo1WDQ&issue_id=6&user_id=2&date_from=&date_till= HTTP/1.1" 200 12772
+2017-06-12 11:58:34,588:basehttp "GET /timelogs/ HTTP/1.1" 200 26103
+2017-06-12 11:59:06,354:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 11:59:09,482:basehttp "GET /issues/9 HTTP/1.1" 301 0
+2017-06-12 11:59:09,604:basehttp "GET /issues/9/ HTTP/1.1" 200 4284
+2017-06-12 11:59:12,639:basehttp "GET /issues/9/timelogs/ HTTP/1.1" 200 24662
+2017-06-12 11:59:24,281:basehttp "GET /issues/9/timelogs/ HTTP/1.1" 200 24662
+2017-06-12 12:00:46,548:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 12:00:48,611:basehttp "GET /users/3 HTTP/1.1" 301 0
+2017-06-12 12:00:48,715:basehttp "GET /users/3/ HTTP/1.1" 200 4887
+2017-06-12 12:00:53,671:basehttp "GET /users/3/timelogs HTTP/1.1" 301 0
+2017-06-12 12:00:53,899:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24953
+2017-06-12 12:01:19,609:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24953
+2017-06-12 12:01:24,073:basehttp "GET /users/2/timelogs/ HTTP/1.1" 200 24853
+2017-06-12 12:01:35,395:exception Internal Server Error: /users/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 116, in view_timelogs
+    params['user_id'] = it(kwargs['user_id'])
+NameError: name 'it' is not defined
+2017-06-12 12:01:35,640:basehttp "GET /users/2/timelogs/ HTTP/1.1" 500 79061
+2017-06-12 12:01:40,227:basehttp "GET /users/2/timelogs/ HTTP/1.1" 200 24853
+2017-06-12 12:02:13,108:basehttp "GET /issues/9/timelogs/ HTTP/1.1" 200 24662
+2017-06-12 12:02:16,352:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 12:02:17,774:basehttp "GET /projects/15 HTTP/1.1" 301 0
+2017-06-12 12:02:17,893:basehttp "GET /projects/15/ HTTP/1.1" 200 9118
+2017-06-12 12:02:24,379:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 12:02:25,282:basehttp "GET /projects/3/ HTTP/1.1" 200 10810
+2017-06-12 12:03:25,866:basehttp "GET /projects/3/ HTTP/1.1" 200 10775
+2017-06-12 12:03:28,399:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 12:03:40,309:basehttp "GET /projects/30/ HTTP/1.1" 200 7318
+2017-06-12 12:03:43,022:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 7117
+2017-06-12 12:11:53,621:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 7117
+2017-06-12 12:11:57,090:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 7117
+2017-06-12 12:11:59,718:basehttp "GET /projects/3/ HTTP/1.1" 200 10775
+2017-06-12 12:12:01,627:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 12:12:14,809:exception Internal Server Error: /projects/3/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 101, in view_timelogs
+    params['project_id'] = aget_id(kwargs['project_id'])
+NameError: name 'aget_id' is not defined
+2017-06-12 12:12:14,995:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 500 79394
+2017-06-12 12:54:27,027:exception Internal Server Error: /projects/3/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 109, in view_timelogs
+    params['project_id'] = get_id(kwargs['project_id'])
+TypeError: get_id() missing 1 required positional argument: 'param'
+2017-06-12 12:54:27,202:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 500 79501
+2017-06-12 12:54:36,405:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:10:31,892:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:10:34,787:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 13:10:36,893:basehttp "GET /issues/4/ HTTP/1.1" 200 4345
+2017-06-12 13:10:40,383:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 13:11:30,969:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 13:12:01,315:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 13:20:10,983:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 13:20:15,956:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 13:20:17,600:basehttp "GET /projects/3/ HTTP/1.1" 200 10775
+2017-06-12 13:20:19,649:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:20:22,824:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 13:20:24,382:basehttp "GET /users/3/ HTTP/1.1" 200 4887
+2017-06-12 13:20:27,281:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24953
+2017-06-12 13:20:41,558:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 13:22:15,153:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 13:22:16,935:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:22:54,118:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:23:05,243:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:23:45,053:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24365
+2017-06-12 13:25:50,737:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:26:04,448:basehttp "GET /projects/30/ HTTP/1.1" 200 7327
+2017-06-12 13:26:07,065:basehttp "GET /projects/30/timelogs/ HTTP/1.1" 200 7117
+2017-06-12 13:26:13,464:basehttp "GET /projects/3/ HTTP/1.1" 200 10775
+2017-06-12 13:27:00,034:basehttp "GET /issues/4/timelogs/ HTTP/1.1" 200 25368
+2017-06-12 13:27:28,725:basehttp "GET /issues/16/ HTTP/1.1" 200 4520
+2017-06-12 13:27:29,780:basehttp "GET /issues/16/timelogs/ HTTP/1.1" 200 8214
+2017-06-12 13:27:35,902:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:27:38,175:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:44:07,876:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:45:30,693:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:45:33,408:basehttp "GET /issues/16/timelogs/ HTTP/1.1" 200 8214
+2017-06-12 13:45:35,323:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24953
+2017-06-12 13:45:43,680:basehttp "GET /issues/1/timelogs/ HTTP/1.1" 200 25002
+2017-06-12 13:46:00,711:basehttp "GET /timelogs/?csrfmiddlewaretoken=PNHm3UOutJv6vzqIbu1JAy2GwclT2ilzs3lODrPSLFXDEEB8XxzKqTuuIDZZwZib&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 26400
+2017-06-12 13:51:56,326:exception Internal Server Error: /projects/3/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 137, in view_timelogs
+    args['project'] = get_project(params['project_id'])
+NameError: name 'get_project' is not defined
+2017-06-12 13:51:56,499:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 500 78802
+2017-06-12 13:52:13,931:exception Internal Server Error: /projects/3/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 132, in view_timelogs
+    params['project_name'] = get_project_name(params['project_id'])
+NameError: name 'get_project_name' is not defined
+2017-06-12 13:52:14,121:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 500 79305
+2017-06-12 13:52:26,226:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24313
+2017-06-12 13:53:08,035:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24390
+2017-06-12 13:54:39,175:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24449
+2017-06-12 13:54:47,055:basehttp "GET /timelogs/?csrfmiddlewaretoken=VH7LBDwhHddIDizBc8G8MpESnA6DtXTyyXLdbaxFZ9FfMnK1Ybe9CK6Gz1KJXEQa&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 13:58:56,590:basehttp "GET /timelogs/?csrfmiddlewaretoken=ZQkta89Gn6BwjQIEBHgvZ4RCLmtnr0AbC6YVKFa4F233sVT4nKOwPpjqXN7tVHxN&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 26400
+2017-06-12 13:59:16,537:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24449
+2017-06-12 14:00:24,798:basehttp "GET /timelogs/?csrfmiddlewaretoken=9tuyz4n7NEy7EpjlmxsCYTyZtW79obBwMJ809Bov5A0ENuuL8A0DOe0NFnLfSSy8&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:02:23,988:basehttp "GET /timelogs/?csrfmiddlewaretoken=9tuyz4n7NEy7EpjlmxsCYTyZtW79obBwMJ809Bov5A0ENuuL8A0DOe0NFnLfSSy8&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:02:51,315:basehttp "GET /timelogs/?csrfmiddlewaretoken=9tuyz4n7NEy7EpjlmxsCYTyZtW79obBwMJ809Bov5A0ENuuL8A0DOe0NFnLfSSy8&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:04:12,095:basehttp "GET /timelogs/?csrfmiddlewaretoken=9tuyz4n7NEy7EpjlmxsCYTyZtW79obBwMJ809Bov5A0ENuuL8A0DOe0NFnLfSSy8&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25859
+2017-06-12 14:04:24,097:basehttp "GET /timelogs/?csrfmiddlewaretoken=9tuyz4n7NEy7EpjlmxsCYTyZtW79obBwMJ809Bov5A0ENuuL8A0DOe0NFnLfSSy8&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25585
+2017-06-12 14:05:24,399:basehttp "GET /timelogs/?csrfmiddlewaretoken=9tuyz4n7NEy7EpjlmxsCYTyZtW79obBwMJ809Bov5A0ENuuL8A0DOe0NFnLfSSy8&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:05:34,735:basehttp "GET /projects/3/ HTTP/1.1" 200 10775
+2017-06-12 14:05:38,613:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24449
+2017-06-12 14:05:46,089:basehttp "GET /timelogs/?csrfmiddlewaretoken=ZXtQO6klSrZ9v62kJHFYfaneMh2DZCddCd7ioDlJanrGEbdKvKdZ5vP2YIGJtjaP&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:05:59,955:basehttp "GET /timelogs/?csrfmiddlewaretoken=ZXtQO6klSrZ9v62kJHFYfaneMh2DZCddCd7ioDlJanrGEbdKvKdZ5vP2YIGJtjaP&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:06:07,915:basehttp "GET /timelogs/?csrfmiddlewaretoken=ZXtQO6klSrZ9v62kJHFYfaneMh2DZCddCd7ioDlJanrGEbdKvKdZ5vP2YIGJtjaP&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:06:14,598:basehttp "GET /timelogs/?csrfmiddlewaretoken=ZXtQO6klSrZ9v62kJHFYfaneMh2DZCddCd7ioDlJanrGEbdKvKdZ5vP2YIGJtjaP&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25584
+2017-06-12 14:06:42,080:basehttp "GET /timelogs/?csrfmiddlewaretoken=ZXtQO6klSrZ9v62kJHFYfaneMh2DZCddCd7ioDlJanrGEbdKvKdZ5vP2YIGJtjaP&project_id=3&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25574
+2017-06-12 14:06:47,755:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 14:06:49,005:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 14:06:50,820:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24370
+2017-06-12 14:06:53,214:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=UIYLnyaBCnIjFglRjhXGLcC4Zfwm0GGIxYCdX5bZUjaQOlwh5kvHBx4SbGasunDk&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24680
+2017-06-12 14:08:31,842:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=UIYLnyaBCnIjFglRjhXGLcC4Zfwm0GGIxYCdX5bZUjaQOlwh5kvHBx4SbGasunDk&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24687
+2017-06-12 14:08:34,809:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 14:08:35,848:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 14:08:37,364:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24377
+2017-06-12 14:08:52,534:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=CJm6obS7BoqDmeTshHdRIA9vQ5hnHOacfZ0yYITvTkSavj4S3KLSyVBj2wVtbv7O&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24653
+2017-06-12 14:08:59,435:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=6VDquVIC5rGwehE7RX9GhDbb7IejAhabJbhS4sJ0nn83nmPxD0HH7YDZj9Sp4Y7N&issue_id=4&user_id=&date_from=&date_till= HTTP/1.1" 200 24655
+2017-06-12 14:10:23,232:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=6VDquVIC5rGwehE7RX9GhDbb7IejAhabJbhS4sJ0nn83nmPxD0HH7YDZj9Sp4Y7N&issue_id=4&user_id=&date_from=&date_till= HTTP/1.1" 200 24737
+2017-06-12 14:11:41,260:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 14:11:42,575:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 14:11:44,769:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24377
+2017-06-12 14:11:48,497:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=OaoitMZ9hCEYQsgx37HqiKmezcn5IiMzrq2K3j0xzy6vZxrXPafr85O2LD1bcZJb&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24653
+2017-06-12 14:11:52,166:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22746
+2017-06-12 14:19:28,123:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22752
+2017-06-12 14:20:10,739:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22767
+2017-06-12 14:26:19,240:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 151, in view_timelogs
+    params['issue_id'] = get_param_id('issue_id')
+TypeError: get_param_id() missing 2 required positional arguments: 'kwargs' and 'req'
+2017-06-12 14:26:19,416:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 500 80991
+2017-06-12 14:26:49,791:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22746
+2017-06-12 14:27:06,158:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22767
+2017-06-12 14:28:51,263:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22767
+2017-06-12 14:30:42,674:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22767
+2017-06-12 14:31:15,336:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=y8d8DZo4Mep9jWSTZBTqAKI5HpRSxLIIboRAdwps4aRGs13jLErrq5aTTQvY1sFk&issue_id=5&user_id=&date_from=&date_till= HTTP/1.1" 200 22767
+2017-06-12 14:31:17,808:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 14:31:19,075:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 14:31:21,047:exception Internal Server Error: /projects/2/timelogs/
+Traceback (most recent call last):
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/igor/.virtualenvs/taiga/lib/python3.5/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 144, in view_timelogs
+    params['issue_id'] = get_param_id('issue_id', kwargs, request)
+  File "/home/igor/ct-taiga/backend/taiga/timelogs/views.py", line 94, in get_param_id
+    return int(id) or None
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+2017-06-12 14:31:21,240:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 500 82692
+2017-06-12 14:32:23,472:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24377
+2017-06-12 14:34:35,793:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24377
+2017-06-12 14:34:41,012:basehttp "GET /projects/2/timelogs/?csrfmiddlewaretoken=em6htNInZK3dJ703JvCXq1cyTypdDpxaRCKJ3kJLhGvKScbtvyaYgmEm5Z3j76uM&issue_id=&user_id=2&date_from=&date_till= HTTP/1.1" 200 25265
+2017-06-12 14:34:48,600:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 14:34:49,997:basehttp "GET /users/3/ HTTP/1.1" 200 4877
+2017-06-12 14:34:52,847:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24943
+2017-06-12 14:34:55,938:basehttp "GET /users/3/timelogs/?csrfmiddlewaretoken=ZTAPLoYXcsa02wCwTAT5jc8fiGg0j1x7C9ehlVZluoCxbBNWFDr69xA3u7U6NIuJ&issue_id=&user_id=3&date_from=&date_till= HTTP/1.1" 200 25221
+2017-06-12 14:35:01,069:basehttp "GET /users/3/timelogs/?page=4 HTTP/1.1" 200 11230
+2017-06-12 14:35:09,070:basehttp "GET /users/3/timelogs/?page=3 HTTP/1.1" 200 25049
+2017-06-12 14:35:13,551:basehttp "GET /users/3/timelogs/?page=2 HTTP/1.1" 200 25051
+2017-06-12 14:35:15,549:basehttp "GET /users/3/timelogs/?page=1 HTTP/1.1" 200 24957
+2017-06-12 14:42:34,351:basehttp "GET /users/3/timelogs/?page=1 HTTP/1.1" 200 24957
+2017-06-12 14:42:38,671:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24943
+2017-06-12 14:42:38,829:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24943
+2017-06-12 14:42:49,556:basehttp "GET /users/3/timelogs/?csrfmiddlewaretoken=15iTqpKvFVHcV0NbuDko4FvJFcKb0AWTElWl0WLTXR9J45YBgGSpU0XxRDohuhTv&issue_id=9&user_id=3&date_from=&date_till= HTTP/1.1" 200 25244
+2017-06-12 14:45:36,411:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24938
+2017-06-12 14:45:40,060:basehttp "GET /users/3/timelogs/?csrfmiddlewaretoken=vvk7ngKwT5LXkWPYTWHBZE5L0NXy9SOh8LYzXNLUb1dut10oFZfCPZxzceBEDzLT&issue_id=&user_id=3&date_from=&date_till= HTTP/1.1" 200 25216
+2017-06-12 14:47:14,043:basehttp "GET /users/3/timelogs/?csrfmiddlewaretoken=JPI4b7ZP8BdwejSFmwuxdYGUnmCRgxDCm5mwLE0dqxF3no358z2y3j8IzNgXKeAe&issue_id=2&user_id=3&date_from=&date_till= HTTP/1.1" 200 25239
+2017-06-12 14:49:30,185:basehttp "GET /users/3/timelogs/?csrfmiddlewaretoken=JPI4b7ZP8BdwejSFmwuxdYGUnmCRgxDCm5mwLE0dqxF3no358z2y3j8IzNgXKeAe&issue_id=2&user_id=3&date_from=&date_till= HTTP/1.1" 200 13021
+2017-06-12 14:51:45,817:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 14:51:47,460:basehttp "GET /issues/2/ HTTP/1.1" 200 4351
+2017-06-12 14:51:49,641:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 24282
+2017-06-12 14:51:53,308:basehttp "GET /timelogs/?csrfmiddlewaretoken=o5LsiboM24kKQssawPUskTgbTi0fYFN91lpUSIpak0MhZxDAiSstaeIZ5JElsmKL&issue_id=2&user_id=&date_from=&date_till= HTTP/1.1" 200 24556
+2017-06-12 14:52:10,445:basehttp "GET /timelogs/?csrfmiddlewaretoken=o5LsiboM24kKQssawPUskTgbTi0fYFN91lpUSIpak0MhZxDAiSstaeIZ5JElsmKL&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25266
+2017-06-12 14:52:23,465:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 14:52:25,106:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 14:52:26,723:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24377
+2017-06-12 14:52:31,937:basehttp "GET /timelogs/?csrfmiddlewaretoken=gvVMkgmqpgaO7bw8uuiFeyrfumzxkAvBTLzeUNnOHcClggHygxQG4TT3GNdDOhsd&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 26390
+2017-06-12 14:55:54,364:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24370
+2017-06-12 14:56:05,595:basehttp "GET /timelogs/?csrfmiddlewaretoken=81Eso4aEVvdEBWR420vX67Ktm2d0cAGHLhiUYBb2drFbK12uO33YWschytR6GhDj&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24676
+2017-06-12 14:56:13,641:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 26277
+2017-06-12 14:56:44,624:basehttp "GET /timelogs/ HTTP/1.1" 200 26093
+2017-06-12 14:57:01,843:basehttp "GET /issues/16/timelogs/ HTTP/1.1" 200 8204
+2017-06-12 14:57:05,557:basehttp "GET /timelogs/?csrfmiddlewaretoken=Bgi06Ayv0kR12u443mzRPlxM2D0t1RgBewWsG7zTigjybzfuPp7SFGZAe4Ezvydd&issue_id=16&user_id=&date_from=&date_till= HTTP/1.1" 200 8480
+2017-06-12 14:58:28,597:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 26277
+2017-06-12 15:04:33,805:basehttp "GET /timelogs/?csrfmiddlewaretoken=o5LsiboM24kKQssawPUskTgbTi0fYFN91lpUSIpak0MhZxDAiSstaeIZ5JElsmKL&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25266
+2017-06-12 15:04:36,637:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 26145
+2017-06-12 15:06:29,277:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 24282
+2017-06-12 15:06:32,504:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 15:06:33,862:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 15:06:35,108:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24310
+2017-06-12 15:06:38,703:basehttp "GET /projects/2/timelogs/?page=2 HTTP/1.1" 200 24508
+2017-06-12 15:06:41,206:basehttp "GET /projects/2/timelogs/?page=3 HTTP/1.1" 200 23052
+2017-06-12 15:06:44,811:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24324
+2017-06-12 15:07:04,962:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24384
+2017-06-12 15:07:07,667:basehttp "GET /projects/2/timelogs/?page=3 HTTP/1.1" 200 23008
+2017-06-12 15:07:09,793:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24384
+2017-06-12 15:07:28,395:basehttp "GET /timelogs/?csrfmiddlewaretoken=dLSNwJr1mk8LXuZjiNeWt6ZS7wLmYwNqQ1wf6gspEgAi6zaJ4QMXjrrGjXpssdK2&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24676
+2017-06-12 15:09:30,585:basehttp "GET /timelogs/?csrfmiddlewaretoken=dLSNwJr1mk8LXuZjiNeWt6ZS7wLmYwNqQ1wf6gspEgAi6zaJ4QMXjrrGjXpssdK2&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 41045
+2017-06-12 15:11:21,296:basehttp "GET /timelogs/?csrfmiddlewaretoken=dLSNwJr1mk8LXuZjiNeWt6ZS7wLmYwNqQ1wf6gspEgAi6zaJ4QMXjrrGjXpssdK2&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 32866
+2017-06-12 15:11:23,578:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 34405
+2017-06-12 15:11:39,646:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 26288
+2017-06-12 15:11:49,582:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 26294
+2017-06-12 15:12:02,973:basehttp "GET /timelogs/?page=2 HTTP/1.1" 200 26288
+2017-06-12 15:12:29,331:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24370
+2017-06-12 15:12:35,774:basehttp "GET /projects/2/timelogs/?page=2 HTTP/1.1" 200 24498
+2017-06-12 15:12:39,423:basehttp "GET /projects/2/timelogs/?page=1 HTTP/1.1" 200 24390
+2017-06-12 15:12:43,655:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24370
+2017-06-12 15:12:49,521:basehttp "GET /timelogs/?csrfmiddlewaretoken=9cU7vEbzyAEQTDAX5rN9f5iEpF5sNhQWMsyz5bcXQw6n2ILnRula5qKsB6JyhYNy&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24834
+2017-06-12 15:13:56,503:basehttp "GET /timelogs/?csrfmiddlewaretoken=9cU7vEbzyAEQTDAX5rN9f5iEpF5sNhQWMsyz5bcXQw6n2ILnRula5qKsB6JyhYNy&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25150
+2017-06-12 15:14:04,030:basehttp "GET /timelogs/csrfmiddlewaretoken=9cU7vEbzyAEQTDAX5rN9f5iEpF5sNhQWMsyz5bcXQw6n2ILnRula5qKsB6JyhYNy&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 404 5113
+2017-06-12 15:14:37,360:basehttp "GET /timelogs/csrfmiddlewaretoken=9cU7vEbzyAEQTDAX5rN9f5iEpF5sNhQWMsyz5bcXQw6n2ILnRula5qKsB6JyhYNy&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 404 5113
+2017-06-12 15:15:24,301:basehttp "GET /timelogs/?csrfmiddlewaretoken=9cU7vEbzyAEQTDAX5rN9f5iEpF5sNhQWMsyz5bcXQw6n2ILnRula5qKsB6JyhYNy&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25153
+2017-06-12 15:15:28,006:basehttp "GET /timelogs/?csrfmiddlewaretoken=9cU7vEbzyAEQTDAX5rN9f5iEpF5sNhQWMsyz5bcXQw6n2ILnRula5qKsB6JyhYNy&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25316
+2017-06-12 15:15:40,352:basehttp "GET /projects/2/timelogs/?page=2 HTTP/1.1" 200 24513
+2017-06-12 15:15:47,913:basehttp "GET /projects/2/timelogs/?page=2&page=1 HTTP/1.1" 200 24460
+2017-06-12 15:17:34,488:basehttp "GET /timelogs/?csrfmiddlewaretoken=rBWHjbOZiVma8CBgwfLfNpfBYeUOeTJT4RA9TIPnAROHhHMGiijgDKHpaFyUIAGv&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25153
+2017-06-12 15:17:38,127:basehttp "GET /timelogs/?csrfmiddlewaretoken=rBWHjbOZiVma8CBgwfLfNpfBYeUOeTJT4RA9TIPnAROHhHMGiijgDKHpaFyUIAGv&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25316
+2017-06-12 15:17:43,214:basehttp "GET /timelogs/?csrfmiddlewaretoken=rBWHjbOZiVma8CBgwfLfNpfBYeUOeTJT4RA9TIPnAROHhHMGiijgDKHpaFyUIAGv&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2&page=1 HTTP/1.1" 200 25263
+2017-06-12 15:23:06,500:basehttp "GET /timelogs/?csrfmiddlewaretoken=rBWHjbOZiVma8CBgwfLfNpfBYeUOeTJT4RA9TIPnAROHhHMGiijgDKHpaFyUIAGv&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2&page=1 HTTP/1.1" 200 25331
+2017-06-12 15:23:21,510:basehttp "GET /timelogs/?csrfmiddlewaretoken=nPoIDHtSmwFsrrhSxgPkiBfkEPLZHwwR052adeugEs7ZAwsijjnl8WH8Qgp5bdtt&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25221
+2017-06-12 15:23:27,815:basehttp "GET /timelogs/?csrfmiddlewaretoken=nPoIDHtSmwFsrrhSxgPkiBfkEPLZHwwR052adeugEs7ZAwsijjnl8WH8Qgp5bdtt&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25384
+2017-06-12 15:24:00,067:basehttp "GET /timelogs/?csrfmiddlewaretoken=nPoIDHtSmwFsrrhSxgPkiBfkEPLZHwwR052adeugEs7ZAwsijjnl8WH8Qgp5bdtt&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25046
+2017-06-12 15:24:17,184:basehttp "GET /timelogs/?csrfmiddlewaretoken=nPoIDHtSmwFsrrhSxgPkiBfkEPLZHwwR052adeugEs7ZAwsijjnl8WH8Qgp5bdtt&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25384
+2017-06-12 15:27:44,549:basehttp "GET /timelogs/?csrfmiddlewaretoken=nPoIDHtSmwFsrrhSxgPkiBfkEPLZHwwR052adeugEs7ZAwsijjnl8WH8Qgp5bdtt&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25066
+2017-06-12 15:27:46,197:basehttp "GET /timelogs/?csrfmiddlewaretoken=1B4M6FuK5xe9vEUnUSA0c3ZG1pLvYuSsERIeGcv8ntGGEJ5NGV812orudQpBsbP4&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 24925
+2017-06-12 15:28:07,884:basehttp "GET /timelogs/?csrfmiddlewaretoken=1B4M6FuK5xe9vEUnUSA0c3ZG1pLvYuSsERIeGcv8ntGGEJ5NGV812orudQpBsbP4&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25221
+2017-06-12 15:29:00,720:basehttp "GET /timelogs/?csrfmiddlewaretoken=1B4M6FuK5xe9vEUnUSA0c3ZG1pLvYuSsERIeGcv8ntGGEJ5NGV812orudQpBsbP4&project_id=2&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 25242
+2017-06-12 15:29:04,294:basehttp "GET /timelogs/?csrfmiddlewaretoken=1B4M6FuK5xe9vEUnUSA0c3ZG1pLvYuSsERIeGcv8ntGGEJ5NGV812orudQpBsbP4&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25405
+2017-06-12 15:29:15,456:basehttp "GET /timelogs/?csrfmiddlewaretoken=1B4M6FuK5xe9vEUnUSA0c3ZG1pLvYuSsERIeGcv8ntGGEJ5NGV812orudQpBsbP4&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 25384
+2017-06-12 15:33:35,294:basehttp "GET /timelogs/?csrfmiddlewaretoken=1B4M6FuK5xe9vEUnUSA0c3ZG1pLvYuSsERIeGcv8ntGGEJ5NGV812orudQpBsbP4&project_id=2&issue_id=&user_id=&date_from=&date_till=&page=2 HTTP/1.1" 200 24806
+2017-06-12 15:33:38,718:basehttp "GET /timelogs/?page=3 HTTP/1.1" 200 26232
+2017-06-12 15:34:29,447:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 15:34:31,874:basehttp "GET /issues/5 HTTP/1.1" 301 0
+2017-06-12 15:34:31,990:basehttp "GET /issues/5/ HTTP/1.1" 200 4408
+2017-06-12 15:34:35,916:basehttp "GET /issues/5/timelogs HTTP/1.1" 301 0
+2017-06-12 15:34:36,081:basehttp "GET /issues/5/timelogs/ HTTP/1.1" 200 23368
+2017-06-12 15:34:40,611:basehttp "POST /timelogs/ HTTP/1.1" 200 26094
+2017-06-12 15:34:45,373:basehttp "POST /timelogs/ HTTP/1.1" 200 26094
+2017-06-12 15:34:52,745:basehttp "POST /timelogs/ HTTP/1.1" 200 26094
+2017-06-12 15:36:34,745:basehttp "POST /timelogs/ HTTP/1.1" 200 26094
+2017-06-12 15:38:26,057:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 15:38:26,106:basehttp "GET /static/static/css/style.css HTTP/1.1" 304 0
+2017-06-12 15:38:27,922:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 15:38:31,743:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24371
+2017-06-12 15:38:32,115:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24371
+2017-06-12 15:38:37,840:basehttp "POST /timelogs/ HTTP/1.1" 200 26094
+2017-06-12 15:39:37,131:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 15:39:38,218:basehttp "GET /projects/3/ HTTP/1.1" 200 10775
+2017-06-12 15:39:39,188:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24429
+2017-06-12 15:39:43,784:basehttp "GET /projects/3/timelogs/?csrfmiddlewaretoken=VLgta4AmhWXbFnVv4mBE0qQPXbdWcvnzy1UVKBBKzSpIOs6VQp9FQLiD9CR2Gckb&project_id=3&issue_id=7&user_id=&date_from=&date_till= HTTP/1.1" 200 24559
+2017-06-12 15:40:12,027:basehttp "GET /projects/3/timelogs/?csrfmiddlewaretoken=VLgta4AmhWXbFnVv4mBE0qQPXbdWcvnzy1UVKBBKzSpIOs6VQp9FQLiD9CR2Gckb&project_id=3&issue_id=7&user_id=&date_from=&date_till= HTTP/1.1" 200 24569
+2017-06-12 15:40:14,109:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 15:40:15,307:basehttp "GET /projects/3/ HTTP/1.1" 200 10775
+2017-06-12 15:40:17,188:basehttp "GET /projects/3/timelogs/ HTTP/1.1" 200 24439
+2017-06-12 15:40:21,323:basehttp "GET /timelogs/?csrfmiddlewaretoken=b67Gal4cAKVUdi1yLjBYU7sRoZp2PLNaOmL8KS5ASGnrmncYxm9ZKsUFAq38jsKM&project_id=3&issue_id=7&user_id=&date_from=&date_till= HTTP/1.1" 200 24565
+2017-06-12 15:40:26,680:basehttp "GET /timelogs/ HTTP/1.1" 200 26093
+2017-06-12 15:40:30,260:basehttp "GET /timelogs/?csrfmiddlewaretoken=xnCR33sJ9D9IgtJ5L9kJAgMae5VGU5vLaDgjDAt7rzBfpyUvxcSKqBeYqwzMoMsn&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25266
+2017-06-12 15:40:36,981:basehttp "GET /timelogs/?csrfmiddlewaretoken=KeMGUzdmyA4N9yyyAWe6D8xx9Rxsgd9unuq8u6eKQwwkiDJYmZM7ttZllibyKU66&issue_id=7&user_id=&date_from=&date_till= HTTP/1.1" 200 25360
+2017-06-12 15:40:40,617:basehttp "GET /timelogs/?csrfmiddlewaretoken=iG1XIfuPPyXAOzA0MKMnUbw3AYgNYXFFVWFpiMvd7up7XELqyNkoKwYRMpUTsECh&issue_id=7&user_id=2&date_from=&date_till= HTTP/1.1" 200 12909
+2017-06-12 15:40:42,238:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 15:40:43,427:basehttp "GET /users/3/ HTTP/1.1" 200 4826
+2017-06-12 15:40:48,892:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24943
+2017-06-12 15:40:49,055:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24943
+2017-06-12 15:40:53,911:basehttp "GET /timelogs/?csrfmiddlewaretoken=kZOeGq1KxbmEppVypOlxpKnubiybd0CLXfsGgX28P7Obyu6YbRTyf5PinJchHHzn&issue_id=1&user_id=3&date_from=&date_till= HTTP/1.1" 200 10178
+2017-06-12 15:41:16,926:basehttp "GET /timelogs/?csrfmiddlewaretoken=wvy3IMSFPSwmqhrlHXE452cW9Yu41LXB9LcvijT37OYTzmCLt0c5VnEKlp8avsUd&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25266
+2017-06-12 15:41:25,188:basehttp "GET /timelogs/?csrfmiddlewaretoken=pmILxnwygs1KNCWBozFBNyuP2Shuuv0w2Cmd7UxWyothWH71aCdCDTWDejVAYcX8&issue_id=1&user_id=&date_from=2017-06-01&date_till= HTTP/1.1" 200 6555
+2017-06-12 15:41:30,794:basehttp "GET /timelogs/?csrfmiddlewaretoken=gG1cL446pnMMfFg5Be0FqZPDlMqPbSQLTWFElB5uHjejoKrvnhyGgkhrxd4VFzNn&issue_id=1&user_id=&date_from=2017-05-01&date_till= HTTP/1.1" 200 10685
+2017-06-12 15:41:36,781:basehttp "GET /timelogs/?csrfmiddlewaretoken=m6JuEEo2jvXvgOnRh2P2UCdu6saQXyGDZmnWebpqBrp2pTyh35n3KXFiiTOWrfDf&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25266
+2017-06-12 15:45:43,471:basehttp "GET /timelogs/?csrfmiddlewaretoken=6na83xN1xotaMY9oMVakQjqHXCNEUECxJDOAD4OpPkVHV3kOyYIlGESv93rKolz9&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25266
+2017-06-12 15:45:46,911:basehttp "GET /timelogs/?csrfmiddlewaretoken=TmSFgB2R57zvs3TEKGekbyc0JLw22nwtwCw7Q83fn312B844wJMl1TEOVca8w4t5&issue_id=1&user_id=2&date_from=&date_till= HTTP/1.1" 200 12875
+2017-06-12 15:45:51,759:basehttp "GET /timelogs/?csrfmiddlewaretoken=P3J6lddZGt92a9v6sItO1yhYtNqtg7rDsjnyVKenYpBzjeGweL1PRTJMFe4zKOof&issue_id=16&user_id=&date_from=&date_till= HTTP/1.1" 200 8480
+2017-06-12 15:45:55,231:basehttp "GET /timelogs/?csrfmiddlewaretoken=teJwfd32Ts47rcavfye8GWCgl0Ssqk2g6unYPK4qbowEAhlV1BM9wh44xrwyU1ZS&issue_id=&user_id=&date_from=&date_till= HTTP/1.1" 200 26390
+2017-06-12 15:47:06,297:basehttp "GET /timelogs/?csrfmiddlewaretoken=TmSFgB2R57zvs3TEKGekbyc0JLw22nwtwCw7Q83fn312B844wJMl1TEOVca8w4t5&issue_id=1&user_id=2&date_from=&date_till= HTTP/1.1" 200 12875
+2017-06-12 15:47:07,934:basehttp "GET /projects/ HTTP/1.1" 200 6762
+2017-06-12 15:47:09,721:basehttp "GET /projects/2/ HTTP/1.1" 200 9968
+2017-06-12 15:47:12,059:basehttp "GET /projects/2/timelogs/ HTTP/1.1" 200 24370
+2017-06-12 15:48:31,488:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 15:48:34,407:basehttp "GET /users/3/ HTTP/1.1" 200 4826
+2017-06-12 15:48:38,931:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24943
+2017-06-12 15:48:39,078:basehttp "GET /users/3/timelogs/ HTTP/1.1" 200 24943
+2017-06-12 15:48:42,598:basehttp "GET /timelogs/?csrfmiddlewaretoken=S4TZtuXoKs8874PrDXkSV2omeYk1yQ2Cvkxr31YM2oAFg90Rp0STLnQaqpY72xZe&issue_id=&user_id=2&date_from=&date_till= HTTP/1.1" 200 25117
+2017-06-12 15:49:20,740:basehttp "GET /timelogs/?csrfmiddlewaretoken=S4TZtuXoKs8874PrDXkSV2omeYk1yQ2Cvkxr31YM2oAFg90Rp0STLnQaqpY72xZe&issue_id=&user_id=2&date_from=&date_till= HTTP/1.1" 200 25117
+2017-06-12 15:49:21,751:basehttp "GET /issues/ HTTP/1.1" 200 12682
+2017-06-12 15:49:23,866:basehttp "GET /issues/2/ HTTP/1.1" 200 4351
+2017-06-12 15:49:26,963:basehttp "GET /issues/2/timelogs/ HTTP/1.1" 200 24282
+2017-06-12 15:49:31,643:basehttp "GET /timelogs/?csrfmiddlewaretoken=en1Qm1zmUx1VYr1GKpt5vHLGEZwwkRdVRDFiWyAKctts7wc6ws16l2duQqaCOyax&issue_id=4&user_id=&date_from=&date_till= HTTP/1.1" 200 25632
+2017-06-12 15:50:58,397:basehttp "GET /timelogs/?csrfmiddlewaretoken=en1Qm1zmUx1VYr1GKpt5vHLGEZwwkRdVRDFiWyAKctts7wc6ws16l2duQqaCOyax&issue_id=4&user_id=&date_from=&date_till= HTTP/1.1" 200 25632
+2017-06-12 15:51:00,839:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 15:51:02,191:basehttp "GET /users/5 HTTP/1.1" 301 0
+2017-06-12 15:51:02,289:basehttp "GET /users/5/ HTTP/1.1" 200 4819
+2017-06-12 15:51:04,692:basehttp "GET /users/5/timelogs HTTP/1.1" 301 0
+2017-06-12 15:51:04,881:basehttp "GET /users/5/timelogs/ HTTP/1.1" 200 24946
+2017-06-12 15:51:07,674:basehttp "GET /timelogs/?csrfmiddlewaretoken=Bqx3wknstqts3RO4Wy2Xwfd2ez1ATmN7eGbv6RoQLmVZcWZuIBAYmAFQq0FGn3KJ&issue_id=1&user_id=5&date_from=&date_till= HTTP/1.1" 200 12204
+2017-06-12 15:51:10,253:basehttp "GET /timelogs/?csrfmiddlewaretoken=OPmmzRLd7LxbUxP66ufq5UoUfjQBcfqgr50O9oMBpHZI3C0wSxNrVfQIrKuHGWnS&issue_id=1&user_id=2&date_from=&date_till= HTTP/1.1" 200 12875
+2017-06-12 15:51:13,469:basehttp "GET /timelogs/?csrfmiddlewaretoken=pC0zPWplAqJ0MsitJE7yphtURENgD5ex2SE1ptqJSmbxVxtTvHFzfCVI35rm7Mb9&issue_id=1&user_id=2&date_from=&date_till= HTTP/1.1" 200 12875
+2017-06-12 15:51:25,542:basehttp "GET /timelogs/?csrfmiddlewaretoken=m5WCL0NenXGTppIqldrWZynZMSdVdKcmZlA4lxOCFT8qyuTQ7gZXPTPNYjR1Hr9Y&issue_id=&user_id=3&date_from=&date_till= HTTP/1.1" 200 25217
+2017-06-12 15:51:32,536:basehttp "GET /timelogs/?csrfmiddlewaretoken=0AMqSOUx9ifpmmM5Jpt09zaqOD6HGGPzDQqSslVVreHWvrXvvs11ZUCe04KNanMb&issue_id=2&user_id=2&date_from=&date_till= HTTP/1.1" 200 10213
+2017-06-12 15:54:50,008:basehttp "GET /users/ HTTP/1.1" 200 2238
+2017-06-12 15:54:50,707:basehttp "GET /users/4 HTTP/1.1" 301 0
+2017-06-12 15:54:50,818:basehttp "GET /users/4/ HTTP/1.1" 200 4826
+2017-06-12 15:54:53,504:basehttp "GET /users/4/timelogs HTTP/1.1" 301 0
+2017-06-12 15:54:53,700:basehttp "GET /users/4/timelogs/ HTTP/1.1" 200 24853
+2017-06-12 15:54:59,433:basehttp "GET /timelogs/?csrfmiddlewaretoken=0D2TE8SGgDZEuC6oByZESAx2KlSn1vu8DTGleFT4yzrbDHhOnBxFIVZQWMwtvcrK&issue_id=&user_id=4&date_from=&date_till= HTTP/1.1" 200 25127
+2017-06-12 15:55:03,279:basehttp "GET /timelogs/?csrfmiddlewaretoken=coxGaOwzSIcYi70Cmx1tARQVBvHz1JpJPEb8KlxXaEEvrcb28AzuqciJNWlFvqml&issue_id=1&user_id=4&date_from=&date_till= HTTP/1.1" 200 9493
+2017-06-12 15:55:11,284:basehttp "GET /timelogs/?csrfmiddlewaretoken=8ZKMNNvkDWB1CtSDwYpx5S2VQ017DHebLfoenkwIVS3yLy33i1XyVduJ2rFd7obN&issue_id=1&user_id=&date_from=&date_till= HTTP/1.1" 200 25266
+2017-06-12 15:55:15,091:basehttp "GET /timelogs/?csrfmiddlewaretoken=o1V1u1Unn52ECRoaWnpPGVXtVNps53rn1hzt4yVLF1ubLWzAIqXQwgph7e3yzKoZ&issue_id=1&user_id=3&date_from=&date_till= HTTP/1.1" 200 10178
+2017-06-12 15:57:19,134:basehttp "GET /timelogs/ HTTP/1.1" 200 26093
+2017-06-12 15:57:22,406:basehttp "GET /timelogs/?csrfmiddlewaretoken=Yzb74Zn8K7sfKzDTEIZKOGx3EnlQUuhvBPPzEwow23UMTEOjqLxLE1ZRQOZWobe7&issue_id=3&user_id=2&date_from=&date_till= HTTP/1.1" 200 10183
+2017-06-12 16:00:46,250:basehttp "GET /timelogs/?csrfmiddlewaretoken=Yzb74Zn8K7sfKzDTEIZKOGx3EnlQUuhvBPPzEwow23UMTEOjqLxLE1ZRQOZWobe7&issue_id=3&user_id=2&date_from=&date_till= HTTP/1.1" 200 11371
+2017-06-12 16:00:54,360:basehttp "GET /timelogs/?csrfmiddlewaretoken=LMrfimdCKxv1TgKIvrigvKoU5xvd36uAo25HSTe02tXy2lV8huQhl5QIhY9jxNrc&issue_id=14&user_id=2&date_from=&date_till= HTTP/1.1" 200 6335
+2017-06-12 16:00:59,371:basehttp "GET /timelogs/ HTTP/1.1" 200 26093
+2017-06-12 16:01:04,285:basehttp "GET /timelogs/?csrfmiddlewaretoken=MzJhaWWEaizrYrRFLwQKwakCZxAVNWmhpPnJKtX2se1Y7w25xzoLmvMqbYe1hDjT&issue_id=2&user_id=2&date_from=&date_till= HTTP/1.1" 200 11393

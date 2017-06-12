@@ -9,7 +9,6 @@ from .forms import ProjectForm
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User, Role
 from taiga.timelogs.models import Timelog
-from taiga.timelogs.views import get_timelogs
 from taiga.permissions import DEVELOPER_PERMISSIONS
 
 
@@ -51,20 +50,6 @@ def project_details(request, project_id):
     return render(request, "projects/project_details.html", args)
 
 
-def project_timelogs(request, project_id):
-    format = request.GET.get('format')
-    args = get_timelogs(request, project_id=project_id)
-
-    if format == 'json':
-        template = "timelogs/json_timelogs.html"
-        args['jsondata'] = json.dumps(list(args['timelogs_list'].values('issue_id', 'user_id', 'date', 'duration')), cls=DjangoJSONEncoder)
-    else:
-        template = "projects/project_details.html"
-        args['project_details'] = Project.objects.get(id=project_id)
-
-    return render(request, template, args)
-
-
 def user_project_perms(user_id, project_id):
     # if Admin
     ADMIN_ID = 1
@@ -94,7 +79,7 @@ def project_permission_required(perms, redir_page="/projects/"):
             # if func with issue_id
             try:
                 project_id = Issue.objects.get(pk=kwargs['issue_id']).project_id
-            # trying to process issue that doesn't exist
+            # the issue doesn't exist
             except ObjectDoesNotExist:
                 messages.error(request, 'Error: issue &#35;' + str(kwargs['issue_id'] + ' does NOT exist'))
                 return redirect('/issues/')
@@ -179,7 +164,7 @@ def add_project(request):
     return render(request, template, args)
 
 
-@project_permission_required('projects.change_project')
+@permission_required('projects.change_project')
 def edit_project(request, project_id):
     """
     Edit project
