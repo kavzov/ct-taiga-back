@@ -9,59 +9,7 @@ from taiga.projects.models import Project
 from .forms import TimelogForm
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User
-
-
-# --- Get timelogs --- #
-def get_timelogs(request, **kwargs):
-    """ Get timelogs from request and return args for template """
-    params = dict()
-    try:
-        params['issue_id'] = kwargs['issue_id']
-    except KeyError:
-        params['issue_id'] = request.GET.get('issue_id')
-    try:
-        params['user_id'] = kwargs['user_id']
-    except KeyError:
-        params['user_id'] = request.GET.get('user_id')
-    try:
-        params['project_id'] = kwargs['project_id']
-    except KeyError:
-        params['project_id'] = request.GET.get('project_id')
-    params['date_from'] = request.GET.get('date_from')
-    params['date_till'] = request.GET.get('date_till')
-    params['order'] = request.GET.get('sort_by')
-
-    args = dict()
-    timelogs_list = Timelog.objects.all().order_by('date')
-
-    if params['project_id']:
-        timelogs_list = timelogs_list.filter(issue__project__id=params['project_id'])
-        params['project_name'] = Project.objects.values('name').get(pk=params['project_id'])['name']
-    if params['issue_id']:
-        timelogs_list = timelogs_list.filter(issue__id=params['issue_id'])
-        params['issue_id'] = int(params['issue_id'])
-    if params['user_id']:
-        timelogs_list = timelogs_list.filter(user__id=params['user_id'])
-        params['user_id'] = int(params['user_id'])
-    if params['date_from'] :
-        timelogs_list = timelogs_list.filter(date__gte=params['date_from'] )
-    if params['date_till']:
-        timelogs_list = timelogs_list.filter(date__lte=params['date_till'])
-    if params['order']:
-        timelogs_list = timelogs_list.order_by(params['order'])
-
-    durations = [v['duration'] for v in list(timelogs_list.values())]
-
-    args['title'] = 'Timelogs'
-    args['total_duration'] = sum(durations)
-    args['params'] = params
-    args['timelogs_list'] = timelogs_list
-    args['timelog_form'] = TimelogForm
-    args['issues'] = Issue.objects.all()
-    args['users'] = User.objects.all()
-
-    return args
-# --- Get timelogs --- #
+from taiga.projects.views import project_permission_required
 
 
 def get_paginated_timelogs(request, query_list):
@@ -80,16 +28,105 @@ def get_paginated_timelogs(request, query_list):
     return timelogs
 
 
-def timelogs_list(request):
-    format = request.GET.get('format')
-    args = get_timelogs(request)
-    args['timelogs'] = get_paginated_timelogs(request, args['timelogs_list'])
+# --- utils for view_timelogs --- #
+def get_id(param, kwargs, req):
+    try:
+        id = kwargs[param]
+    except KeyError:
+        id = req.GET.get(param)
+    if id:
+        return int(id)
 
-    if format == 'json':
-        template = "timelogs/json_timelogs.html"
-        args['jsondata'] = json.dumps(list(args['timelogs_list'].values('issue_id', 'user_id', 'date', 'duration')), cls=DjangoJSONEncoder)
-    else:
-        template = "timelogs/timelogs_list.html"
+
+def get_project(project_id):
+    return Project.objects.get(pk=project_id)
+
+
+def get_project_issues(project_id):
+    return Issue.objects.filter(project_id=project_id)
+
+
+def get_distinct_users(timelogs):
+    return User.objects.filter(pk__in=[timelog.user for timelog in timelogs.distinct('user')])
+
+
+def get_distinct_issues(timelogs):
+    return Issue.objects.filter(pk__in=[timelog.issue.id for timelog in timelogs.distinct('issue')])
+
+
+def get_timelog(timelogs, project_id=None, issue_id=None, user_id=None):
+    if project_id:
+        return timelogs.filter(issue__project__id=project_id)
+    if issue_id:
+        return timelogs.filter(issue__id=issue_id)
+    if user_id:
+        return timelogs.filter(user__id=user_id)
+
+
+def view_timelogs(request, **kwargs):
+    template = 'timelogs/timelogs_list.html'
+    params = {}
+    args = {
+        'title': 'Timelogs',
+        'timelog_form': TimelogForm,
+        'issues': Issue.objects.all(),
+        'users': User.objects.all(),
+    }
+
+    # initial timelogs query
+    timelogs = Timelog.objects.all()
+
+    # project_id
+    params['project_id'] = get_id('project_id', kwargs, request)
+    if params['project_id']:
+        args['project'] = get_project(params['project_id'])
+        # get timelogs of the project
+        timelogs = get_timelog(timelogs, project_id=params['project_id'])
+        # issues of the project only
+        args['issues'] = get_project_issues(params['project_id'])
+        # users who tracked at the project issues only
+        args['users'] = get_distinct_users(timelogs)
+
+    # issue_id
+    params['issue_id'] = get_id('issue_id', kwargs, request)
+    if params['issue_id']:
+        # get issue's timelogs
+        timelogs = get_timelog(timelogs, issue_id=params['issue_id'])
+        # users who tracked at the issue only
+        args['users'] = get_distinct_users(timelogs)
+
+    # user_id
+    params['user_id'] = get_id('user_id', kwargs, request)
+    if params['user_id']:
+        # get user's timelogs
+        timelogs = get_timelog(timelogs, user_id=params['user_id'])
+        # issues which the user tracked
+        args['issues'] = get_distinct_issues(timelogs)
+
+    # TODO
+    # if params['issue_id'] and not params['user_id']:
+    # elif not params['issue_id'] and params['user_id']:
+    # elif params['issue_id'] and params['user_id']:
+
+
+    # get extrta params
+    params['date_from'] = request.GET.get('date_from')
+    params['date_till'] = request.GET.get('date_till')
+    params['order'] = request.GET.get('order')
+
+    if params['date_from'] :
+        timelogs = timelogs.filter(date__gte=params['date_from'] )
+    if params['date_till']:
+        timelogs = timelogs.filter(date__lte=params['date_till'])
+    if params['order']:
+        timelogs = timelogs.order_by(params['order'])
+
+    # get total duration of all filtered timelogs
+    duration = sum([v['duration'] for v in list(timelogs.values())])
+
+    args['params'] = params
+    args['total_duration'] = duration
+    args['timelogs'] = get_paginated_timelogs(request, timelogs.order_by('date'))
 
     return render(request, template, args)
 
@@ -110,7 +147,7 @@ def timelog_details(request, timelog_id):
     return render(request, template, args)
 
 
-@permission_required('timelogs.add_timelog')
+@project_permission_required('timelogs.add_timelog')
 def add_timelog(request, issue_id):
     template = "timelogs/timelog_details.html"
 
@@ -123,7 +160,7 @@ def add_timelog(request, issue_id):
         timelog_form = TimelogForm(request.POST)
         if timelog_form.is_valid():
             timelog_form.save()
-            msg = 'Timelog successfully added'
+            msg = 'Time log successfully added'
             messages.success(request, msg)
             return redirect('/issues/'+issue_id)
         else:

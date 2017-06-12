@@ -19,11 +19,13 @@
         </span>
     </h2>
 <!-- END Issue header -->
+
 <!-- Issue description -->
     <div style="padding:.7em 1.3em 0;">
         {{ issue_details.description }}
     </div>
 <!-- END Issue description -->
+
     <div style="padding:.3em 1.3em 0;">
         <h4>Project: <span style="font-weight:normal;"><a href="/projects/{{ issue_details.project.id }}" title="Project details">{{ issue_details.project.name  }}</a></span></h4>
     </div>
@@ -41,7 +43,7 @@
     <div style="padding:.5em 1.3em 0em;">
     <h4>Total time: <span style="font-weight:normal; font-size:.9em;">{{ total_time|floatformat:2 }} h</span></h4>
     <p style="padding:0; margin:.2em 0; font-size:.95em; line-height:1.2em;">
-        {% if total_time %}<a href="/timelogs?issue_id={{ issue_details.id }}" title="View the issue timelogs">Timelogs</a>&nbsp;{% endif %}
+        {% if total_time %}<a href="timelogs/" title="View the issue timelogs">Timelogs</a>&nbsp;{% endif %}
         <a href="add_timelog/" title="Add timelog to the issue" style="text-decoration:none; color:#262;">
             &plus;<span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Add{% if not total_time %} timelog{% endif %}</span>
         </a>

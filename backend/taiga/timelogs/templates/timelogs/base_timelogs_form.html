@@ -53,8 +53,8 @@
 </p>
 <form action="/timelogs/" method="get">
 {% csrf_token %}
-    {% if project_details %}
-    <input type="hidden" name="project_id" value="{{ project_details.id }}">
+    {% if project %}
+    <input type="hidden" name="project_id" value="{{ params.project_id }}">
     {% endif %}
     <table style="margin:0 0 1em;">
         <tr>
