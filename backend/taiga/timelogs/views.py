@@ -50,10 +50,6 @@ def get_distinct_users(timelogs):
     return User.objects.filter(pk__in=[timelog.user for timelog in timelogs.distinct('user')])
 
 
-def get_distinct_issues(timelogs):
-    return Issue.objects.filter(pk__in=[timelog.issue.id for timelog in timelogs.distinct('issue')])
-
-
 def get_timelog(timelogs, project_id=None, issue_id=None, user_id=None):
     if project_id:
         return timelogs.filter(issue__project__id=project_id)
@@ -100,14 +96,11 @@ def view_timelogs(request, **kwargs):
     if params['user_id']:
         # get user's timelogs
         timelogs = get_timelog(timelogs, user_id=params['user_id'])
-        # issues which the user tracked (if not params['issue_id']. If it is, there only the issue in issues select list)
-        args['issues'] = get_distinct_issues(timelogs)
-        # to display issues list of user tracked in select menu (if params['issue_id'])
-        if params['issue_id']:
-            args['issues'] = Issue.objects.filter(
-                pk__in=[
-                    timelog.issue.id for timelog in Timelog.objects.filter(user_id=params['user_id']).distinct('issue')
-                ])
+        # issues which the user tracked
+        args['issues'] = args['issues'].filter(
+            pk__in=[
+                timelog.issue.id for timelog in Timelog.objects.filter(user_id=params['user_id']).distinct('issue')
+        ])
 
     # get extra params
     params['date_from'] = request.GET.get('date_from')
