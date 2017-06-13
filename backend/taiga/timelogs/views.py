@@ -9,7 +9,7 @@ from taiga.projects.models import Project
 from .forms import TimelogForm
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User
-from taiga.projects.views import object_in_project, project_permission_required
+from taiga.projects.views import valid_id, send_err_msg, project_permission_required
 
 
 def get_paginated_timelogs(request, query_list):
@@ -149,16 +149,13 @@ def add_timelog(request, issue_id):
             messages.success(request, msg)
             return redirect('/issues/'+issue_id)
         else:
-            msg_head = "Some errors occurs while adding timelog:"
-            messages.error(request, msg_head)
-            err_msg = timelog_form.errors.as_text()
-            messages.error(request, err_msg)
+            send_err_msg(request, timelog_form)
             return render(request, template, args)
 
     return render(request, template, args)
 
 
-@object_in_project
+@valid_id
 @project_permission_required('timelogs.change_timelog', '/timelogs/')
 def edit_timelog(request, timelog_id):
     """
@@ -185,10 +182,7 @@ def edit_timelog(request, timelog_id):
             timelog_form = TimelogForm(request.POST, instance=timelog)
             timelog_form.save()
         else:
-            err_msg_head = "Some errors occurs while editing timelog:"
-            messages.error(request, err_msg_head)
-            err_msg_details = timelog_form.errors.as_text()
-            messages.error(request, err_msg_details)
+            send_err_msg(request, timelog_form)
             return render(request, template, args)
 
         msg = 'Timelog &#35;' + str(timelog.id) + ' successfully updated'
@@ -199,7 +193,7 @@ def edit_timelog(request, timelog_id):
     return render(request, template, args)
 
 
-@object_in_project
+@valid_id
 @project_permission_required('timelogs.delete_timelog', '/timelogs/')
 def delete_timelog(request, timelog_id):
     """

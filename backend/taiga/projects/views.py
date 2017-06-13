@@ -73,7 +73,7 @@ def user_project_perms(user_id, project_id):
         return user_perms
 
 
-def object_in_project(func):
+def valid_id(func):
     """
     Check whether issue or timelog at a project
     Redirect with error messages
@@ -81,6 +81,7 @@ def object_in_project(func):
     def inner(request, *args, **kwargs):
         issue_id = kwargs.get('issue_id')
         timelog_id = kwargs.get('timelog_id')
+        project_id = kwargs.get('project_id')
 
         if issue_id:
             try:
@@ -95,6 +96,14 @@ def object_in_project(func):
             except ObjectDoesNotExist:
                 messages.error(request, 'Error: timelog &#35;' + str(timelog_id) + ' does NOT exist')
                 return redirect('/timelogs/')
+
+        if project_id:
+            try:
+                Project.objects.get(pk=project_id)
+            except ObjectDoesNotExist:
+                messages.error(request, 'Error: project &#35;' + str(project_id) + ' does NOT exist')
+                return redirect('/projects/')
+
         return func(request, *args, **kwargs)
     return inner
 
@@ -133,19 +142,28 @@ def project_permission_required(perms, redir='/projects/'):
     return decor
 
 
+def send_err_msg(req, form):
+    err_msg_head = "Errors:"
+    err_msg_text = form.errors.as_text()
+    messages.error(req, err_msg_head)
+    messages.error(req, err_msg_text)
+
+
 @permission_required('projects.add_project')
 def add_project(request):
     """
     Create new project
     """
-    template = "projects/edit_project.html"
-    args = {}
+    template = 'projects/edit_project.html'
+    args = {
+        'title': 'Add project',
+        'users': User.objects.all(),
+        'roles': Role.objects.all(),
+        'project_form': ProjectForm,
+        'editing': True,
+    }
 
-    args['users'] = User.objects.all()
-    args['roles'] = Role.objects.all()
     roles = [str(role.id) for role in args['roles']]
-    args['project_form'] = ProjectForm
-    args['editing'] = True   # for hide label "Edit projects" at the right top
 
     if request.POST:
         args['project_form'] = ProjectForm(request.POST)
@@ -153,10 +171,7 @@ def add_project(request):
             p = args['project_form'].save()
             project_id = str(p.id)
         else:
-            msg_head = "Some errors occurs while adding project:"
-            messages.error(request, msg_head)
-            err_msg = args['project_form'].errors.as_text()
-            messages.error(request, err_msg)
+            send_err_msg(request, args['project_form'])
             return render(request, template, args)
 
         for user in args['users']:
@@ -188,13 +203,13 @@ def add_project(request):
     return render(request, template, args)
 
 
+@valid_id
 @permission_required('projects.change_project')
 def edit_project(request, project_id):
     """
     Edit project
     """
-    template = "projects/edit_project.html"
-    args = {}
+    template = 'projects/edit_project.html'
 
     # get project
     project = Project.objects.get(pk=project_id)
@@ -214,19 +229,21 @@ def edit_project(request, project_id):
         except AttributeError:
             members_roles[member] = []
 
-    args['users'] = User.objects.all()
-    args['roles'] = Role.objects.all()
-    args['user'] = request.user
-    args['user_perms'] = user_project_perms(request.user.id, project_id)
-    args['editing'] = True   # for hide label "Edit projects" at the right top
-    args['project'] = project
-    args['members'] = members
-    args['members_roles'] = members_roles
-    args['project_form'] = ProjectForm(initial={
-        'name': project.name,
-        'description': project.description,
-        'owner': project.owner,
-    })
+    # args to template
+    args = {
+        'users': User.objects.all(),
+        'roles': Role.objects.all(),
+        'user_perms': user_project_perms(request.user.id, project_id),
+        'editing': True,
+        'project': project,
+        'members': members,
+        'members_roles': members_roles,
+        'project_form': ProjectForm(initial={
+            'name': project.name,
+            'description': project.description,
+            'owner': project.owner,
+        }),
+    }
 
     # submit form
     if request.POST:
@@ -235,10 +252,7 @@ def edit_project(request, project_id):
             args['project_form'] = ProjectForm(request.POST, instance=Project.objects.get(pk=project_id))
             args['project_form'].save()
         else:
-            msg_head = "Some errors occurs while editing the project:"
-            messages.error(request, msg_head)
-            err_msg = args['project_form'].errors.as_text()
-            messages.error(request, err_msg)
+            send_err_msg(request, args['project_form'])
             return render(request, template, args)
 
         # if members list are empty, set initial
@@ -327,20 +341,23 @@ def edit_project(request, project_id):
     return render(request, template, args)
 
 
+@valid_id
 @permission_required('projects.delete_project')
 def delete_project(request, project_id):
-    try:
-        project = Project.objects.get(pk=project_id)
-    except ObjectDoesNotExist:
-        msgs = []
-        msgs.append('Couldn\'t remove project &#35;' + str(project_id))
-        msgs.append('Error: project does NOT exist')
-        for msg in msgs:
-            messages.error(request, msg)
-        return redirect('/projects/')
+    """
+    Delete project
+    """
+    # get project
+    project = Project.objects.get(pk=project_id)
 
-    # project.delete()
-    msg = 'Project &#35;' + project_id + ': &laquo;' + project.name + '&raquo; have been successfully deleted'
+    # delete the project
+    project.delete()
+
+    # set successful message
+    msg = 'The project &#35;' + project_id + ': &laquo;' + project.name + '&raquo; has been successfully deleted'
+
+    # send the message
     messages.success(request, msg)
 
+    # go to the Projects page
     return redirect('/projects/')

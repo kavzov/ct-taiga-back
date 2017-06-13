@@ -7,8 +7,7 @@ from .forms import IssueForm
 from taiga.users.models import User
 from taiga.timelogs.models import Timelog
 from taiga.projects.models import Project
-from taiga.projects.views import user_project_perms
-from taiga.projects.views import object_in_project, project_permission_required
+from taiga.projects.views import valid_id, send_err_msg, user_project_perms, project_permission_required
 from django.contrib.auth.decorators import permission_required, login_required
 from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
 
@@ -78,10 +77,7 @@ def add_issue(request, project_id):
             i = issue_form.save()
             issue_id = str(i.id)
         else:
-            msg_head = "Some errors occurs while adding issue:"
-            messages.error(request, msg_head)
-            err_msg = issue_form.errors.as_text()
-            messages.error(request, err_msg)
+            send_err_msg(request, issue_form)
             return render(request, template, args)
 
         msg = 'Issue &#35;' + issue_id + \
@@ -94,7 +90,7 @@ def add_issue(request, project_id):
     return render(request, template, args)
 
 
-@object_in_project
+@valid_id
 @project_permission_required('issues.change_issue', '/issues/')
 def edit_issue(request, issue_id):
     """
@@ -123,10 +119,7 @@ def edit_issue(request, issue_id):
             issue_form = IssueForm(request.POST, instance=issue)
             issue_form.save()
         else:
-            msg_head = "Some errors occurs while editing issue:"
-            messages.error(request, msg_head)
-            err_msg = issue_form.errors.as_text()
-            messages.error(request, err_msg)
+            send_err_msg(request, issue_form)
             return render(request, template, args)
 
         msg = 'Issue &#35;' + issue_id + \
@@ -139,7 +132,7 @@ def edit_issue(request, issue_id):
     return render(request, template, args)
 
 
-@object_in_project
+@valid_id
 @project_permission_required('issues.delete_issue', '/issues/')
 def delete_issue(request, issue_id):
     """
@@ -148,7 +141,11 @@ def delete_issue(request, issue_id):
     issue = Issue.objects.get(pk=issue_id)
     # issue.delete()
 
+    # set success message
     msg = 'Issue &#35;' + issue_id + ': &laquo;' + issue.subject + '&raquo; successfully deleted'
+
+    # send the message
     messages.success(request, msg)
 
+    # go to the project page
     return redirect('/projects/' + str(issue.project.id))
