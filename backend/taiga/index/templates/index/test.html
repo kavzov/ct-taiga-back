@@ -29,170 +29,21 @@
 
 <script type=text/javascript>
 
-// check either value in array
-function in_arr(val, arr) {
-    for (var i=0; i<arr.length; i++) {
-        if (arr[i] == val) {
-            return true;
-        }
-    }
-    return false;
-}
-
-// display html view of users list
-function displayUsersList(users, members) {
-    var usersHTML = '';
-    for (user_id in users) {
-        if (in_arr(user_id, members)) {
-            continue
-        }
-        usersHTML += '<span class="user-to-member-field" user_id="' + user_id +'">' + users[user_id] + '</span>';
-    }
-    $('#users-to-member').html(usersHTML);
-}
-
-
-function getUserID(node) {
-    return $(node).attr('user_id')
-}
-
-function getMemberID(node) {
-    return $(node).attr('member_id')
-}
-
-
 $(document).ready(function() {
-    var member_field = $('#member-search-field');
-
-    // members empty if no members at project (new)
-    var members = [];
-
-    // all users
-    var users = {};
-    {% for user in users %}
-    users['{{ user.id }}'] = '{{ user.get_full_name }}';
-    {% endfor %}
-
-
-    function showHideAddMemberLabel() {
-        $('#add-member-label').fadeToggle(10);
-    }
-
-
-    function putUserToField(userID) {
-        // check either user name in input field and remove it if there is
-        memberID = getMemberID(member_field)
-        if (memberID) {
-            removeUserFromField(memberID);
-        }
-
-        // push user id to members list
-        members.push(userID);
-
-        // pass user id to hidden field
-        member_field.attr('member_id', userID);
-
-        // pass user name to input field
-        member_field.val(users[userID]);
-
-        // hide the user from users list
-        $('[user_id=' + userID + ']').hide();
-
-        // show roles checkboxes and '[x]' sign
-        $('#roles-list').fadeToggle('fast');
-
-        // show '+Add' label
-        showHideAddMemberLabel();
-    }
-
-    function removeUserFromField(userID) {
-        // pop user id from members list
-        index = members.indexOf(userID);
-        members.splice(index, 1);
-
-        // clear input field
-        member_field.val('');
-
-        // clear user id in hidden field
-        member_field.attr('member_id', '');
-
-        // clear checkboxes
-        $('[name=role]').prop('checked', false);
-
-        // hide checkboxes and '[x]' sign
-        $('#roles-list').hide();
-
-        // show user in users list
-        $('[user_id=' + userID + ']').fadeToggle('fast');
-
-        // hide '+Add' label
-        showHideAddMemberLabel();
-    }
-
-    // display users list
-    displayUsersList(users, members);
-
-    // get nodes list with users
-    var user = $('.user-to-member-field');
-
-    // Put user to input field by click on user name
-    $(user).click(function(){
-        // get user id
-        user_id = getUserID(this);
-        putUserToField(user_id);
-
+    var oTable = $('.datatable').dataTable({
+        // ...
+        "processing": true,
+        "serverSide": true,
+        "ajax": "{% url 'order_list_json' %}"
     });
-
-    // Remove user from input filed by click on '[x]' sign
-    $('#remove-member').click(function(){
-        // get user id
-        user_id = getMemberID(member_field);
-        removeUserFromField(user_id);
-    });
-
-
-    // Click on '+Add' label
-    $('#add-member-label').click(function() {
-
-    });
+    // ...
 });
-
 </script>
 
-<h2>Form test</h2>
-<form action="" method="post">
-<table id="test-form" style="width:50%;">
-{% csrf_token %}
-{{ project_form }}
-{# member_form #}
-<tr>
-    <th style="width:10%;">Member:</th>
-    <td>
-        <input type="text" id="member-search-field" name="member">&nbsp;
-        <span id="roles-list">
-            {% for role in roles %}
-            <label><input type="checkbox" name="role" value="{{ role.id }}">{{ role.name }}</label>
-            {% endfor %}
-            <span id="remove-member">[x]</span>
-        </span>
-    </td>
-</tr>
-<tr>
-    <td style="text-align:center;">
-        <span id="add-member-label" style="display:none; color:#262;">&plus;<span style="font-size:.95em; font-weight:bold; padding:0; border-bottom:1px dotted #262; cursor:pointer;" title="Add a member">Add</span></span>
-    </td>
-    <td id="users-to-member">
-        <!--{% for user in users %}-->
-        <!--<span class="user-to-member-field" user_id="{{ user.id }}">{{ user.get_full_name }}</span>-->
-        <!--{% endfor %}-->
-    </td>
-</tr>
-<tr><td colspan="2" style="text-align:center; padding-top:1em;"><input type="submit"></td></tr>
-</table>
-</form>
+<h2>Datatable test</h2>
 
-<div id="members-search-results">
-    {{ search_users }}
+<div class="datatable">
+    {{  }}
 </div>
 
 <h3>{% if text %}{{ text }}{% endif %}</h3>
