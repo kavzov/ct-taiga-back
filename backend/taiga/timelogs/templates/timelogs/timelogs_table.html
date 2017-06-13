@@ -15,11 +15,12 @@
                 CSV
             </a>
         </div>
-        <div style="float:right; width:20%; text-align:right; font-size:.95em; margin:-.5em 0 0; padding:0 .5em .4em 0;   border:0px dotted green;">
+        <!-- <div style="float:right; width:20%; text-align:right; font-size:.95em; margin:-.5em 0 0; padding:0 .5em .4em 0;   border:0px dotted green;">
             <b style="font-size:1.2em;">{{timelogs.paginator.count}}</b> timelogs
-        </div>
+        </div> -->
         {% endif %}
-        <table class="timelogs-table">
+        <table id="example" class="display">
+            <thead>
             <tr style=" background-color:#cce8ff; line-height:1.5em;">
                 <!-- <th style="width:2%;">id</th> -->
                 <th style="width:45%;">Issue</th>
@@ -28,35 +29,34 @@
                 <th style="width:10%;">Duration</th>
                 <th style="width:10%;">Action</th>
             </tr>
+            </thead>
+
+            <tbody>
         {% for timelog in timelogs %}
-            <tr onmouseover="this.style.backgroundColor='#eee';" onmouseout="this.style.backgroundColor='inherit';">
+            <tr>
                 <!-- <td style="text-align:right;">
                     <a href="/timelogs/{{ timelog.id }}/edit" style="text-decoration:none; font-size:.9em; color:inherit;" title="Edit timelog">{{ timelog.id }}</a>
                 </td>-->
-                <td style="padding:.3em .5em; width:40%;"><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
+                <td><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
                 <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.get_full_name }}</a></td>
-                <td style="text-align:center;">{{ timelog.date }}</td>
-                <td style="text-align:center;">{{ timelog.duration }}</td>
-                <td style="text-align:center;"><a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&emsp;&emsp;<a href="/timelogs/{{ timelog.id }}/delete" onclick="return confirm('Sure?');">Delete</a></td>
+                <td>{{ timelog.date }}</td>
+                <td>{{ timelog.duration }}</td>
+                <td><a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&emsp;&emsp;<a href="/timelogs/{{ timelog.id }}/delete" onclick="return confirm('Sure?');">Delete</a></td>
             </tr>
         {% endfor %}
-        </table>
+            </tbody>
 
-        {% if timelogs.paginator.num_pages > 1 %}
-            <div class="paginator">
-            {% if timelogs.has_previous %}
-                <a href="?page={{ timelogs.previous_page_number }}">&lt;&lt;</a>&ensp;
-            {% endif %}
-            {% for page_num in timelogs.paginator.page_range %}
-            {% if page_num == timelogs.number %}
-                {{ page_num }}
-            {% else %}
-                <a href="?page={{ page_num }}">{{ page_num }}</a>
-            {% endif %}
-            &ensp;
-            {% endfor %}
-            {% if timelogs.has_next %}
-                <a href="?page={{ timelogs.next_page_number }}">&gt;&gt;</a>
-            {% endif %}
-        {% endif %}
-        </div>
+        </table>
+        <script>
+            $(function(){
+                $("#example").dataTable();
+            })
+        </script>
+        <!-- https://htmlhook.ru/rabota-s-jquery-datatables.html
+	modified:   backend/taiga/index.html
+	modified:   backend/taiga/index/templates/index/test.html
+	modified:   backend/taiga/index/views.py
+	modified:   backend/taiga/timelogs/templates/timelogs/timelogs_list.html
+	modified:   backend/taiga/timelogs/templates/timelogs/timelogs_table.html
+	modified:   backend/taiga/timelogs/views.py
+         -->

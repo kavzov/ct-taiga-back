@@ -124,8 +124,8 @@ def view_timelogs(request, **kwargs):
 
     args['params'] = params
     args['total_duration'] = duration
-    args['timelogs'] = get_paginated_timelogs(request, timelogs.order_by('date'))
-
+    # args['timelogs'] = get_paginated_timelogs(request, timelogs.order_by('date'))
+    args['timelogs'] = timelogs
     return render(request, template, args)
 
 

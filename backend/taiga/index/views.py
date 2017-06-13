@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, get_user
 from django.db.models import Q
+from django.http import response, HttpResponse
 from taiga.projects.models import Project, Membership
 from taiga.users.models import User, Role
 from .forms import ProjectDetails, ProjectMembers
@@ -43,24 +44,9 @@ def search(request):
 
 
 def test(request):
-    template = "index/test.html"
-    args = {}
-    project_form = ProjectDetails
-    member_form = ProjectMembers
+    template = 'index/test.html'
 
-    if request.POST:
-        project_form = ProjectDetails(request.POST)
-        member_form = ProjectMembers(request.POST)
-        if project_form.is_valid() and member_form.is_valid():
-
-            return render(request, template, {'text': 'OK ' + request.POST.get("name"), 'member': request.POST.get("user")})
-    args['text'] = request.POST.get("name")
-    args['project_form'] = project_form
-    args['member_form'] = member_form
-    args['users'] = User.objects.all()
-    args['roles'] = Role.objects.all()
-
-    return render(request, template, args)
+    return render(request, template, {})
 
 
 def testformset(request):
