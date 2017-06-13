@@ -9,35 +9,22 @@ $(document).ready(function() {
 </script>
 
     <h2>
-        {% if message %}{{ message }}
-        {% elif not timelog_details.duration %}Add a timelog
-        {% else %}Edit timelog #{{ timelog_details.id }}
+        {% if timelog %}
+            Edit timelog #{{ timelog.id }}
+        {% else %}
+            Add timelog
         {% endif %}
     </h2>
     <div style="margin:2em 1em 0;">
         <form action="" method="post">
         {% csrf_token %}
         <input type="hidden" name="issue" value="{{ issue_id }}">
-        <div>{{ timelog_form.user }}</div>
-        <div>{{ timelog_form.date }}</div>
-        <div>{{ timelog_form.duration }}</div>
-        <input type="submit" style="height:25px;">
-<!--            <select name="issue_id" style="width:160px; height:25px;">
-                <option selected="selected" disabled>Issue</option>
-                {% for issue in issues %}
-                <option value="{{ issue.id }}" {% if issue.id == timelog_details.issue.id %}selected="selected"{% endif %}>{{ issue.subject }}</option>
-                {% endfor %}
-            </select>
-            <select name="user_id" style="width:120px; height:25px;">
-                <option selected="selected" disabled>User</option>
-                {% for user in users %}
-                <option value="{{ user.id }}" {% if user.id == timelog_details.user.id %}selected="selected"{% endif %}>{{ user.username }}</option>
-                {% endfor %}
-            </select>
-            <input type="date" name="date" value="{{ timelog_details.date|date:'Y-m-d' }}" style="height:21px;">
-            <input type="number" name="duration" step="0.05" value="{% if timelog_details.duration is not None %}{{ timelog_details.duration }}{% else %}0.00{% endif %}" style="width: 60px; height:18px;">
-            <input type="submit" value="{% if timelog_details.duration is not None %}Update{% else %}Add timelog{% endif %}" style="height:25px;">
--->
+        <div>
+            {{ timelog_form.user }}
+            {{ timelog_form.date }}
+            {{ timelog_form.duration }}
+            <input type="submit" value="{% if timelog %}Update{% else %}Add{% endif %}">
+        </div>
         </form>
     </div>
 {% endblock content %}

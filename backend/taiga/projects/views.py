@@ -73,19 +73,43 @@ def user_project_perms(user_id, project_id):
         return user_perms
 
 
-def project_permission_required(perms, redir_page="/projects/"):
+def object_in_project(func):
+    """
+    Check whether issue or timelog at a project
+    Redirect with error messages
+    """
+    def inner(request, *args, **kwargs):
+        issue_id = kwargs.get('issue_id')
+        timelog_id = kwargs.get('timelog_id')
+
+        if issue_id:
+            try:
+                Issue.objects.get(pk=issue_id).project_id
+            except ObjectDoesNotExist:
+                messages.error(request, 'Error: issue &#35;' + str(issue_id) + ' does NOT exist')
+                return redirect('/issues/')
+
+        if timelog_id:
+            try:
+                Timelog.objects.get(pk=timelog_id).issue.project_id
+            except ObjectDoesNotExist:
+                messages.error(request, 'Error: timelog &#35;' + str(timelog_id) + ' does NOT exist')
+                return redirect('/timelogs/')
+        return func(request, *args, **kwargs)
+    return inner
+
+
+def project_permission_required(perms, redir='/projects/'):
     def decor(func):
         def inner(request, *args, **kwargs):
-            # if func with issue_id
-            try:
-                project_id = Issue.objects.get(pk=kwargs['issue_id']).project_id
-            # the issue doesn't exist
-            except ObjectDoesNotExist:
-                messages.error(request, 'Error: issue &#35;' + str(kwargs['issue_id'] + ' does NOT exist'))
-                return redirect('/issues/')
-            # if project_id
-            except KeyError:
-                project_id = kwargs['project_id']
+            issue_id = kwargs.get('issue_id')
+            timelog_id = kwargs.get('timelog_id')
+            project_id = kwargs.get('project_id')
+
+            if issue_id:
+                project_id = Issue.objects.get(pk=issue_id).project_id
+            if timelog_id:
+                project_id = Timelog.objects.get(pk=timelog_id).issue.project_id
 
             # get user permissions
             user_perms = user_project_perms(request.user.id, project_id)
@@ -102,7 +126,7 @@ def project_permission_required(perms, redir_page="/projects/"):
             # if at least one permission not in required permissions - redirect to 'redir_page'
             for perm in required_perms:
                 if perm not in user_perms:
-                    return redirect(redir_page)
+                    return redirect(redir)
 
             return func(request, *args, **kwargs)
         return inner

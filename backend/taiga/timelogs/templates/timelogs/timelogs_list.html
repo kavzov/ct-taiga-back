@@ -4,9 +4,6 @@
     <!-- Timelogs list -->
     <h2 style="margin-bottom:.5em;">
         Timelogs{% if project %} for project &quot;{{ project.name }}&quot;{% endif %}
-        <span style="float:right; font-size:.65em; font-weight:normal;  line-height:1.9em; padding-right:.2em;">
-            <a href="/timelogs/add/">Add a timelog</a>
-        </span>
     </h2>
     <div>
         {% include "timelogs/full_timelogs_form.html" %}

@@ -58,7 +58,22 @@
     {% endif %}
     <table style="margin:0 0 1em;">
         <tr>
-            {% block extra_fields %}{% endblock %}
+            <td>
+                <select style="width:100px; height:25px;" name="issue_id">
+                    <option value="">All issues</option>
+                    {% for issue in issues %}
+                    <option value="{{ issue.id }}" {% if issue.id == params.issue_id %} selected="selected" {% endif %}>{{ issue.subject }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <select style="width:100px; height:25px;" name="user_id">
+                    <option value="">All users</option>
+                    {% for user in users %}
+                    <option value="{{ user.id }}" {% if user.id == params.user_id %} selected="selected" {% endif %}>{{ user.get_full_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
             <td><input type="date" name="date_from" id="date_from" value="{{ params.date_from }}" style="height:21px;"></td>
             <td><input type="date" name="date_till" id="date_till" value="{{ params.date_till }}" style="height:21px;"></td>
             <td><input type="submit" style="height:25px;"></td>

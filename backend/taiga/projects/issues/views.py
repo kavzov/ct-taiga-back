@@ -8,7 +8,7 @@ from taiga.users.models import User
 from taiga.timelogs.models import Timelog
 from taiga.projects.models import Project
 from taiga.projects.views import user_project_perms
-from taiga.projects.views import project_permission_required
+from taiga.projects.views import object_in_project, project_permission_required
 from django.contrib.auth.decorators import permission_required, login_required
 from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
 
@@ -94,7 +94,8 @@ def add_issue(request, project_id):
     return render(request, template, args)
 
 
-@project_permission_required('issues.change_issue')
+@object_in_project
+@project_permission_required('issues.change_issue', '/issues/')
 def edit_issue(request, issue_id):
     """
     Edit issue
@@ -138,21 +139,15 @@ def edit_issue(request, issue_id):
     return render(request, template, args)
 
 
-@project_permission_required('issues.delete_issue')
+@object_in_project
+@project_permission_required('issues.delete_issue', '/issues/')
 def delete_issue(request, issue_id):
     """
     Delete issue
     """
-    from django.core.exceptions import ObjectDoesNotExist
-    try:
-        issue = Issue.objects.get(pk=issue_id)
-    except ObjectDoesNotExist:
-        messages.error(request, 'Couldn\'t remove issue &#35;' + str(issue_id))
-        messages.error(request, 'Error: issue does NOT exist')
+    issue = Issue.objects.get(pk=issue_id)
+    # issue.delete()
 
-        return redirect('/issues/')
-
-    issue.delete()
     msg = 'Issue &#35;' + issue_id + ': &laquo;' + issue.subject + '&raquo; successfully deleted'
     messages.success(request, msg)
 

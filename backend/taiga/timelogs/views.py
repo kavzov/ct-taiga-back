@@ -9,7 +9,7 @@ from taiga.projects.models import Project
 from .forms import TimelogForm
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User
-from taiga.projects.views import project_permission_required
+from taiga.projects.views import object_in_project, project_permission_required
 
 
 def get_paginated_timelogs(request, query_list):
@@ -59,7 +59,12 @@ def get_timelog(timelogs, project_id=None, issue_id=None, user_id=None):
         return timelogs.filter(user__id=user_id)
 
 
+# ---------------------------------- #
+# --------- View timelogs ---------- #
 def view_timelogs(request, **kwargs):
+    """
+    Display timelogs
+    """
     template = 'timelogs/timelogs_list.html'
     params = {}
     args = {
@@ -124,28 +129,15 @@ def view_timelogs(request, **kwargs):
     return render(request, template, args)
 
 
-def timelog_details(request, timelog_id):
-    args = dict()
-    timelog_details = Timelog.objects.get(pk=timelog_id)
-    issues = Issue.objects.values()
-    users = User.objects.all()
-
-    args['timelog_form'] = TimelogForm
-    args['timelog_details'] = timelog_details
-    args['timelog_id'] = timelog_id
-    args['issues'] = issues
-    args['users'] = users
-    template = "timelogs/timelog_details.html"
-
-    return render(request, template, args)
-
-
-@project_permission_required('timelogs.add_timelog')
+@project_permission_required('timelogs.add_timelog', '/timelogs/')
 def add_timelog(request, issue_id):
-    template = "timelogs/timelog_details.html"
+    """
+    Add a timelog
+    """
+    template = 'timelogs/timelog_details.html'
 
     args = {
-        'timelog_form': TimelogForm(),
+        'timelog_form': TimelogForm,
         'issue_id': issue_id,
     }
 
@@ -166,30 +158,60 @@ def add_timelog(request, issue_id):
     return render(request, template, args)
 
 
-@permission_required('timelogs.change_timelog')
+@object_in_project
+@project_permission_required('timelogs.change_timelog', '/timelogs/')
 def edit_timelog(request, timelog_id):
-    args = dict()
+    """
+    Edit timelog
+    """
+    template = 'timelogs/timelog_details.html'
+
+    # get timelog info
+    timelog = Timelog.objects.get(pk=timelog_id)
+
+    args = {
+        'timelog': timelog,
+        'issue_id': timelog.issue.id,
+        'timelog_form': TimelogForm(initial={
+            'user': timelog.user,
+            'date': timelog.date,
+            'duration': timelog.duration,
+        })
+    }
+
     if request.POST:
-        req = get_timelog_req_data(request)
-        timelog = Timelog(id=timelog_id, issue=req['issue'], user=req['user'], date=req['date'], duration=req['duration'])
-        timelog.save()
-        args['message'] = 'Timelog #{} successfully updated'.format(timelog_id)
+        timelog_form = TimelogForm(request.POST)
+        if timelog_form.is_valid():
+            timelog_form = TimelogForm(request.POST, instance=timelog)
+            timelog_form.save()
+        else:
+            err_msg_head = "Some errors occurs while editing timelog:"
+            messages.error(request, err_msg_head)
+            err_msg_details = timelog_form.errors.as_text()
+            messages.error(request, err_msg_details)
+            return render(request, template, args)
 
-    timelog_details = Timelog.objects.get(pk=timelog_id)
-    issues = Issue.objects.values()
-    users = User.objects.all()
-    args['timelog_details'] = timelog_details
-    args['timelog_id'] = timelog_id
-    args['issues'] = issues
-    args['users'] = users
+        msg = 'Timelog &#35;' + str(timelog.id) + ' successfully updated'
+        messages.success(request, msg)
 
-    template = "timelogs/timelog_details.html"
+        return redirect('/timelogs/')
 
     return render(request, template, args)
 
-@permission_required('timelogs.delete_timelog')
+
+@object_in_project
+@project_permission_required('timelogs.delete_timelog', '/timelogs/')
 def delete_timelog(request, timelog_id):
-    pass
+    """
+    Delete timelog
+    """
+    timelog = Timelog.objects.get(pk=timelog_id)
+    timelog.delete()
+
+    msg = 'Timelog &#35;' + timelog_id + ' successfully deleted'
+    messages.success(request, msg)
+
+    return redirect('/timelogs/')
 
 
 # --------------------------------- #
