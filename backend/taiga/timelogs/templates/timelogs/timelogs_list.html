@@ -7,7 +7,7 @@
 {% block timelogs_list %}
     <!-- Timelogs list -->
     <h2 style="margin-bottom:.5em;">
-        Timelogs{% if project %} for project &quot;{{ project.name }}&quot;{% endif %}
+        Timelogs{% if project %} of project &quot;{{ project.name }}&quot;{% endif %}
     </h2>
     <div>
         {% include "timelogs/full_timelogs_form.html" %}

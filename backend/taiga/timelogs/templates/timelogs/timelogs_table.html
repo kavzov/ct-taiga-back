@@ -10,29 +10,29 @@
             {% if request.META.QUERY_STRING %}
             <a href="?{{ request.META.QUERY_STRING }}&format=csv">
             {% else %}
-            <a href="?format=csv">
+            <a href="?format=csv" download="{{ csvfile }}">
             {% endif %}
                 CSV
             </a>
         </div>
-        <!-- <div style="float:right; width:20%; text-align:right; font-size:.95em; margin:-.5em 0 0; padding:0 .5em .4em 0;   border:0px dotted green;">
-            <b style="font-size:1.2em;">{{timelogs.paginator.count}}</b> timelogs
-        </div> -->
+
         {% endif %}
         <table id="example" class="display">
             <thead>
-            <tr style=" background-color:#cce8ff; line-height:1.5em;">
+            <tr style=" background-color:#cce8ff; line-height:.75em;">
                 <!-- <th style="width:2%;">id</th> -->
                 <th style="width:45%;">Issue</th>
                 <th style="width:20%;">User</th>
                 <th style="width:15%;">Date</th>
                 <th style="width:10%;">Duration</th>
+                {% if 'timelogs.change_timelog' in user_perms or 'timelogs.delete_timelog' in user_perms %}
                 <th style="width:10%;">Action</th>
+                {%  endif %}
             </tr>
             </thead>
 
-            <tbody>
-        {% for timelog in timelogs %}
+            <tbody style="font-size:.95em;">
+            {% for timelog in timelogs %}
             <tr>
                 <!-- <td style="text-align:right;">
                     <a href="/timelogs/{{ timelog.id }}/edit" style="text-decoration:none; font-size:.9em; color:inherit;" title="Edit timelog">{{ timelog.id }}</a>
@@ -40,17 +40,51 @@
                 <td><a href="/issues/{{ timelog.issue.id }}">{{ timelog.issue.subject }}</a></td>
                 <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.get_full_name }}</a></td>
                 <td>{{ timelog.date }}</td>
-                <td>{{ timelog.duration }}</td>
-                <td><a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&emsp;&emsp;<a href="/timelogs/{{ timelog.id }}/delete" onclick="return confirm('Sure?');">Delete</a></td>
+                <td style="text-align:center;">{{ timelog.duration }}</td>
+                {% if 'timelogs.change_timelog' in user_perms or 'timelogs.delete_timelog' in user_perms %}
+                <td style="text-align:center; font-size:.9em;">
+                    {% if 'timelogs.change_timelog' in user_perms %}
+                    <a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&ensp;
+                    {% endif %}
+                    {% if 'timelogs.delete_timelog' in user_perms %}
+                    <a href="/timelogs/{{ timelog.id }}/delete" onclick="return confirm('Sure?');">Delete</a>
+                    {% endif %}
+                </td>
+                {%  endif %}
             </tr>
-        {% endfor %}
+            {% endfor %}
             </tbody>
-
         </table>
+
         <script>
             $(function(){
-                $("#example").dataTable();
+                $("#example").dataTable({
+                    // initital number of records on the page
+                    "pageLength": 25,
+                    // default sorting by date
+                    "order":[ 2, 'asc' ],
+                    // last column [4] with 'Edit' and 'Delete' labels are not orderable
+                    "columnDefs": [{
+                        "orderable": false,
+                        "targets": 4
+                    }],
+                });
             })
+/*
+        $(function(){
+            $("#example").dataTable({
+                'aaData': {{ jsondata|safe }},
+                'aoColumns': [
+                    { "mDataProp": "issue" },
+                    { "mDataProp": "user" },
+                    { "mDataProp": "date" },
+                    { "mDataProp": "duration" },
+                ],
+                "pageLength": 25,
+                "order":[ 2, 'asc' ],
+            })
+        })
+*/
         </script>
         <!-- https://htmlhook.ru/rabota-s-jquery-datatables.html
 	modified:   backend/taiga/index.html

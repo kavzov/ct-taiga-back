@@ -2,7 +2,7 @@
     <select style="width:100px; height:25px;" name="issue_id">
         <option value="">All issues</option>
         {% for issue in issues %}
-        <option value="{{ issue.id }}" {% if issue.id == params.issue_id %} selected="selected" {% endif %}>{{ issue.subject }}</option>
+        <option value="{{ issue.id }}" {% if issue.id == issue_id %} selected="selected" {% endif %}>{{ issue.subject }}</option>
         {% endfor %}
     </select>
 </td>

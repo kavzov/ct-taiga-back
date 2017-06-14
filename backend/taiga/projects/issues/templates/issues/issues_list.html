@@ -1,5 +1,10 @@
 {% extends "index.html" %}
 
+{%  block extra_head %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
+{% endblock extra_head %}
+
 {% block content %}
     <!-- Issues list -->
     <h2>
@@ -12,17 +17,45 @@
         </span>
         {% endcomment %}
     </h2>
-    <div>
+
+    <table id="example" class="display">
+    <thead>
+        <tr style="background-color:#f5f8ff;">
+            <th style="width:25%">Subject</th>
+            <th style="width:50%">Description</th>
+            <th style="width:15%">Created date</th>
+            <th style="width:10%">Status</th>
+        </tr>
+    </thead>
+    <tbody style="font-size:.95em;">
         {% for issue in issues_list %}
-        <div style="margin:1.5em .75em;">
+        <tr>
+            <td><a href="{{ issue.id }}" title="Issue details">{{ issue.subject }}</a></td>
+            <td>{{ issue.description }}</td>
+            <td>{{ issue.created_date|date:"F d, Y" }}</td>
+            <td>{{ issue.get_status_display }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <script>
+        $(function(){
+            $("#example").dataTable({
+                // initital number of records on the page
+                "pageLength": 10,
+                // default sorting by date
+                "order":[ 2, 'asc' ],
+            });
+        })
+    </script>
+<!--        <div style="margin:1.5em .75em;">
             {{ issue.id }}.
             <a href="{{ issue.id }}" title="Issue details"><b>{{ issue.subject }}</b></a>
             <p style="margin:.2em; line-height:1.2em; font-size:.95em;">{{ issue.description }}</p>
             <p style="margin:.2em; line-height:1.2em;"><b>Project:</b> <a href="/projects/{{ issue.project.id }}/">{{ issue.project.name }}</a></p>
             <p style="margin:.2em; line-height:1.2em;"><b>Created date:</b> {{ issue.created_date|date:"F d, Y" }}</p>
             <p style="margin:.2em; line-height:1.2em;"><b>Status:</b> {{ issue.get_status_display }}</p>
-        </div>
-        {% endfor %}
-    </div>
+        </div> -->
 
 {% endblock content %}

@@ -1,10 +1,31 @@
     <!-- Projects list -->
-    <div>
+
+    <table id="example" class="display">
+    <thead>
+        <tr style="background-color:#f5f8ff;">
+            <th style="width:25%">Name</th>
+            <th style="width:50%">Description</th>
+            <th style="width:15%">Created date</th>
+        </tr>
+    </thead>
+    <tbody style="font-size:.95em;">
         {% for project in projects_list %}
-        <p style="margin:1em 0;">
-            <b>{{ project.id }}.</b>&nbsp;
-            <a href="{{ project.id }}"><b>{{ project.name }}</b></a>
-            <span style="display:block; margin:.2em 0; line-height:1.4em;">{{ project.description }}</span>
-        </p>
+        <tr>
+            <td><a href="{{ project.id }}" title="Issue details">{{ project.name }}</a></td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.created_date|date:"F d, Y" }}</td>
+        </tr>
         {% endfor %}
-    </div>
+    </tbody>
+    </table>
+
+    <script>
+        $(function(){
+            $("#example").dataTable({
+                // initital number of records on the page
+                "pageLength": 10,
+                // default sorting by date
+                "order":[ 2, 'asc' ],
+            });
+        })
+    </script>
