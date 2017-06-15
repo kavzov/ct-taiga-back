@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'taiga.projects.issues',
     'taiga.timelogs',
     'taiga.index',
+    'taiga.wiki',
+    'markdownx',
 ]
 
 MIDDLEWARE = [
@@ -203,9 +205,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'taiga/static')
 STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 
 STATICFILES_DIRS = [
-    ('static', os.path.join(BASE_DIR, 'taiga/static')),
+    ('static', os.path.join(STATIC_ROOT, 'static')),
 ]

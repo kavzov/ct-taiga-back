@@ -41,8 +41,8 @@ window.onload = function() {
                 {% if request.META.PATH_INFO != '/issues/' %}<a href="/issues/">{% endif %}
                 Issues{% if request.META.PATH_INFO != '/issues/' %}</a>{% endif %}
                 &emsp;
-                {% if request.META.PATH_INFO != '/users/' %}<a href="/users/">{% endif %}
-                Users{% if request.META.PATH_INFO != '/users/' %}</a>{% endif %}
+                {% if request.META.PATH_INFO != '/wiki/' %}<a href="/users/">{% endif %}
+                Users{% if request.META.PATH_INFO != '/wiki/' %}</a>{% endif %}
                 &emsp;
                 {% if request.META.PATH_INFO != '/timelogs/' or request.META.QUERY_STRING %}<a href="/timelogs/">{% endif %}
                 Timelogs{% if request.META.PATH_INFO != '/timelogs/' %}</a>{% endif %}

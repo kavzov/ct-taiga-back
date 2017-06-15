@@ -1,9 +1,9 @@
+import csv
 import json
-from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse, StreamingHttpResponse
 from taiga import permissions
 from .models import Timelog
 from taiga.projects.models import Project
@@ -67,8 +67,8 @@ def view_timelogs(request, **kwargs):
     """
     global project, issues, users, user_perms
     template = 'timelogs/timelogs_list.html'
-    csvfilename = 'timelogs.csv'
-    jsonfile = 'timelogs.json'
+    csv_filename = 'timelogs.csv'
+    json_filename = 'timelogs.json'
     title = 'Timelogs'
 
     # initial timelogs set
@@ -76,7 +76,6 @@ def view_timelogs(request, **kwargs):
 
     # project_id
     project_id = get_id('project_id', kwargs, request)
-    # TODO remove 'if' after remove 'Tiemlogs' menu punct (no more need cause no output of all timelogs of all projects)
     if project_id:
         project = get_project(project_id)
         title += ' of &laquo;' + project.name + ' &raquo;'
@@ -92,7 +91,11 @@ def view_timelogs(request, **kwargs):
     # filtered issue_id
     issue_id = get_id('issue_id', kwargs, request)
     if issue_id:
-    # TODO get project_id, if called from issue details page
+        # get project if called from issue details page (without project_id)
+        if not project_id:
+            project = Project.objects.get(pk=Issue.objects.get(pk=issue_id).project_id)
+            issues = get_project_issues(project.id)
+            user_perms = user_project_perms(request.user.id, project.id)
         # get issue's timelogs
         timelogs = get_timelogs(timelogs, issue_id=issue_id)
         # users who tracked at the issue only
@@ -121,22 +124,28 @@ def view_timelogs(request, **kwargs):
     if order:
         timelogs = timelogs.order_by(order)
 
-    if request.GET.get('format') == 'csv':
-        # some_streaming_csv_view(request, csvfilename)
-        data = export(timelogs, csvfilename, fields = ['issue', 'user', 'date', 'duration'])
-        return HttpResponse(data)
-
     # total duration of filtered timelogs
     total_duration = sum([v['duration'] for v in list(timelogs.values())])
 
     if request.GET.get('format') == 'json':
-        # data = [v for v in timelogs.values('issue', 'user', 'date', 'duration')]
-        data = timelogs.values('issue', 'user', 'date', 'duration')
-# TODO
-        jsondata = JsonResponse(list(data), safe=False)
+        headers = ('issue', 'user', 'date', 'duration')
+        data = []
+        for log in timelogs:
+            row = {}
+            for field in headers:
+                row[field] = str(getattr(log, field))
+            data.append(row)
+
+        # jsondata = JsonResponse(data, safe=False)
+        jsondata = json.dumps(data, sort_keys=True, indent=2)
         response = HttpResponse(jsondata, content_type='text/json')
-        # response['Content-Disposition'] = 'attachment; filename={}'.format(jsonfile)
+        response['Content-Disposition'] = 'attachment; filename={}'.format(json_filename)
         return response
+
+    if request.GET.get('format') == 'csv':
+        # some_streaming_csv_view(request, csvfilename)
+        data = export(timelogs, csv_filename, fields = ['issue', 'user', 'date', 'duration'])
+        return HttpResponse(data)
 
     args = {
         'title': title,
@@ -152,14 +161,11 @@ def view_timelogs(request, **kwargs):
         'order': order,
         'timelogs': timelogs,
         'total_duration': total_duration,
-        'csvfile': csvfilename
+        'json_filename': json_filename,
+        'csv_filename': csv_filename,
     }
 
     return render(request, template, args)
-
-
-import csv
-from django.http import HttpResponse, StreamingHttpResponse
 
 
 class Echo(object):

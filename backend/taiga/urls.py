@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^user/', include('taiga.users.urls')),
     url(r'^projects/', include('taiga.projects.urls')),
     url(r'^issues/', include('taiga.projects.issues.urls')),
-    url(r'^users/', include('taiga.users.urls')),
+    url(r'^wiki/', include('taiga.users.urls')),
     url(r'^timelogs/', include('taiga.timelogs.urls')),
+    url(r'^wiki/', include('taiga.wiki.urls')),
+    url(r'^markdownx/', include('markdownx.urls')),
 ]

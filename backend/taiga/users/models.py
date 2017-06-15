@@ -21,6 +21,9 @@ class Role(models.Model):
                              null=True, blank=True, default=[], verbose_name="permissions")
     # project = models.ForeignKey(Project, null=True, blank=False, related_name="roles", verbose_name="project")
 
+    def __str__(self):
+        return self.name
+
 
 
 # class User(AbstractBaseUser):

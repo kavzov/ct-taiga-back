@@ -3,14 +3,14 @@
             {% if request.META.QUERY_STRING %}
             <a href="?{{ request.META.QUERY_STRING }}&format=json">
             {% else %}
-            <a href="?format=json">
+            <a href="?format=json" download="{{ json_filename }}">
             {% endif %}
                 JSON</a>
             &ensp;
             {% if request.META.QUERY_STRING %}
             <a href="?{{ request.META.QUERY_STRING }}&format=csv">
             {% else %}
-            <a href="?format=csv" download="{{ csvfile }}">
+            <a href="?format=csv" download="{{ csv_filename }}">
             {% endif %}
                 CSV
             </a>
@@ -25,9 +25,7 @@
                 <th style="width:20%;">User</th>
                 <th style="width:15%;">Date</th>
                 <th style="width:10%;">Duration</th>
-                {% if 'timelogs.change_timelog' in user_perms or 'timelogs.delete_timelog' in user_perms %}
                 <th style="width:10%;">Action</th>
-                {%  endif %}
             </tr>
             </thead>
 
@@ -41,16 +39,16 @@
                 <td><a href="/users/{{ timelog.user.id }}">{{ timelog.user.get_full_name }}</a></td>
                 <td>{{ timelog.date }}</td>
                 <td style="text-align:center;">{{ timelog.duration }}</td>
-                {% if 'timelogs.change_timelog' in user_perms or 'timelogs.delete_timelog' in user_perms %}
                 <td style="text-align:center; font-size:.9em;">
                     {% if 'timelogs.change_timelog' in user_perms %}
-                    <a href="/timelogs/{{ timelog.id }}/edit">Edit</a>&ensp;
-                    {% endif %}
+                        <a href="/timelogs/{{ timelog.id }}/edit" title="Edit timelog">Edit</a>
+                    {% else %}<span style="color:#777;" title="You don't have permissions to edit timelogs at this project">Edit</span>
+                    {% endif %}&ensp;
                     {% if 'timelogs.delete_timelog' in user_perms %}
-                    <a href="/timelogs/{{ timelog.id }}/delete" onclick="return confirm('Sure?');">Delete</a>
+                    <a href="/timelogs/{{ timelog.id }}/delete" onclick="return confirm('Sure?');" title="Delete timelog">Delete</a>
+                    {% else %}<span style="color:#777;" title="You don't have permissions to delete timelogs at this project">Delete
                     {% endif %}
                 </td>
-                {%  endif %}
             </tr>
             {% endfor %}
             </tbody>
