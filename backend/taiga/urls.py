@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^issues/', include('taiga.projects.issues.urls')),
     url(r'^users/', include('taiga.users.urls')),
     url(r'^timelogs/', include('taiga.timelogs.urls')),
-    url(r'^wiki/', include('taiga.wiki.urls')),
+    url(r'^wikis/', include('taiga.wiki.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
 ]

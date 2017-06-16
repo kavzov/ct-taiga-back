@@ -1,5 +1,3 @@
-import json
-from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Issue
@@ -7,9 +5,7 @@ from .forms import IssueForm
 from taiga.users.models import User
 from taiga.timelogs.models import Timelog
 from taiga.projects.models import Project
-from taiga.projects.views import valid_id, send_err_msg, user_project_perms, project_permission_required
-from django.contrib.auth.decorators import permission_required, login_required
-from taiga.permissions import DEVELOPER_PERMISSIONS, ADMIN_PERMISSIONS
+from taiga.utils import valid_id, send_err_msg, user_project_perms, project_permission_required
 
 
 def issues_list(request):

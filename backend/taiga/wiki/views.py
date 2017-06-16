@@ -57,8 +57,35 @@ def add_wiki(request, project_id=None):
     return render(request, template, args)
 
 
+# TODO error with update "null value in column "created_date" violates not-null constraint"
+@valid_id
+@project_permission_required('wiki.change_wiki', '/wikis/')
 def edit_wiki(request, wiki_id):
-    pass
+    template = 'wiki/edit_wiki.html'
+    wiki = Wiki.objects.get(pk=wiki_id)
+    project = Project.objects.get(pk=wiki.project_id)
+
+    if request.POST:
+        form = WikiForm(request.POST)
+        if form.is_valid():
+            wiki = Wiki(id=wiki_id, title=request.POST.get('title'), content=request.POST.get('text'), project_id=request.POST.get('project_id'))
+            wiki.save()
+            messages.success(request, 'Wiki added')
+            return redirect('/projects/' + str(project.id))
+        else:
+            send_err_msg(request, form)
+            return render(request, template, {'form': form})
+
+    args = {
+        'wiki': wiki,
+        'form': WikiForm(initial={
+            'title': wiki.title,
+            'text': wiki.content,
+        }),
+        'project_id': project.id,
+    }
+
+    return render(request, template, args)
 
 
 def delete_wiki(request, wiki_id):

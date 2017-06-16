@@ -10,42 +10,47 @@ from taiga.wiki.models import Wiki
 
 def valid_id(func):
     """
-    Check whether issue, timelog, wiki, etc. are part of a project
+    Check id (<project_id>, <issue_id>,...) from query string, whether it in db
     Redirect with error messages
     """
     def inner(request, *args, **kwargs):
-        project_id = kwargs.get('project_id', None)
-        issue_id = kwargs.get('issue_id', None)
-        timelog_id = kwargs.get('timelog_id', None)
-        wiki_id = kwargs.get('wiki_id', None)
+        # apps list (in the singular)
+        apps = [
+            'project',
+            'issue',
+            'timelog',
+            'wiki'
+        ]
 
-        if project_id:
-            try:
-                Project.objects.get(pk=project_id)
-            except ObjectDoesNotExist:
-                messages.error(request, 'Error: project &#35;' + str(project_id) + ' does not exist')
-                return redirect('/projects/')
+        def get_app_model_name(app):
+            """ Model (e.g. 'project' -> Project) """
+            return eval(app.capitalize())
 
-        if issue_id:
-            try:
-                Issue.objects.get(pk=issue_id).project_id
-            except ObjectDoesNotExist:
-                messages.error(request, 'Error: issue &#35;' + str(issue_id) + ' does not exist')
-                return redirect('/issues/')
+        def get_app_id_label(app):
+            """ app id label (e.g. 'project' -> 'project_id') """
+            id_suffix = '_id'
+            return app + id_suffix
 
-        if timelog_id:
-            try:
-                Timelog.objects.get(pk=timelog_id).issue.project_id
-            except ObjectDoesNotExist:
-                messages.error(request, 'Error: timelog &#35;' + str(timelog_id) + ' does mot exist')
-                return redirect('/timelogs/')
+        def get_app_redir__page(app):
+            """ page for redirect (e.g. 'project' -> '/projects/') """
+            return '/{}s/'.format(app)
 
-        if wiki_id:
-            try:
-                Wiki.objects.get(pk=wiki_id).project_id
-            except ObjectDoesNotExist:
-                messages.error(request, 'Error: wiki &#35;' + str(wiki_id) + ' does not exist')
-                return redirect('/projects/')
+        def valid(app):
+            """ redirect out with error message if id doesn't exist """
+            app_id_label = get_app_id_label(app)
+            redir_page = get_app_redir__page(app)
+            app_model_name = get_app_model_name(app)
+            app_id = kwargs.get(app_id_label, None)
+
+            if app_id:
+                try:
+                    app_model_name.objects.get(pk=app_id)
+                except ObjectDoesNotExist:
+                    messages.error(request, 'Error: {} &#35; {} does not exist'.format(app, app_id))
+                    return redirect(redir_page)
+
+        for app in apps:
+            valid(app)
 
         return func(request, *args, **kwargs)
     return inner

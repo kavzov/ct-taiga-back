@@ -1,16 +1,12 @@
-import json
-from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required, login_required
-from django.core.exceptions import ObjectDoesNotExist
 from .models import Project, Membership
 from .forms import ProjectForm
-from taiga.utils import valid_id, send_err_msg, user_project_perms, project_permission_required
+from taiga.utils import valid_id, send_err_msg, user_project_perms
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User, Role
 from taiga.timelogs.models import Timelog
-from taiga.permissions import DEVELOPER_PERMISSIONS
 
 
 def projects_list(request):
