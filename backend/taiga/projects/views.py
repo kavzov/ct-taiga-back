@@ -75,13 +75,21 @@ def user_project_perms(user_id, project_id):
 
 def valid_id(func):
     """
-    Check whether issue or timelog at a project
+    Check whether issue, timelog, wiki, etc. are part of a project
     Redirect with error messages
     """
     def inner(request, *args, **kwargs):
-        issue_id = kwargs.get('issue_id')
-        timelog_id = kwargs.get('timelog_id')
-        project_id = kwargs.get('project_id')
+        project_id = kwargs.get('project_id', None)
+        issue_id = kwargs.get('issue_id', None)
+        timelog_id = kwargs.get('timelog_id', None)
+        wiki_id = kwargs.get('wiki_id', None)
+
+        if project_id:
+            try:
+                Project.objects.get(pk=project_id)
+            except ObjectDoesNotExist:
+                messages.error(request, 'Error: project &#35;' + str(project_id) + ' does NOT exist')
+                return redirect('/projects/')
 
         if issue_id:
             try:
@@ -97,12 +105,12 @@ def valid_id(func):
                 messages.error(request, 'Error: timelog &#35;' + str(timelog_id) + ' does NOT exist')
                 return redirect('/timelogs/')
 
-        if project_id:
+        if wiki_id:
             try:
-                Project.objects.get(pk=project_id)
+                Wiki.objects.get(pk=wiki_id).project_id
             except ObjectDoesNotExist:
-                messages.error(request, 'Error: project &#35;' + str(project_id) + ' does NOT exist')
-                return redirect('/projects/')
+                messages.error(request, 'Error: wiki &#35;' + str(wiki_id) + ' does NOT exist')
+                return redirect('/wiki/')
 
         return func(request, *args, **kwargs)
     return inner

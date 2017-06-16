@@ -5,9 +5,6 @@ from taiga.permissions import PERMISSIONS
 
 
 class User(User):
-    # def get_all_permissions(self):
-    #     pass
-
     def __str__(self):
         return self.get_full_name()
 
@@ -23,20 +20,3 @@ class Role(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-# class User(AbstractBaseUser):
-#     username = models.CharField(max_length=50)
-#     email = models.EmailField(max_length=255, unique=True)
-#     is_admin = models.BooleanField(null=False, blank=False, default=False)
-#
-#     def __str__(self):
-#         return "{id}. {name}".format(id=self.id, name=self.username)
-#
-#     class Meta:
-#         verbose_name = "user"
-#         verbose_name_plural = "users"
-#         ordering = ["id"]
-#
-#     USERNAME_FIELD = "username"
