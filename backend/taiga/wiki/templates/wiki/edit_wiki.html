@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h2>Wiki</h2>
+
+<div id="edit-wiki-form">
+    <br>
+    <form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="project_id" value="{{ project_id }}">
+    <table width="100%">
+        <tr>
+            <th style="width:5%;">Title&ensp;</th>
+            <td>{{ form.title }}</td>
+        </tr>
+        <tr>
+            <th>Text&ensp;</th>
+            <td style="width:100%;">{{ form.text }}</td>
+
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit">
+            </td>
+        </tr>
+    </table>
+    </form>
+    {{ form.media }}
+</div><!-- #edit-wiki-form -->
+
+<div>{{ w|safe }}</div>
+
+{% endblock content %}

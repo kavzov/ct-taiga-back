@@ -17,18 +17,21 @@ PERMISSIONS = [
     ('sessions.add_session', 'Can add session'),
     ('sessions.change_session', 'Can change session'),
     ('sessions.delete_session', 'Can delete session'),
-    ('wiki.add_user', 'Can add user'),
-    ('wiki.change_user', 'Can change user'),
-    ('wiki.delete_user', 'Can delete user'),
+    ('users.add_user', 'Can add user'),
+    ('users.change_user', 'Can change user'),
+    ('users.delete_user', 'Can delete user'),
     ('projects.add_project', 'Can add project'),
     ('projects.change_project', 'Can change project'),
     ('projects.delete_project', 'Can delete project'),
     ('issues.add_issue', 'Can add issue'),
     ('issues.change_issue', 'Can change issue'),
     ('issues.delete_issue', 'Can delete issue'),
-    ('timelogs.add_timelog', 'Can add timelog'),
-    ('timelogs.change_timelog', 'Can change timelog'),
-    ('timelogs.delete_timelog', 'Can delete timelog'),
+    ('wiki.add_wiki', 'Can add wiki'),
+    ('wiki.change_wiki', 'Can change wiki'),
+    ('wiki.delete_wiki', 'Can delete wiki'),
+    ('wiki.add_wiki', 'Can add wiki'),
+    ('wiki.change_wiki', 'Can change wiki'),
+    ('wiki.delete_wiki', 'Can delete wiki'),
 ]
 
 
@@ -63,6 +66,9 @@ ADMIN_PERMISSIONS = [
     'timelogs.add_timelog',
     'timelogs.change_timelog',
     'timelogs.delete_timelog',
+    'wiki.add_wiki',
+    'wiki.change_wiki',
+    'wiki.delete_wiki',
 ]
 
 DEVELOPER_PERMISSIONS = [
@@ -84,6 +90,9 @@ DEVELOPER_PERMISSIONS = [
     'timelogs.add_timelog',
     'timelogs.change_timelog',
     'timelogs.delete_timelog',
+    'wiki.add_wiki',
+    'wiki.change_wiki',
+    'wiki.delete_wiki',
 ]
 
 REPORTER_PERMISSIONS = [
@@ -93,4 +102,7 @@ REPORTER_PERMISSIONS = [
     'timelogs.add_timelog',
     'timelogs.change_timelog',
     'timelogs.delete_timelog',
+    'wiki.add_wiki',
+    'wiki.change_wiki',
+    'wiki.delete_wiki',
 ]

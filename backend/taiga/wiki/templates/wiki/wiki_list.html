@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <!-- Users list -->
+    <h2>Users</h2>
+    <div>
+        {% for user in users_list %}
+        <p style="margin:1em 0;">
+            {{ user.id }}.
+            <a href="{{ user.id }}">{{ user.get_full_name }}</a>
+        </p>
+        {% endfor %}
+    </div>
+{% endblock content %}

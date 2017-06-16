@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>
+        {{ wiki.title }}
+        <span id="right-top-label">
+        {% if 'wiki.change_wiki' in user_perms %}
+            <a href="/wiki/{{ wiki.id }}/edit/" title="Edit the wiki" style="text-decoration:none; color:#262;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span>
+            </a>
+        {% endif %}
+        {% if 'wiki.delete_wiki' in user_perms %}
+            &ensp;
+            <a href="/wiki/{{ wiki.id }}/delete/" title="Delete the wiki" style="text-decoration:none; color:#822;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #822;" onclick="return confirm('Sure?');">Delete</span>
+            </a>
+        {% endif %}
+        </span>
+    </h2>
+    <div>
+        {{ wiki_content|safe }}
+    </div>
+
+{% endblock content %}

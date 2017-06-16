@@ -10,7 +10,7 @@ from taiga.projects.models import Project
 from .forms import TimelogForm
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User
-from taiga.projects.views import valid_id, send_err_msg, user_project_perms, project_permission_required
+from taiga.utils import valid_id, user_project_perms, project_permission_required, send_err_msg
 
 
 # --- utils for view_timelogs --- #
