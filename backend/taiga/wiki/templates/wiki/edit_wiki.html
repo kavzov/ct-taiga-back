@@ -8,6 +8,9 @@
     <form action="" method="post">
     {% csrf_token %}
     <input type="hidden" name="project_id" value="{{ project_id }}">
+{%  if wiki_id %}
+    <input type="hidden" name="wiki_id" value="{{ wiki_id }}">
+{%  endif %}
     <table width="100%">
         <tr>
             <th style="width:5%; font-size:.95em;">Title:&ensp;</th>

@@ -20,6 +20,7 @@ def projects_list(request):
     return render(request, "projects/projects_list.html", args)
 
 
+@valid_id
 def project_details(request, project_id):
     args = {}
 

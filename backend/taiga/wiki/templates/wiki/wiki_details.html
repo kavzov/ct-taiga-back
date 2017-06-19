@@ -2,22 +2,29 @@
 
 {% block content %}
     <h2>
-        {{ wiki.title }}
+        {{ wiki.title }} {{ wikis }}
         <span id="right-top-label">
+        {% if 'wiki.add_wiki' in user_perms %}
+            <a href="/wikis/{{ wiki.id }}/add/" title="Add new wiki page to this wiki" style="text-decoration:none; color:#282;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #282;">Add</span>
+            </a>
+        {% endif %}
         {% if 'wiki.change_wiki' in user_perms %}
-            <a href="/wiki/{{ wiki.id }}/edit/" title="Edit the wiki" style="text-decoration:none; color:#262;">
-                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #262;">Edit</span>
+            &ensp;
+            <a href="/wikis/{{ wiki.id }}/edit/" title="Edit the wiki" style="text-decoration:none; color:#228;">
+                <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #228;">Edit</span>
             </a>
         {% endif %}
         {% if 'wiki.delete_wiki' in user_perms %}
             &ensp;
-            <a href="/wiki/{{ wiki.id }}/delete/" title="Delete the wiki" style="text-decoration:none; color:#822;">
+            <a href="/wikis/{{ wiki.id }}/delete/" title="Delete the wiki" style="text-decoration:none; color:#822;">
                 <span style="display:inline-block; padding-bottom:0; line-height:1em; border-bottom:1px dotted #822;" onclick="return confirm('Sure?');">Delete</span>
             </a>
         {% endif %}
         </span>
     </h2>
-    <div>
+    <div style="padding:1em; background-color:#f5f5f5;">Project: <a href="/projects/{{ project.id }}/" title="Project profile">{{ project.name }}</a></div>
+    <div style="padding:0 1em 1em;">
         {{ wiki_content|safe }}
     </div>
 

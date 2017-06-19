@@ -31,26 +31,29 @@ def valid_id(func):
             id_suffix = '_id'
             return app + id_suffix
 
-        def get_app_redir__page(app):
+        def get_app_redir_page(app):
             """ page for redirect (e.g. 'project' -> '/projects/') """
+            if app == 'wiki':
+                app = 'project'
             return '/{}s/'.format(app)
 
         def valid(app):
             """ redirect out with error message if id doesn't exist """
             app_id_label = get_app_id_label(app)
-            redir_page = get_app_redir__page(app)
-            app_model_name = get_app_model_name(app)
             app_id = kwargs.get(app_id_label, None)
 
             if app_id:
+                app_model_name = get_app_model_name(app)
                 try:
                     app_model_name.objects.get(pk=app_id)
                 except ObjectDoesNotExist:
                     messages.error(request, 'Error: {} &#35; {} does not exist'.format(app, app_id))
-                    return redirect(redir_page)
+                    return get_app_redir_page(app)
 
         for app in apps:
-            valid(app)
+            err_redir = valid(app)
+            if err_redir:
+                return redirect(err_redir)
 
         return func(request, *args, **kwargs)
     return inner

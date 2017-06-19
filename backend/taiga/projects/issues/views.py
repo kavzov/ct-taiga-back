@@ -19,6 +19,7 @@ def issues_list(request):
     return render(request, template, args)
 
 
+@valid_id
 def issue_details(request, issue_id):
     template = "issues/issue_details.html"
     args = {}
