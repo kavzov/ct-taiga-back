@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>
-        {{ wiki.title }} {{ wikis }}
+        {{ wiki.title }}
         <span id="right-top-label">
         {% if 'wiki.add_wiki' in user_perms %}
             <a href="/wikis/{{ wiki.id }}/add/" title="Add new wiki page to this wiki" style="text-decoration:none; color:#282;">

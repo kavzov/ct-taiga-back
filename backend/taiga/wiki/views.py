@@ -19,7 +19,6 @@ def wiki_details(request, wiki_id):
     user_perms = user_project_perms(request.user.id, project.id)
 
     # --- Test --- #
-    wikis = [int(wiki_id)]
     def get_child_wiki(wiki_id):
         from django.core.exceptions import ObjectDoesNotExist
         try:
@@ -28,12 +27,6 @@ def wiki_details(request, wiki_id):
             child = None
         return child
 
-    def wiki_tree(wiki_id):
-        while 1:
-            wiki_id = get_child_wiki(wiki_id)
-
-
-    wikis.append(wiki_tree(wiki_id))
 
     args = {
         'title': 'Wiki: ' + wiki.title,
@@ -41,7 +34,6 @@ def wiki_details(request, wiki_id):
         'project': project,
         'wiki_content': wiki_content,
         'user_perms': user_perms,
-        'wikis': wikis,
     }
 
     return render(request, template, args)
