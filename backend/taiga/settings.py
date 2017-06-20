@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'taiga.index',
     'taiga.wiki',
     'markdownx',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -212,3 +213,12 @@ LOGIN_URL = '/login/'
 STATICFILES_DIRS = [
     ('static', os.path.join(STATIC_ROOT, 'static')),
 ]
+
+
+# Django REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE': 10
+}

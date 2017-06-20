@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, get_user
 from django.db.models import Q
-from django.http import response, HttpResponse
+from django.http import response, HttpResponse, Http404
 from taiga.projects.models import Project, Membership
 from taiga.users.models import User, Role
 from .forms import ProjectDetails, ProjectMembers
@@ -49,20 +49,25 @@ def test(request):
     return render(request, template, {})
 
 
-def testformset(request):
-    from django.forms import formset_factory
+from rest_framework import viewsets
+from .serializers import ProjectSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-    ProjectFormSet = formset_factory(ProjectDetails)
-    MemberFormSet = formset_factory(ProjectMembers)
 
-    project_formset = ProjectFormSet(prefix='project')
-    member_formset = MemberFormSet(prefix='member')
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all().order_by('-modified_date')
+    serializer_class = ProjectSerializer
 
-    template = "index/testformset.html"
-    args = {}
 
-    args['project_formset'] = project_formset
-    args['member_formset'] = member_formset
+class ProjectDetails(APIView):
+    def get_object(self, pk):
+        try:
+            return Project.objects.get(pk=pk)
+        except Project.DoesNotExist:
+            raise Http404
 
-    return render(request, template, args)
-
+    def get(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = ProjectSerializer(snippet)
+        return Response(serializer.data)
