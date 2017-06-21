@@ -8,7 +8,6 @@ class Membership(models.Model):
     project = models.ForeignKey("Project", null=False, blank=False, related_name="memberships",
                                 on_delete=models.CASCADE)
     role = models.ForeignKey("users.Role", null=True, blank=False, related_name="memberships")
-    # is_admin = models.BooleanField(default=False, null=False, blank=False)
 
 
 class Project(models.Model):
