@@ -15,7 +15,7 @@ class User(User):
 class Role(models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, verbose_name='role_name')
     permissions = ArrayField(models.TextField(null=False, blank=False, choices=PERMISSIONS),
-                             null=True, blank=True, default=[], verbose_name="permissions")
+                             null=True, blank=True, default=[], verbose_name='permissions')
     # project = models.ForeignKey(Project, null=True, blank=False, related_name="roles", verbose_name="project")
 
     def __str__(self):

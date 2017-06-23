@@ -51,6 +51,7 @@ def test(request):
 
 # -------------------------------------- #
 
+
 from .serializers import ProjectSerializer, MembershipSerializer
 from rest_framework import generics
 
@@ -64,7 +65,9 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
+
 # -------------------------------------- #
+
 
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
@@ -82,7 +85,9 @@ class ProjectCountView(APIView):
         content = {'projects': pr_serl.data}
         return Response(content)
 
+
 # -------------------------------------- #
+
 
 from rest_framework.renderers import TemplateHTMLRenderer
 

@@ -26,3 +26,11 @@ def user_details(request, user_id):
     args['issues'] = issues
 
     return render(request, 'users/user_details.html', args)
+
+
+from .serializers import UserSerializer
+from rest_framework import generics
+
+class UsersList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
