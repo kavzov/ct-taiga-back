@@ -121,3 +121,47 @@ def send_err_msg(req, form):
     err_msg_text = form.errors.as_text()
     messages.error(req, err_msg_head)
     messages.error(req, err_msg_text)
+
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Managing ----------------------------------------------------------------------------------------------------------- #
+
+def get_managing_users(manager_id, project_id):
+    """
+    Returns users list of manager (user_id) at the project (project_id)
+    """
+    user = User.objects.get(pk=manager_id)
+    for mng in user.managing:
+        if mng['project'] == project_id:
+            return mng['users']
+
+def rm_managing(manager_id, project_id):
+    """
+    Remove dict with project_id from manager list of user_id
+    """
+    user = User.objects.get(pk=manager_id)
+    for mng in user.managing:
+        if mng['project'] == project_id:
+            user.managing.remove(mng)
+            user.save()
+            break
+
+def add_managing(manager_id, project_id, users):
+    """
+    Add managing for 'project_id' with 'users' (list) to 'manager_id'
+    """
+    pattern = "{{'project': {}, 'users': {}}}"
+    user = User.objects.get(pk=manager_id)
+    user.managing.append(pattern.format(project_id, users))
+    user.save()
+
+def add_user_to_managing(manager_id, project_id, user_id):
+    """
+    Add 'user_id' to existing managing
+    """
+    user = User.objects.get(pk=manager_id)
+    for mng in user.managing:
+        if mng['project'] == project_id:
+            mng['users'].append(user_id)
+            break
+

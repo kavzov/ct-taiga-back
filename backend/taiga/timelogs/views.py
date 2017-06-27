@@ -312,18 +312,19 @@ def generate(request):
         date = "{}-{}-{}".format(year, month, day)
         return date
 
-    def get_rand_user():
-        # users_id = [v['id'] for v in User.objects.values('id')]
-        users = User.objects.all()
+    def get_rand_issue():
+        return choice(Issue.objects.all())
+
+    def get_rand_user(issue):
+        users = issue.users.all()
         return choice(users)
 
-    def get_rand_issue():
-        issues = Issue.objects.all()
-        return choice(issues)
+    issue = get_rand_issue()
+    user = get_rand_user(issue)
 
     timelogs_count = 100
     # for t in range(1, timelogs_count):
-    #     timelog = Timelog(issue=get_rand_issue(), user=get_rand_user(), date=get_rand_date(), duration=get_rand_duration())
+    #     timelog = Timelog(issue=issue, user=user, date=get_rand_date(), duration=get_rand_duration())
     #     timelog.save()
         # print(timelog.duration)
 
