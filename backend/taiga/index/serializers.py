@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from taiga.projects.models import Project, Membership
 # from taiga.users.serializers import RoleSerializer
-from taiga.projects.issues.serializers import IssueSerializer
+from taiga.projects.issues.serializers import IssueShortSerializer
 
 
 class MembershipSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class MembershipSerializer(serializers.ModelSerializer):
 
 class ProjectSerializer(serializers.ModelSerializer):
     memberships = MembershipSerializer(many=True, read_only=True)
-    issues = IssueSerializer(many=True, read_only=True)
+    issues = IssueShortSerializer(many=True, read_only=True)
 
     class Meta:
         model = Project

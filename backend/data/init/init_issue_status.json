@@ -1,0 +1,42 @@
+[
+{
+  "model": "issues.status",
+  "pk": 1,
+  "fields": {
+    "name": "New",
+    "order": 1
+  }
+},
+{
+  "model": "issues.status",
+  "pk": 2,
+  "fields": {
+    "name": "In progress",
+    "order": 2
+  }
+},
+{
+  "model": "issues.status",
+  "pk": 3,
+  "fields": {
+    "name": "Ready for test",
+    "order": 3
+  }
+},
+{
+  "model": "issues.status",
+  "pk": 4,
+  "fields": {
+    "name": "Rejected",
+    "order": 4
+  }
+},
+{
+  "model": "issues.status",
+  "pk": 5,
+  "fields": {
+    "name": "Closed",
+    "order": 5
+  }
+}
+]

@@ -49,8 +49,8 @@ def test(request):
     return render(request, template, {})
 
 
-# -------------------------------------- #
-
+# ---------------------------------------------------------------------------- #
+# -- Django REST Framework --------------------------------------------------- #
 
 from .serializers import ProjectSerializer, MembershipSerializer
 from rest_framework import generics
@@ -132,15 +132,15 @@ class ProjectEdit(APIView):
 # -------------------------------------- #
 
 
-# from rest_framework import viewsets
-# from .serializers import ProjectSerializer
-# from rest_framework.views import APIView
-# from rest_framework.response import Response
-#
-#
-# class ProjectViewSet(viewsets.ModelViewSet):
-#     queryset = Project.objects.all().order_by('-modified_date')
-#     serializer_class = ProjectSerializer
+from rest_framework import viewsets
+from .serializers import ProjectSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all().order_by('-modified_date')
+    serializer_class = ProjectSerializer
 #
 #
 # class ProjectDetails(APIView):

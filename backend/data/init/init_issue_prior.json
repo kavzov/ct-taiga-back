@@ -1,0 +1,26 @@
+[
+{
+  "model": "issues.priority",
+  "pk": 1,
+  "fields": {
+    "name": "Low",
+    "order": 5
+  }
+},
+{
+  "model": "issues.priority",
+  "pk": 2,
+  "fields": {
+    "name": "Normal",
+    "order": 3
+  }
+},
+{
+  "model": "issues.priority",
+  "pk": 3,
+  "fields": {
+    "name": "High",
+    "order": 1
+  }
+}
+]

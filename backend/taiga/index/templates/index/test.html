@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+{% load static %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!--    <script type="text/javascript" src="{% static 'static/js/getjson.js' %}"></script>  -->
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+
+    <script type="text/javascript">
+        url = 'http://localhost:8000/api/users/2/';
+
+        var user = '<h2>${first_name} ${last_name}</h2>';
+        var issues = '<div>${id}: ${subject}</div>';
+        var projects = '<div>${id}: ${name}</div>';
+        var timelogs = '<tr><td style="font-size:.95em;text-align:right;"><a href="/timelogs/${id}">${id}</a></td><td><a href="/issues/${issue.id}">${issue.subject}</a></td><td>${date}</td><td>${duration}</td></tr>';
+
+        $.template('userIssuesTemplate', issues);
+        $.template('userProjectsTemplate', projects);
+        $.template('userNameTemplate', user);
+        $.template('userTimelogsTemplate', timelogs);
+
+        $.getJSON(url, function(data) {
+            // $('#test').text(JSON.stringify(data))
+            $.tmpl("userNameTemplate", data).appendTo('#userName');
+            $.tmpl("userIssuesTemplate", data.issues).appendTo('#userIssues');
+            $.tmpl("userProjectsTemplate", data.projects).appendTo('#userProjects');
+            $.tmpl("userTimelogsTemplate", data.timelogs).appendTo('#userTimelogs');
+        })
+    </script>
+
 </head>
 <body>
 
-{% load rest_framework %}
+<div class="container-fluid">
+    <div id="userName"></div>
+    <h3>Issues</h3>
 
-<div style="width:50%; margin:1em auto;">
-<form action="{% url 'project-edit' pk=project.pk %}" method="POST">
-    {% csrf_token %}
-    {% render_form serializer %}
-    <input type="submit" value="Save">
-</form>
-</div>
+    <div id="userIssues"></div>
+    <h3>Projects:</h3>
+
+    <div id="userProjects"></div>
+    <h3>Timelogs:</h3>
+    <table class="table table-striped" id="userTimelogs">
+        <tr>
+            <th style="width:1%; text-align:center;">#</th><th style="width:20%">Issue</th><th style="width:10%">Date</th><th style="width:20%">duration</th>
+        </tr>
+    </table>
+</div><!-- #container -->
 
 </body>
 </html>

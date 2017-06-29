@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required, login_required
+from rest_framework import generics
+from rest_framework.renderers import JSONRenderer
+from rest_framework import viewsets
 from .models import Project, Membership
 from .forms import ProjectForm
+from .serializers import ProjectSerializer
 from taiga.utils import valid_id, send_err_msg, user_project_perms
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User, Role
@@ -260,3 +264,24 @@ def delete_project(request, project_id):
 
     # go to the Projects page
     return redirect('/projects/')
+
+
+# ---------------------------------------------------------------------------- #
+# REST Framework ------------------------------------------------------------- #
+
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    # renderer_classes = (JSONRenderer,)
+    serializer_class = ProjectSerializer
+    queryset = Project.objects.all().order_by('id')
+
+    def retrieve(self, request, pk=None):
+        project = get_object_or_404(self.queryset, pk=pk)
+        serializer = ProjectSerializer(project)
+        return Response(serializer.data)
+
+
+
+
