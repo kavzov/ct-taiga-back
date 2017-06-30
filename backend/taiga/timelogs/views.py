@@ -1,11 +1,17 @@
 import csv
 import json
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import permission_required
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse, StreamingHttpResponse
+
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
+
 from taiga import permissions
 from .models import Timelog
+from .serializers import TimelogSerializer
 from taiga.projects.models import Project
 from .forms import TimelogForm
 from taiga.projects.issues.models import Issue
@@ -330,3 +336,41 @@ def generate(request):
 
     from django.http import HttpResponse
     return HttpResponse('Ok!')
+
+
+# ---------------------------------------------------------------------------- #
+# REST Framework ------------------------------------------------------------- #
+
+class TimelogViewSet(viewsets.ModelViewSet):
+    # renderer_classes = (JSONRenderer,)
+    serializer_class = TimelogSerializer
+    queryset = Timelog.objects.all().order_by('-date')
+
+    def list(self, request, issue_id=None, user_id=None):
+        # extra filters
+        issue = request.GET.get('issue')
+        user = request.GET.get('user')
+        date_from = request.GET.get('from')
+        date_due = request.GET.get('due')
+
+        # TODO set exclude_fields like at http://www.django-rest-framework.org/api-guide/serializers/#dynamically-modifying-fields
+        # exclude_filed = 'user' or 'issue' and add to serializer
+        # serializer = self.serializer(timelogs, many-True, fields = (exclude_field,)
+
+        if issue_id:
+            issue = get_object_or_404(Issue, pk=issue_id)
+            timelogs = self.queryset.filter(issue=issue)
+        if user_id:
+            user = get_object_or_404(User, pk=user_id)
+            timelogs = self.queryset.filter(user=user)
+        if issue:
+            timelogs = timelogs.filter(issue_id=issue)
+        if user:
+            timelogs = timelogs.filter(user_id=user)
+        if date_from:
+            timelogs = timelogs.filter(date__gte=date_from)
+        if date_due:
+            timelogs = timelogs.filter(date__lte=date_due)
+
+        serializer = self.serializer_class(timelogs, many=True)
+        return Response(serializer.data)

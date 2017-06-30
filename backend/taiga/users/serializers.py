@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from .models import User, Role
-from taiga.projects.issues.serializers import IssueShortSerializer
 from taiga.projects.issues.models import Issue
 from taiga.projects.models import Project
 from taiga.timelogs.models import Timelog
+from taiga.projects.issues.serializers import IssueShortSerializer
 
 
 class RoleSerializer(serializers.ModelSerializer):

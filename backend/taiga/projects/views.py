@@ -277,10 +277,10 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
     queryset = Project.objects.all().order_by('id')
 
-    def retrieve(self, request, pk=None):
-        project = get_object_or_404(self.queryset, pk=pk)
-        serializer = ProjectSerializer(project)
-        return Response(serializer.data)
+    # def retrieve(self, request, pk=None):
+    #     project = get_object_or_404(self.queryset, pk=pk)
+    #     serializer = ProjectSerializer(project)
+    #     return Response(serializer.data)
 
 
 
