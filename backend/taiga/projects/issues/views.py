@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from rest_framework.renderers import JSONRenderer
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from .models import Issue
 from .forms import IssueForm
-from .serializers import IssueSerializer
+from .serializers import IssueSerializer, IssueBaseSerializer
 from taiga.users.models import User
 from taiga.timelogs.models import Timelog
 from taiga.projects.models import Project
@@ -156,16 +156,22 @@ def delete_issue(request, issue_id):
 # ---------------------------------------------------------------------------- #
 # REST Framework ------------------------------------------------------------- #
 
-class IssueViewSet(viewsets.ModelViewSet):
+# class IssueViewSet(viewsets.ModelViewSet):
+class IssueViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     # renderer_classes = (JSONRenderer,)
+
     queryset = Issue.objects.all().order_by('id')
     serializer_class = IssueSerializer
 
-    def retrieve(self, request, pk=None):
-        project = get_object_or_404(self.queryset, pk=pk)
-        serializer = IssueSerializer(project, fields = ('id', 'subject'))
-        return Response(serializer.data)
+    # Default 'retrieve' get fields list from serializer definition
+    # def retrieve(self, request, pk=None):
+    #     project = get_object_or_404(self.queryset, pk=pk)
+    #     serializer = IssueSerializer(project, fields = ('id', 'subject'))
+    #     return Response(serializer.data)
 
     def list(self, request):
-        serializer = self.serializer_class(self.queryset, many=True, fields=('subject', 'description'))
+        serializer = IssueBaseSerializer(self.queryset, many=True)
         return Response(serializer.data)
+
+    def update(self, request, *args, **kwargs):
+        pass

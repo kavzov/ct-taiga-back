@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import permission_required
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse, StreamingHttpResponse
 
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 
@@ -341,28 +341,28 @@ def generate(request):
 # ---------------------------------------------------------------------------- #
 # REST Framework ------------------------------------------------------------- #
 
-class TimelogViewSet(viewsets.ModelViewSet):
+# class TimelogViewSet(viewsets.ModelViewSet):
+class TimelogViewSet(mixins.ListModelMixin, mixins.CreateModelMixin,
+                     mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin,
+                     viewsets.GenericViewSet):
     # renderer_classes = (JSONRenderer,)
     serializer_class = TimelogSerializer
     queryset = Timelog.objects.all().order_by('-date')
 
     def list(self, request, issue_id=None, user_id=None):
         # extra filters
+        timelogs = self.queryset
         issue = request.GET.get('issue')
         user = request.GET.get('user')
         date_from = request.GET.get('from')
         date_due = request.GET.get('due')
 
-        # TODO set exclude_fields like at http://www.django-rest-framework.org/api-guide/serializers/#dynamically-modifying-fields
-        # exclude_filed = 'user' or 'issue' and add to serializer
-        # serializer = self.serializer(timelogs, many-True, fields = (exclude_field,)
-
         if issue_id:
             issue = get_object_or_404(Issue, pk=issue_id)
-            timelogs = self.queryset.filter(issue=issue)
+            timelogs = timelogs.filter(issue=issue)
         if user_id:
             user = get_object_or_404(User, pk=user_id)
-            timelogs = self.queryset.filter(user=user)
+            timelogs = timelogs.filter(user=user)
         if issue:
             timelogs = timelogs.filter(issue_id=issue)
         if user:
@@ -372,5 +372,6 @@ class TimelogViewSet(viewsets.ModelViewSet):
         if date_due:
             timelogs = timelogs.filter(date__lte=date_due)
 
-        serializer = self.serializer_class(timelogs, many=True)
+        serializer = self.serializer_class(timelogs, many=True,
+                                           fields=('issue', 'user', 'date', 'duration', 'comment'))
         return Response(serializer.data)

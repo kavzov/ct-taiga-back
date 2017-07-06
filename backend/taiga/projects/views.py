@@ -3,10 +3,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import permission_required, login_required
 from rest_framework import generics
 from rest_framework.renderers import JSONRenderer
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from .models import Project, Membership
 from .forms import ProjectForm
-from .serializers import ProjectSerializer
+from .serializers import ProjectSerializer, ProjectBaseSerializer
 from taiga.utils import valid_id, send_err_msg, user_project_perms
 from taiga.projects.issues.models import Issue
 from taiga.users.models import User, Role
@@ -272,16 +272,17 @@ def delete_project(request, project_id):
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 
-class ProjectViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin,
+                     viewsets.GenericViewSet):
     # renderer_classes = (JSONRenderer,)
-    serializer_class = ProjectSerializer
     queryset = Project.objects.all().order_by('id')
+    serializer_class = ProjectSerializer
 
-    # def retrieve(self, request, pk=None):
-    #     project = get_object_or_404(self.queryset, pk=pk)
-    #     serializer = ProjectSerializer(project)
-    #     return Response(serializer.data)
+    def retrieve(self, request, pk=None):
+        project = get_object_or_404(self.queryset, pk=pk)
+        serializer = ProjectSerializer(project)
+        return Response(serializer.data)
 
-
-
-
+    def list(self, request):
+        serializer = ProjectBaseSerializer(self.queryset, many=True)
+        return Response(serializer.data)

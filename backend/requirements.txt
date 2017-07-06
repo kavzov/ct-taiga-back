@@ -3,3 +3,4 @@ psycopg2
 markdown
 django-markdownx
 # djangorestframework
+serpy

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'taiga.wiki',
     'markdownx',
     'rest_framework',
+    'serpy',
 ]
 
 MIDDLEWARE = [
