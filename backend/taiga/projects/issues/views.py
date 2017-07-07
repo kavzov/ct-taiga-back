@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from rest_framework import mixins, viewsets
-from rest_framework.renderers import JSONRenderer
+from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from .models import Issue
@@ -156,9 +156,9 @@ def delete_issue(request, issue_id):
 # ---------------------------------------------------------------------------- #
 # REST Framework ------------------------------------------------------------- #
 
-# class IssueViewSet(viewsets.ModelViewSet):
-class IssueViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    # renderer_classes = (JSONRenderer,)
+class IssueViewSet(viewsets.ModelViewSet):
+# class IssueViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    renderer_classes = (JSONRenderer,)
 
     queryset = Issue.objects.all().order_by('id')
     serializer_class = IssueSerializer
@@ -166,12 +166,10 @@ class IssueViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.Ret
     # Default 'retrieve' get fields list from serializer definition
     # def retrieve(self, request, pk=None):
     #     project = get_object_or_404(self.queryset, pk=pk)
-    #     serializer = IssueSerializer(project, fields = ('id', 'subject'))
+    #     serializer = IssueSerializer(project)
     #     return Response(serializer.data)
 
     def list(self, request):
         serializer = IssueBaseSerializer(self.queryset, many=True)
         return Response(serializer.data)
 
-    def update(self, request, *args, **kwargs):
-        pass

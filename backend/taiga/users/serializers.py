@@ -23,6 +23,22 @@ class UserSerializer(UserBaseSerializer):
         return IssueBaseSerializer(obj.issues.all(), many=True).data
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         # class UserSerializer(serializers.ModelSerializer):
         #     # issues = serializers.SerializerMethodField()
         #     issues = IssueBaseInfoSerializer(many=True)

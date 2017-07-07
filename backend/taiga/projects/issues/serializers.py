@@ -8,10 +8,13 @@ from taiga.serializers import UserBaseSerializer
 
 
 class IssueSerializer(IssueBaseSerializer):
+    description = serpy.Field()
     project = serpy.MethodField()
     users = serpy.MethodField()
 
     def get_project(self, obj):
+        # ----- Debug ----- #
+        print('obj ----------------> ', obj.project)
         return ProjectBaseSerializer(obj.project).data
 
     def get_users(self, obj):
