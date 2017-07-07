@@ -1,11 +1,15 @@
-import serpy
-
+from rest_framework import serializers
+from taiga.users.models import User
+from taiga.projects.models import Project
+from taiga.projects.issues.models import Issue
 
 # ---------------------------------------------------------------------------- #
 # User ----------------------------------------------------------------------- #
-class UserBaseSerializer(serpy.Serializer):
-    id = serpy.Field()
-    name = serpy.MethodField()
+class UserBaseSerializer(serializers.ModelSerializer):
+    name = serializers.SerializerMethodField()
+    class Meta:
+        model = User
+        fields = ('id', 'username')
 
     def get_name(self, obj):
         return obj.get_full_name()
@@ -13,17 +17,14 @@ class UserBaseSerializer(serpy.Serializer):
 
 # ---------------------------------------------------------------------------- #
 # Issue ---------------------------------------------------------------------- #
-class IssueBaseSerializer(serpy.Serializer):
-    id = serpy.Field()
-    subject = serpy.Field()
-
+class IssueBaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Issue
+        fields = ('id', 'subject')
 
 # ---------------------------------------------------------------------------- #
 # Project -------------------------------------------------------------------- #
-class ProjectBaseSerializer(serpy.Serializer):
-    id = serpy.Field()
-    name = serpy.Field()
-
-
-
-
+class ProjectBaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ('id', 'name')
