@@ -158,7 +158,7 @@ def delete_issue(request, issue_id):
 
 class IssueViewSet(viewsets.ModelViewSet):
 # class IssueViewSet(mixins.CreateModelMixin, mixins.DestroyModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    renderer_classes = (JSONRenderer,)
+#     renderer_classes = (JSONRenderer,)
 
     queryset = Issue.objects.all().order_by('id')
     serializer_class = IssueSerializer

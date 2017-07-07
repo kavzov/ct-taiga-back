@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from taiga.users.models import User
+from django.contrib.postgres.fields import JSONField
 
 
 class Masquerade(models.Model):
@@ -32,6 +33,7 @@ class Project(models.Model):
                                      related_name='projects', verbose_name=_('members'))
     masques = models.ManyToManyField(User, blank=True, through='Masquerade', through_fields=('project', 'user'),
                                      related_name='masque_projects', verbose_name=_('masques'))
+    test_json = JSONField(default=[])
 
     class Meta:
         verbose_name = 'project'

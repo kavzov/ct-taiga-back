@@ -1,23 +1,21 @@
 import serpy
 from rest_framework import serializers
 from taiga.mixins import DynamicFieldsMixin
-# from taiga.projects.issues.serializers import IssueBaseInfoSerializer
-from taiga.projects.issues.serializers import IssueSerializer
-from taiga.users.serializers import RoleSerializer
-from taiga.users.serializers import UserBaseSerializer
-from .models import Project, Membership
-from taiga.users.models import User, Role
-from taiga.projects.issues.models import Issue
-from taiga.timelogs.models import Timelog
+from .models import Project
+from .models import Membership
 from taiga.serializers import ProjectBaseSerializer
 from taiga.serializers import IssueBaseSerializer
 from taiga.serializers import UserBaseSerializer
 
 
 class MemberSerializer(serpy.Serializer):
-    # id = serpy.MethodField()
-    user = serpy.MethodField()
-    role = serpy.MethodField()
+    # id = serializers.SerializerMethodField()
+    user = serializers.SerializerMethodField()
+    role = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Membership
+        fields = ('id', 'project', 'user', 'role')
 
     # def get_id(self, obj):
     #     return obj.user.id                            # User ID inside single member dict block (if it is)
@@ -31,19 +29,20 @@ class MemberSerializer(serpy.Serializer):
         # return RoleSerializer(obj.role).data          # Dict with role ID
 
 
-class ProjectSerializer(ProjectBaseSerializer):
-    description = serpy.Field()
-    created_date = serpy.Field()
-    owner = serpy.MethodField()
-    issues = serpy.MethodField()
-    members = serpy.MethodField()
+class ProjectSerializer(DynamicFieldsMixin, ProjectBaseSerializer):
+    owner_info = serializers.SerializerMethodField()
+    issues_info = serializers.SerializerMethodField()
 
-    def get_owner(self, obj):
+    class Meta(ProjectBaseSerializer.Meta):
+        fields = ProjectBaseSerializer.Meta.fields + (
+            'description', 'created_date', 'owner_info', 'issues_info', 'members', 'test_json'
+        )
+
+    def get_owner_info(self, obj):
         return obj.owner.get_full_name()
         # return UserBaseSerializer(obj.owner).data     # Dict with user ID
 
-    def get_issues(self, obj):
-        from taiga.projects.issues.serializers import IssueBaseSerializer
+    def get_issues_info(self, obj):
         return IssueBaseSerializer(obj.issues.all(), many=True).data
 
     def get_members(self, obj):

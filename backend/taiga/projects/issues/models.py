@@ -10,7 +10,7 @@ class Issue(models.Model):
     description = models.TextField(null=False, blank=True,
                                    verbose_name=_('description'))
     assigned_to = models.ForeignKey(User, blank=True, null=True, on_delete=models.DO_NOTHING,
-                                    related_name='assigned_to', verbose_name=_('assigned_to'))
+                                    related_name='assigned_issues', verbose_name=_('assigned_to'))
     users = models.ManyToManyField(User, blank=True,
                                    related_name='issues', verbose_name=_('issue users'))
     project = models.ForeignKey(Project, null=False, blank=False, on_delete=models.CASCADE,
