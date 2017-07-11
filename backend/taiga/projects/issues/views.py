@@ -134,7 +134,7 @@ def edit_issue(request, issue_id):
     return render(request, template, args)
 
 
-@valid_id
+@valid_id  # TODO remove it, add issue = get_object_or_404
 @project_permission_required('issues.delete_issue', '/issues/')
 def delete_issue(request, issue_id):
     """

@@ -8,17 +8,18 @@ from taiga.serializers import IssueBaseSerializer
 from taiga.serializers import UserBaseSerializer
 
 
-class MemberSerializer(serpy.Serializer):
-    # id = serializers.SerializerMethodField()
+class MemberSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
+    userID = serializers.SerializerMethodField()
     role = serializers.SerializerMethodField()
+    roleID = serializers.SerializerMethodField()
 
     class Meta:
         model = Membership
-        fields = ('id', 'project', 'user', 'role')
+        fields = ('id', 'project', 'user', 'userID', 'role', 'roleID')
 
-    # def get_id(self, obj):
-    #     return obj.user.id                            # User ID inside single member dict block (if it is)
+    def get_userID(self, obj):
+        return obj.user.id                            # User ID inside single member dict block (if it is)
 
     def get_user(self, obj):
         return obj.user.get_full_name()
@@ -28,10 +29,14 @@ class MemberSerializer(serpy.Serializer):
         return obj.role.name
         # return RoleSerializer(obj.role).data          # Dict with role ID
 
+    def get_roleID(self, obj):
+        return obj.role.id
+
 
 class ProjectSerializer(DynamicFieldsMixin, ProjectBaseSerializer):
     owner_info = serializers.SerializerMethodField()
     issues_info = serializers.SerializerMethodField()
+    members = serializers.SerializerMethodField()
 
     class Meta(ProjectBaseSerializer.Meta):
         fields = ProjectBaseSerializer.Meta.fields + (
@@ -46,8 +51,13 @@ class ProjectSerializer(DynamicFieldsMixin, ProjectBaseSerializer):
         return IssueBaseSerializer(obj.issues.all(), many=True).data
 
     def get_members(self, obj):
-        members = Membership.objects.filter(project=obj)
-        return MemberSerializer(members, many=True).data
+        members = Membership.objects.filter(project=obj).distinct('user_id')
+        return MemberSerializer(members, fields=(
+            'user',
+            # 'userID',
+            'role',
+            # 'roleID',
+        ), many=True).data
 
 
 # class ProjectSerializer(serializers.ModelSerializer):
